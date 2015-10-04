@@ -10,9 +10,5 @@
 
 // SSSearchBar class
 @interface SSSearchBar : NSView
-    {
-@private
-    NSButtonCell* __backingCell;
-    }
 
 @end // SSSearchBar class

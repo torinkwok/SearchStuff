@@ -10,6 +10,8 @@
 
 @class SSSearchBar;
 
+@protocol SearchStuffDelegate;
+
 // SSSearchStuffToolbarItem class
 @interface SSSearchStuffToolbarItem : NSToolbarItem
     {
@@ -17,4 +19,11 @@
     SSSearchBar* __searchBar;
     }
 
+@property ( weak ) IBOutlet id <SearchStuffDelegate> delegate;
+
 @end // SSSearchStuffToolbarItem class
+
+// SSSearchStuffDelegate protocol
+@protocol SearchStuffDelegate <NSObject>
+
+@end // SSSearchStuffDelegate protocol

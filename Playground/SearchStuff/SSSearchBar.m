@@ -10,11 +10,17 @@
 
 // Private Interfaces
 @interface SSSearchBar()
+
+@property ( strong ) NSButtonCell* __backingCell;
+
 - ( void ) __init;
+
 @end // Private Interfaces
 
 // SSSearchBar class
 @implementation SSSearchBar
+
+@synthesize __backingCell;
 
 #pragma mark Initializations
 - ( instancetype ) initWithCoder: ( NSCoder* )_Coder
