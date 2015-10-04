@@ -18,7 +18,7 @@
 // AppDelegate class
 @implementation AppDelegate
 
-#pragma mark Conforms to <NSToolbarDelegate>
+#pragma mark - Conforms to <NSToolbarDelegate>
 NSString* const kSearchStuffWidget = @"kSearchStuffWidget";
 NSString* const kLhsPlaceholderButton = @"kLhsPlaceholderButton";
 NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
@@ -64,7 +64,7 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
         should = NO;
 
         toolbarItem = [ [ SSSearchStuffToolbarItem alloc ] initWithItemIdentifier: _ItemIdentifier ];
-        [ toolbarItem setLabel: NSLocalizedString( @"Search Stuff Widget", nil ) ];
+        [ toolbarItem setLabel: NSLocalizedString( @"Search Stuff Bar", nil ) ];
         [ toolbarItem setPaletteLabel: toolbarItem.label ];
         }
 

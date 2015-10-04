@@ -22,7 +22,7 @@
 
 @synthesize __backingCell;
 
-#pragma mark Initializations
+#pragma mark - Initializations
 - ( instancetype ) initWithCoder: ( NSCoder* )_Coder
     {
     if ( self = [ super initWithCoder: _Coder ] )
@@ -46,7 +46,7 @@
     [ self->__backingCell drawWithFrame: self.bounds inView: self ];
     }
 
-#pragma mark Private Interfaces
+#pragma mark - Private Interfaces
 - ( void ) __init
     {
     [ self setWantsLayer: YES ];

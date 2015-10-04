@@ -8,7 +8,21 @@
 
 #import "SSSearchStuffWidget.h"
 
+// Private Interfaces
+@interface SSSearchStuffWidget ()
+@property ( strong, readwrite ) NSString* identifier;
+@end // Private Interfaces
+
 // SSSearchStuffWidget 
 @implementation SSSearchStuffWidget
+
+#pragma mark - Initializations
+- ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier
+    {
+    if ( self = [ super init ] )
+        self.identifier = _WidgetIdentifier;
+
+    return self;
+    }
 
 @end
