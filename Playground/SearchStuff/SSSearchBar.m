@@ -43,9 +43,14 @@
 #pragma mark Private Interfaces
 - ( void ) __init
     {
-    self->__backingCell = [ [ NSButtonCell alloc ] init ];
-    [ self->__backingCell setBezelStyle: NSTexturedRoundedBezelStyle ];
-    [ self->__backingCell setTitle: @"" ];
+    NSButton* button = [ [ NSButton alloc ] initWithFrame: self.bounds ];
+    [ button setBezelStyle: NSTexturedRoundedBezelStyle ];
+    [ button setTitle: @"" ];
+
+//    self->__backingCell = [ [ NSButtonCell alloc ] init ];
+//    [ self->__backingCell setBezelStyle: NSTexturedRoundedBezelStyle ];
+//    [ self->__backingCell setTitle: @"" ];
+    self->__backingCell = button.cell;
     }
 
 @end // SSSearchBar class
