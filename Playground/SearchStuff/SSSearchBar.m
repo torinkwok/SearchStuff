@@ -43,6 +43,8 @@
 #pragma mark Private Interfaces
 - ( void ) __init
     {
+    [ self setWantsLayer: YES ];
+
     self->__backingCell = [ [ NSButtonCell alloc ] init ];
     [ self->__backingCell setBezelStyle: NSTexturedRoundedBezelStyle ];
     [ self->__backingCell setTitle: @"" ];
