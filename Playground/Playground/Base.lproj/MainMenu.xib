@@ -669,10 +669,10 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="641" width="480" height="360"/>
+            <rect key="contentRect" x="335" y="515" width="729" height="515"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="729" height="515"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="C29340A4-B99E-4CC7-85BD-33F8B7D8BF04" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="bK2-9G-RwV">
@@ -682,6 +682,7 @@
                     <outlet property="delegate" destination="Voe-Tx-rLC" id="SvG-ta-agh"/>
                 </connections>
             </toolbar>
+            <point key="canvasLocation" x="465.5" y="393.5"/>
         </window>
     </objects>
 </document>
