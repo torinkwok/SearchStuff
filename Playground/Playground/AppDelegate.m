@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SearchStuff.h"
+#import "SSSearchStuffToolbarItem.h"
 
 // Private Interfaces
 @interface AppDelegate ()
@@ -60,20 +61,21 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
 
     if ( ( should = [ _ItemIdentifier isEqualToString: kSearchStuffWidget ] ) )
         {
-        label = NSLocalizedString( @"Search Stuff Widget", nil );
-        paleteLabel = label;
-        toolTip = NSLocalizedString( @"Search whatever here", nil );
-        content = [ [ SSSearchBar alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];
+        should = NO;
+
+        toolbarItem = [ [ SSSearchStuffToolbarItem alloc ] initWithItemIdentifier: _ItemIdentifier ];
+        [ toolbarItem setLabel: NSLocalizedString( @"Search Stuff Widget", nil ) ];
+        [ toolbarItem setPaletteLabel: toolbarItem.label ];
         }
 
     else if ( ( should = ( [ _ItemIdentifier isEqualToString: kLhsPlaceholderButton ]
                             || [ _ItemIdentifier isEqualToString: kRhsPlaceholderButton ] ) ) )
         {
-        NSString* dynamicLabel = [ NSString stringWithFormat: @"%@ Hand Side", [ _ItemIdentifier isEqualToString: kLhsPlaceholderButton ] ? @"Left" : @"Right" ];
+        NSString* dynamicLabel = [ _ItemIdentifier isEqualToString: kLhsPlaceholderButton ] ? @"Left" : @"Right";
         label = dynamicLabel;
         paleteLabel = label;
 
-        NSButton* button = [ [ NSButton alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];
+        NSButton* button = [ [ NSButton alloc ] initWithFrame: NSMakeRect( 0, 0, 80, 25 ) ];
         [ button setTitle: dynamicLabel ];
         [ button setBezelStyle: NSTexturedRoundedBezelStyle ];
 
@@ -119,8 +121,8 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
     else if ( [ _ImageOrView isKindOfClass: [ NSView class ] ] )
         {
         [ newToolbarItem setView: ( NSView* )_ImageOrView ];
-        [ newToolbarItem setMinSize: NSMakeSize( 100, 25 ) ];
-        [ newToolbarItem setMaxSize: NSMakeSize( 1000, 25 ) ];
+//        [ newToolbarItem setMinSize: NSMakeSize( 40, 25 ) ];
+//        [ newToolbarItem setMaxSize: NSMakeSize( 40, 25 ) ];
         }
 
     if ( _Menu )
