@@ -1,15 +1,15 @@
 //
-//  SSSearchBar.m
+//  SSSearchStuffBar.m
 //  Playground
 //
 //  Created by Tong G. on 10/4/15.
 //  Copyright © 2015 Tong Kuo. All rights reserved.
 //
 
-#import "SSSearchBar.h"
+#import "SSSearchStuffBar.h"
 
 // Private Interfaces
-@interface SSSearchBar()
+@interface SSSearchStuffBar()
 
 @property ( strong ) NSButtonCell* __backingCell;
 
@@ -17,8 +17,8 @@
 
 @end // Private Interfaces
 
-// SSSearchBar class
-@implementation SSSearchBar
+// SSSearchStuffBar class
+@implementation SSSearchStuffBar
 
 @synthesize __backingCell;
 
@@ -56,4 +56,4 @@
     [ self->__backingCell setTitle: @"" ];
     }
 
-@end // SSSearchBar class
+@end // SSSearchStuffBar class

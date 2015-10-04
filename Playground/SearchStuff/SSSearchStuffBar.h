@@ -1,5 +1,5 @@
 //
-//  SSSearchBar.h
+//  SSSearchStuffBar.h
 //  Playground
 //
 //  Created by Tong G. on 10/4/15.
@@ -8,7 +8,7 @@
 
 @import Cocoa;
 
-// SSSearchBar class
-@interface SSSearchBar : NSView
+// SSSearchStuffBar class
+@interface SSSearchStuffBar : NSView
 
-@end // SSSearchBar class
+@end // SSSearchStuffBar class
