@@ -119,7 +119,6 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
     else if ( [ _ImageOrView isKindOfClass: [ NSView class ] ] )
         {
         [ newToolbarItem setView: ( NSView* )_ImageOrView ];
-
         [ newToolbarItem setMinSize: NSMakeSize( 100, 25 ) ];
         [ newToolbarItem setMaxSize: NSMakeSize( 1000, 25 ) ];
         }
