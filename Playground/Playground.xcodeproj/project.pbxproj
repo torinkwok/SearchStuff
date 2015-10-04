@@ -13,7 +13,7 @@
 		832719061BC1279100C28426 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832719041BC1279100C28426 /* MainMenu.xib */; };
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
-		83F9BC111BC1324700785453 /* SSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC101BC1324700785453 /* SSSearchBar.m */; settings = {ASSET_TAGS = (); }; };
+		83F9BC191BC1363500785453 /* SSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC181BC1363500785453 /* SSSearchBar.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +47,9 @@
 		832719171BC1279100C28426 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8327191B1BC1279100C28426 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83F9BC0F1BC1324700785453 /* SSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchBar.h; sourceTree = "<group>"; };
-		83F9BC101BC1324700785453 /* SSSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchBar.m; sourceTree = "<group>"; };
-		83F9BC121BC1329B00785453 /* SearchStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchStuff.h; sourceTree = "<group>"; };
+		83F9BC161BC1363500785453 /* SearchStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchStuff.h; sourceTree = "<group>"; };
+		83F9BC171BC1363500785453 /* SSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchBar.h; sourceTree = "<group>"; };
+		83F9BC181BC1363500785453 /* SSSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 		832718F01BC1279100C28426 = {
 			isa = PBXGroup;
 			children = (
-				832719291BC1290700C28426 /* SearchStuff */,
+				83F9BC151BC1363500785453 /* SearchStuff */,
 				832718FB1BC1279100C28426 /* Playground */,
 				8327190F1BC1279100C28426 /* PlaygroundTests */,
 				8327191A1BC1279100C28426 /* PlaygroundUITests */,
@@ -137,12 +137,12 @@
 			path = PlaygroundUITests;
 			sourceTree = "<group>";
 		};
-		832719291BC1290700C28426 /* SearchStuff */ = {
+		83F9BC151BC1363500785453 /* SearchStuff */ = {
 			isa = PBXGroup;
 			children = (
-				83F9BC121BC1329B00785453 /* SearchStuff.h */,
-				83F9BC0F1BC1324700785453 /* SSSearchBar.h */,
-				83F9BC101BC1324700785453 /* SSSearchBar.m */,
+				83F9BC161BC1363500785453 /* SearchStuff.h */,
+				83F9BC171BC1363500785453 /* SSSearchBar.h */,
+				83F9BC181BC1363500785453 /* SSSearchBar.m */,
 			);
 			path = SearchStuff;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83F9BC111BC1324700785453 /* SSSearchBar.m in Sources */,
+				83F9BC191BC1363500785453 /* SSSearchBar.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 			);
