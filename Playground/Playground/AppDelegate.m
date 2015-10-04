@@ -2,25 +2,31 @@
 //  AppDelegate.m
 //  Playground
 //
-//  Created by Tong G. on 10/4/15.
+//  Created by Tong Kuo. on 10/4/15.
 //  Copyright © 2015 Tong Kuo. All rights reserved.
 //
 
 #import "AppDelegate.h"
 
+// Private Interfaces
 @interface AppDelegate ()
+@property ( weak ) IBOutlet NSWindow* window;
+@end // Private Interfaces
 
-@property (weak) IBOutlet NSWindow *window;
-@end
-
+// AppDelegate class
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
-}
+#pragma mark Conforms to <NSToolbarDelegate>
+NSString* const kSearchStuffWidget = @"kSearchStuffWidget";
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
-}
+- ( NSArray* ) toolbarAllowedItemIdentifiers: ( NSToolbar* )_Toolbar
+    {
+    return @[ NSToolbarFlexibleSpaceItemIdentifier, NSToolbarShowColorsItemIdentifier, NSToolbarFlexibleSpaceItemIdentifier ];
+    }
 
-@end
+- ( NSArray* ) toolbarDefaultItemIdentifiers: ( NSToolbar* )_Toolbar
+    {
+    return @[ NSToolbarFlexibleSpaceItemIdentifier, NSToolbarShowColorsItemIdentifier, NSToolbarFlexibleSpaceItemIdentifier ];
+    }
+
+@end // AppDelegate class

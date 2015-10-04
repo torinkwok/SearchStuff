@@ -2,14 +2,15 @@
 //  AppDelegate.h
 //  Playground
 //
-//  Created by Tong G. on 10/4/15.
+//  Created by Tong Kuo. on 10/4/15.
 //  Copyright © 2015 Tong Kuo. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+// AppDelegate class
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSToolbarDelegate>
 
 
-@end
+@end // AppDelegate class
 

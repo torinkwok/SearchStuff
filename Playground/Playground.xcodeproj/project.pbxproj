@@ -76,6 +76,7 @@
 		832718F01BC1279100C28426 = {
 			isa = PBXGroup;
 			children = (
+				832719291BC1290700C28426 /* SearchStuff */,
 				832718FB1BC1279100C28426 /* Playground */,
 				8327190F1BC1279100C28426 /* PlaygroundTests */,
 				8327191A1BC1279100C28426 /* PlaygroundUITests */,
@@ -130,6 +131,13 @@
 				8327191D1BC1279100C28426 /* Info.plist */,
 			);
 			path = PlaygroundUITests;
+			sourceTree = "<group>";
+		};
+		832719291BC1290700C28426 /* SearchStuff */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SearchStuff;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,6 +491,7 @@
 				832719221BC1279100C28426 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		832719231BC1279100C28426 /* Build configuration list for PBXNativeTarget "PlaygroundTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +500,7 @@
 				832719251BC1279100C28426 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		832719261BC1279100C28426 /* Build configuration list for PBXNativeTarget "PlaygroundUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +509,7 @@
 				832719281BC1279100C28426 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
