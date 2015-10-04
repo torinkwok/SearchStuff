@@ -24,12 +24,22 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
 
 - ( NSArray* ) toolbarAllowedItemIdentifiers: ( NSToolbar* )_Toolbar
     {
-    return @[ NSToolbarFlexibleSpaceItemIdentifier, kSearchStuffWidget, NSToolbarFlexibleSpaceItemIdentifier ];
+    return @[ NSToolbarFlexibleSpaceItemIdentifier
+            , NSToolbarSpaceItemIdentifier
+            , kSearchStuffWidget
+            , kLhsPlaceholderButton
+            , kRhsPlaceholderButton
+             ];
     }
 
 - ( NSArray* ) toolbarDefaultItemIdentifiers: ( NSToolbar* )_Toolbar
     {
-    return @[ NSToolbarFlexibleSpaceItemIdentifier, kSearchStuffWidget, NSToolbarFlexibleSpaceItemIdentifier ];
+    return @[ kLhsPlaceholderButton
+            , NSToolbarSpaceItemIdentifier
+            , kSearchStuffWidget
+            , NSToolbarFlexibleSpaceItemIdentifier
+            , kRhsPlaceholderButton
+            ];
     }
 
 - ( NSToolbarItem* )  toolbar: ( NSToolbar* )_Toolbar
@@ -39,23 +49,35 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
     NSToolbarItem* toolbarItem = nil;
     BOOL should = NO;
 
-    NSString* identifier = nil;
+    NSString* identifier = _ItemIdentifier;
     NSString* label = nil;
     NSString* paleteLabel = nil;
     NSString* toolTip = nil;
     id content = nil;
-    id target = nil;
+    id target = self;
     SEL action = nil;
     NSMenu* repMenu = nil;
 
     if ( ( should = [ _ItemIdentifier isEqualToString: kSearchStuffWidget ] ) )
         {
-        identifier = @"kSearchStuff";
         label = NSLocalizedString( @"Search Stuff Widget", nil );
         paleteLabel = label;
         toolTip = NSLocalizedString( @"Search whatever here", nil );
-        target = self;
         content = [ [ SSSearchBar alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];
+        }
+
+    else if ( ( should = ( [ _ItemIdentifier isEqualToString: kLhsPlaceholderButton ]
+                            || [ _ItemIdentifier isEqualToString: kRhsPlaceholderButton ] ) ) )
+        {
+        NSString* dynamicLabel = [ NSString stringWithFormat: @"%@ Hand Side", [ _ItemIdentifier isEqualToString: kLhsPlaceholderButton ] ? @"Left" : @"Right" ];
+        label = dynamicLabel;
+        paleteLabel = label;
+
+        NSButton* button = [ [ NSButton alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];
+        [ button setTitle: dynamicLabel ];
+        [ button setBezelStyle: NSTexturedRoundedBezelStyle ];
+
+        content = button;
         }
 
     if ( should )
@@ -97,8 +119,8 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
     else if ( [ _ImageOrView isKindOfClass: [ NSView class ] ] )
         {
         [ newToolbarItem setView: ( NSView* )_ImageOrView ];
-        [ newToolbarItem setMinSize: NSMakeSize( 100, 24 ) ];
-        [ newToolbarItem setMaxSize: NSMakeSize( 1000, 24 ) ];
+        [ newToolbarItem setMinSize: NSMakeSize( 100, 25 ) ];
+        [ newToolbarItem setMaxSize: NSMakeSize( 1000, 25 ) ];
         }
 
     if ( _Menu )
