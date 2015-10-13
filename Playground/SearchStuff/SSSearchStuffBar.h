@@ -9,10 +9,10 @@
 @import Cocoa;
 
 // SSSearchStuffBar class
-@interface SSSearchStuffBar : NSView
+@interface SSSearchStuffBar : NSView <NSTextFieldDelegate>
     {
 @private
-    NSTextField* __strong __inputField;
+    BOOL __isInputting;
     }
 
 @end // SSSearchStuffBar class

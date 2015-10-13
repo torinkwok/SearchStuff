@@ -16,6 +16,7 @@
 		83F9BC191BC1363500785453 /* SSSearchStuffBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC181BC1363500785453 /* SSSearchStuffBar.m */; settings = {ASSET_TAGS = (); }; };
 		83F9BC551BC16FE100785453 /* SSSearchStuffToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC541BC16FE100785453 /* SSSearchStuffToolbarItem.m */; settings = {ASSET_TAGS = (); }; };
 		83F9BC5A1BC184C000785453 /* SSSearchStuffWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC591BC184C000785453 /* SSSearchStuffWidget.m */; settings = {ASSET_TAGS = (); }; };
+		83FB15F21BCD277800318D55 /* __SSSearchStuffBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FB15F11BCD277800318D55 /* __SSSearchStuffBackingCell.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		83F9BC541BC16FE100785453 /* SSSearchStuffToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchStuffToolbarItem.m; sourceTree = "<group>"; };
 		83F9BC561BC1840400785453 /* SSSearchStuffWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchStuffWidget.h; sourceTree = "<group>"; };
 		83F9BC591BC184C000785453 /* SSSearchStuffWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchStuffWidget.m; sourceTree = "<group>"; };
+		83FB15F01BCD277800318D55 /* __SSSearchStuffBackingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffBackingCell.h; sourceTree = "<group>"; };
+		83FB15F11BCD277800318D55 /* __SSSearchStuffBackingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffBackingCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				83F9BC591BC184C000785453 /* SSSearchStuffWidget.m */,
 				83F9BC171BC1363500785453 /* SSSearchStuffBar.h */,
 				83F9BC181BC1363500785453 /* SSSearchStuffBar.m */,
+				83FB15F01BCD277800318D55 /* __SSSearchStuffBackingCell.h */,
+				83FB15F11BCD277800318D55 /* __SSSearchStuffBackingCell.m */,
 				83F9BC531BC16FE100785453 /* SSSearchStuffToolbarItem.h */,
 				83F9BC541BC16FE100785453 /* SSSearchStuffToolbarItem.m */,
 			);
@@ -290,6 +295,7 @@
 				83F9BC5A1BC184C000785453 /* SSSearchStuffWidget.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
+				83FB15F21BCD277800318D55 /* __SSSearchStuffBackingCell.m in Sources */,
 				83F9BC551BC16FE100785453 /* SSSearchStuffToolbarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
