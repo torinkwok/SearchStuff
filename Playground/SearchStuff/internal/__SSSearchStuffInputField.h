@@ -12,6 +12,7 @@
 @interface __SSSearchStuffInputField : NSTextField
 
 #pragma mark - Initializations
+
 - ( instancetype ) initWithFrame: ( NSRect )_Frame delegate: ( id <NSTextFieldDelegate> )_Delegate;
 
 @end // __SSSearchStuffInputField class

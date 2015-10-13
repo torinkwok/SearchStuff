@@ -12,10 +12,11 @@
 @implementation __SSSearchStuffInputField
 
 #pragma mark - Initializations
+
 - ( instancetype ) initWithFrame: ( NSRect )_Frame
                         delegate: ( id <NSTextFieldDelegate> )_Delegate
     {
-    if ( self = [ self initWithFrame: _Frame ] )
+    if ( self = [ self /* Ja, that's indeed myself, not my parent */ initWithFrame: _Frame ] )
         [ self setDelegate: _Delegate ];
 
     return self;
@@ -34,6 +35,7 @@
     }
 
 #pragma mark - Drawing
+
 - ( void ) drawRect: ( NSRect )_DirtyRect
     {
     [ super drawRect: _DirtyRect ];

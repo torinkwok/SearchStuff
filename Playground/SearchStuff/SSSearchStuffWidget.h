@@ -22,6 +22,7 @@
 @property ( strong, readonly ) NSString* identifier;
 
 #pragma mark - Initializations
+
 - ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier;
 
 @end // SSSearchStuffWidget class

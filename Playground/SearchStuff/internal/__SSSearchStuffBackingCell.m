@@ -11,6 +11,8 @@
 // __SSSearchStuffBackingCell class
 @implementation __SSSearchStuffBackingCell
 
+#pragma mark - Initializations
+
 - ( instancetype ) init
     {
     if ( self = [ super init ] )

@@ -168,8 +168,8 @@
 		83F9BC151BC1363500785453 /* SearchStuff */ = {
 			isa = PBXGroup;
 			children = (
-				83A271241BCD312C000300EE /* internal */,
 				83F9BC161BC1363500785453 /* SearchStuff.h */,
+				83A271241BCD312C000300EE /* internal */,
 				83F9BC561BC1840400785453 /* SSSearchStuffWidget.h */,
 				83F9BC591BC184C000785453 /* SSSearchStuffWidget.m */,
 				83F9BC171BC1363500785453 /* SSSearchStuffBar.h */,

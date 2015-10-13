@@ -18,6 +18,7 @@
 @implementation SSSearchStuffToolbarItem
 
 #pragma mark - Initializations
+
 - ( instancetype ) initWithItemIdentifier: ( NSString* )_ItemIdentifier
     {
     if ( self = [ super initWithItemIdentifier: _ItemIdentifier ] )
@@ -27,6 +28,7 @@
     }
 
 #pragma mark - Private Interfaces
+
 - ( void ) __init
     {
     self->__searchBar = [ [ SSSearchStuffBar alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];

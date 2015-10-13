@@ -17,6 +17,7 @@
 @implementation SSSearchStuffWidget
 
 #pragma mark - Initializations
+
 - ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier
     {
     if ( self = [ super init ] )
