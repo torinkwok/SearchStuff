@@ -9,12 +9,13 @@
 #import "SSSearchStuffBar.h"
 
 #import "__SSSearchStuffBackingCell.h"
+#import "__SSSearchStuffInputField.h"
 
 // Private Interfaces
 @interface SSSearchStuffBar()
 
 @property ( strong ) __SSSearchStuffBackingCell* __backingCell;
-@property ( strong ) NSTextField* __inputField;
+@property ( strong ) __SSSearchStuffInputField* __inputField;
 @property ( assign ) BOOL __isInputting;
 
 - ( void ) __init;
@@ -95,12 +96,7 @@
     [ self setWantsLayer: YES ];
 
     self.__backingCell = [ [ __SSSearchStuffBackingCell alloc ] init ];
-
-    self.__inputField = [ [ NSTextField alloc ] initWithFrame: NSZeroRect ];
-    [ self.__inputField setDrawsBackground: NO ];
-    [ self.__inputField setBordered: NO ];
-    [ self.__inputField setPlaceholderString: NSLocalizedString( @"Search", nil ) ];
-    [ self.__inputField setDelegate: self ];
+    self.__inputField = [ [ __SSSearchStuffInputField alloc ] initWithFrame: NSZeroRect delegate: self ];
 
     self.__isInputting = NO;
     }

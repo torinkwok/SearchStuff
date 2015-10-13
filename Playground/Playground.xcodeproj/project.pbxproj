@@ -14,6 +14,8 @@
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
 		83A271271BCD312C000300EE /* __SSSearchStuffBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A271261BCD312C000300EE /* __SSSearchStuffBackingCell.m */; settings = {ASSET_TAGS = (); }; };
+		83A2712A1BCD337A000300EE /* __SSSearchStuffInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A271291BCD337A000300EE /* __SSSearchStuffInputField.m */; settings = {ASSET_TAGS = (); }; };
+		83A2712D1BCD3384000300EE /* __SSSearchStuffInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2712C1BCD3384000300EE /* __SSSearchStuffInputFieldCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F9BC191BC1363500785453 /* SSSearchStuffBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC181BC1363500785453 /* SSSearchStuffBar.m */; settings = {ASSET_TAGS = (); }; };
 		83F9BC551BC16FE100785453 /* SSSearchStuffToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC541BC16FE100785453 /* SSSearchStuffToolbarItem.m */; settings = {ASSET_TAGS = (); }; };
 		83F9BC5A1BC184C000785453 /* SSSearchStuffWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC591BC184C000785453 /* SSSearchStuffWidget.m */; settings = {ASSET_TAGS = (); }; };
@@ -52,6 +54,10 @@
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83A271251BCD312C000300EE /* __SSSearchStuffBackingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffBackingCell.h; sourceTree = "<group>"; };
 		83A271261BCD312C000300EE /* __SSSearchStuffBackingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffBackingCell.m; sourceTree = "<group>"; };
+		83A271281BCD337A000300EE /* __SSSearchStuffInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffInputField.h; sourceTree = "<group>"; };
+		83A271291BCD337A000300EE /* __SSSearchStuffInputField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffInputField.m; sourceTree = "<group>"; };
+		83A2712B1BCD3384000300EE /* __SSSearchStuffInputFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffInputFieldCell.h; sourceTree = "<group>"; };
+		83A2712C1BCD3384000300EE /* __SSSearchStuffInputFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffInputFieldCell.m; sourceTree = "<group>"; };
 		83F9BC161BC1363500785453 /* SearchStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchStuff.h; sourceTree = "<group>"; };
 		83F9BC171BC1363500785453 /* SSSearchStuffBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchStuffBar.h; sourceTree = "<group>"; };
 		83F9BC181BC1363500785453 /* SSSearchStuffBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchStuffBar.m; sourceTree = "<group>"; };
@@ -151,6 +157,10 @@
 			children = (
 				83A271251BCD312C000300EE /* __SSSearchStuffBackingCell.h */,
 				83A271261BCD312C000300EE /* __SSSearchStuffBackingCell.m */,
+				83A271281BCD337A000300EE /* __SSSearchStuffInputField.h */,
+				83A271291BCD337A000300EE /* __SSSearchStuffInputField.m */,
+				83A2712B1BCD3384000300EE /* __SSSearchStuffInputFieldCell.h */,
+				83A2712C1BCD3384000300EE /* __SSSearchStuffInputFieldCell.m */,
 			);
 			path = internal;
 			sourceTree = "<group>";
@@ -299,9 +309,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A2712D1BCD3384000300EE /* __SSSearchStuffInputFieldCell.m in Sources */,
 				83F9BC191BC1363500785453 /* SSSearchStuffBar.m in Sources */,
 				83F9BC5A1BC184C000785453 /* SSSearchStuffWidget.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
+				83A2712A1BCD337A000300EE /* __SSSearchStuffInputField.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83A271271BCD312C000300EE /* __SSSearchStuffBackingCell.m in Sources */,
 				83F9BC551BC16FE100785453 /* SSSearchStuffToolbarItem.m in Sources */,
