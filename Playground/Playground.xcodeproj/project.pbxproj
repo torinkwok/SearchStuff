@@ -13,10 +13,10 @@
 		832719061BC1279100C28426 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832719041BC1279100C28426 /* MainMenu.xib */; };
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
+		83A271271BCD312C000300EE /* __SSSearchStuffBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A271261BCD312C000300EE /* __SSSearchStuffBackingCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F9BC191BC1363500785453 /* SSSearchStuffBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC181BC1363500785453 /* SSSearchStuffBar.m */; settings = {ASSET_TAGS = (); }; };
 		83F9BC551BC16FE100785453 /* SSSearchStuffToolbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC541BC16FE100785453 /* SSSearchStuffToolbarItem.m */; settings = {ASSET_TAGS = (); }; };
 		83F9BC5A1BC184C000785453 /* SSSearchStuffWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9BC591BC184C000785453 /* SSSearchStuffWidget.m */; settings = {ASSET_TAGS = (); }; };
-		83FB15F21BCD277800318D55 /* __SSSearchStuffBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FB15F11BCD277800318D55 /* __SSSearchStuffBackingCell.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +50,8 @@
 		832719171BC1279100C28426 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8327191B1BC1279100C28426 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83A271251BCD312C000300EE /* __SSSearchStuffBackingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffBackingCell.h; sourceTree = "<group>"; };
+		83A271261BCD312C000300EE /* __SSSearchStuffBackingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffBackingCell.m; sourceTree = "<group>"; };
 		83F9BC161BC1363500785453 /* SearchStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchStuff.h; sourceTree = "<group>"; };
 		83F9BC171BC1363500785453 /* SSSearchStuffBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchStuffBar.h; sourceTree = "<group>"; };
 		83F9BC181BC1363500785453 /* SSSearchStuffBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchStuffBar.m; sourceTree = "<group>"; };
@@ -57,8 +59,6 @@
 		83F9BC541BC16FE100785453 /* SSSearchStuffToolbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchStuffToolbarItem.m; sourceTree = "<group>"; };
 		83F9BC561BC1840400785453 /* SSSearchStuffWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSearchStuffWidget.h; sourceTree = "<group>"; };
 		83F9BC591BC184C000785453 /* SSSearchStuffWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSearchStuffWidget.m; sourceTree = "<group>"; };
-		83FB15F01BCD277800318D55 /* __SSSearchStuffBackingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffBackingCell.h; sourceTree = "<group>"; };
-		83FB15F11BCD277800318D55 /* __SSSearchStuffBackingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffBackingCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,16 +146,24 @@
 			path = PlaygroundUITests;
 			sourceTree = "<group>";
 		};
+		83A271241BCD312C000300EE /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				83A271251BCD312C000300EE /* __SSSearchStuffBackingCell.h */,
+				83A271261BCD312C000300EE /* __SSSearchStuffBackingCell.m */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
 		83F9BC151BC1363500785453 /* SearchStuff */ = {
 			isa = PBXGroup;
 			children = (
+				83A271241BCD312C000300EE /* internal */,
 				83F9BC161BC1363500785453 /* SearchStuff.h */,
 				83F9BC561BC1840400785453 /* SSSearchStuffWidget.h */,
 				83F9BC591BC184C000785453 /* SSSearchStuffWidget.m */,
 				83F9BC171BC1363500785453 /* SSSearchStuffBar.h */,
 				83F9BC181BC1363500785453 /* SSSearchStuffBar.m */,
-				83FB15F01BCD277800318D55 /* __SSSearchStuffBackingCell.h */,
-				83FB15F11BCD277800318D55 /* __SSSearchStuffBackingCell.m */,
 				83F9BC531BC16FE100785453 /* SSSearchStuffToolbarItem.h */,
 				83F9BC541BC16FE100785453 /* SSSearchStuffToolbarItem.m */,
 			);
@@ -295,7 +303,7 @@
 				83F9BC5A1BC184C000785453 /* SSSearchStuffWidget.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
-				83FB15F21BCD277800318D55 /* __SSSearchStuffBackingCell.m in Sources */,
+				83A271271BCD312C000300EE /* __SSSearchStuffBackingCell.m in Sources */,
 				83F9BC551BC16FE100785453 /* SSSearchStuffToolbarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
