@@ -54,16 +54,6 @@
     [ self.__backingCell drawWithFrame: self.bounds inView: self ];
     }
 
-- ( NSRect ) focusRingMaskBounds
-    {
-    return [ self bounds ];
-    }
-
-- ( void ) drawFocusRingMask
-    {
-    NSRectFill( self.bounds );
-    }
-
 #pragma mark - Events
 
 - ( void ) mouseDown: ( NSEvent* )_Event
@@ -91,7 +81,6 @@
 - ( void ) set__isInputting: ( BOOL )_Flag
     {
     self->__isInputting = _Flag;
-    [ self noteFocusRingMaskChanged ];
     }
 
 - ( BOOL ) __isInputting
@@ -104,7 +93,6 @@
 - ( void ) __init
     {
     [ self setWantsLayer: YES ];
-    [ self.layer setMasksToBounds: NO ];
 
     self.__backingCell = [ [ __SSSearchStuffBackingCell alloc ] init ];
 
@@ -115,8 +103,6 @@
     [ self.__inputField setDelegate: self ];
 
     self.__isInputting = NO;
-
-    [ self setFocusRingType: NSFocusRingTypeExterior ];
     }
 
 @end // SSSearchStuffBar class
