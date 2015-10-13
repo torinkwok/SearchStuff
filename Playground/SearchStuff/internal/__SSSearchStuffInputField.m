@@ -7,6 +7,7 @@
 //
 
 #import "__SSSearchStuffInputField.h"
+#import "__SSSearchStuffInputFieldCell.h"
 
 // __SSSearchStuffInputField class
 @implementation __SSSearchStuffInputField
@@ -35,6 +36,11 @@
     }
 
 #pragma mark - Drawing
+
++ ( Class ) cellClass
+    {
+    return [ __SSSearchStuffInputFieldCell class ];
+    }
 
 - ( void ) drawRect: ( NSRect )_DirtyRect
     {
