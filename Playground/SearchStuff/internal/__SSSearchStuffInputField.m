@@ -9,6 +9,13 @@
 #import "__SSSearchStuffInputField.h"
 #import "__SSSearchStuffInputFieldCell.h"
 
+// Private Interfaces
+@interface __SSSearchStuffInputField ()
+
+@property ( strong ) NSButton* __searchButton;
+
+@end // Private Interfaces
+
 // __SSSearchStuffInputField class
 @implementation __SSSearchStuffInputField
 
@@ -30,6 +37,12 @@
         [ self setDrawsBackground: NO ];
         [ self setBordered: NO ];
         [ self setPlaceholderString: NSLocalizedString( @"Search", nil ) ];
+
+        self.__searchButton = [ [ NSButton alloc ] initWithFrame: NSMakeRect( 0, 0, 20.f, 20.f ) ];
+        [ self.__searchButton setBordered: NO ];
+        [ self.__searchButton setTitle: @"S" ];
+
+        [ self addSubview: self.__searchButton ];
         }
 
     return self;

@@ -16,6 +16,7 @@
 
 @property ( strong ) __SSSearchStuffBackingCell* __backingCell;
 @property ( strong ) __SSSearchStuffInputField* __inputField;
+
 @property ( assign ) BOOL __isInputting;
 
 - ( void ) __init;
