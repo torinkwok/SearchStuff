@@ -10,5 +10,9 @@
 
 // SSSearchStuffBar class
 @interface SSSearchStuffBar : NSView
+    {
+@private
+    NSTextField* __strong __inputField;
+    }
 
 @end // SSSearchStuffBar class

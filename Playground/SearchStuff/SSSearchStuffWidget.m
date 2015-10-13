@@ -25,4 +25,4 @@
     return self;
     }
 
-@end
+@end // SSSearchStuffWidget class

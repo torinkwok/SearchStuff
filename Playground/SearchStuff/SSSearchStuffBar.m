@@ -46,6 +46,16 @@
     [ self->__backingCell drawWithFrame: self.bounds inView: self ];
     }
 
+#pragma mark - Events
+- ( void ) mouseDown: ( NSEvent* )_Event
+    {
+    [ super mouseDown: _Event ];
+
+    [ self->__inputField setFrame: self.bounds ];
+    [ self addSubview: self->__inputField ];
+    [ self.window makeFirstResponder: self->__inputField ];
+    }
+
 #pragma mark - Private Interfaces
 - ( void ) __init
     {
@@ -54,6 +64,10 @@
     self->__backingCell = [ [ NSButtonCell alloc ] init ];
     [ self->__backingCell setBezelStyle: NSTexturedRoundedBezelStyle ];
     [ self->__backingCell setTitle: @"" ];
+
+    self->__inputField = [ [ NSTextField alloc ] initWithFrame: self.bounds ];
+    [ self->__inputField setDrawsBackground: NO ];
+    [ self->__inputField setBordered: NO ];
     }
 
 @end // SSSearchStuffBar class
