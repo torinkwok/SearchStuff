@@ -7,6 +7,7 @@
 //
 
 #import "__SSSearchButton.h"
+#import "__SSSearchButtonCell.h"
 
 // __SSSearchButton class
 @implementation __SSSearchButton
@@ -27,16 +28,24 @@
         [ self setBezelStyle: NSSmallSquareBezelStyle ];
         [ self setImagePosition: NSImageOnly ];
         [ self setButtonType: NSMomentaryPushInButton ];
+        [ self setState: NSOffState ];
         [ self.cell setImageScaling: NSImageScaleProportionallyDown ];
 
-        [ self setImage: [ NSImage imageNamed: @"search-stuff-search" ] ];
-        [ self setAlternateImage: [ NSImage imageNamed: @"search-stuff-search-highlighted" ] ];
+        NSImage* image = [ NSImage imageNamed: @"search-stuff-search" ];
+        NSImage* altImage = [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
+        [ self setImage: image ];
+        [ self setAlternateImage: altImage ];
         }
 
     return self;
     }
 
 #pragma mark - Drawing
++ ( Class ) cellClass
+    {
+    return [ __SSSearchButtonCell class ];
+    }
+
 - ( void ) drawRect: ( NSRect )_DirtyRect
     {
     [ super drawRect: _DirtyRect ];
