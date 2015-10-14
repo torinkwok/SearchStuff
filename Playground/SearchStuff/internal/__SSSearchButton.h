@@ -11,4 +11,6 @@
 // __SSSearchButton class
 @interface __SSSearchButton : NSButton
 
++ ( NSSize ) defaultSize;
+
 @end // __SSSearchButton class
