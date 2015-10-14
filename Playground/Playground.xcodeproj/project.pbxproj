@@ -193,14 +193,14 @@
 		83F47EE51BCE88A10086F42D /* artwork */ = {
 			isa = PBXGroup;
 			children = (
-				83F47F301BCE9A690086F42D /* search-stuff-reload-highlighted.png */,
-				83F47F311BCE9A690086F42D /* search-stuff-reload-highlighted@2x.png */,
-				83F47F321BCE9A690086F42D /* search-stuff-reload.png */,
-				83F47F331BCE9A690086F42D /* search-stuff-reload@2x.png */,
-				83F47F341BCE9A690086F42D /* search-stuff-search-highlighted.png */,
-				83F47F351BCE9A690086F42D /* search-stuff-search-highlighted@2x.png */,
 				83F47F361BCE9A690086F42D /* search-stuff-search.png */,
 				83F47F371BCE9A690086F42D /* search-stuff-search@2x.png */,
+				83F47F341BCE9A690086F42D /* search-stuff-search-highlighted.png */,
+				83F47F351BCE9A690086F42D /* search-stuff-search-highlighted@2x.png */,
+				83F47F321BCE9A690086F42D /* search-stuff-reload.png */,
+				83F47F331BCE9A690086F42D /* search-stuff-reload@2x.png */,
+				83F47F301BCE9A690086F42D /* search-stuff-reload-highlighted.png */,
+				83F47F311BCE9A690086F42D /* search-stuff-reload-highlighted@2x.png */,
 			);
 			path = artwork;
 			sourceTree = "<group>";

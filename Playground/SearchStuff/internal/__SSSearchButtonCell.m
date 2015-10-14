@@ -18,19 +18,19 @@
     {
     NSImage* finalImage = self.isHighlighted ? self.alternateImage : self.image;
 
-    NSRect frameRect = _ControlView.bounds;
-    NSAffineTransform* xform = [ NSAffineTransform transform ];
-    [ xform translateXBy: 0.f yBy: frameRect.size.height ];
-    [ xform scaleXBy: 1.f yBy: -1.f ];
-    [ xform concat ];
+    NSRect ctrlFrameRect = _ControlView.bounds;
+    NSAffineTransform* flipTransform = [ NSAffineTransform transform ];
+    [ flipTransform translateXBy: 0.f yBy: ctrlFrameRect.size.height ];
+    [ flipTransform scaleXBy: 1.f yBy: -1.f ];
+    [ flipTransform concat ];
 
     [ finalImage drawInRect: _ControlView.bounds
                    fromRect: NSZeroRect
                   operation: NSCompositeSourceOver
                    fraction: 1.f ];
 
-    [ xform invert ];
-    [ xform concat ];
+    [ flipTransform invert ];
+    [ flipTransform concat ];
     }
 
 @end // __SSSearchButtonCell class

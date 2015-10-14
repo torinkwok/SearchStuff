@@ -23,18 +23,8 @@
     if ( self = [ super initWithFrame: _FrameRect ] )
         {
         [ self setFrameSize: [ [ self class ] defaultSize ] ];
-
-        [ self setBordered: NO ];
-        [ self setBezelStyle: NSSmallSquareBezelStyle ];
-        [ self setImagePosition: NSImageOnly ];
-        [ self setButtonType: NSMomentaryPushInButton ];
-        [ self setState: NSOffState ];
-        [ self.cell setImageScaling: NSImageScaleProportionallyDown ];
-
-        NSImage* image = [ NSImage imageNamed: @"search-stuff-search" ];
-        NSImage* altImage = [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
-        [ self setImage: image ];
-        [ self setAlternateImage: altImage ];
+        [ self setImage: [ NSImage imageNamed: @"search-stuff-search" ] ];
+        [ self setAlternateImage: [ NSImage imageNamed: @"search-stuff-search-highlighted" ] ];
         }
 
     return self;
