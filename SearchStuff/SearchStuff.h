@@ -9,6 +9,6 @@
 #ifndef SearchStuff_h
 #define SearchStuff_h
 
-#import "SSSearchBar.h"
+#import "SSSearchStuffBar.h"
 
 #endif /* SearchStuff_h */
