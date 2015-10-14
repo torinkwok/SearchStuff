@@ -18,7 +18,7 @@
     if ( self = [ super init ] )
         {
         [ self setBezelStyle: NSTexturedRoundedBezelStyle ];
-        [ self  setTitle: @"" ];
+        [ self setTitle: @"" ];
         }
 
     return self;
