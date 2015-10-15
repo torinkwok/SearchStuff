@@ -14,6 +14,7 @@
 @interface __SSSearchStuffInputField ()
 
 @property ( strong ) __SSSearchButton* __searchButton;
+@property ( strong ) NSTrackingArea* __inactiveTrackingArea;
 
 @end // Private Interfaces
 
@@ -43,6 +44,11 @@
         [ self.__searchButton setFrameOrigin: NSMakePoint( 6.f, 5.f ) ];
 
         [ self addSubview: self.__searchButton ];
+
+        self.__inactiveTrackingArea = [ [ NSTrackingArea alloc ]
+            initWithRect: NSMakeRect( 0, 0, 23.f, NSHeight( self.bounds ) ) options: NSTrackingMouseMoved | NSTrackingActiveAlways owner: self userInfo: nil ];
+
+        [ self addTrackingArea: self.__inactiveTrackingArea ];
         }
 
     return self;
@@ -59,7 +65,31 @@
     {
     [ super drawRect: _DirtyRect ];
     
-    // Drawing code here.
+    [ [ NSColor orangeColor ] set ];
+    NSRectFill( NSMakeRect( 0, 0, 23.f, NSHeight( self.bounds ) ) );
+    }
+
+#pragma mark - Events
+
+- ( void ) mouseDown: ( NSEvent* )_Event
+    {
+    [ super mouseDown: _Event ];
+    }
+
+- ( void ) mouseMoved: ( NSEvent* )_Event
+    {
+    NSLog( @"🌰" );
+
+    NSPoint locationInWindow = [ _Event locationInWindow ];
+    NSPoint eventLoc = [ self convertPoint: locationInWindow fromView: nil ];
+
+    if ( NSPointInRect( eventLoc, self.__inactiveTrackingArea.rect ) )
+        NSLog( @"🍓" );
+    }
+
+- ( void ) cursorUpdate: ( NSEvent * )_Event
+    {
+    [ [ NSCursor arrowCursor ] set ];
     }
 
 @end // __SSSearchStuffInputField class

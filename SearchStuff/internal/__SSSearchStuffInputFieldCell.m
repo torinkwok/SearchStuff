@@ -31,7 +31,7 @@
                      start: ( NSInteger )_SelStart
                     length: ( NSInteger )_SelLength
     {
-    [ super selectWithFrame: [ self __insetRectForBounds: _CellFrame ]
+    [ super selectWithFrame: [ self __insetRectForBounds: _ControlView.bounds ]
                      inView: _ControlView
                      editor: _FieldEditor
                    delegate: _DelegateObject
@@ -45,7 +45,7 @@
                 delegate: ( id )_DelegateObject
                    event: ( NSEvent* )_Event
     {
-    [ super editWithFrame: [ self __insetRectForBounds: _CellFrame ]
+    [ super editWithFrame: [ self __insetRectForBounds: _ControlView.bounds ]
                    inView: _ControlView
                    editor: _FieldEditor
                  delegate: _DelegateObject
