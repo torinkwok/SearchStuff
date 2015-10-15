@@ -57,7 +57,7 @@
 - ( NSRect ) __insetRectForBounds: ( NSRect )_Bounds
     {
     NSRect offsetBounds = _Bounds;
-    offsetBounds.origin.x += 20.f;
+    offsetBounds.origin.x += 23.f;
     offsetBounds.size.width -= 30.f;
     offsetBounds.origin.y += 4.f;
 
