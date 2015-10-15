@@ -82,8 +82,8 @@
         }
 
     [ self addConstraints: self.__inputFieldConstraints ];
-
     [ self.window makeFirstResponder: inputField ];
+
     self.__isInputting = YES;
     }
 

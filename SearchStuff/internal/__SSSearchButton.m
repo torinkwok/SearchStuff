@@ -17,9 +17,24 @@
 // __SSSearchButton class
 @implementation __SSSearchButton
 
+#pragma mark - Default Properties
+
++ ( NSImage* ) defaultImage
+    {
+    return [ NSImage imageNamed: @"search-stuff-search" ];
+    }
+
++ ( NSImage* ) defaultAlternativeImage
+    {
+    return [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
+    }
+
 + ( NSSize ) defaultSize
     {
-    return NSMakeSize( 15.f, 15.f );
+    NSImage* defaultImage = [ [ self class ] defaultImage ];
+    NSSize theSize = NSMakeSize( 15.f * defaultImage.size.width / defaultImage.size.height, 15.f );
+
+    return theSize;
     }
 
 #pragma mark - Initializations
@@ -29,8 +44,8 @@
     if ( self = [ super initWithFrame: _FrameRect ] )
         {
         [ self setFrameSize: [ [ self class ] defaultSize ] ];
-        [ self setImage: [ NSImage imageNamed: @"search-stuff-search" ] ];
-        [ self setAlternateImage: [ NSImage imageNamed: @"search-stuff-search-highlighted" ] ];
+        [ self setImage: [ [ self class ] defaultImage ] ];
+        [ self setAlternateImage: [ [ self class ] defaultAlternativeImage ] ];
 
         NSTrackingArea* trackingArea =
             [ [ NSTrackingArea alloc ] initWithRect: self.bounds

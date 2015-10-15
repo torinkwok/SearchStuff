@@ -11,6 +11,11 @@
 // __SSSearchButton class
 @interface __SSSearchButton : NSButton
 
+#pragma mark - Default Properties
+
++ ( NSImage* ) defaultImage;
++ ( NSImage* ) defaultAlternativeImage;
+
 + ( NSSize ) defaultSize;
 
 @end // __SSSearchButton class
