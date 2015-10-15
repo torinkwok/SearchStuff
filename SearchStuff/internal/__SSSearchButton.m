@@ -11,7 +11,7 @@
 
 // Private Interfaces
 @interface __SSSearchButton ()
-- ( void ) __redrawingWithHighlighted: ( BOOL )_IsHighlighted;
+- ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted;
 @end // Private Interfaces
 
 // __SSSearchButton class
@@ -51,7 +51,7 @@
             [ [ NSTrackingArea alloc ] initWithRect: self.bounds
                                             options: NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingCursorUpdate
                                                         | NSTrackingActiveAlways
-                                                        /* This NSTrackingArea object was created with NSTrackingInVisibleRect option
+                                                        /* This NSTrackingArea object was created with NSTrackingInVisibleRect option,
                                                          * in which case the AppKit handles the re-computation of tracking area */
                                                         | NSTrackingInVisibleRect
                                               owner: self
@@ -73,17 +73,17 @@
 
 - ( void ) mouseEntered: ( NSEvent* )_Event
     {
-    [ self __redrawingWithHighlighted: YES ];
+    [ self __redrawWithHighlighted: YES ];
     }
 
 - ( void ) mouseExited: ( NSEvent* )_Event
     {
-    [ self __redrawingWithHighlighted: NO ];
+    [ self __redrawWithHighlighted: NO ];
     }
 
 - ( void ) mouseDown: ( NSEvent* )_Event
     {
-    [ self __redrawingWithHighlighted: YES ];
+    [ self __redrawWithHighlighted: YES ];
     }
 
 - ( void ) cursorUpdate: ( NSEvent* )_Event
@@ -93,7 +93,7 @@
 
 #pragma mark - Private Interfaces
 
-- ( void ) __redrawingWithHighlighted: ( BOOL )_IsHighlighted
+- ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted
     {
     [ self.cell setHighlighted: _IsHighlighted ];
     [ self setNeedsDisplay ];
