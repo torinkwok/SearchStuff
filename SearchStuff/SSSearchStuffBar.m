@@ -65,6 +65,7 @@
     [ super mouseDown: _Event ];
 
     NSTextField* inputField = self.__inputField;
+    [ inputField setFrame: self.bounds ];
     [ self addSubview: inputField ];
 
     if ( !self.__inputFieldConstraints )
