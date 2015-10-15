@@ -35,7 +35,7 @@
         {
         [ self setDrawsBackground: NO ];
         [ self setBordered: NO ];
-        [ self setPlaceholderString: NSLocalizedString( @"Search", nil ) ];
+        [ self setPlaceholderString: NSLocalizedString( @"Search the fucking stuff", nil ) ];
 
         self.__searchButton = [ [ __SSSearchButton alloc ] initWithFrame: NSZeroRect ];
         [ self.__searchButton setFrameOrigin: NSMakePoint( 6.f, 5.f ) ];

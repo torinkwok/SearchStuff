@@ -17,6 +17,8 @@
 @property ( strong ) __SSSearchStuffBackingCell* __backingCell;
 @property ( strong ) __SSSearchStuffInputField* __inputField;
 
+@property ( strong ) NSArray <__kindof NSLayoutConstraint*>* __inputFieldConstraints;
+
 @property ( assign ) BOOL __isInputting;
 
 - ( void ) __init;
@@ -62,10 +64,26 @@
     {
     [ super mouseDown: _Event ];
 
-    [ self.__inputField setFrame: self.bounds ];
-    [ self addSubview: self.__inputField ];
-    [ self.window makeFirstResponder: self.__inputField ];
+    NSTextField* inputField = self.__inputField;
+    [ self addSubview: inputField ];
 
+    if ( !self.__inputFieldConstraints )
+        {
+        NSDictionary* viewsDict = NSDictionaryOfVariableBindings( inputField );
+        NSDictionary* metricsDict = @{ @"leadingSpace" : @2.f, @"trailingSpace" : @1.f };
+
+        NSArray <__kindof NSLayoutConstraint*>* horConstraints = [ NSLayoutConstraint
+            constraintsWithVisualFormat: @"H:|-leadingSpace-[inputField(>=0)]-trailingSpace-|" options: 0 metrics: metricsDict views: viewsDict ];
+
+        NSArray <__kindof NSLayoutConstraint*>* verConstraints = [ NSLayoutConstraint
+            constraintsWithVisualFormat: @"V:|[inputField(>=0)]|" options: 0 metrics: nil views: viewsDict ];
+
+        self.__inputFieldConstraints = [ horConstraints arrayByAddingObjectsFromArray: verConstraints ];
+        }
+
+    [ self addConstraints: self.__inputFieldConstraints ];
+
+    [ self.window makeFirstResponder: inputField ];
     self.__isInputting = YES;
     }
 
@@ -74,12 +92,15 @@
 - ( void ) controlTextDidEndEditing: ( NSNotification* )_Notif
     {
     [ self.__inputField removeFromSuperview ];
+    [ self removeConstraints: self.__inputFieldConstraints ];
+
     self.__isInputting = NO;
 
     // TODO: Waiting for animations
     }
 
 #pragma mark - Dynamic Properties
+
 - ( void ) set__isInputting: ( BOOL )_Flag
     {
     self->__isInputting = _Flag;
@@ -97,7 +118,9 @@
     [ self setWantsLayer: YES ];
 
     self.__backingCell = [ [ __SSSearchStuffBackingCell alloc ] init ];
+
     self.__inputField = [ [ __SSSearchStuffInputField alloc ] initWithFrame: NSZeroRect delegate: self ];
+    [ self.__inputField setTranslatesAutoresizingMaskIntoConstraints: NO ];
 
     self.__isInputting = NO;
     }
