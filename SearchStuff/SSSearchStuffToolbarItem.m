@@ -7,7 +7,7 @@
 //
 
 #import "SSSearchStuffToolbarItem.h"
-#import "SSSearchStuffBar.h"
+#import "__SSSearchStuffBar.h"
 
 // Private Interfaces
 @interface SSSearchStuffToolbarItem()
@@ -31,7 +31,7 @@
 
 - ( void ) __init
     {
-    self->__searchBar = [ [ SSSearchStuffBar alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];
+    self->__searchBar = [ [ __SSSearchStuffBar alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];
 
     [ self setView: self->__searchBar ];
 

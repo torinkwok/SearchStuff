@@ -1,5 +1,5 @@
 //
-//  SSSearchStuffBar.h
+//  __SSSearchStuffBar.h
 //  Playground
 //
 //  Created by Tong G. on 10/4/15.
@@ -8,11 +8,11 @@
 
 @import Cocoa;
 
-// SSSearchStuffBar class
-@interface SSSearchStuffBar : NSView <NSTextFieldDelegate>
+// __SSSearchStuffBar class
+@interface __SSSearchStuffBar : NSView <NSTextFieldDelegate>
     {
 @private
     BOOL __isInputting;
     }
 
-@end // SSSearchStuffBar class
+@end // __SSSearchStuffBar class

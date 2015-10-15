@@ -1,18 +1,18 @@
 //
-//  SSSearchStuffBar.m
+//  __SSSearchStuffBar.m
 //  Playground
 //
 //  Created by Tong G. on 10/4/15.
 //  Copyright © 2015 Tong Kuo. All rights reserved.
 //
 
-#import "SSSearchStuffBar.h"
+#import "__SSSearchStuffBar.h"
 
 #import "__SSSearchStuffBackingCell.h"
 #import "__SSSearchStuffInputField.h"
 
 // Private Interfaces
-@interface SSSearchStuffBar()
+@interface __SSSearchStuffBar()
 
 @property ( strong ) __SSSearchStuffBackingCell* __backingCell;
 @property ( strong ) __SSSearchStuffInputField* __inputField;
@@ -25,8 +25,8 @@
 
 @end // Private Interfaces
 
-// SSSearchStuffBar class
-@implementation SSSearchStuffBar
+// __SSSearchStuffBar class
+@implementation __SSSearchStuffBar
 
 @synthesize __backingCell;
 @synthesize __inputField;
@@ -127,4 +127,4 @@
     self.__isInputting = NO;
     }
 
-@end // SSSearchStuffBar class
+@end // __SSSearchStuffBar class

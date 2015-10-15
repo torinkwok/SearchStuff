@@ -8,7 +8,7 @@
 
 @import Cocoa;
 
-@class SSSearchStuffBar;
+@class __SSSearchStuffBar;
 
 @protocol SearchStuffDelegate;
 
@@ -16,7 +16,7 @@
 @interface SSSearchStuffToolbarItem : NSToolbarItem
     {
 @private
-    SSSearchStuffBar* __searchBar;
+    __SSSearchStuffBar* __searchBar;
     }
 
 @property ( weak ) IBOutlet id <SearchStuffDelegate> delegate;
