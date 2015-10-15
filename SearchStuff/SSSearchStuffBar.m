@@ -69,8 +69,8 @@
 
     if ( !self.__inputFieldConstraints )
         {
-        NSDictionary* viewsDict = NSDictionaryOfVariableBindings( inputField );
-        NSDictionary* metricsDict = @{ @"leadingSpace" : @2.f, @"trailingSpace" : @1.f };
+        NSDictionary <NSString*, NSView*>* viewsDict = NSDictionaryOfVariableBindings( inputField );
+        NSDictionary <NSString*, NSNumber*>* metricsDict = @{ @"leadingSpace" : @2.f, @"trailingSpace" : @1.f };
 
         NSArray <__kindof NSLayoutConstraint*>* horConstraints = [ NSLayoutConstraint
             constraintsWithVisualFormat: @"H:|-leadingSpace-[inputField(>=0)]-trailingSpace-|" options: 0 metrics: metricsDict views: viewsDict ];
