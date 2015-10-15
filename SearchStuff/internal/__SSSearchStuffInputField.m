@@ -38,7 +38,7 @@
         [ self setPlaceholderString: NSLocalizedString( @"Search the fucking stuff", nil ) ];
 
         self.__searchButton = [ [ __SSSearchButton alloc ] initWithFrame: NSZeroRect ];
-        [ self.__searchButton setFrameOrigin: NSMakePoint( 4.f, 5.f ) ];
+        [ self.__searchButton setFrameOrigin: NSMakePoint( 4.5f, 5.f ) ];
 
         [ self addSubview: self.__searchButton ];
         }
