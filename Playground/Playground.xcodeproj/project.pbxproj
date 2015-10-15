@@ -194,14 +194,14 @@
 		83F47F6D1BCEA3280086F42D /* artwork */ = {
 			isa = PBXGroup;
 			children = (
-				83F47F6E1BCEA3280086F42D /* search-stuff-reload-highlighted.png */,
-				83F47F6F1BCEA3280086F42D /* search-stuff-reload-highlighted@2x.png */,
-				83F47F701BCEA3280086F42D /* search-stuff-reload.png */,
-				83F47F711BCEA3280086F42D /* search-stuff-reload@2x.png */,
-				83F47F721BCEA3280086F42D /* search-stuff-search-highlighted.png */,
-				83F47F731BCEA3280086F42D /* search-stuff-search-highlighted@2x.png */,
 				83F47F741BCEA3280086F42D /* search-stuff-search.png */,
 				83F47F751BCEA3280086F42D /* search-stuff-search@2x.png */,
+				83F47F721BCEA3280086F42D /* search-stuff-search-highlighted.png */,
+				83F47F731BCEA3280086F42D /* search-stuff-search-highlighted@2x.png */,
+				83F47F701BCEA3280086F42D /* search-stuff-reload.png */,
+				83F47F711BCEA3280086F42D /* search-stuff-reload@2x.png */,
+				83F47F6E1BCEA3280086F42D /* search-stuff-reload-highlighted.png */,
+				83F47F6F1BCEA3280086F42D /* search-stuff-reload-highlighted@2x.png */,
 			);
 			path = artwork;
 			sourceTree = "<group>";
