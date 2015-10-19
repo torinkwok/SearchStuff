@@ -18,6 +18,12 @@
 
 // __SSButton class
 @implementation __SSButton
+    {
+@protected
+    NSImage* __strong __ssDefaultAlternativeImage;
+    }
+
+@dynamic ssDefaultAlternativeImage;
 
 #pragma mark - Pure Virtual Methods
 
@@ -27,10 +33,15 @@
     return nil;
     }
 
-+ ( NSImage* ) ssDefaultAlternativeImage
+- ( NSImage* ) ssDefaultAlternativeImage
     {
-    __Throw_exception_because_of_invocation_of_pure_virtual_method;
-    return nil;
+    return self->__ssDefaultAlternativeImage;
+    }
+
+- ( void ) setSsDefaultAlternativeImage: ( NSImage* )_Image
+    {
+    self->__ssDefaultAlternativeImage = _Image;
+    [ self setAlternateImage: self->__ssDefaultAlternativeImage ];
     }
 
 #pragma mark - Default Properties
@@ -50,8 +61,8 @@
     if ( self = [ super initWithFrame: _FrameRect ] )
         {
         [ self setFrameSize: [ self ssDefaultSize ] ];
-        [ self setImage: [ [ self class ] ssDefaultImage ] ];
-        [ self setAlternateImage: [ [ self class ] ssDefaultAlternativeImage ] ];
+//        [ self setImage: [ [ self class ] ssDefaultImage ] ];
+//        [ self setAlternateImage: [ self ssDefaultAlternativeImage ] ];
 
         NSTrackingArea* trackingArea =
             [ [ NSTrackingArea alloc ] initWithRect: self.bounds

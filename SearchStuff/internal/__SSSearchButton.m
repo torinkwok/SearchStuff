@@ -12,14 +12,24 @@
 
 #pragma mark - Overrides Pure Virtual Methods
 
+- ( instancetype ) initWithFrame: ( NSRect )_Frame
+    {
+    if ( self = [ super initWithFrame: _Frame ] )
+        {
+        self.ssDefaultAlternativeImage = [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
+        }
+
+    return self;
+    }
+
 + ( NSImage* ) ssDefaultImage
     {
     return [ NSImage imageNamed: @"search-stuff-search" ];
     }
 
-+ ( NSImage* ) ssDefaultAlternativeImage
-    {
-    return [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
-    }
+//+ ( NSImage* ) ssDefaultAlternativeImage
+//    {
+//    return [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
+//    }
 
 @end
