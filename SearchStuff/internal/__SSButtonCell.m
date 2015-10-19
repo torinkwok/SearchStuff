@@ -1,15 +1,15 @@
 //
-//  __SSSearchButtonCell.m
+//  __SSButtonCell.m
 //  Playground
 //
 //  Created by Tong G. on 10/13/15.
 //  Copyright © 2015 Tong Kuo. All rights reserved.
 //
 
-#import "__SSSearchButtonCell.h"
+#import "__SSButtonCell.h"
 
-// __SSSearchButtonCell class
-@implementation __SSSearchButtonCell
+// __SSButtonCell class
+@implementation __SSButtonCell
 
 #pragma mark - Drawing
 
@@ -33,4 +33,4 @@
     [ flipTransform concat ];
     }
 
-@end // __SSSearchButtonCell class
+@end // __SSButtonCell class

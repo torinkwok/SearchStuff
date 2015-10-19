@@ -2,20 +2,12 @@
 //  __SSSearchButton.h
 //  Playground
 //
-//  Created by Tong G. on 10/13/15.
+//  Created by Tong G. on 10/19/15.
 //  Copyright © 2015 Tong Kuo. All rights reserved.
 //
 
-@import Cocoa;
+#import "__SSButton.h"
 
-// __SSSearchButton class
-@interface __SSSearchButton : NSButton
+@interface __SSSearchButton : __SSButton
 
-#pragma mark - Default Properties
-
-+ ( NSImage* ) defaultImage;
-+ ( NSImage* ) defaultAlternativeImage;
-
-+ ( NSSize ) defaultSize;
-
-@end // __SSSearchButton class
+@end

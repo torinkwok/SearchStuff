@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830531EF1BD51AEF00223917 /* __SSSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 830531EE1BD51AEF00223917 /* __SSSearchButton.m */; settings = {ASSET_TAGS = (); }; };
 		832718FE1BC1279100C28426 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832718FD1BC1279100C28426 /* AppDelegate.m */; };
 		832719011BC1279100C28426 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719001BC1279100C28426 /* main.m */; };
 		832719031BC1279100C28426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832719021BC1279100C28426 /* Assets.xcassets */; };
 		832719061BC1279100C28426 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832719041BC1279100C28426 /* MainMenu.xib */; };
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
-		83F47F901BCEA3290086F42D /* __SSSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSSearchButton.m */; settings = {ASSET_TAGS = (); }; };
-		83F47F911BCEA3290086F42D /* __SSSearchButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSSearchButtonCell.m */; settings = {ASSET_TAGS = (); }; };
+		83F47F901BCEA3290086F42D /* __SSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSButton.m */; settings = {ASSET_TAGS = (); }; };
+		83F47F911BCEA3290086F42D /* __SSButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F921BCEA3290086F42D /* __SSSearchStuffBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7C1BCEA3280086F42D /* __SSSearchStuffBackingCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F931BCEA3290086F42D /* __SSSearchStuffInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7E1BCEA3280086F42D /* __SSSearchStuffInputField.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F941BCEA3290086F42D /* __SSSearchStuffInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F801BCEA3280086F42D /* __SSSearchStuffInputFieldCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		830531ED1BD51AEF00223917 /* __SSSearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchButton.h; sourceTree = "<group>"; };
+		830531EE1BD51AEF00223917 /* __SSSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchButton.m; sourceTree = "<group>"; };
 		832718F91BC1279100C28426 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		832718FC1BC1279100C28426 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		832718FD1BC1279100C28426 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,10 +65,10 @@
 		832719171BC1279100C28426 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8327191B1BC1279100C28426 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83F47F771BCEA3280086F42D /* __SSSearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchButton.h; sourceTree = "<group>"; };
-		83F47F781BCEA3280086F42D /* __SSSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchButton.m; sourceTree = "<group>"; };
-		83F47F791BCEA3280086F42D /* __SSSearchButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchButtonCell.h; sourceTree = "<group>"; };
-		83F47F7A1BCEA3280086F42D /* __SSSearchButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchButtonCell.m; sourceTree = "<group>"; };
+		83F47F771BCEA3280086F42D /* __SSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButton.h; sourceTree = "<group>"; };
+		83F47F781BCEA3280086F42D /* __SSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButton.m; sourceTree = "<group>"; };
+		83F47F791BCEA3280086F42D /* __SSButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonCell.h; sourceTree = "<group>"; };
+		83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButtonCell.m; sourceTree = "<group>"; };
 		83F47F7B1BCEA3280086F42D /* __SSSearchStuffBackingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffBackingCell.h; sourceTree = "<group>"; };
 		83F47F7C1BCEA3280086F42D /* __SSSearchStuffBackingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffBackingCell.m; sourceTree = "<group>"; };
 		83F47F7D1BCEA3280086F42D /* __SSSearchStuffInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffInputField.h; sourceTree = "<group>"; };
@@ -192,18 +195,20 @@
 			isa = PBXGroup;
 			children = (
 				83F47FD31BCFD8350086F42D /* artwork */,
-				83F47F771BCEA3280086F42D /* __SSSearchButton.h */,
-				83F47F781BCEA3280086F42D /* __SSSearchButton.m */,
-				83F47F791BCEA3280086F42D /* __SSSearchButtonCell.h */,
-				83F47F7A1BCEA3280086F42D /* __SSSearchButtonCell.m */,
+				83F47F771BCEA3280086F42D /* __SSButton.h */,
+				83F47F781BCEA3280086F42D /* __SSButton.m */,
+				83F47F791BCEA3280086F42D /* __SSButtonCell.h */,
+				83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */,
+				830531ED1BD51AEF00223917 /* __SSSearchButton.h */,
+				830531EE1BD51AEF00223917 /* __SSSearchButton.m */,
 				83F47F7B1BCEA3280086F42D /* __SSSearchStuffBackingCell.h */,
 				83F47F7C1BCEA3280086F42D /* __SSSearchStuffBackingCell.m */,
 				83F47F7D1BCEA3280086F42D /* __SSSearchStuffInputField.h */,
 				83F47F7E1BCEA3280086F42D /* __SSSearchStuffInputField.m */,
 				83F47F7F1BCEA3280086F42D /* __SSSearchStuffInputFieldCell.h */,
 				83F47F801BCEA3280086F42D /* __SSSearchStuffInputFieldCell.m */,
-				83F47FD01BCFD8120086F42D /* __SSSearchStuffBar.m */,
 				83F47FD11BCFD8120086F42D /* __SSSearchStuffBar.h */,
+				83F47FD01BCFD8120086F42D /* __SSSearchStuffBar.m */,
 			);
 			path = internal;
 			sourceTree = "<group>";
@@ -361,12 +366,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				83F47F961BCEA3290086F42D /* SSSearchStuffToolbarItem.m in Sources */,
-				83F47F901BCEA3290086F42D /* __SSSearchButton.m in Sources */,
+				83F47F901BCEA3290086F42D /* __SSButton.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSSearchStuffBar.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83F47F941BCEA3290086F42D /* __SSSearchStuffInputFieldCell.m in Sources */,
-				83F47F911BCEA3290086F42D /* __SSSearchButtonCell.m in Sources */,
+				830531EF1BD51AEF00223917 /* __SSSearchButton.m in Sources */,
+				83F47F911BCEA3290086F42D /* __SSButtonCell.m in Sources */,
 				83F47F971BCEA3290086F42D /* SSSearchStuffWidget.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSSearchStuffInputField.m in Sources */,
 				83F47F921BCEA3290086F42D /* __SSSearchStuffBackingCell.m in Sources */,
