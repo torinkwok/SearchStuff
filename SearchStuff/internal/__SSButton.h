@@ -18,6 +18,6 @@
 
 #pragma mark - Default Properties
 
-+ ( NSSize ) ssDefaultSize;
+@property ( assign, readonly ) NSSize ssDefaultSize;
 
 @end // __SSButton class

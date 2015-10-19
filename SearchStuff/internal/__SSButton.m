@@ -35,7 +35,7 @@
 
 #pragma mark - Default Properties
 
-+ ( NSSize ) ssDefaultSize
+- ( NSSize ) ssDefaultSize
     {
     NSImage* ssDefaultImage = [ [ self class ] ssDefaultImage ];
     NSSize theSize = NSMakeSize( 15.f * ssDefaultImage.size.width / ssDefaultImage.size.height, 15.f );
@@ -49,7 +49,7 @@
     {
     if ( self = [ super initWithFrame: _FrameRect ] )
         {
-        [ self setFrameSize: [ [ self class ] ssDefaultSize ] ];
+        [ self setFrameSize: [ self ssDefaultSize ] ];
         [ self setImage: [ [ self class ] ssDefaultImage ] ];
         [ self setAlternateImage: [ [ self class ] ssDefaultAlternativeImage ] ];
 
