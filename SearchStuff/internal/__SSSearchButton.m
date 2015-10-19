@@ -16,6 +16,7 @@
     {
     if ( self = [ super initWithFrame: _Frame ] )
         {
+        self.ssImage = [ NSImage imageNamed: @"search-stuff-search" ];
         self.ssDefaultAlternativeImage = [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
         }
 

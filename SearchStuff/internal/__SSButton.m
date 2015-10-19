@@ -20,10 +20,11 @@
 @implementation __SSButton
     {
 @protected
-    NSImage* __strong __ssDefaultImage;
+    NSImage* __strong __ssImage;
     NSImage* __strong __ssDefaultAlternativeImage;
     }
 
+@dynamic ssImage;
 @dynamic ssDefaultAlternativeImage;
 
 #pragma mark - Pure Virtual Methods
@@ -32,6 +33,17 @@
     {
     __Throw_exception_because_of_invocation_of_pure_virtual_method;
     return nil;
+    }
+
+- ( NSImage* ) ssImage
+    {
+    return self->__ssImage;
+    }
+
+- ( void ) setSsImage: ( NSImage* )_Image
+    {
+    self->__ssImage = _Image;
+    [ self setImage: self->__ssImage ];
     }
 
 - ( NSImage* ) ssDefaultAlternativeImage

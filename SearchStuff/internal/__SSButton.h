@@ -14,6 +14,7 @@
 #pragma mark - Pure Virtual Methods
 
 + ( NSImage* ) ssDefaultImage;
+@property ( strong, readwrite ) NSImage* ssImage;
 @property ( strong, readwrite ) NSImage* ssDefaultAlternativeImage;
 
 #pragma mark - Default Properties
