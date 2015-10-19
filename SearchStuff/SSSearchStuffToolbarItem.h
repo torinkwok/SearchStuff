@@ -22,10 +22,12 @@
 // SSSearchStuffDelegate protocol
 @protocol SearchStuffDelegate <NSObject>
 
-- ( NSArray <__kindof SSSearchStuffWidget*>* ) leftHandSideAnchoredWidgets;
-- ( NSArray <__kindof SSSearchStuffWidget*>* ) rightHandSideAnchoredWidgets;
+- ( SSSearchStuffWidget* ) ssToolbarItemWithTitleWidget: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
 
-- ( NSArray <__kindof SSSearchStuffWidget*>* ) leftHandSideFloatWidgets;
-- ( NSArray <__kindof SSSearchStuffWidget*>* ) rightHandSideFloatWidgets;
+- ( NSArray <__kindof SSSearchStuffWidget*>* ) ssToolbarItemWithLeftHandSideAnchoredWidgets: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
+- ( NSArray <__kindof SSSearchStuffWidget*>* ) ssToolbarItemWithRightHandSideAnchoredWidgets: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
+
+- ( NSArray <__kindof SSSearchStuffWidget*>* ) ssToolbarItemWithLeftHandSideFloatWidgets: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
+- ( NSArray <__kindof SSSearchStuffWidget*>* ) ssToolbarItemWithRightHandSideFloatWidgets: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
 
 @end // SSSearchStuffDelegate protocol
