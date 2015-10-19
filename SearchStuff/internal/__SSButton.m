@@ -9,8 +9,6 @@
 #import "__SSButton.h"
 #import "__SSButtonCell.h"
 
-#import "__SSMacro.h"
-
 // Private Interfaces
 @interface __SSButton ()
 - ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted;
