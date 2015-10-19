@@ -20,6 +20,7 @@
 @implementation __SSButton
     {
 @protected
+    NSImage* __strong __ssDefaultImage;
     NSImage* __strong __ssDefaultAlternativeImage;
     }
 
@@ -61,8 +62,6 @@
     if ( self = [ super initWithFrame: _FrameRect ] )
         {
         [ self setFrameSize: [ self ssDefaultSize ] ];
-//        [ self setImage: [ [ self class ] ssDefaultImage ] ];
-//        [ self setAlternateImage: [ self ssDefaultAlternativeImage ] ];
 
         NSTrackingArea* trackingArea =
             [ [ NSTrackingArea alloc ] initWithRect: self.bounds
