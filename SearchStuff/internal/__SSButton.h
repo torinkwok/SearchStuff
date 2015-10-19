@@ -11,11 +11,13 @@
 // __SSButton class
 @interface __SSButton : NSButton
 
+#pragma mark - Pure Virtual Properties
+
++ ( NSImage* ) defaultImage;
++ ( NSImage* ) defaultAlternativeImage;
+
 #pragma mark - Default Properties
 
-@property ( strong, readwrite ) NSImage* ssImage;
-@property ( strong, readwrite ) NSImage* ssAlternativeImage;
-
-@property ( assign, readonly ) NSSize ssSize;
++ ( NSSize ) defaultSize;
 
 @end // __SSButton class

@@ -17,13 +17,23 @@
 // __SSButton class
 @implementation __SSButton
 
-@dynamic ssSize;
+#pragma mark - Pure Virtual Properties
+
++ ( NSImage* ) defaultImage
+    {
+    return nil;
+    }
+
++ ( NSImage* ) defaultAlternativeImage
+    {
+    return nil;
+    }
 
 #pragma mark - Default Properties
 
-- ( NSSize ) ssSize;
++ ( NSSize ) defaultSize
     {
-    NSImage* defaultImage = [ self ssImage ];
+    NSImage* defaultImage = [ [ self class ] defaultImage ];
     NSSize theSize = NSMakeSize( 15.f * defaultImage.size.width / defaultImage.size.height, 15.f );
 
     return theSize;
@@ -35,9 +45,9 @@
     {
     if ( self = [ super initWithFrame: _FrameRect ] )
         {
-        [ self setFrameSize: [ self ssSize ] ];
-        [ self setImage: [ self ssImage ] ];
-        [ self setAlternateImage: [ self ssAlternativeImage ] ];
+        [ self setFrameSize: [ [ self class ] defaultSize ] ];
+        [ self setImage: [ [ self class ] defaultImage ] ];
+        [ self setAlternateImage: [ [ self class ] defaultAlternativeImage ] ];
 
         NSTrackingArea* trackingArea =
             [ [ NSTrackingArea alloc ] initWithRect: self.bounds

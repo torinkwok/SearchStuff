@@ -10,12 +10,14 @@
 
 @implementation __SSSearchButton
 
-- ( NSImage* ) ssImage
+#pragma mark - Pure Virtual Properties
+
++ ( NSImage* ) defaultImage
     {
     return [ NSImage imageNamed: @"search-stuff-search" ];
     }
 
-- ( NSImage* ) ssAlternativeImage
++ ( NSImage* ) defaultAlternativeImage
     {
     return [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
     }
