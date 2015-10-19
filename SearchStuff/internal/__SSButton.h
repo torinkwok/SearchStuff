@@ -11,12 +11,10 @@
 // __SSButton class
 @interface __SSButton : NSButton
 
-#pragma mark - Pure Virtual Methods
+#pragma mark - Dynamic Properties
 
 @property ( strong, readwrite ) NSImage* ssImage;
-@property ( strong, readwrite ) NSImage* ssDefaultAlternativeImage;
-
-#pragma mark - Default Properties
+@property ( strong, readwrite ) NSImage* ssAlternativeImage;
 
 @property ( assign, readonly ) NSSize ssDefaultSize;
 

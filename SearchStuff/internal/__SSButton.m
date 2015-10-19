@@ -21,20 +21,15 @@
     {
 @protected
     NSImage* __strong __ssImage;
-    NSImage* __strong __ssDefaultAlternativeImage;
+    NSImage* __strong __ssAlternativeImage;
 
     NSSize __ssSize;
     }
 
 @dynamic ssImage;
-@dynamic ssDefaultAlternativeImage;
+@dynamic ssAlternativeImage;
 
-#pragma mark - Pure Virtual Methods
-
-- ( NSImage* ) ssImage
-    {
-    return self->__ssImage;
-    }
+#pragma mark - Dynamic Properties
 
 - ( void ) setSsImage: ( NSImage* )_Image
     {
@@ -50,21 +45,25 @@
         }
     }
 
-- ( NSImage* ) ssDefaultAlternativeImage
+- ( NSImage* ) ssImage
     {
-    return self->__ssDefaultAlternativeImage;
+    return self->__ssImage;
     }
 
-- ( void ) setSsDefaultAlternativeImage: ( NSImage* )_Image
+- ( void ) setSsAlternativeImage: ( NSImage* )_Image
     {
-    if ( self->__ssDefaultAlternativeImage != _Image )
+    if ( self->__ssAlternativeImage != _Image )
         {
-        self->__ssDefaultAlternativeImage = _Image;
-        [ self setAlternateImage: self->__ssDefaultAlternativeImage ];
+        self->__ssAlternativeImage = _Image;
+        [ self setAlternateImage: self->__ssAlternativeImage ];
         }
     }
 
-#pragma mark - Default Properties
+- ( NSImage* ) ssAlternativeImage
+    {
+    return self->__ssAlternativeImage;
+    }
+
 
 - ( NSSize ) ssDefaultSize
     {

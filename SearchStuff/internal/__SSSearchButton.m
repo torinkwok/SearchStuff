@@ -8,19 +8,20 @@
 
 #import "__SSSearchButton.h"
 
+// __SSSearchButton class
 @implementation __SSSearchButton
 
-#pragma mark - Overrides Pure Virtual Methods
+#pragma mark - Initializations
 
 - ( instancetype ) initWithFrame: ( NSRect )_Frame
     {
     if ( self = [ super initWithFrame: _Frame ] )
         {
         self.ssImage = [ NSImage imageNamed: @"search-stuff-search" ];
-        self.ssDefaultAlternativeImage = [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
+        self.ssAlternativeImage = [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
         }
 
     return self;
     }
 
-@end
+@end // __SSSearchButton class

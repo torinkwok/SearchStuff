@@ -8,6 +8,7 @@
 
 #import "__SSButton.h"
 
+// __SSSearchButton class
 @interface __SSSearchButton : __SSButton
 
-@end
+@end // __SSSearchButton class
