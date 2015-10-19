@@ -8,11 +8,11 @@
 
 #import "__SSSearchStuffInputField.h"
 #import "__SSSearchStuffInputFieldCell.h"
-#import "__SSSearchButton.h"
+#import "__SSPreSearchButton.h"
 
 // Private Interfaces
 @interface __SSSearchStuffInputField ()
-@property ( strong ) __SSSearchButton* __searchButton;
+@property ( strong ) __SSPreSearchButton* __searchButton;
 @end // Private Interfaces
 
 // __SSSearchStuffInputField class
@@ -37,7 +37,7 @@
         [ self setBordered: NO ];
         [ self setPlaceholderString: NSLocalizedString( @"Search the fucking stuff", nil ) ];
 
-        self.__searchButton = [ [ __SSSearchButton alloc ] initWithFrame: NSZeroRect ];
+        self.__searchButton = [ [ __SSPreSearchButton alloc ] initWithFrame: NSZeroRect ];
         [ self.__searchButton setFrameOrigin: NSMakePoint( 6.5f, 5.f ) ];
 
         [ self addSubview: self.__searchButton ];

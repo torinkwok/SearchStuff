@@ -1,15 +1,15 @@
 //
-//  __SSSearchButton.m
+//  __SSPreSearchButton.m
 //  Playground
 //
 //  Created by Tong G. on 10/19/15.
 //  Copyright © 2015 Tong Kuo. All rights reserved.
 //
 
-#import "__SSSearchButton.h"
+#import "__SSPreSearchButton.h"
 
-// __SSSearchButton class
-@implementation __SSSearchButton
+// __SSPreSearchButton class
+@implementation __SSPreSearchButton
 
 #pragma mark - Initializations
 
@@ -24,4 +24,4 @@
     return self;
     }
 
-@end // __SSSearchButton class
+@end // __SSPreSearchButton class

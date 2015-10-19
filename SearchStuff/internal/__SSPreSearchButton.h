@@ -1,5 +1,5 @@
 //
-//  __SSSearchButton.h
+//  __SSPreSearchButton.h
 //  Playground
 //
 //  Created by Tong G. on 10/19/15.
@@ -8,7 +8,7 @@
 
 #import "__SSButton.h"
 
-// __SSSearchButton class
-@interface __SSSearchButton : __SSButton
+// __SSPreSearchButton class
+@interface __SSPreSearchButton : __SSButton
 
-@end // __SSSearchButton class
+@end // __SSPreSearchButton class
