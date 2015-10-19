@@ -8,16 +8,12 @@
 
 @import Cocoa;
 
-@class __SSSearchStuffBar;
+@class SSSearchStuffWidget;
 
 @protocol SearchStuffDelegate;
 
 // SSSearchStuffToolbarItem class
 @interface SSSearchStuffToolbarItem : NSToolbarItem
-    {
-@private
-    __SSSearchStuffBar* __searchBar;
-    }
 
 @property ( weak ) IBOutlet id <SearchStuffDelegate> delegate;
 
@@ -25,5 +21,11 @@
 
 // SSSearchStuffDelegate protocol
 @protocol SearchStuffDelegate <NSObject>
+
+- ( NSArray <__kindof SSSearchStuffWidget*>* ) leftHandSideAnchoredWidgets;
+- ( NSArray <__kindof SSSearchStuffWidget*>* ) rightHandSideAnchoredWidgets;
+
+- ( NSArray <__kindof SSSearchStuffWidget*>* ) leftHandSideFloatWidgets;
+- ( NSArray <__kindof SSSearchStuffWidget*>* ) rightHandSideFloatWidgets;
 
 @end // SSSearchStuffDelegate protocol

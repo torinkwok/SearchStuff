@@ -7,6 +7,7 @@
 //
 
 #import "SSSearchStuffToolbarItem.h"
+
 #import "__SSSearchStuffBar.h"
 
 // Private Interfaces
@@ -16,6 +17,10 @@
 
 // SSSearchStuffToolbarItem class
 @implementation SSSearchStuffToolbarItem
+    {
+@private
+    __SSSearchStuffBar* __searchBar;
+    }
 
 #pragma mark - Initializations
 
