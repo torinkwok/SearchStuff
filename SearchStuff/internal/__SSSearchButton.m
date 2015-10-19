@@ -10,14 +10,14 @@
 
 @implementation __SSSearchButton
 
-#pragma mark - Pure Virtual Properties
+#pragma mark - Overrides Pure Virtual Methods
 
-+ ( NSImage* ) defaultImage
++ ( NSImage* ) ssDefaultImage
     {
     return [ NSImage imageNamed: @"search-stuff-search" ];
     }
 
-+ ( NSImage* ) defaultAlternativeImage
++ ( NSImage* ) ssDefaultAlternativeImage
     {
     return [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
     }

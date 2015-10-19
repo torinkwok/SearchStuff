@@ -9,6 +9,8 @@
 #import "__SSButton.h"
 #import "__SSButtonCell.h"
 
+#import "__SSMacro.h"
+
 // Private Interfaces
 @interface __SSButton ()
 - ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted;
@@ -17,24 +19,26 @@
 // __SSButton class
 @implementation __SSButton
 
-#pragma mark - Pure Virtual Properties
+#pragma mark - Pure Virtual Methods
 
-+ ( NSImage* ) defaultImage
++ ( NSImage* ) ssDefaultImage
     {
+    __Throw_exception_because_of_invocation_of_pure_virtual_method;
     return nil;
     }
 
-+ ( NSImage* ) defaultAlternativeImage
++ ( NSImage* ) ssDefaultAlternativeImage
     {
+    __Throw_exception_because_of_invocation_of_pure_virtual_method;
     return nil;
     }
 
 #pragma mark - Default Properties
 
-+ ( NSSize ) defaultSize
++ ( NSSize ) ssDefaultSize
     {
-    NSImage* defaultImage = [ [ self class ] defaultImage ];
-    NSSize theSize = NSMakeSize( 15.f * defaultImage.size.width / defaultImage.size.height, 15.f );
+    NSImage* ssDefaultImage = [ [ self class ] ssDefaultImage ];
+    NSSize theSize = NSMakeSize( 15.f * ssDefaultImage.size.width / ssDefaultImage.size.height, 15.f );
 
     return theSize;
     }
@@ -45,9 +49,9 @@
     {
     if ( self = [ super initWithFrame: _FrameRect ] )
         {
-        [ self setFrameSize: [ [ self class ] defaultSize ] ];
-        [ self setImage: [ [ self class ] defaultImage ] ];
-        [ self setAlternateImage: [ [ self class ] defaultAlternativeImage ] ];
+        [ self setFrameSize: [ [ self class ] ssDefaultSize ] ];
+        [ self setImage: [ [ self class ] ssDefaultImage ] ];
+        [ self setAlternateImage: [ [ self class ] ssDefaultAlternativeImage ] ];
 
         NSTrackingArea* trackingArea =
             [ [ NSTrackingArea alloc ] initWithRect: self.bounds
