@@ -22,18 +22,14 @@
 @protected
     NSImage* __strong __ssImage;
     NSImage* __strong __ssDefaultAlternativeImage;
+
+    NSSize __ssSize;
     }
 
 @dynamic ssImage;
 @dynamic ssDefaultAlternativeImage;
 
 #pragma mark - Pure Virtual Methods
-
-+ ( NSImage* ) ssDefaultImage
-    {
-    __Throw_exception_because_of_invocation_of_pure_virtual_method;
-    return nil;
-    }
 
 - ( NSImage* ) ssImage
     {
@@ -42,8 +38,16 @@
 
 - ( void ) setSsImage: ( NSImage* )_Image
     {
-    self->__ssImage = _Image;
-    [ self setImage: self->__ssImage ];
+    if ( self->__ssImage != _Image )
+        {
+        self->__ssImage = _Image;
+        [ self setImage: self->__ssImage ];
+
+        self->__ssSize = NSMakeSize( 15.f * self->__ssImage.size.width / self->__ssImage.size.height, 15.f );
+
+        if ( ( self->__ssSize.width ) > 0 && ( self->__ssSize.height > 0 ) )
+        [ self setFrameSize: [ self ssDefaultSize ] ];
+        }
     }
 
 - ( NSImage* ) ssDefaultAlternativeImage
@@ -53,18 +57,18 @@
 
 - ( void ) setSsDefaultAlternativeImage: ( NSImage* )_Image
     {
-    self->__ssDefaultAlternativeImage = _Image;
-    [ self setAlternateImage: self->__ssDefaultAlternativeImage ];
+    if ( self->__ssDefaultAlternativeImage != _Image )
+        {
+        self->__ssDefaultAlternativeImage = _Image;
+        [ self setAlternateImage: self->__ssDefaultAlternativeImage ];
+        }
     }
 
 #pragma mark - Default Properties
 
 - ( NSSize ) ssDefaultSize
     {
-    NSImage* ssDefaultImage = [ [ self class ] ssDefaultImage ];
-    NSSize theSize = NSMakeSize( 15.f * ssDefaultImage.size.width / ssDefaultImage.size.height, 15.f );
-
-    return theSize;
+    return self->__ssSize;
     }
 
 #pragma mark - Initializations
@@ -73,7 +77,7 @@
     {
     if ( self = [ super initWithFrame: _FrameRect ] )
         {
-        [ self setFrameSize: [ self ssDefaultSize ] ];
+        self->__ssSize = NSZeroSize;
 
         NSTrackingArea* trackingArea =
             [ [ NSTrackingArea alloc ] initWithRect: self.bounds

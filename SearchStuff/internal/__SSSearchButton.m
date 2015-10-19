@@ -23,14 +23,4 @@
     return self;
     }
 
-+ ( NSImage* ) ssDefaultImage
-    {
-    return [ NSImage imageNamed: @"search-stuff-search" ];
-    }
-
-//+ ( NSImage* ) ssDefaultAlternativeImage
-//    {
-//    return [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
-//    }
-
 @end
