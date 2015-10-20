@@ -12,13 +12,41 @@
 
 // Private Interfaces
 @interface AppDelegate ()
+
 @property ( weak ) IBOutlet NSWindow* window;
+@property ( strong ) SSSearchStuffToolbarItem* ssToolbarItem;
+
+- ( NSToolbarItem* ) __toolbarWithIdentifier: ( NSString* )_Identifier
+                                       label: ( NSString* )_Label
+                                 paleteLabel: ( NSString* )_PaleteLabel
+                                     toolTip: ( NSString* )_ToolTip
+                                      target: ( id )_Target
+                                      action: ( SEL )_ActionSEL
+                                 itemContent: ( id )_ImageOrView
+                                     repMenu: ( NSMenu* )_Menu;
+
 @end // Private Interfaces
 
 // AppDelegate class
 @implementation AppDelegate
 
+#pragma mark - Initializations
+
+- ( instancetype ) init
+    {
+    if ( self = [ super init ] )
+        {
+        self.ssToolbarItem = [ [ SSSearchStuffToolbarItem alloc ] initWithItemIdentifier: kSearchStuffWidget ];
+        [ self.ssToolbarItem setLabel: NSLocalizedString( @"Search Stuff Bar", nil ) ];
+        [ self.ssToolbarItem setPaletteLabel: self.ssToolbarItem.label ];
+        [ self.ssToolbarItem setDelegate: self ];
+        }
+
+    return self;
+    }
+
 #pragma mark - Conforms to <NSToolbarDelegate>
+
 NSString* const kSearchStuffWidget = @"kSearchStuffWidget";
 NSString* const kLhsPlaceholderButton = @"kLhsPlaceholderButton";
 NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
@@ -62,10 +90,8 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
     if ( ( should = [ _ItemIdentifier isEqualToString: kSearchStuffWidget ] ) )
         {
         should = NO;
-
-        toolbarItem = [ [ SSSearchStuffToolbarItem alloc ] initWithItemIdentifier: _ItemIdentifier ];
-        [ toolbarItem setLabel: NSLocalizedString( @"Search Stuff Bar", nil ) ];
-        [ toolbarItem setPaletteLabel: toolbarItem.label ];
+        toolbarItem = self.ssToolbarItem;
+        [ self.ssToolbarItem reload ];
         }
 
     else if ( ( should = ( [ _ItemIdentifier isEqualToString: kLhsPlaceholderButton ]
@@ -97,6 +123,24 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
     return toolbarItem;
     }
 
+#pragma mark - Conforms to <SearchStuffDelegate>
+
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers
+    {
+    return @[ SearchStuffReloadWidgetIdentifier ];
+    }
+
+//- ( SSSearchStuffWidget* ) ssToolbarItem: ( SSSearchStuffToolbarItem* )_ssToolbarItem
+//               widgetForWidgetIdentifier: ( NSString* )_Identifier
+//    {
+//    SSSearchStuffWidget* ssWidget = nil;
+//
+//    if ( [ _Identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
+//
+//    }
+
+#pragma mark - Private Interfaces
+
 - ( NSToolbarItem* ) __toolbarWithIdentifier: ( NSString* )_Identifier
                                        label: ( NSString* )_Label
                                  paleteLabel: ( NSString* )_PaleteLabel
@@ -119,11 +163,7 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
         [ newToolbarItem setImage: ( NSImage* )_ImageOrView ];
 
     else if ( [ _ImageOrView isKindOfClass: [ NSView class ] ] )
-        {
         [ newToolbarItem setView: ( NSView* )_ImageOrView ];
-//        [ newToolbarItem setMinSize: NSMakeSize( 40, 25 ) ];
-//        [ newToolbarItem setMaxSize: NSMakeSize( 40, 25 ) ];
-        }
 
     if ( _Menu )
         {

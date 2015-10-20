@@ -12,6 +12,10 @@
 
 @protocol SearchStuffDelegate;
 
+// Standard Identifiers
+NSString extern* const SearchStuffSearchWidgetIdentifier;
+NSString extern* const SearchStuffReloadWidgetIdentifier;
+
 // SSSearchStuffToolbarItem class
 @interface SSSearchStuffToolbarItem : NSToolbarItem
 
@@ -30,10 +34,13 @@
 
 - ( SSSearchStuffWidget* ) ssToolbarItemWithTitleWidget: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
 
-- ( NSArray <__kindof SSSearchStuffWidget*>* ) ssToolbarItemWithLeftHandSideAnchoredWidgets: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
-- ( NSArray <__kindof SSSearchStuffWidget*>* ) ssToolbarItemWithRightHandSideAnchoredWidgets: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers;
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemRightHandSideAnchoredWidgetIdentifiers;
 
-- ( NSArray <__kindof SSSearchStuffWidget*>* ) ssToolbarItemWithLeftHandSideFloatWidgets: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
-- ( NSArray <__kindof SSSearchStuffWidget*>* ) ssToolbarItemWithRightHandSideFloatWidgets: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideFloatWidgetIdentifiers;
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemRightHandSideFloatWidgetIdentifiers;
+
+- ( SSSearchStuffWidget* ) ssToolbarItem: ( SSSearchStuffToolbarItem* )_ssToolbarItem
+               widgetForWidgetIdentifier: ( NSString* )_Identifier;
 
 @end // SSSearchStuffDelegate protocol

@@ -11,6 +11,11 @@
 #import "__SSSearchStuffBackingCell.h"
 #import "__SSSearchStuffInputField.h"
 
+#import "__SSSearchStuffToolbarItem.h"
+
+#import "SSSearchStuffWidget.h"
+#import "SSSearchStuffToolbarItem.h"
+
 // Private Interfaces
 @interface __SSSearchStuffBar()
 
@@ -54,7 +59,13 @@
 
 - ( void ) reload
     {
-    // TODO:
+    if ( [ self.hostingSSToolbarItem.delegate respondsToSelector: @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ) ] )
+        {
+        NSArray <__kindof NSString*>* lhsAnchoredWidgets =
+            [ self.hostingSSToolbarItem.delegate ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ];
+
+        NSLog( @"%@", self.hostingSSToolbarItem.__standardIdentifiers );
+        }
     }
 
 #pragma Drawing

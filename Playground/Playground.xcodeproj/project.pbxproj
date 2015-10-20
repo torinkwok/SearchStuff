@@ -65,6 +65,7 @@
 		832719171BC1279100C28426 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8327191B1BC1279100C28426 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		832CBAF81BD6611300693DC1 /* __SSSearchStuffToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffToolbarItem.h; sourceTree = "<group>"; };
 		83F47F771BCEA3280086F42D /* __SSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButton.h; sourceTree = "<group>"; };
 		83F47F781BCEA3280086F42D /* __SSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButton.m; sourceTree = "<group>"; };
 		83F47F791BCEA3280086F42D /* __SSButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonCell.h; sourceTree = "<group>"; };
@@ -209,6 +210,7 @@
 				83F47F801BCEA3280086F42D /* __SSSearchStuffInputFieldCell.m */,
 				83F47FD11BCFD8120086F42D /* __SSSearchStuffBar.h */,
 				83F47FD01BCFD8120086F42D /* __SSSearchStuffBar.m */,
+				832CBAF81BD6611300693DC1 /* __SSSearchStuffToolbarItem.h */,
 			);
 			path = internal;
 			sourceTree = "<group>";
