@@ -77,7 +77,7 @@
         }
     }
 
-#pragma Drawing
+#pragma mark - Drawing
 
 - ( void ) drawRect: ( NSRect )_DirtyRect
     {

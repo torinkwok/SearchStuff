@@ -12,10 +12,6 @@
 
 @protocol SearchStuffDelegate;
 
-// Standard Identifiers
-NSString extern* const SearchStuffSearchWidgetIdentifier;
-NSString extern* const SearchStuffReloadWidgetIdentifier;
-
 // SSSearchStuffToolbarItem class
 @interface SSSearchStuffToolbarItem : NSToolbarItem
 

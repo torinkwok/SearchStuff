@@ -7,13 +7,10 @@
 //
 
 #import "SSSearchStuffToolbarItem.h"
+#import "SSSearchStuffWidget.h"
 
 #import "__SSSearchStuffBar.h"
 #import "__SSSearchStuffToolbarItem.h"
-
-// Standard Identifiers
-NSString* const SearchStuffSearchWidgetIdentifier = @"__ssSearchWidgetIdentifier";
-NSString* const SearchStuffReloadWidgetIdentifier = @"__ssReloadWidgetIdentifier";
 
 // Private Interfaces
 @interface SSSearchStuffToolbarItem()

@@ -8,6 +8,10 @@
 
 #import "SSSearchStuffWidget.h"
 
+// Standard Identifiers
+NSString* const SearchStuffSearchWidgetIdentifier = @"__ssSearchWidgetIdentifier";
+NSString* const SearchStuffReloadWidgetIdentifier = @"__ssReloadWidgetIdentifier";
+
 // Private Interfaces
 @interface SSSearchStuffWidget ()
 @property ( strong, readwrite ) NSString* identifier;

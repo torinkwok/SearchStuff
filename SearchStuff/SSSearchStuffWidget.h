@@ -8,6 +8,10 @@
 
 @import Cocoa;
 
+// Standard Identifiers
+NSString extern* const SearchStuffSearchWidgetIdentifier;
+NSString extern* const SearchStuffReloadWidgetIdentifier;
+
 // SSSearchStuffWidget class
 @interface SSSearchStuffWidget : NSObject
 
