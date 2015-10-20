@@ -11,14 +11,4 @@
 // __SSSearchStuffWidgetUser class
 @interface __SSSearchStuffWidgetUser : SSSearchStuffWidget
 
-@property ( assign, readwrite ) SEL action;
-@property ( weak, readwrite ) id target;
-
-@property ( strong, readwrite ) NSImage* image;
-@property ( strong, readwrite ) NSImage* alternativeImage;
-
-@property ( strong, readwrite ) NSView* view;
-
-@property ( strong, readwrite ) NSString* toolTip;
-
 @end // __SSSearchStuffWidgetUser class

@@ -7,7 +7,6 @@
 //
 
 #import "__SSSearchStuffWidgetStd.h"
-#import "__SSSearchStuffWidget.h"
 
 // __SSSearchStuffWidgetStd class
 @implementation __SSSearchStuffWidgetStd
@@ -22,6 +21,14 @@
 + ( instancetype ) ssReloadWidget
     {
     return [ [ self alloc ] initWithIdentifier: SearchStuffReloadWidgetIdentifier ];
+    }
+
+- ( instancetype ) __initWithIdentifier: ( NSString* )_Identifier
+    {
+    if ( self = [ super initWithIdentifier: _Identifier ] )
+        self->__isStandardWidget = YES;
+
+    return self;
     }
 
 @end // __SSSearchStuffWidgetStd class

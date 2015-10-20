@@ -14,8 +14,24 @@ NSString extern* const SearchStuffReloadWidgetIdentifier;
 
 // SSSearchStuffWidget class
 @interface SSSearchStuffWidget : NSObject
+    {
+@protected
+    BOOL __isStandardWidget;
+    }
+
+@property ( assign, readwrite ) SEL action;
+@property ( weak, readwrite ) id target;
+
+@property ( strong, readwrite ) NSImage* image;
+@property ( strong, readwrite ) NSImage* alternativeImage;
+
+@property ( strong, readwrite ) NSView* view;
+
+@property ( strong, readwrite ) NSString* toolTip;
 
 @property ( strong, readonly ) NSString* identifier;
+
+@property ( assign, readonly ) BOOL isStandardWidget;
 
 #pragma mark - Initializations
 

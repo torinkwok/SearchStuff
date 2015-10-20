@@ -12,4 +12,14 @@
 // __SSSearchStuffWidgetUser class
 @implementation __SSSearchStuffWidgetUser
 
+#pragma mark - Initializations
+
+- ( instancetype ) __initWithIdentifier: ( NSString* )_Identifier
+    {
+    if ( self = [ super initWithIdentifier: _Identifier ] )
+        self->__isStandardWidget = NO;
+
+    return self;
+    }
+
 @end // __SSSearchStuffWidgetUser class
