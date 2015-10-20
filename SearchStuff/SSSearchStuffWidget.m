@@ -26,7 +26,7 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
 
 #pragma mark - Initializations
 
-+ ( NSArray <__kindof NSString*>* ) stdIdentifiers
++ ( NSArray <__kindof NSString*>* ) __stdIdentifiers
     {
     return@[ SearchStuffSearchWidgetIdentifier
            , SearchStuffReloadWidgetIdentifier

@@ -15,8 +15,6 @@ NSString extern* const SearchStuffReloadWidgetIdentifier;
 // SSSearchStuffWidget class
 @interface SSSearchStuffWidget : NSObject
 
-+ ( NSArray <__kindof NSString*>* ) stdIdentifiers;
-
 @property ( strong, readonly ) NSString* identifier;
 
 #pragma mark - Initializations

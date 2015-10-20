@@ -10,6 +10,7 @@
 
 #import "__SSSearchStuffBackingCell.h"
 #import "__SSSearchStuffInputField.h"
+#import "__SSSearchStuffWidget.h"
 
 #import "SSSearchStuffWidget.h"
 #import "SSSearchStuffToolbarItem.h"
@@ -67,7 +68,7 @@
         for ( NSString* _WidgetIdentifier in lhsAnchoredWidgetIdentifiers )
             {
 //            NSLog( @"%@", _WidgetIdentifier );
-            if ( [ [ [ SSSearchStuffWidget class ] stdIdentifiers ] containsObject: _WidgetIdentifier ] )
+            if ( [ [ [ SSSearchStuffWidget class ] __stdIdentifiers ] containsObject: _WidgetIdentifier ] )
                 NSLog( @"🍉" );
             }
 

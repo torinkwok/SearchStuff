@@ -11,6 +11,8 @@
 // __SSSearchStuffWidget class
 @interface SSSearchStuffWidget ( SearchStuffPrivate )
 
++ ( NSArray <__kindof NSString*>* ) __stdIdentifiers;
+
 @property ( strong, readwrite ) NSString* identifier;
 
 @end // __SSSearchStuffWidget class
