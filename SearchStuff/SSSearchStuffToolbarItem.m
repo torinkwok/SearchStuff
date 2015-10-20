@@ -10,7 +10,6 @@
 #import "SSSearchStuffWidget.h"
 
 #import "__SSSearchStuffBar.h"
-#import "__SSSearchStuffToolbarItem.h"
 
 // Private Interfaces
 @interface SSSearchStuffToolbarItem()
@@ -22,8 +21,6 @@
     {
 @private
     __SSSearchStuffBar* __searchBar;
-
-    NSArray <__kindof NSString*>* __standardIdentifiers;
     }
 
 #pragma mark - Initializations
@@ -58,22 +55,6 @@
     NSRect screenFrame = [ NSScreen mainScreen ].frame;
     CGFloat maxWidth = floor( NSWidth( screenFrame ) / 2 );
     [ self setMaxSize: NSMakeSize( maxWidth, stdHeight ) ];
-
-    self->__standardIdentifiers = @[ SearchStuffSearchWidgetIdentifier
-                                   , SearchStuffReloadWidgetIdentifier
-                                   ];
     }
 
 @end // SSSearchStuffToolbarItem class
-
-// SSSearchStuffToolbarItem + SearchStuffPrivate
-@implementation SSSearchStuffToolbarItem ( SearchStuffPrivate )
-
-@dynamic __standardIdentifiers;
-
-- ( NSArray* ) __standardIdentifiers
-    {
-    return self->__standardIdentifiers;
-    }
-
-@end // SSSearchStuffToolbarItem + SearchStuffPrivate

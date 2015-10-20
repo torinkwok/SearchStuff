@@ -11,4 +11,7 @@
 // __SSSearchStuffWidgetStd class
 @interface __SSSearchStuffWidgetStd : SSSearchStuffWidget
 
++ ( instancetype ) ssSearchWidget;
++ ( instancetype ) ssReloadWidget;
+
 @end // __SSSearchStuffWidgetStd class

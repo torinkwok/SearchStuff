@@ -8,26 +8,39 @@
 
 #import "SSSearchStuffWidget.h"
 
+#import "__SSSearchStuffWidget.h"
+
 // Standard Identifiers
 NSString* const SearchStuffSearchWidgetIdentifier = @"__ssSearchWidgetIdentifier";
 NSString* const SearchStuffReloadWidgetIdentifier = @"__ssReloadWidgetIdentifier";
 
 // Private Interfaces
 @interface SSSearchStuffWidget ()
-@property ( strong, readwrite ) NSString* identifier;
+
 @end // Private Interfaces
+
+NSArray <__kindof NSString*> static* sStandardIdentifiers;
 
 // SSSearchStuffWidget 
 @implementation SSSearchStuffWidget
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier
++ ( NSArray <__kindof NSString*>* ) stdIdentifiers
     {
-    if ( self = [ super init ] )
-        self.identifier = _WidgetIdentifier;
+    return@[ SearchStuffSearchWidgetIdentifier
+           , SearchStuffReloadWidgetIdentifier
+           ];
+    }
 
-    return self;
+- ( instancetype ) initWithIdentifier: ( NSString* )_Identifier
+    {
+    self.identifier = _Identifier;
+
+    SSSearchStuffWidget* clusterMember = nil;
+//    if ( self.ho
+
+    return clusterMember;
     }
 
 @end // SSSearchStuffWidget class

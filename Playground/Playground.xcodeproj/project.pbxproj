@@ -68,13 +68,13 @@
 		832719171BC1279100C28426 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8327191B1BC1279100C28426 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		832CBAF81BD6611300693DC1 /* __SSSearchStuffToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffToolbarItem.h; sourceTree = "<group>"; };
 		832CBAFD1BD6675400693DC1 /* __SSPreReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSPreReloadButton.h; sourceTree = "<group>"; };
 		832CBAFE1BD6675400693DC1 /* __SSPreReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSPreReloadButton.m; sourceTree = "<group>"; };
 		832CBB001BD6881500693DC1 /* __SSSearchStuffWidgetStd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffWidgetStd.h; sourceTree = "<group>"; };
 		832CBB011BD6881500693DC1 /* __SSSearchStuffWidgetStd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffWidgetStd.m; sourceTree = "<group>"; };
 		832CBB031BD6882600693DC1 /* __SSSearchStuffWidgetUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffWidgetUser.h; sourceTree = "<group>"; };
 		832CBB041BD6882600693DC1 /* __SSSearchStuffWidgetUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffWidgetUser.m; sourceTree = "<group>"; };
+		832CBB071BD691E400693DC1 /* __SSSearchStuffWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffWidget.h; sourceTree = "<group>"; };
 		83F47F771BCEA3280086F42D /* __SSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButton.h; sourceTree = "<group>"; };
 		83F47F781BCEA3280086F42D /* __SSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButton.m; sourceTree = "<group>"; };
 		83F47F791BCEA3280086F42D /* __SSButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonCell.h; sourceTree = "<group>"; };
@@ -187,6 +187,14 @@
 			path = PlaygroundUITests;
 			sourceTree = "<group>";
 		};
+		832CBB061BD691C000693DC1 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				832CBB071BD691E400693DC1 /* __SSSearchStuffWidget.h */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
 		83F47F6C1BCEA3280086F42D /* SearchStuff */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +212,7 @@
 		83F47F761BCEA3280086F42D /* internal */ = {
 			isa = PBXGroup;
 			children = (
+				832CBB061BD691C000693DC1 /* extensions */,
 				83F47FD31BCFD8350086F42D /* artwork */,
 				83F47F771BCEA3280086F42D /* __SSButton.h */,
 				83F47F781BCEA3280086F42D /* __SSButton.m */,
@@ -225,7 +234,6 @@
 				832CBB011BD6881500693DC1 /* __SSSearchStuffWidgetStd.m */,
 				832CBB031BD6882600693DC1 /* __SSSearchStuffWidgetUser.h */,
 				832CBB041BD6882600693DC1 /* __SSSearchStuffWidgetUser.m */,
-				832CBAF81BD6611300693DC1 /* __SSSearchStuffToolbarItem.h */,
 			);
 			path = internal;
 			sourceTree = "<group>";

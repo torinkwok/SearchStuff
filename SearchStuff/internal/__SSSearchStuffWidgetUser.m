@@ -7,6 +7,7 @@
 //
 
 #import "__SSSearchStuffWidgetUser.h"
+#import "__SSSearchStuffWidget.h"
 
 // __SSSearchStuffWidgetUser class
 @implementation __SSSearchStuffWidgetUser

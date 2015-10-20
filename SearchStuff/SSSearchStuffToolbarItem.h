@@ -28,6 +28,7 @@
 // SSSearchStuffDelegate protocol
 @protocol SearchStuffDelegate <NSObject>
 
+@optional
 - ( SSSearchStuffWidget* ) ssToolbarItemWithTitleWidget: ( SSSearchStuffToolbarItem* )_ssToolbarItem;
 
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers;
@@ -36,6 +37,7 @@
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideFloatWidgetIdentifiers;
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemRightHandSideFloatWidgetIdentifiers;
 
+@required
 - ( SSSearchStuffWidget* ) ssToolbarItem: ( SSSearchStuffToolbarItem* )_ssToolbarItem
                widgetForWidgetIdentifier: ( NSString* )_Identifier;
 
