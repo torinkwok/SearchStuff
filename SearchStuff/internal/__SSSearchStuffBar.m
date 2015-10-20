@@ -59,12 +59,21 @@
 
 - ( void ) reload
     {
+    // Manipulation of left hand side anchored widgets
     if ( [ self.hostingSSToolbarItem.delegate respondsToSelector: @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ) ] )
         {
-        NSArray <__kindof NSString*>* lhsAnchoredWidgets =
+        NSArray <__kindof NSString*>* lhsAnchoredWidgetIdentifiers =
             [ self.hostingSSToolbarItem.delegate ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ];
 
-        NSLog( @"%@", self.hostingSSToolbarItem.__standardIdentifiers );
+        NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
+        for ( NSString* _WidgetIdentifier in lhsAnchoredWidgetIdentifiers )
+            {
+//            NSLog( @"%@", _WidgetIdentifier );
+            if ( [ self.hostingSSToolbarItem.__standardIdentifiers containsObject: _WidgetIdentifier ] )
+                NSLog( @"🍉" );
+            }
+
+//        NSLog( @"%@", self.hostingSSToolbarItem.__standardIdentifiers );
         }
     }
 

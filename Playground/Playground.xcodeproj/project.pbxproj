@@ -14,6 +14,7 @@
 		832719061BC1279100C28426 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832719041BC1279100C28426 /* MainMenu.xib */; };
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
+		832CBAFF1BD6675400693DC1 /* __SSPreReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 832CBAFE1BD6675400693DC1 /* __SSPreReloadButton.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F901BCEA3290086F42D /* __SSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSButton.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F911BCEA3290086F42D /* __SSButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F921BCEA3290086F42D /* __SSSearchStuffBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7C1BCEA3280086F42D /* __SSSearchStuffBackingCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -66,6 +67,8 @@
 		8327191B1BC1279100C28426 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		832CBAF81BD6611300693DC1 /* __SSSearchStuffToolbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffToolbarItem.h; sourceTree = "<group>"; };
+		832CBAFD1BD6675400693DC1 /* __SSPreReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSPreReloadButton.h; sourceTree = "<group>"; };
+		832CBAFE1BD6675400693DC1 /* __SSPreReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSPreReloadButton.m; sourceTree = "<group>"; };
 		83F47F771BCEA3280086F42D /* __SSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButton.h; sourceTree = "<group>"; };
 		83F47F781BCEA3280086F42D /* __SSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButton.m; sourceTree = "<group>"; };
 		83F47F791BCEA3280086F42D /* __SSButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonCell.h; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 				83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */,
 				830531ED1BD51AEF00223917 /* __SSPreSearchButton.h */,
 				830531EE1BD51AEF00223917 /* __SSPreSearchButton.m */,
+				832CBAFD1BD6675400693DC1 /* __SSPreReloadButton.h */,
+				832CBAFE1BD6675400693DC1 /* __SSPreReloadButton.m */,
 				83F47F7B1BCEA3280086F42D /* __SSSearchStuffBackingCell.h */,
 				83F47F7C1BCEA3280086F42D /* __SSSearchStuffBackingCell.m */,
 				83F47F7D1BCEA3280086F42D /* __SSSearchStuffInputField.h */,
@@ -369,6 +374,7 @@
 			files = (
 				83F47F961BCEA3290086F42D /* SSSearchStuffToolbarItem.m in Sources */,
 				83F47F901BCEA3290086F42D /* __SSButton.m in Sources */,
+				832CBAFF1BD6675400693DC1 /* __SSPreReloadButton.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSSearchStuffBar.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
