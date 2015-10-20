@@ -13,6 +13,16 @@
     {
 @private
     BOOL __isInputting;
+
+    NSView* __lhsAnchoredField;
+    NSView* __rhsAnchoredField;
+
+    NSView* __lhsFloatField;
+    NSView* __rhsFloatField;
     }
+
+#pragma mark - Manipulating Widgets
+
+- ( void ) reload;
 
 @end // __SSSearchStuffBar class

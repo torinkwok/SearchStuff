@@ -15,7 +15,13 @@
 // SSSearchStuffToolbarItem class
 @interface SSSearchStuffToolbarItem : NSToolbarItem
 
+#pragma mark Delegate
+
 @property ( weak ) IBOutlet id <SearchStuffDelegate> delegate;
+
+#pragma mark - Manipulating Widgets
+
+- ( void ) reload;
 
 @end // SSSearchStuffToolbarItem class
 

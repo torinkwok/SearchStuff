@@ -32,6 +32,13 @@
     return self;
     }
 
+#pragma mark - Manipulating Widgets
+
+- ( void ) reload
+    {
+    [ self->__searchBar reload ];
+    }
+
 #pragma mark - Private Interfaces
 
 - ( void ) __init

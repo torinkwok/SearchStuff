@@ -50,6 +50,13 @@
     return self;
     }
 
+#pragma mark - Manipulating Widgets
+
+- ( void ) reload
+    {
+    // TODO:
+    }
+
 #pragma Drawing
 
 - ( void ) drawRect: ( NSRect )_DirtyRect
@@ -125,6 +132,11 @@
     [ self.__inputField setTranslatesAutoresizingMaskIntoConstraints: NO ];
 
     self.__isInputting = NO;
+
+    self->__lhsAnchoredField = [ [ NSView alloc ] initWithFrame: NSZeroRect ];
+    self->__rhsAnchoredField = [ [ NSView alloc ] initWithFrame: NSZeroRect ];
+    self->__lhsFloatField = [ [ NSView alloc ] initWithFrame: NSZeroRect ];
+    self->__rhsFloatField = [ [ NSView alloc ] initWithFrame: NSZeroRect ];
     }
 
 @end // __SSSearchStuffBar class
