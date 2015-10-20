@@ -16,6 +16,6 @@
 @property ( strong, readwrite ) NSImage* ssImage;
 @property ( strong, readwrite ) NSImage* ssAlternativeImage;
 
-@property ( assign, readonly ) NSSize ssDefaultSize;
+@property ( assign, readonly ) NSSize ssSize;
 
 @end // __SSButton class

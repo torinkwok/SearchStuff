@@ -39,7 +39,7 @@
         self->__ssSize = NSMakeSize( 15.f * self->__ssImage.size.width / self->__ssImage.size.height, 15.f );
 
         if ( ( self->__ssSize.width ) > 0 && ( self->__ssSize.height > 0 ) )
-        [ self setFrameSize: [ self ssDefaultSize ] ];
+        [ self setFrameSize: [ self ssSize ] ];
         }
     }
 
@@ -63,7 +63,7 @@
     }
 
 
-- ( NSSize ) ssDefaultSize
+- ( NSSize ) ssSize
     {
     return self->__ssSize;
     }
