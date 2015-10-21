@@ -24,10 +24,10 @@
 
 @import Cocoa;
 
-// __SSSearchStuffInputFieldCell class
-@interface __SSSearchStuffInputFieldCell : NSTextFieldCell
+// __SSBackingCell class
+@interface __SSBackingCell : NSButtonCell
 
-@end // __SSSearchStuffInputFieldCell class
+@end // __SSBackingCell class
 
 /*===============================================================================┐
 |                                                                                |

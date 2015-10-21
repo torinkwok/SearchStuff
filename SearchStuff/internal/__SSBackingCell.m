@@ -22,12 +22,25 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-@import Cocoa;
+#import "__SSBackingCell.h"
 
-// __SSSearchStuffBackingCell class
-@interface __SSSearchStuffBackingCell : NSButtonCell
+// __SSBackingCell class
+@implementation __SSBackingCell
 
-@end // __SSSearchStuffBackingCell class
+#pragma mark - Initializations
+
+- ( instancetype ) init
+    {
+    if ( self = [ super init ] )
+        {
+        [ self setBezelStyle: NSTexturedRoundedBezelStyle ];
+        [ self setTitle: @"" ];
+        }
+
+    return self;
+    }
+
+@end // __SSBackingCell class
 
 /*===============================================================================┐
 |                                                                                |

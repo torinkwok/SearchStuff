@@ -22,16 +22,65 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-@import Cocoa;
+#import "__SSInputFieldCell.h"
 
-// __SSSearchStuffInputField class
-@interface __SSSearchStuffInputField : NSTextField
+// Private Interfaces
+@interface __SSInputFieldCell ()
+- ( NSRect ) __insetRectForBounds: ( NSRect )_Bounds;
+@end // Private Interfaces
 
-#pragma mark - Initializations
+// __SSInputFieldCell class
+@implementation __SSInputFieldCell
 
-- ( instancetype ) initWithFrame: ( NSRect )_Frame delegate: ( id <NSTextFieldDelegate> )_Delegate;
+#pragma mark - Drawing
 
-@end // __SSSearchStuffInputField class
+- ( void ) drawWithFrame: ( NSRect )_CellFrame
+                  inView: ( NSView* )_ControlView
+    {
+    [ super drawWithFrame: _CellFrame inView: _ControlView ];
+    }
+
+- ( void ) selectWithFrame: ( NSRect )_CellFrame
+                    inView: ( NSView* )_ControlView
+                    editor: ( NSText* )_FieldEditor
+                  delegate: ( id )_DelegateObject
+                     start: ( NSInteger )_SelStart
+                    length: ( NSInteger )_SelLength
+    {
+    [ super selectWithFrame: [ self __insetRectForBounds: _ControlView.bounds ]
+                     inView: _ControlView
+                     editor: _FieldEditor
+                   delegate: _DelegateObject
+                      start: _SelStart
+                     length: _SelLength ];
+    }
+
+- ( void ) editWithFrame: ( NSRect )_CellFrame
+                  inView: ( NSView* )_ControlView
+                  editor: ( NSText* )_FieldEditor
+                delegate: ( id )_DelegateObject
+                   event: ( NSEvent* )_Event
+    {
+    [ super editWithFrame: [ self __insetRectForBounds: _ControlView.bounds ]
+                   inView: _ControlView
+                   editor: _FieldEditor
+                 delegate: _DelegateObject
+                    event: _Event ];
+    }
+
+#pragma mark - Private Interfaces
+
+- ( NSRect ) __insetRectForBounds: ( NSRect )_Bounds
+    {
+    NSRect offsetBounds = _Bounds;
+    offsetBounds.origin.x += 23.f;
+    offsetBounds.size.width -= 30.f;
+    offsetBounds.origin.y += 4.f;
+
+    return offsetBounds;
+    }
+
+@end // __SSInputFieldCell class
 
 /*===============================================================================┐
 |                                                                                |

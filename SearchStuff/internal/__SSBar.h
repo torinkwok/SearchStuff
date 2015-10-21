@@ -26,8 +26,8 @@
 
 @class SearchStuffToolbarItem;
 
-// __SSSearchStuffBar class
-@interface __SSSearchStuffBar : NSView <NSTextFieldDelegate>
+// __SSBar class
+@interface __SSBar : NSView <NSTextFieldDelegate>
     {
 @private
     BOOL __isInputting;
@@ -45,7 +45,7 @@
 
 - ( void ) reload;
 
-@end // __SSSearchStuffBar class
+@end // __SSBar class
 
 /*===============================================================================┐
 |                                                                                |

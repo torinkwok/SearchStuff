@@ -22,65 +22,54 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSSearchStuffInputFieldCell.h"
+#import "__SSInputField.h"
+#import "__SSInputFieldCell.h"
+#import "__SSButtonStdSearch.h"
 
 // Private Interfaces
-@interface __SSSearchStuffInputFieldCell ()
-- ( NSRect ) __insetRectForBounds: ( NSRect )_Bounds;
+@interface __SSInputField ()
+@property ( strong ) __SSButtonStdSearch* __searchButton;
 @end // Private Interfaces
 
-// __SSSearchStuffInputFieldCell class
-@implementation __SSSearchStuffInputFieldCell
+// __SSInputField class
+@implementation __SSInputField
+
+#pragma mark - Initializations
+
+- ( instancetype ) initWithFrame: ( NSRect )_Frame
+                        delegate: ( id <NSTextFieldDelegate> )_Delegate
+    {
+    if ( self = [ self /* Ja, that's indeed myself, not my parent */ initWithFrame: _Frame ] )
+        [ self setDelegate: _Delegate ];
+
+    return self;
+    }
+
+- ( instancetype ) initWithFrame: ( NSRect )_Frame
+    {
+    if ( self = [ super initWithFrame: _Frame ] )
+        {
+        [ self setDrawsBackground: NO ];
+        [ self setBordered: NO ];
+        [ self setPlaceholderString: NSLocalizedString( @"Search the fucking stuff", nil ) ];
+
+        self.__searchButton = [ [ __SSButtonStdSearch alloc ] initWithFrame: NSZeroRect ];
+        [ self.__searchButton setFrameOrigin: NSMakePoint( 6.5f, 5.f ) ];
+
+        [ self addSubview: self.__searchButton ];
+        }
+
+    return self;
+    }
 
 #pragma mark - Drawing
 
-- ( void ) drawWithFrame: ( NSRect )_CellFrame
-                  inView: ( NSView* )_ControlView
++ ( Class ) cellClass
     {
-    [ super drawWithFrame: _CellFrame inView: _ControlView ];
+    return [ __SSInputFieldCell class ];
     }
 
-- ( void ) selectWithFrame: ( NSRect )_CellFrame
-                    inView: ( NSView* )_ControlView
-                    editor: ( NSText* )_FieldEditor
-                  delegate: ( id )_DelegateObject
-                     start: ( NSInteger )_SelStart
-                    length: ( NSInteger )_SelLength
-    {
-    [ super selectWithFrame: [ self __insetRectForBounds: _ControlView.bounds ]
-                     inView: _ControlView
-                     editor: _FieldEditor
-                   delegate: _DelegateObject
-                      start: _SelStart
-                     length: _SelLength ];
-    }
-
-- ( void ) editWithFrame: ( NSRect )_CellFrame
-                  inView: ( NSView* )_ControlView
-                  editor: ( NSText* )_FieldEditor
-                delegate: ( id )_DelegateObject
-                   event: ( NSEvent* )_Event
-    {
-    [ super editWithFrame: [ self __insetRectForBounds: _ControlView.bounds ]
-                   inView: _ControlView
-                   editor: _FieldEditor
-                 delegate: _DelegateObject
-                    event: _Event ];
-    }
-
-#pragma mark - Private Interfaces
-
-- ( NSRect ) __insetRectForBounds: ( NSRect )_Bounds
-    {
-    NSRect offsetBounds = _Bounds;
-    offsetBounds.origin.x += 23.f;
-    offsetBounds.size.width -= 30.f;
-    offsetBounds.origin.y += 4.f;
-
-    return offsetBounds;
-    }
-
-@end // __SSSearchStuffInputFieldCell class
+@end // __SSInputField class
 
 /*===============================================================================┐
 |                                                                                |
