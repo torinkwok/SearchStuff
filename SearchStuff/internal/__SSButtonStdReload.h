@@ -22,25 +22,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSPreReloadButton.h"
+#import "__SSButton.h"
 
-// __SSPreReloadButton class
-@implementation __SSPreReloadButton
+// __SSButtonStdReload class
+@interface __SSButtonStdReload : __SSButton
 
-#pragma mark - Initializations
-
-- ( instancetype ) initWithFrame: ( NSRect )_Frame
-    {
-    if ( self = [ super initWithFrame: _Frame ] )
-        {
-        self.ssImage = [ NSImage imageNamed: @"search-stuff-reload" ];
-        self.ssAlternativeImage = [ NSImage imageNamed: @"search-stuff-reload-highlighted" ];
-        }
-
-    return self;
-    }
-
-@end // __SSPreReloadButton class
+@end // __SSButtonStdReload class
 
 /*===============================================================================┐
 |                                                                                |
