@@ -29,7 +29,7 @@
 
 + ( NSArray <__kindof NSString*>* ) __stdIdentifiers;
 
-@property ( strong, readwrite ) NSString* identifier;
+@property ( assign, readonly ) BOOL __isStd;
 
 @end // __SSSearchStuffWidget class
 

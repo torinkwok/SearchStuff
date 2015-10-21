@@ -39,13 +39,20 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
 
 // SSSearchStuffWidget 
 @implementation SSSearchStuffWidget
+    {
+@private
+    BOOL __isStd;
+    }
 
 #pragma mark - Initializations
 
 - ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier
     {
     if ( self = [ super init ] )
+        {
         self.identifier = _WidgetIdentifier;
+        self->__isStd = [ [ [ self class ] __stdIdentifiers ] containsObject: self.identifier ];
+        }
 
     return self;
     }
@@ -60,6 +67,12 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
     return@[ SearchStuffSearchWidgetIdentifier
            , SearchStuffReloadWidgetIdentifier
            ];
+    }
+
+@dynamic __isStd;
+- ( BOOL ) __isStd
+    {
+    return self->__isStd;
     }
 
 @end // SSSearchStuffWidget + SearchStuffPrivate

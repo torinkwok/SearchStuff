@@ -82,13 +82,7 @@
 
         NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
         for ( NSString* _WidgetIdentifier in lhsAnchoredWidgetIdentifiers )
-            {
-//            NSLog( @"%@", _WidgetIdentifier );
-            if ( [ [ [ SSSearchStuffWidget class ] __stdIdentifiers ] containsObject: _WidgetIdentifier ] )
-                [ lhsAnchoredWidgets addObject: [ [ SSSearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
-            }
-
-//        NSLog( @"%@", self.hostingSSToolbarItem.__standardIdentifiers );
+            [ lhsAnchoredWidgets addObject: [ [ SSSearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
         }
     }
 
