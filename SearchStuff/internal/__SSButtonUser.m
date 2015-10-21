@@ -26,7 +26,6 @@
 
 // __SSButtonUser class
 @implementation __SSButtonUser
-
 @end // __SSButtonUser class
 
 /*===============================================================================┐

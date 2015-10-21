@@ -55,7 +55,7 @@
 
 @required
 - ( SearchStuffWidget* ) ssToolbarItem: ( SearchStuffToolbarItem* )_ssToolbarItem
-               widgetForWidgetIdentifier: ( NSString* )_Identifier;
+             widgetForWidgetIdentifier: ( NSString* )_Identifier;
 
 @end // SSSearchStuffDelegate protocol
 

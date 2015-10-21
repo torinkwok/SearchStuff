@@ -32,6 +32,8 @@
 // __SSButtonStdReload + __SSPrivate
 @implementation __SSButtonStdReload ( __SSPrivate )
 
+#pragma mark Private Initializations ( only used by friend classes )
+
 - ( instancetype ) __initWithFrame: ( NSRect )_FrameRect
                            ssWiget: ( SearchStuffWidget* )_Widget
     {

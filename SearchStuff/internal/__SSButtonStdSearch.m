@@ -32,6 +32,8 @@
 // __SSButtonStdSearch + __SSPrivate
 @implementation __SSButtonStdSearch ( __SSPrivate )
 
+#pragma mark Private Initializations ( only used by friend classes )
+
 - ( instancetype ) __initWithFrame: ( NSRect )_FrameRect
                            ssWiget: ( SearchStuffWidget* )_Widget
     {
