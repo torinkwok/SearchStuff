@@ -26,10 +26,10 @@
 
 #import "__SSSearchStuffBackingCell.h"
 #import "__SSSearchStuffInputField.h"
-#import "__SSSearchStuffWidget.h"
 
 #import "SSSearchStuffWidget.h"
 #import "SSSearchStuffToolbarItem.h"
+#import "SSSearchStuffWidget+SearchStuffPrivate.h"
 
 // Private Interfaces
 @interface __SSSearchStuffBar()

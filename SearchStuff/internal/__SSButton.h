@@ -24,15 +24,21 @@
 
 @import Cocoa;
 
+@class SSSearchStuffWidget;
+
 // __SSButton class
 @interface __SSButton : NSButton
 
 #pragma mark - Dynamic Properties
 
+@property ( strong, readonly ) SSSearchStuffWidget* ssWidget;
+
 @property ( strong, readwrite ) NSImage* ssImage;
 @property ( strong, readwrite ) NSImage* ssAlternativeImage;
 
 @property ( assign, readonly ) NSSize ssSize;
+
++ ( instancetype ) ssButtonWithSSWidget: ( SSSearchStuffWidget* )_Widget;
 
 @end // __SSButton class
 

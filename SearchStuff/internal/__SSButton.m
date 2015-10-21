@@ -25,6 +25,8 @@
 #import "__SSButton.h"
 #import "__SSButtonCell.h"
 
+#import "SSSearchStuffWidget.h"
+
 // Private Interfaces
 @interface __SSButton ()
 - ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted;
@@ -34,16 +36,40 @@
 @implementation __SSButton
     {
 @protected
+    SSSearchStuffWidget* __strong __ssWidget;
+
     NSImage* __strong __ssImage;
     NSImage* __strong __ssAlternativeImage;
 
     NSSize __ssSize;
     }
 
+@dynamic ssWidget;
+
 @dynamic ssImage;
 @dynamic ssAlternativeImage;
 
+@dynamic ssSize;
+
+#pragma mark - Initializations
+
++ ( instancetype ) ssButtonWithSSWidget: ( SSSearchStuffWidget* )_Widget
+    {
+    if ( !_Widget )
+        return nil;
+
+    __SSButton* clusterMember = nil;
+    
+
+    return clusterMember;
+    }
+
 #pragma mark - Dynamic Properties
+
+- ( SSSearchStuffWidget* ) ssWidget
+    {
+    return [ __ssWidget copy ];
+    }
 
 - ( void ) setSsImage: ( NSImage* )_Image
     {
