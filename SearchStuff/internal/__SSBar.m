@@ -33,6 +33,13 @@
 #import "SearchStuffToolbarItem.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 
+typedef NS_ENUM( NSUInteger, __SSBarButtonState )
+    { __SSBarButtonStateLeftAnchored    = 0
+    , __SSBarButtonStateRightAnchored   = 1
+    , __SSBarButtonStateLeftFloat       = 2
+    , __SSBarButtonStateRightFloat      = 3
+    };
+
 // Private Interfaces
 @interface __SSBar()
 
@@ -109,13 +116,14 @@
                 {
                 __SSButton* ssButton = [ __SSButton ssButtonWithSSWidget: _Widget frame: NSMakeRect( 0, 0, 15.f, 15.f ) ];
                 [ ssButtons addObject: ssButton ];
-                [ self __arrangeSSButtons: ssButtons ];
+                [ self __arrangeSSButtons: ssButtons state: __SSBarButtonStateLeftAnchored ];
                 }
             }
         }
     }
 
 - ( void ) __arrangeSSButtons: ( NSArray <__SSButton*>* )_Buttons
+                        state: ( __SSBarButtonState )_ButtonState
     {
     CGFloat originX = 5.f;
     CGFloat originY = 5.f;
