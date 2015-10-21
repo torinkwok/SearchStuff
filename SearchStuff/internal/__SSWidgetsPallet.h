@@ -24,8 +24,27 @@
 
 @import Cocoa;
 
+@class __SSBar;
+
+typedef NS_ENUM( NSUInteger, __SSWidetsPalletType )
+    { __SSWidetsPalletTypeLeftAnchored  = 0
+    , __SSWidetsPalletTypeRightAnchored = 1
+    , __SSWidetsPalletTypeLeftFloat = 2
+    , __SSWidetsPalletTypeRightFloat = 3
+    };
+
 // __SSWidgetsPallet class
 @interface __SSWidgetsPallet : NSView
+    {
+@protected
+    __SSBar __weak* __hostingBar;
+    }
+
+@property ( weak ) __SSBar* hostingBar;
+
+#pragma mark - Initializations
+
+- ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar type: ( __SSWidetsPalletType )_Type;
 
 @end // __SSWidgetsPallet class
 

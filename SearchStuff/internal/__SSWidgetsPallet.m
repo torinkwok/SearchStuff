@@ -27,6 +27,20 @@
 // __SSWidgetsPallet class
 @implementation __SSWidgetsPallet
 
+#pragma mark - Initializations
+
+- ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar
+                                 type: ( __SSWidetsPalletType )_Type
+    {
+    if ( !self->__hostingBar )
+        return nil;
+
+    if ( self = [ super initWithFrame: NSZeroRect ] )
+        self->__hostingBar = _HostingBar;
+
+    return self;
+    }
+
 @end // __SSWidgetsPallet class
 
 /*===============================================================================┐

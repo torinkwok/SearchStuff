@@ -40,10 +40,10 @@
 @implementation __SSButton
     {
 @protected
-    SearchStuffWidget* __strong __ssWidget;
+    SearchStuffWidget __strong*  __ssWidget;
 
-    NSImage* __strong __ssImage;
-    NSImage* __strong __ssAlternativeImage;
+    NSImage __strong* __ssImage;
+    NSImage __strong* __ssAlternativeImage;
 
     NSSize __ssSize;
     }
