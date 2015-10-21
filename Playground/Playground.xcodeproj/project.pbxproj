@@ -31,6 +31,7 @@
 		83F47FE11BCFD8350086F42D /* search-stuff-search-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F47FD91BCFD8350086F42D /* search-stuff-search-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83F47FE21BCFD8350086F42D /* search-stuff-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F47FDA1BCFD8350086F42D /* search-stuff-search.png */; settings = {ASSET_TAGS = (); }; };
 		83F47FE31BCFD8350086F42D /* search-stuff-search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F47FDB1BCFD8350086F42D /* search-stuff-search@2x.png */; settings = {ASSET_TAGS = (); }; };
+		83FD30421BD7A561001B5B02 /* __SSButtonUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FD30411BD7A561001B5B02 /* __SSButtonUser.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		83F47FD91BCFD8350086F42D /* search-stuff-search-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-search-highlighted@2x.png"; sourceTree = "<group>"; };
 		83F47FDA1BCFD8350086F42D /* search-stuff-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-search.png"; sourceTree = "<group>"; };
 		83F47FDB1BCFD8350086F42D /* search-stuff-search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-search@2x.png"; sourceTree = "<group>"; };
+		83FD30401BD7A561001B5B02 /* __SSButtonUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonUser.h; sourceTree = "<group>"; };
+		83FD30411BD7A561001B5B02 /* __SSButtonUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButtonUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +219,8 @@
 				830531EE1BD51AEF00223917 /* __SSButtonStdSearch.m */,
 				832CBAFD1BD6675400693DC1 /* __SSButtonStdReload.h */,
 				832CBAFE1BD6675400693DC1 /* __SSButtonStdReload.m */,
+				83FD30401BD7A561001B5B02 /* __SSButtonUser.h */,
+				83FD30411BD7A561001B5B02 /* __SSButtonUser.m */,
 				83F47F7B1BCEA3280086F42D /* __SSSearchStuffBackingCell.h */,
 				83F47F7C1BCEA3280086F42D /* __SSSearchStuffBackingCell.m */,
 				83F47F7D1BCEA3280086F42D /* __SSSearchStuffInputField.h */,
@@ -384,6 +389,7 @@
 				83F47F901BCEA3290086F42D /* __SSButton.m in Sources */,
 				832CBAFF1BD6675400693DC1 /* __SSButtonStdReload.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSSearchStuffBar.m in Sources */,
+				83FD30421BD7A561001B5B02 /* __SSButtonUser.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83F47F941BCEA3290086F42D /* __SSSearchStuffInputFieldCell.m in Sources */,
