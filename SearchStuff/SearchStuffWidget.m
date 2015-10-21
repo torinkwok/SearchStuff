@@ -22,58 +22,59 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "SSSearchStuffToolbarItem.h"
-#import "SSSearchStuffWidget.h"
+#import "SearchStuffWidget.h"
+#import "SearchStuffWidget+SearchStuffPrivate.h"
 
-#import "__SSSearchStuffBar.h"
+// Standard Identifiers
+NSString* const SearchStuffSearchWidgetIdentifier = @"__ssSearchWidgetIdentifier";
+NSString* const SearchStuffReloadWidgetIdentifier = @"__ssReloadWidgetIdentifier";
 
-// Private Interfaces
-@interface SSSearchStuffToolbarItem()
-- ( void ) __init;
-@end // Private Interfaces
+NSArray <__kindof NSString*> static* sStandardIdentifiers;
 
-// SSSearchStuffToolbarItem class
-@implementation SSSearchStuffToolbarItem
+// Private Interface
+@interface SearchStuffWidget ()
+@property ( strong, readwrite ) NSString* identifier;
+@end // Private Interface
+
+// SearchStuffWidget 
+@implementation SearchStuffWidget
     {
 @private
-    __SSSearchStuffBar* __searchBar;
+    BOOL __isStd;
     }
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithItemIdentifier: ( NSString* )_ItemIdentifier
+- ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier
     {
-    if ( self = [ super initWithItemIdentifier: _ItemIdentifier ] )
-        [ self __init ];
+    if ( self = [ super init ] )
+        {
+        self.identifier = _WidgetIdentifier;
+        self->__isStd = [ [ [ self class ] __stdIdentifiers ] containsObject: self.identifier ];
+        }
 
     return self;
     }
 
-#pragma mark - Manipulating Widgets
+@end // SearchStuffWidget class
 
-- ( void ) reload
+// SearchStuffWidget + SearchStuffPrivate
+@implementation SearchStuffWidget ( SearchStuffPrivate )
+
++ ( NSArray <__kindof NSString*>* ) __stdIdentifiers
     {
-    [ self->__searchBar reload ];
+    return@[ SearchStuffSearchWidgetIdentifier
+           , SearchStuffReloadWidgetIdentifier
+           ];
     }
 
-#pragma mark - Private Interfaces
-
-- ( void ) __init
+@dynamic __isStd;
+- ( BOOL ) __isStd
     {
-    self->__searchBar = [ [ __SSSearchStuffBar alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];
-    [ self->__searchBar setHostingSSToolbarItem: self ];
-
-    [ self setView: self->__searchBar ];
-
-    CGFloat stdHeight = 25.f;
-    [ self setMinSize: NSMakeSize( 200.f, stdHeight ) ];
-
-    NSRect screenFrame = [ NSScreen mainScreen ].frame;
-    CGFloat maxWidth = floor( NSWidth( screenFrame ) / 2 );
-    [ self setMaxSize: NSMakeSize( maxWidth, stdHeight ) ];
+    return self->__isStd;
     }
 
-@end // SSSearchStuffToolbarItem class
+@end // SearchStuffWidget + SearchStuffPrivate
 
 /*===============================================================================┐
 |                                                                                |

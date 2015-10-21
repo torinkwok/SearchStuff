@@ -24,13 +24,13 @@
 
 #import "AppDelegate.h"
 #import "SearchStuff.h"
-#import "SSSearchStuffToolbarItem.h"
+#import "SearchStuffToolbarItem.h"
 
 // Private Interfaces
 @interface AppDelegate ()
 
 @property ( weak ) IBOutlet NSWindow* window;
-@property ( strong ) SSSearchStuffToolbarItem* ssToolbarItem;
+@property ( strong ) SearchStuffToolbarItem* ssToolbarItem;
 
 - ( NSToolbarItem* ) __toolbarWithIdentifier: ( NSString* )_Identifier
                                        label: ( NSString* )_Label
@@ -52,7 +52,7 @@
     {
     if ( self = [ super init ] )
         {
-        self.ssToolbarItem = [ [ SSSearchStuffToolbarItem alloc ] initWithItemIdentifier: kSearchStuffWidget ];
+        self.ssToolbarItem = [ [ SearchStuffToolbarItem alloc ] initWithItemIdentifier: kSearchStuffWidget ];
         [ self.ssToolbarItem setLabel: NSLocalizedString( @"Search Stuff Bar", nil ) ];
         [ self.ssToolbarItem setPaletteLabel: self.ssToolbarItem.label ];
         [ self.ssToolbarItem setDelegate: self ];
@@ -146,10 +146,10 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
     return @[ SearchStuffReloadWidgetIdentifier ];
     }
 
-//- ( SSSearchStuffWidget* ) ssToolbarItem: ( SSSearchStuffToolbarItem* )_ssToolbarItem
+//- ( SearchStuffWidget* ) ssToolbarItem: ( SearchStuffToolbarItem* )_ssToolbarItem
 //               widgetForWidgetIdentifier: ( NSString* )_Identifier
 //    {
-//    SSSearchStuffWidget* ssWidget = nil;
+//    SearchStuffWidget* ssWidget = nil;
 //
 //    if ( [ _Identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
 //

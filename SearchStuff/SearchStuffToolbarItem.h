@@ -24,30 +24,40 @@
 
 @import Cocoa;
 
-// Standard Identifiers
-NSString extern* const SearchStuffSearchWidgetIdentifier;
-NSString extern* const SearchStuffReloadWidgetIdentifier;
+@class SearchStuffWidget;
 
-// SSSearchStuffWidget class
-@interface SSSearchStuffWidget : NSObject
+@protocol SearchStuffDelegate;
 
-@property ( assign, readwrite ) SEL action;
-@property ( weak, readwrite ) id target;
+// SearchStuffToolbarItem class
+@interface SearchStuffToolbarItem : NSToolbarItem
 
-@property ( strong, readwrite ) NSImage* image;
-@property ( strong, readwrite ) NSImage* alternativeImage;
+#pragma mark Delegate
 
-@property ( strong, readwrite ) NSView* view;
+@property ( weak ) IBOutlet id <SearchStuffDelegate> delegate;
 
-@property ( strong, readwrite ) NSString* toolTip;
+#pragma mark - Manipulating Widgets
 
-@property ( strong, readonly ) NSString* identifier;
+- ( void ) reload;
 
-#pragma mark - Initializations
+@end // SearchStuffToolbarItem class
 
-- ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier;
+// SSSearchStuffDelegate protocol
+@protocol SearchStuffDelegate <NSObject>
 
-@end // SSSearchStuffWidget class
+@optional
+- ( SearchStuffWidget* ) ssToolbarItemWithTitleWidget: ( SearchStuffToolbarItem* )_ssToolbarItem;
+
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers;
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemRightHandSideAnchoredWidgetIdentifiers;
+
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideFloatWidgetIdentifiers;
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemRightHandSideFloatWidgetIdentifiers;
+
+@required
+- ( SearchStuffWidget* ) ssToolbarItem: ( SearchStuffToolbarItem* )_ssToolbarItem
+               widgetForWidgetIdentifier: ( NSString* )_Identifier;
+
+@end // SSSearchStuffDelegate protocol
 
 /*===============================================================================┐
 |                                                                                |

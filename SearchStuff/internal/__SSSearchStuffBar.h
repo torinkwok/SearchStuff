@@ -24,7 +24,7 @@
 
 @import Cocoa;
 
-@class SSSearchStuffToolbarItem;
+@class SearchStuffToolbarItem;
 
 // __SSSearchStuffBar class
 @interface __SSSearchStuffBar : NSView <NSTextFieldDelegate>
@@ -41,7 +41,7 @@
 
 #pragma mark - Manipulating Widgets
 
-@property ( weak, readwrite ) SSSearchStuffToolbarItem* hostingSSToolbarItem;
+@property ( weak, readwrite ) SearchStuffToolbarItem* hostingSSToolbarItem;
 
 - ( void ) reload;
 

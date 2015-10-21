@@ -22,16 +22,58 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "SSSearchStuffWidget.h"
+#import "SearchStuffToolbarItem.h"
+#import "SearchStuffWidget.h"
 
-// __SSSearchStuffWidget class
-@interface SSSearchStuffWidget ( SearchStuffPrivate )
+#import "__SSSearchStuffBar.h"
 
-+ ( NSArray <__kindof NSString*>* ) __stdIdentifiers;
+// Private Interfaces
+@interface SearchStuffToolbarItem()
+- ( void ) __init;
+@end // Private Interfaces
 
-@property ( assign, readonly ) BOOL __isStd;
+// SearchStuffToolbarItem class
+@implementation SearchStuffToolbarItem
+    {
+@private
+    __SSSearchStuffBar* __searchBar;
+    }
 
-@end // __SSSearchStuffWidget class
+#pragma mark - Initializations
+
+- ( instancetype ) initWithItemIdentifier: ( NSString* )_ItemIdentifier
+    {
+    if ( self = [ super initWithItemIdentifier: _ItemIdentifier ] )
+        [ self __init ];
+
+    return self;
+    }
+
+#pragma mark - Manipulating Widgets
+
+- ( void ) reload
+    {
+    [ self->__searchBar reload ];
+    }
+
+#pragma mark - Private Interfaces
+
+- ( void ) __init
+    {
+    self->__searchBar = [ [ __SSSearchStuffBar alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];
+    [ self->__searchBar setHostingSSToolbarItem: self ];
+
+    [ self setView: self->__searchBar ];
+
+    CGFloat stdHeight = 25.f;
+    [ self setMinSize: NSMakeSize( 200.f, stdHeight ) ];
+
+    NSRect screenFrame = [ NSScreen mainScreen ].frame;
+    CGFloat maxWidth = floor( NSWidth( screenFrame ) / 2 );
+    [ self setMaxSize: NSMakeSize( maxWidth, stdHeight ) ];
+    }
+
+@end // SearchStuffToolbarItem class
 
 /*===============================================================================┐
 |                                                                                |

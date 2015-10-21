@@ -27,9 +27,9 @@
 #import "__SSSearchStuffBackingCell.h"
 #import "__SSSearchStuffInputField.h"
 
-#import "SSSearchStuffWidget.h"
-#import "SSSearchStuffToolbarItem.h"
-#import "SSSearchStuffWidget+SearchStuffPrivate.h"
+#import "SearchStuffWidget.h"
+#import "SearchStuffToolbarItem.h"
+#import "SearchStuffWidget+SearchStuffPrivate.h"
 
 // Private Interfaces
 @interface __SSSearchStuffBar()
@@ -82,7 +82,7 @@
 
         NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
         for ( NSString* _WidgetIdentifier in lhsAnchoredWidgetIdentifiers )
-            [ lhsAnchoredWidgets addObject: [ [ SSSearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
+            [ lhsAnchoredWidgets addObject: [ [ SearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
         }
     }
 

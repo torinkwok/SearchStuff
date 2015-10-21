@@ -25,7 +25,7 @@
 #import "__SSButton.h"
 #import "__SSButtonCell.h"
 
-#import "SSSearchStuffWidget.h"
+#import "SearchStuffWidget.h"
 
 // Private Interfaces
 @interface __SSButton ()
@@ -36,7 +36,7 @@
 @implementation __SSButton
     {
 @protected
-    SSSearchStuffWidget* __strong __ssWidget;
+    SearchStuffWidget* __strong __ssWidget;
 
     NSImage* __strong __ssImage;
     NSImage* __strong __ssAlternativeImage;
@@ -53,7 +53,7 @@
 
 #pragma mark - Initializations
 
-+ ( instancetype ) ssButtonWithSSWidget: ( SSSearchStuffWidget* )_Widget
++ ( instancetype ) ssButtonWithSSWidget: ( SearchStuffWidget* )_Widget
     {
     if ( !_Widget )
         return nil;
@@ -66,7 +66,7 @@
 
 #pragma mark - Dynamic Properties
 
-- ( SSSearchStuffWidget* ) ssWidget
+- ( SearchStuffWidget* ) ssWidget
     {
     return [ __ssWidget copy ];
     }

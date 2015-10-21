@@ -22,59 +22,16 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "SSSearchStuffWidget.h"
-#import "SSSearchStuffWidget+SearchStuffPrivate.h"
+#import "SearchStuffWidget.h"
 
-// Standard Identifiers
-NSString* const SearchStuffSearchWidgetIdentifier = @"__ssSearchWidgetIdentifier";
-NSString* const SearchStuffReloadWidgetIdentifier = @"__ssReloadWidgetIdentifier";
+// __SearchStuffWidget class
+@interface SearchStuffWidget ( SearchStuffPrivate )
 
-NSArray <__kindof NSString*> static* sStandardIdentifiers;
++ ( NSArray <__kindof NSString*>* ) __stdIdentifiers;
 
-// Private Interface
-@interface SSSearchStuffWidget ()
-@property ( strong, readwrite ) NSString* identifier;
-@end // Private Interface
+@property ( assign, readonly ) BOOL __isStd;
 
-// SSSearchStuffWidget 
-@implementation SSSearchStuffWidget
-    {
-@private
-    BOOL __isStd;
-    }
-
-#pragma mark - Initializations
-
-- ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier
-    {
-    if ( self = [ super init ] )
-        {
-        self.identifier = _WidgetIdentifier;
-        self->__isStd = [ [ [ self class ] __stdIdentifiers ] containsObject: self.identifier ];
-        }
-
-    return self;
-    }
-
-@end // SSSearchStuffWidget class
-
-// SSSearchStuffWidget + SearchStuffPrivate
-@implementation SSSearchStuffWidget ( SearchStuffPrivate )
-
-+ ( NSArray <__kindof NSString*>* ) __stdIdentifiers
-    {
-    return@[ SearchStuffSearchWidgetIdentifier
-           , SearchStuffReloadWidgetIdentifier
-           ];
-    }
-
-@dynamic __isStd;
-- ( BOOL ) __isStd
-    {
-    return self->__isStd;
-    }
-
-@end // SSSearchStuffWidget + SearchStuffPrivate
+@end // __SearchStuffWidget class
 
 /*===============================================================================┐
 |                                                                                |
