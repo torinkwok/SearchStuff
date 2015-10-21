@@ -26,6 +26,7 @@
 
 #import "__SSBackingCell.h"
 #import "__SSInputField.h"
+#import "SearchStuffWidget+__SSPrivate.h"
 
 #import "SearchStuffWidget.h"
 #import "SearchStuffToolbarItem.h"
@@ -74,15 +75,32 @@
 
 - ( void ) reload
     {
+    SearchStuffToolbarItem* tlbItem = self.hostingSSToolbarItem;
+    id <SearchStuffDelegate> tlbItemDel = self.hostingSSToolbarItem.delegate;
+
     // Manipulation of left hand side anchored widgets
-    if ( [ self.hostingSSToolbarItem.delegate respondsToSelector: @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ) ] )
+    if ( [ tlbItemDel respondsToSelector: @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ) ] )
         {
         NSArray <__kindof NSString*>* lhsAnchoredWidgetIdentifiers =
-            [ self.hostingSSToolbarItem.delegate ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ];
+            [ tlbItemDel ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ];
 
-        NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
-        for ( NSString* _WidgetIdentifier in lhsAnchoredWidgetIdentifiers )
-            [ lhsAnchoredWidgets addObject: [ [ SearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
+        if ( lhsAnchoredWidgetIdentifiers.count > 0 )
+            {
+            NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
+            for ( NSString* _WidgetIdentifier in lhsAnchoredWidgetIdentifiers )
+                {
+                if ( [ [ [ SearchStuffWidget class ] __stdIdentifiers ] containsObject: _WidgetIdentifier ] )
+                    [ lhsAnchoredWidgets addObject: [ [ SearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
+                else
+                    {
+                    if ( [ tlbItemDel respondsToSelector: @selector( ssToolbarItem:widgetForWidgetIdentifier: ) ] )
+                        {
+                        SearchStuffWidget* ssWidget = [ tlbItemDel ssToolbarItem: tlbItem widgetForWidgetIdentifier: _WidgetIdentifier ];
+                        [ lhsAnchoredWidgets addObject: ssWidget ];
+                        }
+                    }
+                }
+            }
         }
     }
 

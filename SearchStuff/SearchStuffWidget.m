@@ -61,11 +61,20 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
 // SearchStuffWidget + __SSPrivate
 @implementation SearchStuffWidget ( __SSPrivate )
 
+NSArray <__kindof NSString*> static* sStdIds;
 + ( NSArray <__kindof NSString*>* ) __stdIdentifiers
     {
-    return@[ SearchStuffSearchWidgetIdentifier
-           , SearchStuffReloadWidgetIdentifier
-           ];
+    dispatch_once_t static onceToken;
+
+    dispatch_once( &onceToken
+                 , ( dispatch_block_t )^( void )
+                    {
+                    sStdIds = @[ SearchStuffSearchWidgetIdentifier
+                               , SearchStuffReloadWidgetIdentifier
+                               ];
+                    } );
+
+    return sStdIds;
     }
 
 @dynamic __isStd;
