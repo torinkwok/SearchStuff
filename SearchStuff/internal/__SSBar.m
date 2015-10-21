@@ -29,7 +29,7 @@
 
 #import "SearchStuffWidget.h"
 #import "SearchStuffToolbarItem.h"
-#import "SearchStuffWidget+SearchStuffPrivate.h"
+#import "SearchStuffWidget+__SSPrivate.h"
 
 // Private Interfaces
 @interface __SSBar()

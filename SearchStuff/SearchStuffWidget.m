@@ -23,7 +23,7 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "SearchStuffWidget.h"
-#import "SearchStuffWidget+SearchStuffPrivate.h"
+#import "SearchStuffWidget+__SSPrivate.h"
 
 // Standard Identifiers
 NSString* const SearchStuffSearchWidgetIdentifier = @"__ssSearchWidgetIdentifier";
