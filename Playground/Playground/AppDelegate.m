@@ -142,7 +142,7 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
 #pragma mark - Conforms to <SearchStuffDelegate>
 
 NSString* const kSearchStuffAddWidgetIdentifier = @"kSearchStuffAddWidgetIdentifier";
-NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffAddWidgetIdentifier";
+NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetIdentifier";
 
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers
     {
