@@ -23,6 +23,7 @@
 		838A9BE01BD80DCE008E1B12 /* search-stuff-remove-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD81BD80DCE008E1B12 /* search-stuff-remove-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BE11BD80DCE008E1B12 /* search-stuff-remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD91BD80DCE008E1B12 /* search-stuff-remove.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BE21BD80DCE008E1B12 /* search-stuff-remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */; settings = {ASSET_TAGS = (); }; };
+		83B621C51BD82637005FA2DE /* __SSWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B621C41BD82637005FA2DE /* __SSWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F901BCEA3290086F42D /* __SSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSButton.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F911BCEA3290086F42D /* __SSButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7C1BCEA3280086F42D /* __SSBackingCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -87,6 +88,8 @@
 		838A9BD81BD80DCE008E1B12 /* search-stuff-remove-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-remove-highlighted@2x.png"; sourceTree = "<group>"; };
 		838A9BD91BD80DCE008E1B12 /* search-stuff-remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-remove.png"; sourceTree = "<group>"; };
 		838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-remove@2x.png"; sourceTree = "<group>"; };
+		83B621C31BD82637005FA2DE /* __SSWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetsPallet.h; sourceTree = "<group>"; };
+		83B621C41BD82637005FA2DE /* __SSWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetsPallet.m; sourceTree = "<group>"; };
 		83F47F771BCEA3280086F42D /* __SSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButton.h; sourceTree = "<group>"; };
 		83F47F781BCEA3280086F42D /* __SSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButton.m; sourceTree = "<group>"; };
 		83F47F791BCEA3280086F42D /* __SSButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonCell.h; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				83F47F801BCEA3280086F42D /* __SSInputFieldCell.m */,
 				83F47FD11BCFD8120086F42D /* __SSBar.h */,
 				83F47FD01BCFD8120086F42D /* __SSBar.m */,
+				83B621C31BD82637005FA2DE /* __SSWidgetsPallet.h */,
+				83B621C41BD82637005FA2DE /* __SSWidgetsPallet.m */,
 			);
 			path = internal;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				83F47FD21BCFD8120086F42D /* __SSBar.m in Sources */,
 				83FD30421BD7A561001B5B02 /* __SSButtonUser.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
+				83B621C51BD82637005FA2DE /* __SSWidgetsPallet.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83F47F941BCEA3290086F42D /* __SSInputFieldCell.m in Sources */,
 				830531EF1BD51AEF00223917 /* __SSButtonStdSearch.m in Sources */,
