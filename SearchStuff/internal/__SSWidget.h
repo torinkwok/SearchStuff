@@ -22,177 +22,25 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSButton.h"
-#import "__SSButtonCell.h"
-#import "__SSButtonStdSearch.h"
-#import "__SSButtonStdReload.h"
-#import "__SSButtonUser.h"
-#import "__SSButton+__SSPrivate.h"
+@import Cocoa;
 
-#import "SearchStuffWidget+__SSPrivate.h"
+@class SearchStuffWidget;
 
-// Private Interfaces
-@interface __SSButton ()
-- ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted;
-@end // Private Interfaces
-
-// __SSButton class
-@implementation __SSButton
-    {
-@protected
-    SearchStuffWidget __strong*  __ssWidget;
-
-    NSImage __strong* __ssImage;
-    NSImage __strong* __ssAlternativeImage;
-
-    NSSize __ssSize;
-    }
-
-@dynamic ssWidget;
-
-@dynamic ssImage;
-@dynamic ssAlternativeImage;
-
-@dynamic ssSize;
-
-#pragma mark - Initializations
-
-+ ( instancetype ) ssButtonWithSSWidget: ( SearchStuffWidget* )_Widget
-    {
-    if ( !_Widget )
-        return nil;
-
-    __SSButton* clusterMember = nil;
-    if ( _Widget.__isStd )
-        {
-        if ( [ _Widget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
-            clusterMember = [ [ __SSButtonStdSearch alloc ] __initWithSSWiget: _Widget ];
-
-        else if ( [ _Widget.identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
-            clusterMember = [ [ __SSButtonStdReload alloc ] __initWithSSWiget: _Widget ];
-        }
-    else
-        clusterMember = [ [ __SSButtonUser alloc ] __initWithSSWiget: _Widget ];
-
-    return clusterMember;
-    }
+// __SSWidget class
+@interface __SSWidget : NSButton
 
 #pragma mark - Dynamic Properties
 
-- ( SearchStuffWidget* ) ssWidget
-    {
-    return [ __ssWidget copy ];
-    }
+@property ( strong, readonly ) SearchStuffWidget* ssWidget;
 
-- ( void ) setSsImage: ( NSImage* )_Image
-    {
-    if ( self->__ssImage != _Image )
-        {
-        self->__ssImage = _Image;
-        [ self setImage: self->__ssImage ];
+@property ( strong, readwrite ) NSImage* ssImage;
+@property ( strong, readwrite ) NSImage* ssAlternativeImage;
 
-        self->__ssSize = NSMakeSize( 15.f * self->__ssImage.size.width / self->__ssImage.size.height, 15.f );
+@property ( assign, readonly ) NSSize ssSize;
 
-        if ( ( self->__ssSize.width ) > 0 && ( self->__ssSize.height > 0 ) )
-        [ self setFrameSize: [ self ssSize ] ];
-        }
-    }
++ ( instancetype ) ssButtonWithSSWidget: ( SearchStuffWidget* )_Widget;
 
-- ( NSImage* ) ssImage
-    {
-    return self->__ssImage;
-    }
-
-- ( void ) setSsAlternativeImage: ( NSImage* )_Image
-    {
-    if ( self->__ssAlternativeImage != _Image )
-        {
-        self->__ssAlternativeImage = _Image;
-        [ self setAlternateImage: self->__ssAlternativeImage ];
-        }
-    }
-
-- ( NSImage* ) ssAlternativeImage
-    {
-    return self->__ssAlternativeImage;
-    }
-
-
-- ( NSSize ) ssSize
-    {
-    return self->__ssSize;
-    }
-
-#pragma mark - Drawing
-
-+ ( Class ) cellClass
-    {
-    return [ __SSButtonCell class ];
-    }
-
-#pragma mark - Events
-
-- ( void ) mouseEntered: ( NSEvent* )_Event
-    {
-    [ self __redrawWithHighlighted: YES ];
-    }
-
-- ( void ) mouseExited: ( NSEvent* )_Event
-    {
-    [ self __redrawWithHighlighted: NO ];
-    }
-
-- ( void ) mouseDown: ( NSEvent* )_Event
-    {
-    [ self __redrawWithHighlighted: YES ];
-    }
-
-- ( void ) cursorUpdate: ( NSEvent* )_Event
-    {
-    [ [ NSCursor arrowCursor ] set ];
-    }
-
-#pragma mark - Private Interfaces
-
-- ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted
-    {
-    [ self.cell setHighlighted: _IsHighlighted ];
-    [ self setNeedsDisplay ];
-    }
-
-@end // __SSButton class
-
-// __SSButton + __SSPrivate
-@implementation __SSButton ( __SSPrivate )
-
-#pragma mark Private Initializations ( only used by friend classes )
-
-- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
-    {
-    if ( !_Widget )
-        return nil;
-
-    if ( self = [ super initWithFrame: NSZeroRect /* Frame doesn't matter */ ] )
-        {
-        self->__ssWidget = _Widget;
-        self->__ssSize = NSZeroSize;
-
-        NSTrackingArea* trackingArea =
-            [ [ NSTrackingArea alloc ] initWithRect: self.bounds
-                                            options: NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingCursorUpdate
-                                                        | NSTrackingActiveAlways
-                                                        /* This NSTrackingArea object was created with NSTrackingInVisibleRect option,
-                                                         * in which case the AppKit handles the re-computation of tracking area */
-                                                        | NSTrackingInVisibleRect
-                                              owner: self
-                                           userInfo: nil ];
-        [ self addTrackingArea: trackingArea ];
-        }
-
-    return self;
-    }
-
-@end // __SSButton + __SSPrivate
+@end // __SSWidget class
 
 /*===============================================================================┐
 |                                                                                |

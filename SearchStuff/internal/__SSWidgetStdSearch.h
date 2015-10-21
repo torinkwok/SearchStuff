@@ -22,12 +22,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSButton.h"
+#import "__SSWidget.h"
 
-// __SSButtonStdReload class
-@interface __SSButtonStdReload : __SSButton
+// __SSWidgetStdSearch class
+@interface __SSWidgetStdSearch : __SSWidget
 
-@end // __SSButtonStdReload class
+@end // __SSWidgetStdSearch class
 
 /*===============================================================================┐
 |                                                                                |

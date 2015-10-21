@@ -22,30 +22,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSButtonStdSearch.h"
-#import "__SSButton+__SSPrivate.h"
+#import "__SSWidget.h"
 
-// __SSButtonStdSearch class
-@implementation __SSButtonStdSearch
-@end // __SSButtonStdSearch class
+// __SSWidgetStdReload class
+@interface __SSWidgetStdReload : __SSWidget
 
-// __SSButtonStdSearch + __SSPrivate
-@implementation __SSButtonStdSearch ( __SSPrivate )
-
-#pragma mark Private Initializations ( only used by friend classes )
-
-- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
-    {
-    if ( self = [ super __initWithSSWiget: _Widget ] )
-        {
-        self.ssImage = [ NSImage imageNamed: @"search-stuff-search" ];
-        self.ssAlternativeImage = [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
-        }
-
-    return self;
-    }
-
-@end // __SSButtonStdSearch + __SSPrivate
+@end // __SSWidgetStdReload class
 
 /*===============================================================================┐
 |                                                                                |

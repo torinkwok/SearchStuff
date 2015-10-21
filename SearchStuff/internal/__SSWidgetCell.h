@@ -22,12 +22,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSButton.h"
+@import Cocoa;
 
-// __SSButtonStdSearch class
-@interface __SSButtonStdSearch : __SSButton
+// __SSWidgetCell class
+@interface __SSWidgetCell : NSButtonCell
 
-@end // __SSButtonStdSearch class
+@end // __SSWidgetCell class
 
 /*===============================================================================┐
 |                                                                                |

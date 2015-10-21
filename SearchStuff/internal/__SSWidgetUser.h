@@ -22,32 +22,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSButtonUser.h"
-#import "__SSButton+__SSPrivate.h"
+#import "__SSWidget.h"
 
-#import "SearchStuffWidget.h"
+// __SSWidgetUser class
+@interface __SSWidgetUser : __SSWidget
 
-// __SSButtonUser class
-@implementation __SSButtonUser
-@end // __SSButtonUser class
-
-// __SSButtonUser + __SSPrivate
-@implementation __SSButtonUser ( __SSPrivate )
-
-#pragma mark Private Initializations ( only used by friend classes )
-
-- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
-    {
-    if ( self = [ super __initWithSSWiget: _Widget ] )
-        {
-        self.ssImage = _Widget.image;
-        self.ssAlternativeImage = _Widget.alternativeImage;
-        }
-
-    return self;
-    }
-
-@end // __SSButtonUser + __SSPrivate
+@end // __SSWidgetUser class
 
 /*===============================================================================┐
 |                                                                                |

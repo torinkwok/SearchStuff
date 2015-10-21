@@ -1,14 +1,14 @@
 //
-//  __SSButton+__SSPrivate.h
+//  __SSWidget+__SSPrivate.h
 //  Playground
 //
 //  Created by Tong G. on 10/21/15.
 //  Copyright © 2015 Tong Kuo. All rights reserved.
 //
 
-#import "__SSButton.h"
+#import "__SSWidget.h"
 
-// __SSButton + __SSPrivate
-@interface __SSButton ( __SSPrivate )
+// __SSWidget + __SSPrivate
+@interface __SSWidget ( __SSPrivate )
 - ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget;
-@end // __SSButton + __SSPrivate
+@end // __SSWidget + __SSPrivate

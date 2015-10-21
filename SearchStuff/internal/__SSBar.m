@@ -26,7 +26,7 @@
 
 #import "__SSBackingCell.h"
 #import "__SSInputField.h"
-#import "__SSButton.h"
+#import "__SSWidget.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 
 #import "SearchStuffWidget.h"
@@ -114,7 +114,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
             NSMutableArray* ssButtons = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
             for ( SearchStuffWidget* _Widget in lhsAnchoredWidgets )
                 {
-                __SSButton* ssButton = [ __SSButton ssButtonWithSSWidget: _Widget ];
+                __SSWidget* ssButton = [ __SSWidget ssButtonWithSSWidget: _Widget ];
                 [ ssButtons addObject: ssButton ];
                 [ self __arrangeSSButtons: ssButtons state: __SSBarButtonStateLeftAnchored ];
                 }
@@ -122,13 +122,13 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
         }
     }
 
-- ( void ) __arrangeSSButtons: ( NSArray <__SSButton*>* )_Buttons
+- ( void ) __arrangeSSButtons: ( NSArray <__SSWidget*>* )_Buttons
                         state: ( __SSBarButtonState )_ButtonState
     {
     CGFloat originX = 5.f;
     CGFloat originY = 5.f;
 
-    for ( __SSButton* _Button in _Buttons )
+    for ( __SSWidget* _Button in _Buttons )
         {
         [ _Button setFrameOrigin: NSMakePoint( originX, originY ) ];
         [ self addSubview: _Button ];

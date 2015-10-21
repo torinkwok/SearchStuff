@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		830531EF1BD51AEF00223917 /* __SSButtonStdSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 830531EE1BD51AEF00223917 /* __SSButtonStdSearch.m */; settings = {ASSET_TAGS = (); }; };
+		830531EF1BD51AEF00223917 /* __SSWidgetStdSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 830531EE1BD51AEF00223917 /* __SSWidgetStdSearch.m */; settings = {ASSET_TAGS = (); }; };
 		832718FE1BC1279100C28426 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832718FD1BC1279100C28426 /* AppDelegate.m */; };
 		832719011BC1279100C28426 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719001BC1279100C28426 /* main.m */; };
 		832719031BC1279100C28426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832719021BC1279100C28426 /* Assets.xcassets */; };
 		832719061BC1279100C28426 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832719041BC1279100C28426 /* MainMenu.xib */; };
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
-		832CBAFF1BD6675400693DC1 /* __SSButtonStdReload.m in Sources */ = {isa = PBXBuildFile; fileRef = 832CBAFE1BD6675400693DC1 /* __SSButtonStdReload.m */; settings = {ASSET_TAGS = (); }; };
+		832CBAFF1BD6675400693DC1 /* __SSWidgetStdReload.m in Sources */ = {isa = PBXBuildFile; fileRef = 832CBAFE1BD6675400693DC1 /* __SSWidgetStdReload.m */; settings = {ASSET_TAGS = (); }; };
 		838A9BDB1BD80DCE008E1B12 /* search-stuff-add-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD31BD80DCE008E1B12 /* search-stuff-add-highlighted.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BDC1BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD41BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BDD1BD80DCE008E1B12 /* search-stuff-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD51BD80DCE008E1B12 /* search-stuff-add.png */; settings = {ASSET_TAGS = (); }; };
@@ -24,8 +24,8 @@
 		838A9BE11BD80DCE008E1B12 /* search-stuff-remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD91BD80DCE008E1B12 /* search-stuff-remove.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BE21BD80DCE008E1B12 /* search-stuff-remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83B621C51BD82637005FA2DE /* __SSWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B621C41BD82637005FA2DE /* __SSWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
-		83F47F901BCEA3290086F42D /* __SSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSButton.m */; settings = {ASSET_TAGS = (); }; };
-		83F47F911BCEA3290086F42D /* __SSButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */; settings = {ASSET_TAGS = (); }; };
+		83F47F901BCEA3290086F42D /* __SSWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSWidget.m */; settings = {ASSET_TAGS = (); }; };
+		83F47F911BCEA3290086F42D /* __SSWidgetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSWidgetCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7C1BCEA3280086F42D /* __SSBackingCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7E1BCEA3280086F42D /* __SSInputField.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F941BCEA3290086F42D /* __SSInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F801BCEA3280086F42D /* __SSInputFieldCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -40,7 +40,7 @@
 		83F47FE11BCFD8350086F42D /* search-stuff-search-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F47FD91BCFD8350086F42D /* search-stuff-search-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83F47FE21BCFD8350086F42D /* search-stuff-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F47FDA1BCFD8350086F42D /* search-stuff-search.png */; settings = {ASSET_TAGS = (); }; };
 		83F47FE31BCFD8350086F42D /* search-stuff-search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F47FDB1BCFD8350086F42D /* search-stuff-search@2x.png */; settings = {ASSET_TAGS = (); }; };
-		83FD30421BD7A561001B5B02 /* __SSButtonUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FD30411BD7A561001B5B02 /* __SSButtonUser.m */; settings = {ASSET_TAGS = (); }; };
+		83FD30421BD7A561001B5B02 /* __SSWidgetUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FD30411BD7A561001B5B02 /* __SSWidgetUser.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		830531ED1BD51AEF00223917 /* __SSButtonStdSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonStdSearch.h; sourceTree = "<group>"; };
-		830531EE1BD51AEF00223917 /* __SSButtonStdSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButtonStdSearch.m; sourceTree = "<group>"; };
+		830531ED1BD51AEF00223917 /* __SSWidgetStdSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetStdSearch.h; sourceTree = "<group>"; };
+		830531EE1BD51AEF00223917 /* __SSWidgetStdSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetStdSearch.m; sourceTree = "<group>"; };
 		832718F91BC1279100C28426 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		832718FC1BC1279100C28426 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		832718FD1BC1279100C28426 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -76,10 +76,10 @@
 		832719171BC1279100C28426 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8327191B1BC1279100C28426 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		832CBAFD1BD6675400693DC1 /* __SSButtonStdReload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonStdReload.h; sourceTree = "<group>"; };
-		832CBAFE1BD6675400693DC1 /* __SSButtonStdReload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButtonStdReload.m; sourceTree = "<group>"; };
+		832CBAFD1BD6675400693DC1 /* __SSWidgetStdReload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetStdReload.h; sourceTree = "<group>"; };
+		832CBAFE1BD6675400693DC1 /* __SSWidgetStdReload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetStdReload.m; sourceTree = "<group>"; };
 		832CBB071BD691E400693DC1 /* SearchStuffWidget+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchStuffWidget+__SSPrivate.h"; sourceTree = "<group>"; };
-		838A9BCA1BD7AB42008E1B12 /* __SSButton+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "__SSButton+__SSPrivate.h"; sourceTree = "<group>"; };
+		838A9BCA1BD7AB42008E1B12 /* __SSWidget+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "__SSWidget+__SSPrivate.h"; sourceTree = "<group>"; };
 		838A9BD31BD80DCE008E1B12 /* search-stuff-add-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add-highlighted.png"; sourceTree = "<group>"; };
 		838A9BD41BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add-highlighted@2x.png"; sourceTree = "<group>"; };
 		838A9BD51BD80DCE008E1B12 /* search-stuff-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add.png"; sourceTree = "<group>"; };
@@ -90,10 +90,10 @@
 		838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-remove@2x.png"; sourceTree = "<group>"; };
 		83B621C31BD82637005FA2DE /* __SSWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetsPallet.h; sourceTree = "<group>"; };
 		83B621C41BD82637005FA2DE /* __SSWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetsPallet.m; sourceTree = "<group>"; };
-		83F47F771BCEA3280086F42D /* __SSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButton.h; sourceTree = "<group>"; };
-		83F47F781BCEA3280086F42D /* __SSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButton.m; sourceTree = "<group>"; };
-		83F47F791BCEA3280086F42D /* __SSButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonCell.h; sourceTree = "<group>"; };
-		83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButtonCell.m; sourceTree = "<group>"; };
+		83F47F771BCEA3280086F42D /* __SSWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidget.h; sourceTree = "<group>"; };
+		83F47F781BCEA3280086F42D /* __SSWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidget.m; sourceTree = "<group>"; };
+		83F47F791BCEA3280086F42D /* __SSWidgetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetCell.h; sourceTree = "<group>"; };
+		83F47F7A1BCEA3280086F42D /* __SSWidgetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetCell.m; sourceTree = "<group>"; };
 		83F47F7B1BCEA3280086F42D /* __SSBackingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSBackingCell.h; sourceTree = "<group>"; };
 		83F47F7C1BCEA3280086F42D /* __SSBackingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSBackingCell.m; sourceTree = "<group>"; };
 		83F47F7D1BCEA3280086F42D /* __SSInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSInputField.h; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 		83F47FD91BCFD8350086F42D /* search-stuff-search-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-search-highlighted@2x.png"; sourceTree = "<group>"; };
 		83F47FDA1BCFD8350086F42D /* search-stuff-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-search.png"; sourceTree = "<group>"; };
 		83F47FDB1BCFD8350086F42D /* search-stuff-search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-search@2x.png"; sourceTree = "<group>"; };
-		83FD30401BD7A561001B5B02 /* __SSButtonUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonUser.h; sourceTree = "<group>"; };
-		83FD30411BD7A561001B5B02 /* __SSButtonUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButtonUser.m; sourceTree = "<group>"; };
+		83FD30401BD7A561001B5B02 /* __SSWidgetUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetUser.h; sourceTree = "<group>"; };
+		83FD30411BD7A561001B5B02 /* __SSWidgetUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				832CBB071BD691E400693DC1 /* SearchStuffWidget+__SSPrivate.h */,
-				838A9BCA1BD7AB42008E1B12 /* __SSButton+__SSPrivate.h */,
+				838A9BCA1BD7AB42008E1B12 /* __SSWidget+__SSPrivate.h */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -232,16 +232,16 @@
 			children = (
 				832CBB061BD691C000693DC1 /* extensions */,
 				83F47FD31BCFD8350086F42D /* artwork */,
-				83F47F771BCEA3280086F42D /* __SSButton.h */,
-				83F47F781BCEA3280086F42D /* __SSButton.m */,
-				830531ED1BD51AEF00223917 /* __SSButtonStdSearch.h */,
-				830531EE1BD51AEF00223917 /* __SSButtonStdSearch.m */,
-				832CBAFD1BD6675400693DC1 /* __SSButtonStdReload.h */,
-				832CBAFE1BD6675400693DC1 /* __SSButtonStdReload.m */,
-				83FD30401BD7A561001B5B02 /* __SSButtonUser.h */,
-				83FD30411BD7A561001B5B02 /* __SSButtonUser.m */,
-				83F47F791BCEA3280086F42D /* __SSButtonCell.h */,
-				83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */,
+				83F47F771BCEA3280086F42D /* __SSWidget.h */,
+				83F47F781BCEA3280086F42D /* __SSWidget.m */,
+				830531ED1BD51AEF00223917 /* __SSWidgetStdSearch.h */,
+				830531EE1BD51AEF00223917 /* __SSWidgetStdSearch.m */,
+				832CBAFD1BD6675400693DC1 /* __SSWidgetStdReload.h */,
+				832CBAFE1BD6675400693DC1 /* __SSWidgetStdReload.m */,
+				83FD30401BD7A561001B5B02 /* __SSWidgetUser.h */,
+				83FD30411BD7A561001B5B02 /* __SSWidgetUser.m */,
+				83F47F791BCEA3280086F42D /* __SSWidgetCell.h */,
+				83F47F7A1BCEA3280086F42D /* __SSWidgetCell.m */,
 				83F47F7B1BCEA3280086F42D /* __SSBackingCell.h */,
 				83F47F7C1BCEA3280086F42D /* __SSBackingCell.m */,
 				83F47F7D1BCEA3280086F42D /* __SSInputField.h */,
@@ -425,16 +425,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				83F47F961BCEA3290086F42D /* SearchStuffToolbarItem.m in Sources */,
-				83F47F901BCEA3290086F42D /* __SSButton.m in Sources */,
-				832CBAFF1BD6675400693DC1 /* __SSButtonStdReload.m in Sources */,
+				83F47F901BCEA3290086F42D /* __SSWidget.m in Sources */,
+				832CBAFF1BD6675400693DC1 /* __SSWidgetStdReload.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSBar.m in Sources */,
-				83FD30421BD7A561001B5B02 /* __SSButtonUser.m in Sources */,
+				83FD30421BD7A561001B5B02 /* __SSWidgetUser.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
 				83B621C51BD82637005FA2DE /* __SSWidgetsPallet.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83F47F941BCEA3290086F42D /* __SSInputFieldCell.m in Sources */,
-				830531EF1BD51AEF00223917 /* __SSButtonStdSearch.m in Sources */,
-				83F47F911BCEA3290086F42D /* __SSButtonCell.m in Sources */,
+				830531EF1BD51AEF00223917 /* __SSWidgetStdSearch.m in Sources */,
+				83F47F911BCEA3290086F42D /* __SSWidgetCell.m in Sources */,
 				83F47F971BCEA3290086F42D /* SearchStuffWidget.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */,
 				83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */,

@@ -22,34 +22,32 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSButtonCell.h"
+#import "__SSWidgetUser.h"
+#import "__SSWidget+__SSPrivate.h"
 
-// __SSButtonCell class
-@implementation __SSButtonCell
+#import "SearchStuffWidget.h"
 
-#pragma mark - Drawing
+// __SSWidgetUser class
+@implementation __SSWidgetUser
+@end // __SSWidgetUser class
 
-- ( void ) drawWithFrame: ( NSRect )_CellFrame
-                  inView: ( NSView* )_ControlView
+// __SSWidgetUser + __SSPrivate
+@implementation __SSWidgetUser ( __SSPrivate )
+
+#pragma mark Private Initializations ( only used by friend classes )
+
+- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
     {
-    NSImage* finalImage = self.isHighlighted ? self.alternateImage : self.image;
+    if ( self = [ super __initWithSSWiget: _Widget ] )
+        {
+        self.ssImage = _Widget.image;
+        self.ssAlternativeImage = _Widget.alternativeImage;
+        }
 
-    NSRect ctrlFrameRect = _ControlView.bounds;
-    NSAffineTransform* flipTransform = [ NSAffineTransform transform ];
-    [ flipTransform translateXBy: 0.f yBy: ctrlFrameRect.size.height ];
-    [ flipTransform scaleXBy: 1.f yBy: -1.f ];
-    [ flipTransform concat ];
-
-    [ finalImage drawInRect: _ControlView.bounds
-                   fromRect: NSZeroRect
-                  operation: NSCompositeSourceOver
-                   fraction: 1.f ];
-
-    [ flipTransform invert ];
-    [ flipTransform concat ];
+    return self;
     }
 
-@end // __SSButtonCell class
+@end // __SSWidgetUser + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |

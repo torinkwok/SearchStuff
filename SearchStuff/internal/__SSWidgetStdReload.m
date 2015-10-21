@@ -22,15 +22,15 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSButtonStdReload.h"
-#import "__SSButton+__SSPrivate.h"
+#import "__SSWidgetStdReload.h"
+#import "__SSWidget+__SSPrivate.h"
 
-// __SSButtonStdReload class
-@implementation __SSButtonStdReload
-@end // __SSButtonStdReload class
+// __SSWidgetStdReload class
+@implementation __SSWidgetStdReload
+@end // __SSWidgetStdReload class
 
-// __SSButtonStdReload + __SSPrivate
-@implementation __SSButtonStdReload ( __SSPrivate )
+// __SSWidgetStdReload + __SSPrivate
+@implementation __SSWidgetStdReload ( __SSPrivate )
 
 #pragma mark Private Initializations ( only used by friend classes )
 
@@ -45,7 +45,7 @@
     return self;
     }
 
-@end // __SSButtonStdReload + __SSPrivate
+@end // __SSWidgetStdReload + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |

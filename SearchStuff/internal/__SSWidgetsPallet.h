@@ -25,7 +25,7 @@
 @import Cocoa;
 
 @class __SSBar;
-@class __SSButton;
+@class __SSWidget;
 
 typedef NS_ENUM( NSUInteger, __SSWidetsPalletType )
     { __SSWidetsPalletTypeLeftAnchored  = 0
@@ -41,8 +41,8 @@ typedef NS_ENUM( NSUInteger, __SSWidetsPalletType )
     __SSBar __weak* __hostingBar;
     }
 
-@property ( weak ) __SSBar* ssHostingBar;
-@property ( strong, readwrite ) NSArray ssWidgets;
+@property ( weak, readonly ) __SSBar* ssHostingBar;
+@property ( strong, readwrite ) NSArray* ssWidgets;
 
 #pragma mark - Initializations
 
