@@ -114,7 +114,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
             NSMutableArray* ssButtons = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
             for ( SearchStuffWidget* _Widget in lhsAnchoredWidgets )
                 {
-                __SSButton* ssButton = [ __SSButton ssButtonWithSSWidget: _Widget frame: NSMakeRect( 0, 0, 15.f, 15.f ) ];
+                __SSButton* ssButton = [ __SSButton ssButtonWithSSWidget: _Widget ];
                 [ ssButtons addObject: ssButton ];
                 [ self __arrangeSSButtons: ssButtons state: __SSBarButtonStateLeftAnchored ];
                 }

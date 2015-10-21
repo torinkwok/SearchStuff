@@ -58,7 +58,6 @@
 #pragma mark - Initializations
 
 + ( instancetype ) ssButtonWithSSWidget: ( SearchStuffWidget* )_Widget
-                                  frame: ( NSRect )_Frame
     {
     if ( !_Widget )
         return nil;
@@ -67,13 +66,13 @@
     if ( _Widget.__isStd )
         {
         if ( [ _Widget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
-            clusterMember = [ [ __SSButtonStdSearch alloc ] __initWithFrame: _Frame ssWiget: _Widget ];
+            clusterMember = [ [ __SSButtonStdSearch alloc ] __initWithSSWiget: _Widget ];
 
         else if ( [ _Widget.identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
-            clusterMember = [ [ __SSButtonStdReload alloc ] __initWithFrame: _Frame ssWiget: _Widget ];
+            clusterMember = [ [ __SSButtonStdReload alloc ] __initWithSSWiget: _Widget ];
         }
     else
-        clusterMember = [ [ __SSButtonUser alloc ] __initWithFrame: _Frame ssWiget: _Widget ];
+        clusterMember = [ [ __SSButtonUser alloc ] __initWithSSWiget: _Widget ];
 
     return clusterMember;
     }
@@ -168,13 +167,12 @@
 
 #pragma mark Private Initializations ( only used by friend classes )
 
-- ( instancetype ) __initWithFrame: ( NSRect )_FrameRect
-                           ssWiget: ( SearchStuffWidget* )_Widget
+- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
     {
     if ( !_Widget )
         return nil;
 
-    if ( self = [ super initWithFrame: _FrameRect ] )
+    if ( self = [ super initWithFrame: NSZeroRect ] )
         {
         self->__ssWidget = _Widget;
         self->__ssSize = NSZeroSize;

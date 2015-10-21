@@ -36,10 +36,9 @@
 
 #pragma mark Private Initializations ( only used by friend classes )
 
-- ( instancetype ) __initWithFrame: ( NSRect )_FrameRect
-                           ssWiget: ( SearchStuffWidget* )_Widget
+- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
     {
-    if ( self = [ super __initWithFrame: _FrameRect ssWiget: _Widget ] )
+    if ( self = [ super __initWithSSWiget: _Widget ] )
         {
         self.ssImage = _Widget.image;
         self.ssAlternativeImage = _Widget.alternativeImage;
