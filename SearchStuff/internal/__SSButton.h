@@ -38,7 +38,7 @@
 
 @property ( assign, readonly ) NSSize ssSize;
 
-+ ( instancetype ) ssButtonWithSSWidget: ( SearchStuffWidget* )_Widget;
++ ( instancetype ) ssButtonWithSSWidget: ( SearchStuffWidget* )_Widget frame: ( NSRect )_Frame;
 
 @end // __SSButton class
 

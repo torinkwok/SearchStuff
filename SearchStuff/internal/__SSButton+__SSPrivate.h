@@ -10,7 +10,5 @@
 
 // __SSButton + __SSPrivate
 @interface __SSButton ( __SSPrivate )
-
-- ( instancetype ) __initWithSSWidget: ( SearchStuffWidget* )_Widget;
-
+- ( instancetype ) __initWithFrame: ( NSRect )_FrameRect ssWiget: ( SearchStuffWidget* )_Widget;
 @end // __SSButton + __SSPrivate

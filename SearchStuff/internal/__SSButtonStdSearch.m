@@ -23,15 +23,19 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSButtonStdSearch.h"
+#import "__SSButton+__SSPrivate.h"
 
 // __SSButtonStdSearch class
 @implementation __SSButtonStdSearch
+@end // __SSButtonStdSearch class
 
-#pragma mark - Initializations
+// __SSButtonStdSearch + __SSPrivate
+@implementation __SSButtonStdSearch ( __SSPrivate )
 
-- ( instancetype ) initWithFrame: ( NSRect )_Frame
+- ( instancetype ) __initWithFrame: ( NSRect )_FrameRect
+                           ssWiget: ( SearchStuffWidget* )_Widget
     {
-    if ( self = [ super initWithFrame: _Frame ] )
+    if ( self = [ super __initWithFrame: _FrameRect ssWiget: _Widget ] )
         {
         self.ssImage = [ NSImage imageNamed: @"search-stuff-search" ];
         self.ssAlternativeImage = [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
@@ -40,7 +44,7 @@
     return self;
     }
 
-@end // __SSButtonStdSearch class
+@end // __SSButtonStdSearch + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |

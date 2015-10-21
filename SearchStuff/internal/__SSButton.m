@@ -57,6 +57,7 @@
 #pragma mark - Initializations
 
 + ( instancetype ) ssButtonWithSSWidget: ( SearchStuffWidget* )_Widget
+                                  frame: ( NSRect )_Frame
     {
     if ( !_Widget )
         return nil;
@@ -64,8 +65,15 @@
     __SSButton* clusterMember = nil;
     if ( _Widget.__isStd )
         {
-//        if ( [ _Widget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
-//            clusterMember = [ __SSButtonStdSearch alloc
+        if ( [ _Widget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
+            clusterMember = [ [ __SSButtonStdSearch alloc ] __initWithFrame: _Frame ssWiget: _Widget ];
+
+        else if ( [ _Widget.identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
+            clusterMember = [ [ __SSButtonStdReload alloc ] __initWithFrame: _Frame ssWiget: _Widget ];
+        }
+    else
+        {
+        
         }
 
     return clusterMember;
@@ -117,29 +125,6 @@
     return self->__ssSize;
     }
 
-#pragma mark - Initializations
-
-- ( instancetype ) initWithFrame: ( NSRect )_FrameRect
-    {
-    if ( self = [ super initWithFrame: _FrameRect ] )
-        {
-        self->__ssSize = NSZeroSize;
-
-        NSTrackingArea* trackingArea =
-            [ [ NSTrackingArea alloc ] initWithRect: self.bounds
-                                            options: NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingCursorUpdate
-                                                        | NSTrackingActiveAlways
-                                                        /* This NSTrackingArea object was created with NSTrackingInVisibleRect option,
-                                                         * in which case the AppKit handles the re-computation of tracking area */
-                                                        | NSTrackingInVisibleRect
-                                              owner: self
-                                           userInfo: nil ];
-        [ self addTrackingArea: trackingArea ];
-        }
-
-    return self;
-    }
-
 #pragma mark - Drawing
 
 + ( Class ) cellClass
@@ -181,6 +166,32 @@
 
 // __SSButton + __SSPrivate
 @implementation __SSButton ( __SSPrivate )
+
+- ( instancetype ) __initWithFrame: ( NSRect )_FrameRect
+                           ssWiget: ( SearchStuffWidget* )_Widget
+    {
+    if ( !_Widget )
+        return nil;
+
+    if ( self = [ super initWithFrame: _FrameRect ] )
+        {
+        self->__ssWidget = _Widget;
+        self->__ssSize = NSZeroSize;
+
+        NSTrackingArea* trackingArea =
+            [ [ NSTrackingArea alloc ] initWithRect: self.bounds
+                                            options: NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingCursorUpdate
+                                                        | NSTrackingActiveAlways
+                                                        /* This NSTrackingArea object was created with NSTrackingInVisibleRect option,
+                                                         * in which case the AppKit handles the re-computation of tracking area */
+                                                        | NSTrackingInVisibleRect
+                                              owner: self
+                                           userInfo: nil ];
+        [ self addTrackingArea: trackingArea ];
+        }
+
+    return self;
+    }
 
 @end // __SSButton + __SSPrivate
 

@@ -23,15 +23,19 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSButtonStdReload.h"
+#import "__SSButton+__SSPrivate.h"
 
 // __SSButtonStdReload class
 @implementation __SSButtonStdReload
+@end // __SSButtonStdReload class
 
-#pragma mark - Initializations
+// __SSButtonStdReload + __SSPrivate
+@implementation __SSButtonStdReload ( __SSPrivate )
 
-- ( instancetype ) initWithFrame: ( NSRect )_Frame
+- ( instancetype ) __initWithFrame: ( NSRect )_FrameRect
+                           ssWiget: ( SearchStuffWidget* )_Widget
     {
-    if ( self = [ super initWithFrame: _Frame ] )
+    if ( self = [ super __initWithFrame: _FrameRect ssWiget: _Widget ] )
         {
         self.ssImage = [ NSImage imageNamed: @"search-stuff-reload" ];
         self.ssAlternativeImage = [ NSImage imageNamed: @"search-stuff-reload-highlighted" ];
@@ -40,7 +44,7 @@
     return self;
     }
 
-@end // __SSButtonStdReload class
+@end // __SSButtonStdReload + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |
