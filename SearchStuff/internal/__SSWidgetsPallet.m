@@ -23,6 +23,7 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSWidgetsPallet.h"
+#import "__SSBar.h"
 
 // __SSWidgetsPallet class
 @implementation __SSWidgetsPallet
@@ -36,10 +37,22 @@
         return nil;
 
     if ( self = [ super initWithFrame: NSZeroRect ] )
+        {
         self->__hostingBar = _HostingBar;
+        [ self->__hostingBar addSubview: self ];
+        }
 
     return self;
     }
+
+#pragma mark - Dynamic Properties
+
+- ( __SSBar* ) ssHostingBar
+    {
+    return self->__hostingBar;
+    }
+
+//- ( NSArray
 
 @end // __SSWidgetsPallet class
 

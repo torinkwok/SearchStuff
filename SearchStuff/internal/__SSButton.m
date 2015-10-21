@@ -172,7 +172,7 @@
     if ( !_Widget )
         return nil;
 
-    if ( self = [ super initWithFrame: NSZeroRect ] )
+    if ( self = [ super initWithFrame: NSZeroRect /* Frame doesn't matter */ ] )
         {
         self->__ssWidget = _Widget;
         self->__ssSize = NSZeroSize;

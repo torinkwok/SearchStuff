@@ -14,6 +14,7 @@
 |          |_|      \_)_____|\__  |\___ |_|   \___/|____/|_| |_|\____|         |██
 |                           (____/(_____|                                      |██
 |                                                                              |██
+|                                                                              |██
 |                         Copyright (c) 2015 Tong Kuo                          |██
 |                                                                              |██
 |                             ALL RIGHTS RESERVED.                             |██
@@ -40,7 +41,6 @@
                                       action: ( SEL )_ActionSEL
                                  itemContent: ( id )_ImageOrView
                                      repMenu: ( NSMenu* )_Menu;
-
 @end // Private Interfaces
 
 // AppDelegate class
