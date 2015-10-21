@@ -85,7 +85,7 @@
             {
 //            NSLog( @"%@", _WidgetIdentifier );
             if ( [ [ [ SSSearchStuffWidget class ] __stdIdentifiers ] containsObject: _WidgetIdentifier ] )
-                NSLog( @"🍉" );
+                [ lhsAnchoredWidgets addObject: [ [ SSSearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
             }
 
 //        NSLog( @"%@", self.hostingSSToolbarItem.__standardIdentifiers );

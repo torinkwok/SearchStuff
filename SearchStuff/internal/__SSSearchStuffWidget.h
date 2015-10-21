@@ -29,8 +29,6 @@
 
 + ( NSArray <__kindof NSString*>* ) __stdIdentifiers;
 
-- ( instancetype ) __initWithIdentifier: ( NSString* )_Identifier;
-
 @property ( strong, readwrite ) NSString* identifier;
 
 @end // __SSSearchStuffWidget class

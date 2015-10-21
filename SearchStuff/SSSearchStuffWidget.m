@@ -25,8 +25,6 @@
 #import "SSSearchStuffWidget.h"
 
 #import "__SSSearchStuffWidget.h"
-#import "__SSSearchStuffWidgetStd.h"
-#import "__SSSearchStuffWidgetUser.h"
 
 // Standard Identifiers
 NSString* const SearchStuffSearchWidgetIdentifier = @"__ssSearchWidgetIdentifier";
@@ -34,22 +32,22 @@ NSString* const SearchStuffReloadWidgetIdentifier = @"__ssReloadWidgetIdentifier
 
 NSArray <__kindof NSString*> static* sStandardIdentifiers;
 
+// Private Interface
+@interface SSSearchStuffWidget ()
+@property ( strong, readwrite ) NSString* identifier;
+@end // Private Interface
+
 // SSSearchStuffWidget 
 @implementation SSSearchStuffWidget
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithIdentifier: ( NSString* )_Identifier
+- ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier
     {
-    self.identifier = _Identifier;
+    if ( self = [ super init ] )
+        self.identifier = _WidgetIdentifier;
 
-    SSSearchStuffWidget* clusterMember = nil;
-    if ( [ [ [ self class ] __stdIdentifiers ] containsObject: self.identifier ] )
-        clusterMember = [ [ __SSSearchStuffWidgetStd alloc ] __initWithIdentifier: self.identifier ];
-    else
-        clusterMember = [ [ __SSSearchStuffWidgetUser alloc ] __initWithIdentifier: self.identifier ];
-
-    return clusterMember;
+    return self;
     }
 
 @end // SSSearchStuffWidget class
@@ -57,24 +55,11 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
 // SSSearchStuffWidget + SearchStuffPrivate
 @implementation SSSearchStuffWidget ( SearchStuffPrivate )
 
-@dynamic identifier;
-
 + ( NSArray <__kindof NSString*>* ) __stdIdentifiers
     {
     return@[ SearchStuffSearchWidgetIdentifier
            , SearchStuffReloadWidgetIdentifier
            ];
-    }
-
-- ( instancetype ) __initWithIdentifier: ( NSString* )_Identifier
-    {
-    if ( !_Identifier )
-        return nil;
-
-    if ( self = [ super init ] )
-        self.identifier = _Identifier;
-
-    return self;
     }
 
 @end // SSSearchStuffWidget + SearchStuffPrivate

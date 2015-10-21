@@ -15,8 +15,6 @@
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
 		832CBAFF1BD6675400693DC1 /* __SSPreReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 832CBAFE1BD6675400693DC1 /* __SSPreReloadButton.m */; settings = {ASSET_TAGS = (); }; };
-		832CBB021BD6881500693DC1 /* __SSSearchStuffWidgetStd.m in Sources */ = {isa = PBXBuildFile; fileRef = 832CBB011BD6881500693DC1 /* __SSSearchStuffWidgetStd.m */; settings = {ASSET_TAGS = (); }; };
-		832CBB051BD6882600693DC1 /* __SSSearchStuffWidgetUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 832CBB041BD6882600693DC1 /* __SSSearchStuffWidgetUser.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F901BCEA3290086F42D /* __SSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSButton.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F911BCEA3290086F42D /* __SSButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F921BCEA3290086F42D /* __SSSearchStuffBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7C1BCEA3280086F42D /* __SSSearchStuffBackingCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -70,10 +68,6 @@
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		832CBAFD1BD6675400693DC1 /* __SSPreReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSPreReloadButton.h; sourceTree = "<group>"; };
 		832CBAFE1BD6675400693DC1 /* __SSPreReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSPreReloadButton.m; sourceTree = "<group>"; };
-		832CBB001BD6881500693DC1 /* __SSSearchStuffWidgetStd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffWidgetStd.h; sourceTree = "<group>"; };
-		832CBB011BD6881500693DC1 /* __SSSearchStuffWidgetStd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffWidgetStd.m; sourceTree = "<group>"; };
-		832CBB031BD6882600693DC1 /* __SSSearchStuffWidgetUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffWidgetUser.h; sourceTree = "<group>"; };
-		832CBB041BD6882600693DC1 /* __SSSearchStuffWidgetUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSSearchStuffWidgetUser.m; sourceTree = "<group>"; };
 		832CBB071BD691E400693DC1 /* __SSSearchStuffWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSSearchStuffWidget.h; sourceTree = "<group>"; };
 		83F47F771BCEA3280086F42D /* __SSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButton.h; sourceTree = "<group>"; };
 		83F47F781BCEA3280086F42D /* __SSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButton.m; sourceTree = "<group>"; };
@@ -230,10 +224,6 @@
 				83F47F801BCEA3280086F42D /* __SSSearchStuffInputFieldCell.m */,
 				83F47FD11BCFD8120086F42D /* __SSSearchStuffBar.h */,
 				83F47FD01BCFD8120086F42D /* __SSSearchStuffBar.m */,
-				832CBB001BD6881500693DC1 /* __SSSearchStuffWidgetStd.h */,
-				832CBB011BD6881500693DC1 /* __SSSearchStuffWidgetStd.m */,
-				832CBB031BD6882600693DC1 /* __SSSearchStuffWidgetUser.h */,
-				832CBB041BD6882600693DC1 /* __SSSearchStuffWidgetUser.m */,
 			);
 			path = internal;
 			sourceTree = "<group>";
@@ -391,7 +381,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				83F47F961BCEA3290086F42D /* SSSearchStuffToolbarItem.m in Sources */,
-				832CBB021BD6881500693DC1 /* __SSSearchStuffWidgetStd.m in Sources */,
 				83F47F901BCEA3290086F42D /* __SSButton.m in Sources */,
 				832CBAFF1BD6675400693DC1 /* __SSPreReloadButton.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSSearchStuffBar.m in Sources */,
@@ -403,7 +392,6 @@
 				83F47F971BCEA3290086F42D /* SSSearchStuffWidget.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSSearchStuffInputField.m in Sources */,
 				83F47F921BCEA3290086F42D /* __SSSearchStuffBackingCell.m in Sources */,
-				832CBB051BD6882600693DC1 /* __SSSearchStuffWidgetUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
