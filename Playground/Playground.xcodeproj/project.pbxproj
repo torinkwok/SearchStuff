@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		830531EF1BD51AEF00223917 /* __SSPreSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 830531EE1BD51AEF00223917 /* __SSPreSearchButton.m */; settings = {ASSET_TAGS = (); }; };
+		830531EF1BD51AEF00223917 /* __SSButtonStdSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 830531EE1BD51AEF00223917 /* __SSButtonStdSearch.m */; settings = {ASSET_TAGS = (); }; };
 		832718FE1BC1279100C28426 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832718FD1BC1279100C28426 /* AppDelegate.m */; };
 		832719011BC1279100C28426 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719001BC1279100C28426 /* main.m */; };
 		832719031BC1279100C28426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832719021BC1279100C28426 /* Assets.xcassets */; };
@@ -51,8 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		830531ED1BD51AEF00223917 /* __SSPreSearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSPreSearchButton.h; sourceTree = "<group>"; };
-		830531EE1BD51AEF00223917 /* __SSPreSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSPreSearchButton.m; sourceTree = "<group>"; };
+		830531ED1BD51AEF00223917 /* __SSButtonStdSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSButtonStdSearch.h; sourceTree = "<group>"; };
+		830531EE1BD51AEF00223917 /* __SSButtonStdSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSButtonStdSearch.m; sourceTree = "<group>"; };
 		832718F91BC1279100C28426 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		832718FC1BC1279100C28426 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		832718FD1BC1279100C28426 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -212,8 +212,8 @@
 				83F47F781BCEA3280086F42D /* __SSButton.m */,
 				83F47F791BCEA3280086F42D /* __SSButtonCell.h */,
 				83F47F7A1BCEA3280086F42D /* __SSButtonCell.m */,
-				830531ED1BD51AEF00223917 /* __SSPreSearchButton.h */,
-				830531EE1BD51AEF00223917 /* __SSPreSearchButton.m */,
+				830531ED1BD51AEF00223917 /* __SSButtonStdSearch.h */,
+				830531EE1BD51AEF00223917 /* __SSButtonStdSearch.m */,
 				832CBAFD1BD6675400693DC1 /* __SSPreReloadButton.h */,
 				832CBAFE1BD6675400693DC1 /* __SSPreReloadButton.m */,
 				83F47F7B1BCEA3280086F42D /* __SSSearchStuffBackingCell.h */,
@@ -387,7 +387,7 @@
 				832719011BC1279100C28426 /* main.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83F47F941BCEA3290086F42D /* __SSSearchStuffInputFieldCell.m in Sources */,
-				830531EF1BD51AEF00223917 /* __SSPreSearchButton.m in Sources */,
+				830531EF1BD51AEF00223917 /* __SSButtonStdSearch.m in Sources */,
 				83F47F911BCEA3290086F42D /* __SSButtonCell.m in Sources */,
 				83F47F971BCEA3290086F42D /* SSSearchStuffWidget.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSSearchStuffInputField.m in Sources */,

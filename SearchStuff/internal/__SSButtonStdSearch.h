@@ -22,25 +22,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSPreSearchButton.h"
+#import "__SSButton.h"
 
-// __SSPreSearchButton class
-@implementation __SSPreSearchButton
+// __SSButtonStdSearch class
+@interface __SSButtonStdSearch : __SSButton
 
-#pragma mark - Initializations
-
-- ( instancetype ) initWithFrame: ( NSRect )_Frame
-    {
-    if ( self = [ super initWithFrame: _Frame ] )
-        {
-        self.ssImage = [ NSImage imageNamed: @"search-stuff-search" ];
-        self.ssAlternativeImage = [ NSImage imageNamed: @"search-stuff-search-highlighted" ];
-        }
-
-    return self;
-    }
-
-@end // __SSPreSearchButton class
+@end // __SSButtonStdSearch class
 
 /*===============================================================================┐
 |                                                                                |
