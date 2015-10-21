@@ -24,8 +24,11 @@
 
 #import "__SSButton.h"
 #import "__SSButtonCell.h"
+#import "__SSButtonStdSearch.h"
+#import "__SSButtonStdReload.h"
+#import "__SSButton+__SSPrivate.h"
 
-#import "SearchStuffWidget.h"
+#import "SearchStuffWidget+__SSPrivate.h"
 
 // Private Interfaces
 @interface __SSButton ()
@@ -59,7 +62,11 @@
         return nil;
 
     __SSButton* clusterMember = nil;
-    
+    if ( _Widget.__isStd )
+        {
+//        if ( [ _Widget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
+//            clusterMember = [ __SSButtonStdSearch alloc
+        }
 
     return clusterMember;
     }
@@ -171,6 +178,11 @@
     }
 
 @end // __SSButton class
+
+// __SSButton + __SSPrivate
+@implementation __SSButton ( __SSPrivate )
+
+@end // __SSButton + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |

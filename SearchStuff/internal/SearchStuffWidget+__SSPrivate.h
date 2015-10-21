@@ -25,7 +25,7 @@
 #import "SearchStuffWidget.h"
 
 // __SearchStuffWidget class
-@interface SearchStuffWidget ( SearchStuffPrivate )
+@interface SearchStuffWidget ( __SSPrivate )
 
 + ( NSArray <__kindof NSString*>* ) __stdIdentifiers;
 

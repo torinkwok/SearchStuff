@@ -58,8 +58,8 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
 
 @end // SearchStuffWidget class
 
-// SearchStuffWidget + SearchStuffPrivate
-@implementation SearchStuffWidget ( SearchStuffPrivate )
+// SearchStuffWidget + __SSPrivate
+@implementation SearchStuffWidget ( __SSPrivate )
 
 + ( NSArray <__kindof NSString*>* ) __stdIdentifiers
     {
@@ -74,7 +74,7 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
     return self->__isStd;
     }
 
-@end // SearchStuffWidget + SearchStuffPrivate
+@end // SearchStuffWidget + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |
