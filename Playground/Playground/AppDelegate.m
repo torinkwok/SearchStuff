@@ -143,7 +143,7 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
 
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers
     {
-    return @[ SearchStuffReloadWidgetIdentifier ];
+    return @[ SearchStuffReloadWidgetIdentifier, SearchStuffSearchWidgetIdentifier ];
     }
 
 //- ( SearchStuffWidget* ) ssToolbarItem: ( SearchStuffToolbarItem* )_ssToolbarItem

@@ -26,6 +26,7 @@
 
 #import "__SSBackingCell.h"
 #import "__SSInputField.h"
+#import "__SSButton.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 
 #import "SearchStuffWidget.h"
@@ -84,9 +85,11 @@
         NSArray <__kindof NSString*>* lhsAnchoredWidgetIdentifiers =
             [ tlbItemDel ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ];
 
+        NSMutableArray* lhsAnchoredWidgets =
+            [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
+
         if ( lhsAnchoredWidgetIdentifiers.count > 0 )
             {
-            NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
             for ( NSString* _WidgetIdentifier in lhsAnchoredWidgetIdentifiers )
                 {
                 if ( [ [ [ SearchStuffWidget class ] __stdIdentifiers ] containsObject: _WidgetIdentifier ] )
@@ -100,7 +103,29 @@
                         }
                     }
                 }
+
+            NSMutableArray* ssButtons = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
+            for ( SearchStuffWidget* _Widget in lhsAnchoredWidgets )
+                {
+                __SSButton* ssButton = [ __SSButton ssButtonWithSSWidget: _Widget frame: NSMakeRect( 0, 0, 15.f, 15.f ) ];
+                [ ssButtons addObject: ssButton ];
+                [ self __arrangeSSButtons: ssButtons ];
+                }
             }
+        }
+    }
+
+- ( void ) __arrangeSSButtons: ( NSArray <__SSButton*>* )_Buttons
+    {
+    CGFloat originX = 5.f;
+    CGFloat originY = 5.f;
+
+    for ( __SSButton* _Button in _Buttons )
+        {
+        [ _Button setFrameOrigin: NSMakePoint( originX, originY ) ];
+        [ self addSubview: _Button ];
+
+        originX += ( 15.f + 3.f );
         }
     }
 
