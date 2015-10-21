@@ -26,6 +26,7 @@
 #import "__SSButtonCell.h"
 #import "__SSButtonStdSearch.h"
 #import "__SSButtonStdReload.h"
+#import "__SSButtonUser.h"
 #import "__SSButton+__SSPrivate.h"
 
 #import "SearchStuffWidget+__SSPrivate.h"
@@ -72,9 +73,7 @@
             clusterMember = [ [ __SSButtonStdReload alloc ] __initWithFrame: _Frame ssWiget: _Widget ];
         }
     else
-        {
-        
-        }
+        clusterMember = [ [ __SSButtonUser alloc ] __initWithFrame: _Frame ssWiget: _Widget ];
 
     return clusterMember;
     }

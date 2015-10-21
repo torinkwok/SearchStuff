@@ -23,10 +23,32 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSButtonUser.h"
+#import "__SSButton+__SSPrivate.h"
+
+#import "SearchStuffWidget.h"
 
 // __SSButtonUser class
 @implementation __SSButtonUser
 @end // __SSButtonUser class
+
+// __SSButtonUser + __SSPrivate
+@implementation __SSButtonUser ( __SSPrivate )
+
+#pragma mark Private Initializations ( only used by friend classes )
+
+- ( instancetype ) __initWithFrame: ( NSRect )_FrameRect
+                           ssWiget: ( SearchStuffWidget* )_Widget
+    {
+    if ( self = [ super __initWithFrame: _FrameRect ssWiget: _Widget ] )
+        {
+        self.ssImage = _Widget.image;
+        self.ssAlternativeImage = _Widget.alternativeImage;
+        }
+
+    return self;
+    }
+
+@end // __SSButtonUser + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |

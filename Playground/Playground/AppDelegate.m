@@ -141,19 +141,36 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
 
 #pragma mark - Conforms to <SearchStuffDelegate>
 
+NSString* const kSearchStuffAddWidgetIdentifier = @"kSearchStuffAddWidgetIdentifier";
+NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffAddWidgetIdentifier";
+
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers
     {
-    return @[ SearchStuffReloadWidgetIdentifier, SearchStuffSearchWidgetIdentifier ];
+    return @[ SearchStuffReloadWidgetIdentifier
+            , SearchStuffSearchWidgetIdentifier
+            , kSearchStuffAddWidgetIdentifier
+            , kSearchStuffRemoveWidgetIdentifier
+            ];
     }
 
-//- ( SearchStuffWidget* ) ssToolbarItem: ( SearchStuffToolbarItem* )_ssToolbarItem
-//               widgetForWidgetIdentifier: ( NSString* )_Identifier
-//    {
-//    SearchStuffWidget* ssWidget = nil;
-//
-//    if ( [ _Identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
-//
-//    }
+- ( SearchStuffWidget* ) ssToolbarItem: ( SearchStuffToolbarItem* )_ssToolbarItem
+               widgetForWidgetIdentifier: ( NSString* )_Identifier
+    {
+    SearchStuffWidget* ssWidget = [ [ SearchStuffWidget alloc ] initWithIdentifier: _Identifier ];
+
+    if ( [ _Identifier isEqualToString: kSearchStuffAddWidgetIdentifier ] )
+        {
+        ssWidget.image = [ NSImage imageNamed: @"search-stuff-add" ];
+        ssWidget.alternativeImage = [ NSImage imageNamed: @"search-stuff-add-highlighted" ];
+        }
+    else if ( [ _Identifier isEqualToString: kSearchStuffRemoveWidgetIdentifier ] )
+        {
+        ssWidget.image = [ NSImage imageNamed: @"search-stuff-remove" ];
+        ssWidget.alternativeImage = [ NSImage imageNamed: @"search-stuff-remove-highlighted" ];
+        }
+
+    return ssWidget;
+    }
 
 #pragma mark - Private Interfaces
 
