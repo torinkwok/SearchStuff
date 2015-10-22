@@ -121,6 +121,9 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                 __SSWidget* ssButton = [ __SSWidget ssButtonWithSSWidget: _Widget ];
                 [ ssButtons addObject: ssButton ];
                 self.__leftAnchoredWidgetsPallet.ssWidgets = ssButtons;
+
+                NSLog( @"%g", NSWidth( self.bounds ) );
+                self->__widthConstraintOfLeftAnchored.constant = NSWidth( self.bounds ) / 5.f;
                 }
             }
         }
@@ -213,10 +216,15 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     NSDictionary* viewsDict = NSDictionaryOfVariableBindings( lhsAnchoredWidgetsPallet );
 
     NSArray* horLayoutConstraints = [ NSLayoutConstraint
-        constraintsWithVisualFormat: @"H:|[lhsAnchoredWidgetsPallet(100)]-(>=0)-|"
+        constraintsWithVisualFormat: @"H:|-(==1)-[lhsAnchoredWidgetsPallet(200)]-(>=0)-|"
                             options: 0
                             metrics: nil /* @{ @"palletWidth" : @( NSWidth( self.bounds ) / 5 ) } */
                               views: viewsDict ];
+
+    for ( NSLayoutConstraint* _Constraint in horLayoutConstraints )
+        if ( _Constraint.firstAttribute == NSLayoutAttributeWidth
+                && _Constraint.secondAttribute == NSLayoutAttributeNotAnAttribute )
+            self->__widthConstraintOfLeftAnchored = _Constraint;
 
     NSArray* verLayoutConstraints = [ NSLayoutConstraint
         constraintsWithVisualFormat: @"V:|-(==1)-[lhsAnchoredWidgetsPallet]-(==2)-|"

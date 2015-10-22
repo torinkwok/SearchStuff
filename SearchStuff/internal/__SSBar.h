@@ -38,6 +38,8 @@
 
     NSView* __lhsFloatField;
     NSView* __rhsFloatField;
+
+    NSLayoutConstraint __strong* __widthConstraintOfLeftAnchored;
     }
 
 #pragma mark - Manipulating Widgets

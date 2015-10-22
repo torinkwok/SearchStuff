@@ -37,8 +37,8 @@
     {
     [ super drawRect: _DirtyRect ];
 
-//    [ [ NSColor orangeColor ] set ];
-//    NSRectFill( _DirtyRect );
+    [ [ NSColor orangeColor ] set ];
+    NSRectFill( _DirtyRect );
     }
 
 #pragma mark - Initializations
