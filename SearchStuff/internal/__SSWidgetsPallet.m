@@ -70,7 +70,7 @@
 - ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
     {
     CGFloat originX = 5.f;
-    CGFloat originY = 5.f;
+    CGFloat originY = 3.6f;
 
     for ( __SSWidget* _Widget in _Widgets )
         {

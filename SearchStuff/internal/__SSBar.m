@@ -219,7 +219,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                               views: viewsDict ];
 
     NSArray* verLayoutConstraints = [ NSLayoutConstraint
-        constraintsWithVisualFormat: @"V:|[lhsAnchoredWidgetsPallet]|"
+        constraintsWithVisualFormat: @"V:|-(==1)-[lhsAnchoredWidgetsPallet]-(==2)-|"
                             options: 0
                             metrics: nil
                               views: viewsDict ];
