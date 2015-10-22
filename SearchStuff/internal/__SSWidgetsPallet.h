@@ -43,7 +43,7 @@ typedef NS_ENUM( NSUInteger, __SSWidetsPalletType )
     }
 
 @property ( weak, readonly ) __SSBar* ssHostingBar;
-@property ( strong, readwrite ) NSArray* ssWidgets;
+@property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
 
 #pragma mark - Initializations
 

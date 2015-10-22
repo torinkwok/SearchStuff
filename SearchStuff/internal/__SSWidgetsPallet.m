@@ -25,25 +25,60 @@
 
 #import "__SSWidgetsPallet.h"
 #import "__SSBar.h"
+#import "__SSWidget.h"
 
 // __SSWidgetsPallet class
 @implementation __SSWidgetsPallet
+
+@dynamic ssHostingBar;
+@dynamic ssWidgets;
+
+- ( void ) drawRect: ( NSRect )_DirtyRect
+    {
+    [ super drawRect: _DirtyRect ];
+
+//    [ [ NSColor orangeColor ] set ];
+//    NSRectFill( _DirtyRect );
+    }
 
 #pragma mark - Initializations
 
 - ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar
                                  type: ( __SSWidetsPalletType )_Type
     {
-    if ( !self->__hostingBar )
+    if ( !_HostingBar )
         return nil;
 
     if ( self = [ super initWithFrame: NSZeroRect ] )
         {
         self->__hostingBar = _HostingBar;
         [ self->__hostingBar addSubview: self ];
+
+        [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
         }
 
     return self;
+    }
+
+#pragma mark - Dynamic Properties
+
+- ( NSArray <__kindof __SSWidget*>* ) sWidgets
+    {
+    return self.subviews;
+    }
+
+- ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
+    {
+    CGFloat originX = 5.f;
+    CGFloat originY = 5.f;
+
+    for ( __SSWidget* _Widget in _Widgets )
+        {
+        [ _Widget setFrameOrigin: NSMakePoint( originX, originY ) ];
+        [ self addSubview: _Widget ];
+
+        originX += ( 15.f + 3.f );
+        }
     }
 
 #pragma mark - Dynamic Properties

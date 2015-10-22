@@ -61,7 +61,7 @@
 
 - ( void ) __init
     {
-    self->__searchBar = [ [ __SSBar alloc ] initWithFrame: NSMakeRect( 0, 0, 0, 0 ) ];
+    self->__searchBar = [ [ __SSBar alloc ] initWithFrame: NSZeroRect ];
     [ self->__searchBar setHostingSSToolbarItem: self ];
 
     [ self setView: self->__searchBar ];

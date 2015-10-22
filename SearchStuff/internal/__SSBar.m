@@ -28,11 +28,12 @@
 #import "__SSBackingCell.h"
 #import "__SSInputField.h"
 #import "__SSWidget.h"
+#import "__SSWidgetsPallet.h"
+#import "SearchStuffWidget+__SSPrivate.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 
 #import "SearchStuffWidget.h"
 #import "SearchStuffToolbarItem.h"
-#import "SearchStuffWidget+__SSPrivate.h"
 
 typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     { __SSBarButtonStateLeftAnchored    = 0
@@ -50,6 +51,8 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @property ( strong ) NSArray <__kindof NSLayoutConstraint*>* __inputFieldConstraints;
 
 @property ( assign ) BOOL __isInputting;
+
+@property ( strong ) __SSWidgetsPallet* __leftAnchoredWidgetsPallet;
 
 - ( void ) __init;
 
@@ -117,24 +120,9 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                 {
                 __SSWidget* ssButton = [ __SSWidget ssButtonWithSSWidget: _Widget ];
                 [ ssButtons addObject: ssButton ];
-                [ self __arrangeSSButtons: ssButtons state: __SSBarButtonStateLeftAnchored ];
+                self.__leftAnchoredWidgetsPallet.ssWidgets = ssButtons;
                 }
             }
-        }
-    }
-
-- ( void ) __arrangeSSButtons: ( NSArray <__SSWidget*>* )_Buttons
-                        state: ( __SSBarButtonState )_ButtonState
-    {
-    CGFloat originX = 5.f;
-    CGFloat originY = 5.f;
-
-    for ( __SSWidget* _Button in _Buttons )
-        {
-        [ _Button setFrameOrigin: NSMakePoint( originX, originY ) ];
-        [ self addSubview: _Button ];
-
-        originX += ( 15.f + 3.f );
         }
     }
 
@@ -218,6 +206,26 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     self->__rhsAnchoredField = [ [ NSView alloc ] initWithFrame: NSZeroRect ];
     self->__lhsFloatField = [ [ NSView alloc ] initWithFrame: NSZeroRect ];
     self->__rhsFloatField = [ [ NSView alloc ] initWithFrame: NSZeroRect ];
+
+    self.__leftAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeLeftAnchored ];
+
+    NSView* lhsAnchoredWidgetsPallet = self.__leftAnchoredWidgetsPallet;
+    NSDictionary* viewsDict = NSDictionaryOfVariableBindings( lhsAnchoredWidgetsPallet );
+
+    NSArray* horLayoutConstraints = [ NSLayoutConstraint
+        constraintsWithVisualFormat: @"H:|[lhsAnchoredWidgetsPallet(100)]-(>=0)-|"
+                            options: 0
+                            metrics: nil /* @{ @"palletWidth" : @( NSWidth( self.bounds ) / 5 ) } */
+                              views: viewsDict ];
+
+    NSArray* verLayoutConstraints = [ NSLayoutConstraint
+        constraintsWithVisualFormat: @"V:|[lhsAnchoredWidgetsPallet]|"
+                            options: 0
+                            metrics: nil
+                              views: viewsDict ];
+
+    [ self addConstraints: horLayoutConstraints ];
+    [ self addConstraints: verLayoutConstraints ];
     }
 
 @end // __SSBar class
