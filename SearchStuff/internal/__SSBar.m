@@ -228,11 +228,11 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
     self.__isInputting = NO;
 
-    self.__leftAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeLeftAnchored ];
-    self.__rightAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeRightAnchored ];
-    self.__leftFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeLeftFloat ];
-    self.__rightFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeRightFloat ];
-    self.__titlePallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeTitle ];
+    self.__leftAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeLeftAnchored ];
+    self.__rightAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeRightAnchored ];
+    self.__leftFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeLeftFloat ];
+    self.__rightFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeRightFloat ];
+    self.__titlePallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeTitle ];
 
     NSView* lhsAnchoredWidgetsPallet = self.__leftAnchoredWidgetsPallet;
     NSView* rhsAnchoredWidgetsPallet = self.__rightAnchoredWidgetsPallet;

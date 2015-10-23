@@ -54,7 +54,7 @@
 #pragma mark - Initializations
 
 - ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar
-                                 type: ( __SSWidetsPalletType )_Type
+                                 type: ( __SSWidgetsPalletType )_Type
     {
     if ( !_HostingBar )
         return nil;
@@ -73,25 +73,77 @@
 
 #pragma mark - Dynamic Properties
 
-- ( NSArray <__kindof __SSWidget*>* ) sWidgets
+- ( NSArray <__kindof __SSWidget*>* ) ssWidgets
     {
     return self.subviews;
     }
 
 - ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
     {
-    [ self setSubviews: @[] ];
+    [ self setSubviews: _Widgets ];
 
-    CGFloat originX = 5.f;
-    CGFloat originY = 3.3f;
-
-    for ( __SSWidget* _Widget in _Widgets )
+    NSMutableDictionary* viewsDict = [ NSMutableDictionary dictionary ];
+    for ( int _Index = 0; _Index < _Widgets.count; _Index++ )
         {
-        [ _Widget setFrameOrigin: NSMakePoint( originX, originY ) ];
-        [ self addSubview: _Widget ];
+        [ _Widgets[ _Index ] setTranslatesAutoresizingMaskIntoConstraints: NO ];
 
-        originX += ( 15.f + 3.f );
+        NSString* viewName = [ @"widget" stringByAppendingString: @( _Index ).stringValue ];
+        [ viewsDict addEntriesFromDictionary: @{ viewName : _Widgets[ _Index ] } ];
         }
+
+    NSMutableString* horVisualFormat = [ NSMutableString stringWithString: @"H:|" ];
+
+    NSMutableArray* horLayoutConstraints = [ NSMutableArray array ];
+    NSMutableArray* verLayoutConstraints = [ NSMutableArray array ];
+    switch ( self->__ssType )
+        {
+        case __SSWidgetsPalletTypeLeftAnchored:
+        case __SSWidgetsPalletTypeLeftFloat:
+            {
+            [ horVisualFormat appendString: @"-(0)" ];
+
+            for ( NSString* _ViewName in viewsDict )
+                [ horVisualFormat appendString: [ NSString stringWithFormat: @"-[%@(==%@)]", _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
+
+            [ horVisualFormat appendString: @"-(>=0)-|" ];
+
+            [ horLayoutConstraints addObjectsFromArray:
+                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: nil views: viewsDict ] ];
+            } break;
+
+        case __SSWidgetsPalletTypeRightAnchored:
+        case __SSWidgetsPalletTypeRightFloat:
+            {
+            [ horVisualFormat appendString: @"-(>=0)" ];
+
+            for ( NSString* _ViewName in viewsDict )
+                [ horVisualFormat appendString: [ NSString stringWithFormat: @"-[%@(==%@)]", _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
+
+            [ horVisualFormat appendString: @"-(0)-|" ];
+
+            [ horLayoutConstraints addObjectsFromArray:
+                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: nil views: viewsDict ] ];
+            } break;
+
+        case __SSWidgetsPalletTypeTitle:
+            {
+
+            } break;
+        }
+
+    for ( NSString* _ViewName in viewsDict )
+        {
+        NSArray* constraints = [ NSLayoutConstraint
+            constraintsWithVisualFormat: [ NSString stringWithFormat: @"V:|-(==3.3)-[%@(==%@)]-(>=0)-|", _ViewName, @( NSHeight( [ viewsDict[ _ViewName ] frame ] ) ) ]
+                                options: 0
+                                metrics: nil
+                                  views: @{ _ViewName : viewsDict[ _ViewName ] } ];
+
+        [ verLayoutConstraints addObjectsFromArray: constraints ];
+        }
+
+    [ self addConstraints: horLayoutConstraints ];
+    [ self addConstraints: verLayoutConstraints ];
     }
 
 - ( __SSBar* ) ssHostingBar
@@ -99,7 +151,7 @@
     return self->__hostingBar;
     }
 
-- ( __SSWidetsPalletType ) ssType
+- ( __SSWidgetsPalletType ) ssType
     {
     return self->__ssType;
     }
