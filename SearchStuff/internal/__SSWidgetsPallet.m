@@ -82,6 +82,10 @@
     {
     [ self setSubviews: _Widgets ];
 
+    NSDictionary* metrics = @{ @"horGap" : @( 3.5f )
+                             , @"verGap" : @( 3.3f )
+                             };
+
     NSMutableDictionary* viewsDict = [ NSMutableDictionary dictionary ];
     for ( int _Index = 0; _Index < _Widgets.count; _Index++ )
         {
@@ -100,15 +104,13 @@
         case __SSWidgetsPalletTypeLeftAnchored:
         case __SSWidgetsPalletTypeLeftFloat:
             {
-            [ horVisualFormat appendString: @"-(0)" ];
-
             for ( NSString* _ViewName in viewsDict )
-                [ horVisualFormat appendString: [ NSString stringWithFormat: @"-[%@(==%@)]", _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
+                [ horVisualFormat appendString: [ NSString stringWithFormat: @"-(==horGap)-[%@(==%@)]", _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
 
             [ horVisualFormat appendString: @"-(>=0)-|" ];
 
             [ horLayoutConstraints addObjectsFromArray:
-                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: nil views: viewsDict ] ];
+                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: metrics views: viewsDict ] ];
             } break;
 
         case __SSWidgetsPalletTypeRightAnchored:
@@ -117,12 +119,12 @@
             [ horVisualFormat appendString: @"-(>=0)" ];
 
             for ( NSString* _ViewName in viewsDict )
-                [ horVisualFormat appendString: [ NSString stringWithFormat: @"-[%@(==%@)]", _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
+                [ horVisualFormat appendString: [ NSString stringWithFormat: @"-[%@(==%@)]-(==horGap)", _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
 
-            [ horVisualFormat appendString: @"-(0)-|" ];
+            [ horVisualFormat appendString: @"-|" ];
 
             [ horLayoutConstraints addObjectsFromArray:
-                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: nil views: viewsDict ] ];
+                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: metrics views: viewsDict ] ];
             } break;
 
         case __SSWidgetsPalletTypeTitle:
@@ -134,9 +136,9 @@
     for ( NSString* _ViewName in viewsDict )
         {
         NSArray* constraints = [ NSLayoutConstraint
-            constraintsWithVisualFormat: [ NSString stringWithFormat: @"V:|-(==3.3)-[%@(==%@)]-(>=0)-|", _ViewName, @( NSHeight( [ viewsDict[ _ViewName ] frame ] ) ) ]
+            constraintsWithVisualFormat: [ NSString stringWithFormat: @"V:|-(==verGap)-[%@(==%@)]-(>=0)-|", _ViewName, @( NSHeight( [ viewsDict[ _ViewName ] frame ] ) ) ]
                                 options: 0
-                                metrics: nil
+                                metrics: metrics
                                   views: @{ _ViewName : viewsDict[ _ViewName ] } ];
 
         [ verLayoutConstraints addObjectsFromArray: constraints ];
