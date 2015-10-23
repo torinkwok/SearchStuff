@@ -31,9 +31,9 @@
 typedef NS_ENUM( NSUInteger, __SSWidetsPalletType )
     { __SSWidetsPalletTypeLeftAnchored  = 0
     , __SSWidetsPalletTypeRightAnchored = 1
-    , __SSWidetsPalletTypeLeftFloat = 2
-    , __SSWidetsPalletTypeRightFloat = 3
-    , __SSWidetsPalletTypeTitle = 3
+    , __SSWidetsPalletTypeLeftFloat     = 2
+    , __SSWidetsPalletTypeRightFloat    = 3
+    , __SSWidetsPalletTypeTitle         = 4
     };
 
 // __SSWidgetsPallet class
@@ -41,9 +41,11 @@ typedef NS_ENUM( NSUInteger, __SSWidetsPalletType )
     {
 @protected
     __SSBar __weak* __hostingBar;
+    __SSWidetsPalletType __ssType;
     }
 
 @property ( weak, readonly ) __SSBar* ssHostingBar;
+@property ( assign, readonly ) __SSWidetsPalletType ssType;
 @property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
 
 #pragma mark - Initializations

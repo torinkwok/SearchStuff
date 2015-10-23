@@ -35,6 +35,8 @@
 #import "SearchStuffWidget.h"
 #import "SearchStuffToolbarItem.h"
 
+#import <objc/message.h>
+
 typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     { __SSBarButtonStateLeftAnchored    = 0
     , __SSBarButtonStateRightAnchored   = 1
@@ -107,13 +109,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
         // Manipulation of widgets
         if ( [ tlbItemDel respondsToSelector: sel ] )
             {
-            NSInvocation* invocation = [ NSInvocation invocationWithMethodSignature: [ tlbItemDel methodSignatureForSelector: sel ] ];
-            [ invocation setSelector: sel ];
-            [ invocation invokeWithTarget: tlbItemDel ];
-
-            NSArray <__kindof NSString*>* widgetIdentifiers = nil;
-            [ invocation getReturnValue: &widgetIdentifiers ];
-
+            NSArray <__kindof NSString*>* widgetIdentifiers = objc_msgSend( tlbItemDel, sel );
             NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: widgetIdentifiers.count ];
 
             if ( widgetIdentifiers.count > 0 )
@@ -137,7 +133,18 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                     {
                     __SSWidget* ssWidget = [ __SSWidget ssButtonWithSSWidget: _Widget ];
                     [ ssWidgets addObject: ssWidget ];
-                    self.__leftAnchoredWidgetsPallet.ssWidgets = ssWidgets;
+
+                    if ( sel == @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ) )
+                        self.__leftAnchoredWidgetsPallet.ssWidgets = ssWidgets;
+
+                    else if ( sel == @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers ) )
+                        self.__rightAnchoredWidgetsPallet.ssWidgets = ssWidgets;
+
+                    else if ( sel == @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers ) )
+                        self.__leftFloatWidgetsPallet.ssWidgets = ssWidgets;
+
+                    else if ( sel == @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers ) )
+                        self.__rightFloatWidgetsPallet.ssWidgets = ssWidgets;
                     }
                 }
             }

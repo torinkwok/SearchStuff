@@ -31,6 +31,7 @@
 @implementation __SSWidgetsPallet
 
 @dynamic ssHostingBar;
+@dynamic ssType;
 @dynamic ssWidgets;
 
 - ( void ) drawRect: ( NSRect )_DirtyRect
@@ -61,6 +62,7 @@
     if ( self = [ super initWithFrame: NSZeroRect ] )
         {
         self->__hostingBar = _HostingBar;
+        self->__ssType = _Type;
         [ self->__hostingBar addSubview: self ];
 
         [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
@@ -81,7 +83,7 @@
     [ self setSubviews: @[] ];
 
     CGFloat originX = 5.f;
-    CGFloat originY = 3.6f;
+    CGFloat originY = 3.2f;
 
     for ( __SSWidget* _Widget in _Widgets )
         {
@@ -92,14 +94,15 @@
         }
     }
 
-#pragma mark - Dynamic Properties
-
 - ( __SSBar* ) ssHostingBar
     {
     return self->__hostingBar;
     }
 
-//- ( NSArray
+- ( __SSWidetsPalletType ) ssType
+    {
+    return self->__ssType;
+    }
 
 @end // __SSWidgetsPallet class
 
