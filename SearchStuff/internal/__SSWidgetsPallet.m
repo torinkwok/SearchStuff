@@ -80,6 +80,7 @@
 
 - ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
     {
+    [ self removeConstraints: self.constraints ];
     [ self setSubviews: _Widgets ];
 
     NSDictionary* metrics = @{ @"horGap" : @( 3.5f )
@@ -108,9 +109,9 @@
 
         default:
             {
-            NSString* headComponent  = @"";
+            NSString* headComponent = @"";
             NSString* bodyComponent = @"";
-            NSString* tailComponent  = @"";
+            NSString* tailComponent = @"";
 
             if ( self->__ssType == __SSWidgetsPalletTypeLeftAnchored
                     || self->__ssType == __SSWidgetsPalletTypeLeftFloat )
@@ -126,11 +127,14 @@
                 tailComponent = @"-|";
                 }
 
+            // Assembling the head component
             [ horVisualFormat appendString: headComponent ];
 
+            // Assembling the body components
             for ( NSString* _ViewName in viewsDict )
                 [ horVisualFormat appendString: [ NSString stringWithFormat: bodyComponent, _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
 
+            // Assembling the tail component
             [ horVisualFormat appendString: tailComponent ];
 
             [ horLayoutConstraints addObjectsFromArray:
