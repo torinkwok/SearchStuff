@@ -83,7 +83,7 @@
     [ self setSubviews: @[] ];
 
     CGFloat originX = 5.f;
-    CGFloat originY = 3.2f;
+    CGFloat originY = 3.3f;
 
     for ( __SSWidget* _Widget in _Widgets )
         {

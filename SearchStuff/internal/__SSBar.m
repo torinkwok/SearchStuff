@@ -96,10 +96,15 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     SearchStuffToolbarItem* tlbItem = self.hostingSSToolbarItem;
     NSObject <SearchStuffDelegate>* tlbItemDel = self.hostingSSToolbarItem.delegate;
 
-    NSArray <__kindof NSValue*>* SELs = @[ [ NSValue valueWithPointer: @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ) ]
-                                         , [ NSValue valueWithPointer: @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers ) ]
-                                         , [ NSValue valueWithPointer: @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers ) ]
-                                         , [ NSValue valueWithPointer: @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers ) ]
+    SEL lhsAnchoredSEL = @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers );
+    SEL rhsAnchoredSEL = @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers );
+    SEL lhsFloatSEL = @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers );
+    SEL rhsFloatSEL = @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers );
+
+    NSArray <__kindof NSValue*>* SELs = @[ [ NSValue valueWithPointer: lhsAnchoredSEL ]
+                                         , [ NSValue valueWithPointer: rhsAnchoredSEL ]
+                                         , [ NSValue valueWithPointer: lhsFloatSEL ]
+                                         , [ NSValue valueWithPointer: rhsFloatSEL ]
                                          ];
 
     for ( NSValue* _SEL in SELs )
@@ -134,17 +139,14 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                     __SSWidget* ssWidget = [ __SSWidget ssButtonWithSSWidget: _Widget ];
                     [ ssWidgets addObject: ssWidget ];
 
-                    if ( sel == @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ) )
-                        self.__leftAnchoredWidgetsPallet.ssWidgets = ssWidgets;
+                    __SSWidgetsPallet* ssPallet = nil;
 
-                    else if ( sel == @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers ) )
-                        self.__rightAnchoredWidgetsPallet.ssWidgets = ssWidgets;
+                    if ( sel == lhsAnchoredSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
+                    else if ( sel == rhsAnchoredSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
+                    else if ( sel == lhsFloatSEL )    ssPallet = self.__leftFloatWidgetsPallet;
+                    else if ( sel == rhsFloatSEL )    ssPallet = self.__rightFloatWidgetsPallet;
 
-                    else if ( sel == @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers ) )
-                        self.__leftFloatWidgetsPallet.ssWidgets = ssWidgets;
-
-                    else if ( sel == @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers ) )
-                        self.__rightFloatWidgetsPallet.ssWidgets = ssWidgets;
+                    ssPallet.ssWidgets = ssWidgets;
                     }
                 }
             }
