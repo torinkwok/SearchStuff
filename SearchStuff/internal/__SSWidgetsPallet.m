@@ -37,8 +37,17 @@
     {
     [ super drawRect: _DirtyRect ];
 
-    [ [ NSColor orangeColor ] set ];
+    #if 1 // DEBUG
+    srand( ( unsigned int )time( NULL ) );
+
+    CGFloat r = ( CGFloat )( ( random() % 255 ) / 255.f );
+    CGFloat g = ( CGFloat )( ( random() % 255 ) / 255.f );
+    CGFloat b = ( CGFloat )( ( random() % 255 ) / 255.f );
+
+    NSColor* color = [ NSColor colorWithSRGBRed: r green: g blue: b alpha: 1.f ];
+    [ color set ];
     NSRectFill( _DirtyRect );
+    #endif // DEBUG
     }
 
 #pragma mark - Initializations
