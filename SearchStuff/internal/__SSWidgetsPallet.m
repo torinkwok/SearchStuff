@@ -27,6 +27,11 @@
 #import "__SSBar.h"
 #import "__SSWidget.h"
 
+// Private Interfaces
+@interface __SSWidgetsPallet ()
+- ( void ) __cleanUpSSWidgetsConstraints;
+@end // Private Interfaces
+
 // __SSWidgetsPallet class
 @implementation __SSWidgetsPallet
 
@@ -65,6 +70,8 @@
         self->__ssType = _Type;
         [ self->__hostingBar addSubview: self ];
 
+        self->__ssWidgetsConstraints = [ NSMutableArray array ];
+
         [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
         }
 
@@ -80,11 +87,11 @@
 
 - ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
     {
-    [ self removeConstraints: self.constraints ];
+    [ self __cleanUpSSWidgetsConstraints ];
     [ self setSubviews: _Widgets ];
 
     NSDictionary* metrics = @{ @"horGap" : @( 3.5f )
-                             , @"verGap" : @( 3.3f )
+                             , @"verGap" : @( 3.6f )
                              };
 
     NSMutableDictionary* viewsDict = [ NSMutableDictionary dictionary ];
@@ -153,8 +160,9 @@
         [ verLayoutConstraints addObjectsFromArray: constraints ];
         }
 
-    [ self addConstraints: horLayoutConstraints ];
-    [ self addConstraints: verLayoutConstraints ];
+    [ self->__ssWidgetsConstraints addObjectsFromArray: horLayoutConstraints ];
+    [ self->__ssWidgetsConstraints addObjectsFromArray: verLayoutConstraints ];
+    [ self addConstraints: self->__ssWidgetsConstraints ];
     }
 
 - ( __SSBar* ) ssHostingBar
@@ -165,6 +173,14 @@
 - ( __SSWidgetsPalletType ) ssType
     {
     return self->__ssType;
+    }
+
+#pragma mark Private Interfaces
+
+- ( void ) __cleanUpSSWidgetsConstraints
+    {
+    [ self removeConstraints: self->__ssWidgetsConstraints ];
+    [ self->__ssWidgetsConstraints removeAllObjects ];
     }
 
 @end // __SSWidgetsPallet class

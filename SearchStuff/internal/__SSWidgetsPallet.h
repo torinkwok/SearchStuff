@@ -42,6 +42,8 @@ typedef NS_ENUM( NSUInteger, __SSWidgetsPalletType )
 @protected
     __SSBar __weak* __hostingBar;
     __SSWidgetsPalletType __ssType;
+
+    NSMutableArray __strong* __ssWidgetsConstraints;
     }
 
 @property ( weak, readonly ) __SSBar* ssHostingBar;
