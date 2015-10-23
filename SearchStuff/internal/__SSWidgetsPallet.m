@@ -37,7 +37,7 @@
     {
     [ super drawRect: _DirtyRect ];
 
-    #if 1 // DEBUG
+    #if 0 // DEBUG
     srand( ( unsigned int )time( NULL ) );
 
     CGFloat r = ( CGFloat )( ( random() % 255 ) / 255.f );
@@ -78,6 +78,8 @@
 
 - ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
     {
+    [ self setSubviews: @[] ];
+
     CGFloat originX = 5.f;
     CGFloat originY = 3.6f;
 

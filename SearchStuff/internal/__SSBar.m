@@ -228,13 +228,15 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
     CGFloat palletWidth = 0.f;
     NSArray* horLayoutConstraints = [ NSLayoutConstraint
-        constraintsWithVisualFormat: @"H:|-(==1)"
+        constraintsWithVisualFormat: @"H:|"
+                                      "-(==1)"
                                       "-[lhsAnchoredWidgetsPallet(>=palletWidth)]"
                                       "-[lhsFloatWidgetsPallet(==lhsAnchoredWidgetsPallet)]"
                                       "-[titlePallet(==lhsFloatWidgetsPallet)]"
                                       "-[rhsFloatWidgetsPallet(==titlePallet)]"
                                       "-[rhsAnchoredWidgetsPallet(==rhsFloatWidgetsPallet)]"
-                                      "-(==1)-|"
+                                      "-(==1)"
+                                      "-|"
                             options: 0
                             metrics: @{ @"palletWidth" : @( palletWidth ) }
                               views: viewsDict ];
