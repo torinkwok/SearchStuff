@@ -92,39 +92,53 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 - ( void ) reload
     {
     SearchStuffToolbarItem* tlbItem = self.hostingSSToolbarItem;
-    id <SearchStuffDelegate> tlbItemDel = self.hostingSSToolbarItem.delegate;
+    NSObject <SearchStuffDelegate>* tlbItemDel = self.hostingSSToolbarItem.delegate;
 
-    // Manipulation of left hand side anchored widgets
-    if ( [ tlbItemDel respondsToSelector: @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ) ] )
+    NSArray <__kindof NSValue*>* SELs = @[ [ NSValue valueWithPointer: @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ) ]
+                                         , [ NSValue valueWithPointer: @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers ) ]
+                                         , [ NSValue valueWithPointer: @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers ) ]
+                                         , [ NSValue valueWithPointer: @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers ) ]
+                                         ];
+
+    for ( NSValue* _SEL in SELs )
         {
-        NSArray <__kindof NSString*>* lhsAnchoredWidgetIdentifiers =
-            [ tlbItemDel ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers ];
+        SEL sel = ( SEL )_SEL.pointerValue;
 
-        NSMutableArray* lhsAnchoredWidgets =
-            [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
-
-        if ( lhsAnchoredWidgetIdentifiers.count > 0 )
+        // Manipulation of widgets
+        if ( [ tlbItemDel respondsToSelector: sel ] )
             {
-            for ( NSString* _WidgetIdentifier in lhsAnchoredWidgetIdentifiers )
+            NSInvocation* invocation = [ NSInvocation invocationWithMethodSignature: [ tlbItemDel methodSignatureForSelector: sel ] ];
+            [ invocation setSelector: sel ];
+            [ invocation invokeWithTarget: tlbItemDel ];
+
+            NSArray <__kindof NSString*>* widgetIdentifiers = nil;
+            [ invocation getReturnValue: &widgetIdentifiers ];
+
+            NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: widgetIdentifiers.count ];
+
+            if ( widgetIdentifiers.count > 0 )
                 {
-                if ( [ [ [ SearchStuffWidget class ] __stdIdentifiers ] containsObject: _WidgetIdentifier ] )
-                    [ lhsAnchoredWidgets addObject: [ [ SearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
-                else
+                for ( NSString* _WidgetIdentifier in widgetIdentifiers )
                     {
-                    if ( [ tlbItemDel respondsToSelector: @selector( ssToolbarItem:widgetForWidgetIdentifier: ) ] )
+                    if ( [ [ [ SearchStuffWidget class ] __stdIdentifiers ] containsObject: _WidgetIdentifier ] )
+                        [ lhsAnchoredWidgets addObject: [ [ SearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
+                    else
                         {
-                        SearchStuffWidget* ssWidget = [ tlbItemDel ssToolbarItem: tlbItem widgetForWidgetIdentifier: _WidgetIdentifier ];
-                        [ lhsAnchoredWidgets addObject: ssWidget ];
+                        if ( [ tlbItemDel respondsToSelector: @selector( ssToolbarItem:widgetForWidgetIdentifier: ) ] )
+                            {
+                            SearchStuffWidget* ssWidget = [ tlbItemDel ssToolbarItem: tlbItem widgetForWidgetIdentifier: _WidgetIdentifier ];
+                            [ lhsAnchoredWidgets addObject: ssWidget ];
+                            }
                         }
                     }
-                }
 
-            NSMutableArray* ssButtons = [ NSMutableArray arrayWithCapacity: lhsAnchoredWidgetIdentifiers.count ];
-            for ( SearchStuffWidget* _Widget in lhsAnchoredWidgets )
-                {
-                __SSWidget* ssButton = [ __SSWidget ssButtonWithSSWidget: _Widget ];
-                [ ssButtons addObject: ssButton ];
-                self.__leftAnchoredWidgetsPallet.ssWidgets = ssButtons;
+                NSMutableArray* ssWidgets = [ NSMutableArray arrayWithCapacity: widgetIdentifiers.count ];
+                for ( SearchStuffWidget* _Widget in lhsAnchoredWidgets )
+                    {
+                    __SSWidget* ssWidget = [ __SSWidget ssButtonWithSSWidget: _Widget ];
+                    [ ssWidgets addObject: ssWidget ];
+                    self.__leftAnchoredWidgetsPallet.ssWidgets = ssWidgets;
+                    }
                 }
             }
         }
