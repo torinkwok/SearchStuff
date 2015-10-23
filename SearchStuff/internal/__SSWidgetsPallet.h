@@ -33,6 +33,7 @@ typedef NS_ENUM( NSUInteger, __SSWidetsPalletType )
     , __SSWidetsPalletTypeRightAnchored = 1
     , __SSWidetsPalletTypeLeftFloat = 2
     , __SSWidetsPalletTypeRightFloat = 3
+    , __SSWidetsPalletTypeTitle = 3
     };
 
 // __SSWidgetsPallet class

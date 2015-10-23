@@ -53,6 +53,10 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @property ( assign ) BOOL __isInputting;
 
 @property ( strong ) __SSWidgetsPallet* __leftAnchoredWidgetsPallet;
+@property ( strong ) __SSWidgetsPallet* __rightAnchoredWidgetsPallet;
+@property ( strong ) __SSWidgetsPallet* __leftFloatWidgetsPallet;
+@property ( strong ) __SSWidgetsPallet* __rightFloatWidgetsPallet;
+@property ( strong ) __SSWidgetsPallet* __titlePallet;
 
 - ( void ) __init;
 
@@ -211,14 +215,30 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     self->__rhsFloatField = [ [ NSView alloc ] initWithFrame: NSZeroRect ];
 
     self.__leftAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeLeftAnchored ];
+    self.__rightAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeRightAnchored ];
+    self.__leftFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeLeftFloat ];
+    self.__rightFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeRightFloat ];
+    self.__titlePallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidetsPalletTypeTitle ];
 
     NSView* lhsAnchoredWidgetsPallet = self.__leftAnchoredWidgetsPallet;
-    NSDictionary* viewsDict = NSDictionaryOfVariableBindings( lhsAnchoredWidgetsPallet );
+    NSView* rhsAnchoredWidgetsPallet = self.__rightAnchoredWidgetsPallet;
+    NSView* lhsFloatWidgetsPallet = self.__leftFloatWidgetsPallet;
+    NSView* rhsFloatWidgetsPallet = self.__rightFloatWidgetsPallet;
+    NSView* titlePallet = self.__titlePallet;
 
+    NSDictionary* viewsDict =
+        NSDictionaryOfVariableBindings( lhsAnchoredWidgetsPallet
+                                      , rhsAnchoredWidgetsPallet
+                                      , lhsFloatWidgetsPallet
+                                      , rhsFloatWidgetsPallet
+                                      , titlePallet
+                                      );
+
+    CGFloat palletWidth = 100.f;
     NSArray* horLayoutConstraints = [ NSLayoutConstraint
-        constraintsWithVisualFormat: @"H:|-(==1)-[lhsAnchoredWidgetsPallet(200)]-(>=0)-|"
+        constraintsWithVisualFormat: @"H:|-(==1)-[lhsAnchoredWidgetsPallet(palletWidth)]-[lhsFloatWidgetsPallet(palletWidth)]-[rhsFloatWidgetsPallet(palletWidth)]-[rhsAnchoredWidgetsPallet(palletWidth)]-(>=0)-|"
                             options: 0
-                            metrics: nil /* @{ @"palletWidth" : @( NSWidth( self.bounds ) / 5 ) } */
+                            metrics: @{ @"palletWidth" : @( palletWidth ) }
                               views: viewsDict ];
 
     for ( NSLayoutConstraint* _Constraint in horLayoutConstraints )
