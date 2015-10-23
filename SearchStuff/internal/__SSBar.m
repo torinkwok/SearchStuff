@@ -96,17 +96,16 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     SearchStuffToolbarItem* tlbItem = self.hostingSSToolbarItem;
     NSObject <SearchStuffDelegate>* tlbItemDel = self.hostingSSToolbarItem.delegate;
 
-    SEL lhsAnchoredSEL = @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers );
-    SEL rhsAnchoredSEL = @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers );
-    SEL lhsFloatSEL = @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers );
-    SEL rhsFloatSEL = @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers );
+    SEL lhsAnchoredDelSEL = @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers );
+    SEL rhsAnchoredDelSEL = @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers );
+    SEL lhsFloatDelSEL = @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers );
+    SEL rhsFloatDelSEL = @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers );
 
-    NSArray <__kindof NSValue*>* SELs = @[ [ NSValue valueWithPointer: lhsAnchoredSEL ]
-                                         , [ NSValue valueWithPointer: rhsAnchoredSEL ]
-                                         , [ NSValue valueWithPointer: lhsFloatSEL ]
-                                         , [ NSValue valueWithPointer: rhsFloatSEL ]
+    NSArray <__kindof NSValue*>* SELs = @[ [ NSValue valueWithPointer: lhsAnchoredDelSEL ]
+                                         , [ NSValue valueWithPointer: rhsAnchoredDelSEL ]
+                                         , [ NSValue valueWithPointer: lhsFloatDelSEL ]
+                                         , [ NSValue valueWithPointer: rhsFloatDelSEL ]
                                          ];
-
     for ( NSValue* _SEL in SELs )
         {
         SEL sel = ( SEL )_SEL.pointerValue;
@@ -141,10 +140,10 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
                     __SSWidgetsPallet* ssPallet = nil;
 
-                    if ( sel == lhsAnchoredSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
-                    else if ( sel == rhsAnchoredSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
-                    else if ( sel == lhsFloatSEL )    ssPallet = self.__leftFloatWidgetsPallet;
-                    else if ( sel == rhsFloatSEL )    ssPallet = self.__rightFloatWidgetsPallet;
+                    if ( sel == lhsAnchoredDelSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
+                    else if ( sel == rhsAnchoredDelSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
+                    else if ( sel == lhsFloatDelSEL )    ssPallet = self.__leftFloatWidgetsPallet;
+                    else if ( sel == rhsFloatDelSEL )    ssPallet = self.__rightFloatWidgetsPallet;
 
                     ssPallet.ssWidgets = ssWidgets;
                     }
