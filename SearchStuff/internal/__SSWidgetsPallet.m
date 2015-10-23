@@ -101,35 +101,40 @@
     NSMutableArray* verLayoutConstraints = [ NSMutableArray array ];
     switch ( self->__ssType )
         {
-        case __SSWidgetsPalletTypeLeftAnchored:
-        case __SSWidgetsPalletTypeLeftFloat:
-            {
-            for ( NSString* _ViewName in viewsDict )
-                [ horVisualFormat appendString: [ NSString stringWithFormat: @"-(==horGap)-[%@(==%@)]", _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
-
-            [ horVisualFormat appendString: @"-(>=0)-|" ];
-
-            [ horLayoutConstraints addObjectsFromArray:
-                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: metrics views: viewsDict ] ];
-            } break;
-
-        case __SSWidgetsPalletTypeRightAnchored:
-        case __SSWidgetsPalletTypeRightFloat:
-            {
-            [ horVisualFormat appendString: @"-(>=0)" ];
-
-            for ( NSString* _ViewName in viewsDict )
-                [ horVisualFormat appendString: [ NSString stringWithFormat: @"-[%@(==%@)]-(==horGap)", _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
-
-            [ horVisualFormat appendString: @"-|" ];
-
-            [ horLayoutConstraints addObjectsFromArray:
-                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: metrics views: viewsDict ] ];
-            } break;
-
         case __SSWidgetsPalletTypeTitle:
             {
+            // TODO:
+            } break;
 
+        default:
+            {
+            NSString* headComponent  = @"";
+            NSString* bodyComponent = @"";
+            NSString* tailComponent  = @"";
+
+            if ( self->__ssType == __SSWidgetsPalletTypeLeftAnchored
+                    || self->__ssType == __SSWidgetsPalletTypeLeftFloat )
+                {
+                bodyComponent = @"-(==horGap)-[%@(==%@)]";
+                tailComponent = @"-(>=0)-|";
+                }
+            else if ( self->__ssType == __SSWidgetsPalletTypeRightAnchored
+                    || self->__ssType == __SSWidgetsPalletTypeRightFloat )
+                {
+                headComponent = @"-(>=0)";
+                bodyComponent = @"-[%@(==%@)]-(==horGap)";
+                tailComponent = @"-|";
+                }
+
+            [ horVisualFormat appendString: headComponent ];
+
+            for ( NSString* _ViewName in viewsDict )
+                [ horVisualFormat appendString: [ NSString stringWithFormat: bodyComponent, _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
+
+            [ horVisualFormat appendString: tailComponent ];
+
+            [ horLayoutConstraints addObjectsFromArray:
+                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: metrics views: viewsDict ] ];
             } break;
         }
 
