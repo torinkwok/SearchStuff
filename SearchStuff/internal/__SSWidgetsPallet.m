@@ -171,30 +171,40 @@ CGFloat kSpliterWidth = 1.f;
             if ( self->__ssType == __SSWidgetsPalletTypeLeftAnchored
                     || self->__ssType == __SSWidgetsPalletTypeLeftFloat )
                 {
-//                if ( self.isFloat )
-//                    headComponent = @"-(==horGap)";
-
-                bodyComponent = @"-(==horGap)-[%@(==%@)]";
+                bodyComponent = @"-(==%@)-[%@(==%@)]";
                 tailComponent = @"-(>=0)-|";
                 }
             else if ( self->__ssType == __SSWidgetsPalletTypeRightAnchored
                     || self->__ssType == __SSWidgetsPalletTypeRightFloat )
                 {
                 headComponent = @"-(>=0)";
-                bodyComponent = @"-[%@(==%@)]-(==horGap)";
-
-//                if ( self.isFloat )
-//                    tailComponent = @"-(==horGap)-|";
-//                else
-                    tailComponent = @"-|";
+                bodyComponent = @"-[%@(==%@)]-(==%@)";
+                tailComponent = @"-|";
                 }
 
             // Assembling the head component
             [ horVisualFormat appendString: headComponent ];
 
+            NSArray* allViewNames = [ viewsDict allKeys ];
+
             // Assembling the body components
-            for ( NSString* _ViewName in viewsDict )
-                [ horVisualFormat appendString: [ NSString stringWithFormat: bodyComponent, _ViewName, @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) ) ] ];
+            for ( NSString* _ViewName in allViewNames )
+                {
+                NSUInteger index = [ allViewNames indexOfObject: _ViewName ];
+                if ( self->__ssType == __SSWidgetsPalletTypeLeftAnchored
+                        || self->__ssType == __SSWidgetsPalletTypeLeftFloat )
+                    [ horVisualFormat appendString: [ NSString stringWithFormat: bodyComponent
+                                                                               , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                                                                               , _ViewName
+                                                                               , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
+                                                                               ] ];
+                else
+                    [ horVisualFormat appendString: [ NSString stringWithFormat: bodyComponent
+                                                                               , _ViewName
+                                                                               , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
+                                                                               , ( self.isFloat && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                                                                               ] ];
+                }
 
             // Assembling the tail component
             [ horVisualFormat appendString: tailComponent ];
