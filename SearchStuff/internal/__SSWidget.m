@@ -29,6 +29,7 @@
 #import "__SSWidgetStdReload.h"
 #import "__SSWidgetUser.h"
 #import "__SSWidget+__SSPrivate.h"
+#import "__SSConstants.h"
 
 #import "SearchStuffWidget+__SSPrivate.h"
 
@@ -92,7 +93,9 @@
         self->__ssImage = _Image;
         [ self setImage: self->__ssImage ];
 
-        self->__ssSize = NSMakeSize( 15.f * self->__ssImage.size.width / self->__ssImage.size.height, 15.f );
+        self->__ssSize = NSMakeSize( SS_WIDGETS_FIX_WIDTH * self->__ssImage.size.width / self->__ssImage.size.height
+                                   , SS_WIDGETS_FIX_WIDTH
+                                   );
 
         if ( ( self->__ssSize.width ) > 0 && ( self->__ssSize.height > 0 ) )
         [ self setFrameSize: [ self ssSize ] ];

@@ -168,7 +168,6 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideFloatWidgetIdentifiers
     {
     return @[ SearchStuffSearchWidgetIdentifier
-            , SearchStuffReloadWidgetIdentifier
             ];
     }
 

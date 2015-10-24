@@ -90,6 +90,7 @@
 		838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-remove@2x.png"; sourceTree = "<group>"; };
 		83B621C31BD82637005FA2DE /* __SSWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetsPallet.h; sourceTree = "<group>"; };
 		83B621C41BD82637005FA2DE /* __SSWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetsPallet.m; sourceTree = "<group>"; };
+		83BE312E1BDB03F10099BAF2 /* __SSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSConstants.h; sourceTree = "<group>"; };
 		83F47F771BCEA3280086F42D /* __SSWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidget.h; sourceTree = "<group>"; };
 		83F47F781BCEA3280086F42D /* __SSWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidget.m; sourceTree = "<group>"; };
 		83F47F791BCEA3280086F42D /* __SSWidgetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetCell.h; sourceTree = "<group>"; };
@@ -232,6 +233,7 @@
 			children = (
 				832CBB061BD691C000693DC1 /* extensions */,
 				83F47FD31BCFD8350086F42D /* artwork */,
+				83BE312E1BDB03F10099BAF2 /* __SSConstants.h */,
 				83F47F771BCEA3280086F42D /* __SSWidget.h */,
 				83F47F781BCEA3280086F42D /* __SSWidget.m */,
 				830531ED1BD51AEF00223917 /* __SSWidgetStdSearch.h */,

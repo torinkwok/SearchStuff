@@ -23,39 +23,8 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-@import Cocoa;
-
-@class __SSBar;
-@class __SSWidget;
-
-typedef NS_ENUM( NSUInteger, __SSWidgetsPalletType )
-    { __SSWidgetsPalletTypeLeftAnchored  = 0
-    , __SSWidgetsPalletTypeRightAnchored = 1
-    , __SSWidgetsPalletTypeLeftFloat     = 2
-    , __SSWidgetsPalletTypeRightFloat    = 3
-    , __SSWidgetsPalletTypeTitle         = 4
-    };
-
-// __SSWidgetsPallet class
-@interface __SSWidgetsPallet : NSView
-    {
-@protected
-    __SSBar __weak* __hostingBar;
-    __SSWidgetsPalletType __ssType;
-
-    NSLayoutConstraint __strong* __widthConstraint;
-    NSMutableArray __strong* __ssWidgetsConstraints;
-    }
-
-@property ( weak, readonly ) __SSBar* ssHostingBar;
-@property ( assign, readonly ) __SSWidgetsPalletType ssType;
-@property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
-
-#pragma mark - Initializations
-
-- ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar type: ( __SSWidgetsPalletType )_Type;
-
-@end // __SSWidgetsPallet class
+// __SSWidget class
+#define SS_WIDGETS_FIX_WIDTH ( 15.f )
 
 /*===============================================================================┐
 |                                                                                |

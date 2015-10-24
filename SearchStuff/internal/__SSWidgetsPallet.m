@@ -26,6 +26,7 @@
 #import "__SSWidgetsPallet.h"
 #import "__SSBar.h"
 #import "__SSWidget.h"
+#import "__SSConstants.h"
 
 // Private Interfaces
 @interface __SSWidgetsPallet ()
@@ -70,6 +71,18 @@
         self->__ssType = _Type;
         [ self->__hostingBar addSubview: self ];
 
+        self->__widthConstraint = [ NSLayoutConstraint
+            constraintWithItem: self
+                     attribute: NSLayoutAttributeWidth
+                     relatedBy: ( _Type == __SSWidgetsPalletTypeTitle ) ? NSLayoutRelationGreaterThanOrEqual
+                                                                        : NSLayoutRelationEqual
+                        toItem: nil
+                     attribute: NSLayoutAttributeNotAnAttribute
+                    multiplier: 0
+                      constant: NSWidth( self.bounds ) /* 0.f */ ];
+
+        [ self addConstraints: @[ self->__widthConstraint ] ];
+
         self->__ssWidgetsConstraints = [ NSMutableArray array ];
 
         [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
@@ -90,8 +103,10 @@
     [ self __cleanUpSSWidgetsConstraints ];
     [ self setSubviews: _Widgets ];
 
-    NSDictionary* metrics = @{ @"horGap" : @( 3.5f )
-                             , @"verGap" : @( 3.6f )
+    CGFloat horGap = 3.5f;
+    CGFloat verGap = 3.6f;
+    NSDictionary* metrics = @{ @"horGap" : @( horGap )
+                             , @"verGap" : @( verGap )
                              };
 
     NSMutableDictionary* viewsDict = [ NSMutableDictionary dictionary ];
@@ -163,6 +178,8 @@
     [ self->__ssWidgetsConstraints addObjectsFromArray: horLayoutConstraints ];
     [ self->__ssWidgetsConstraints addObjectsFromArray: verLayoutConstraints ];
     [ self addConstraints: self->__ssWidgetsConstraints ];
+
+    self->__widthConstraint.constant = _Widgets.count * ( SS_WIDGETS_FIX_WIDTH + horGap ) + horGap;
     }
 
 - ( __SSBar* ) ssHostingBar
