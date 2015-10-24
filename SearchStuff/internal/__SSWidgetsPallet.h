@@ -43,6 +43,8 @@ typedef NS_ENUM( NSUInteger, __SSWidgetsPalletType )
     __SSBar __weak* __hostingBar;
     __SSWidgetsPalletType __ssType;
 
+    NSArray <__kindof __SSWidget*>* __ssWidgets;
+
     NSLayoutConstraint __strong* __widthConstraint;
     NSMutableArray __strong* __ssWidgetsConstraints;
     }
@@ -50,6 +52,8 @@ typedef NS_ENUM( NSUInteger, __SSWidgetsPalletType )
 @property ( weak, readonly ) __SSBar* ssHostingBar;
 @property ( assign, readonly ) __SSWidgetsPalletType ssType;
 @property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
+
+@property ( assign, readonly ) BOOL isFloat;
 
 #pragma mark - Initializations
 

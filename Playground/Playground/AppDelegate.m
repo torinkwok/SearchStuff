@@ -162,6 +162,8 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
     {
     return @[ SearchStuffSearchWidgetIdentifier
             , SearchStuffReloadWidgetIdentifier
+            , kSearchStuffAddWidgetIdentifier
+            , kSearchStuffRemoveWidgetIdentifier
             ];
     }
 

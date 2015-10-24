@@ -30,7 +30,12 @@
 
 // Private Interfaces
 @interface __SSWidgetsPallet ()
+
+@property ( assign, readwrite ) BOOL isFloat;
+
+- ( CGFloat ) __calcWidth;
 - ( void ) __cleanUpSSWidgetsConstraints;
+
 @end // Private Interfaces
 
 // __SSWidgetsPallet class
@@ -40,22 +45,13 @@
 @dynamic ssType;
 @dynamic ssWidgets;
 
-- ( void ) drawRect: ( NSRect )_DirtyRect
-    {
-    [ super drawRect: _DirtyRect ];
+CGFloat kHorGap = 3.5f;
+CGFloat kVerGap = 3.6f;
 
-    #if 0 // DEBUG
-    srand( ( unsigned int )time( NULL ) );
+CGFloat kLeadingGap = 3.5;
+CGFloat kTrailingGap = 3.5;
 
-    CGFloat r = ( CGFloat )( ( random() % 255 ) / 255.f );
-    CGFloat g = ( CGFloat )( ( random() % 255 ) / 255.f );
-    CGFloat b = ( CGFloat )( ( random() % 255 ) / 255.f );
-
-    NSColor* color = [ NSColor colorWithSRGBRed: r green: g blue: b alpha: 1.f ];
-    [ color set ];
-    NSRectFill( _DirtyRect );
-    #endif // DEBUG
-    }
+CGFloat kSpliterWidth = 1.f;
 
 #pragma mark - Initializations
 
@@ -70,6 +66,9 @@
         self->__hostingBar = _HostingBar;
         self->__ssType = _Type;
         [ self->__hostingBar addSubview: self ];
+
+        self.isFloat = ( self->__ssType == __SSWidgetsPalletTypeLeftFloat
+                            || self->__ssType == __SSWidgetsPalletTypeRightFloat );
 
         self->__widthConstraint = [ NSLayoutConstraint
             constraintWithItem: self
@@ -91,22 +90,56 @@
     return self;
     }
 
+#pragma mark - Drawing
+
+- ( void ) drawRect: ( NSRect )_DirtyRect
+    {
+    [ super drawRect: _DirtyRect ];
+
+    #if 0 // DEBUG
+    srand( ( unsigned int )time( NULL ) );
+
+    CGFloat r = ( CGFloat )( ( random() % 255 ) / 255.f );
+    CGFloat g = ( CGFloat )( ( random() % 255 ) / 255.f );
+    CGFloat b = ( CGFloat )( ( random() % 255 ) / 255.f );
+
+    NSColor* color = [ NSColor colorWithSRGBRed: r green: g blue: b alpha: 1.f ];
+    [ color set ];
+    NSRectFill( _DirtyRect );
+    #endif // DEBUG
+
+    if ( self.isFloat )
+        {
+        NSBezierPath* spliterPath = [ NSBezierPath bezierPath ];
+
+        CGFloat x = ( self->__ssType == __SSWidgetsPalletTypeLeftFloat ) ? kHorGap : ( NSWidth( self.bounds ) - kHorGap );
+
+        [ spliterPath moveToPoint: NSMakePoint( x, 4.5f ) ];
+        [ spliterPath lineToPoint: NSMakePoint( x, NSHeight( self.bounds ) - 4.5f ) ];
+
+        [ spliterPath setLineWidth: kSpliterWidth ];
+
+        [ [ [ NSColor grayColor ] colorWithAlphaComponent: .3f ] set ];
+        [ spliterPath stroke ];
+        }
+    }
+
 #pragma mark - Dynamic Properties
 
 - ( NSArray <__kindof __SSWidget*>* ) ssWidgets
     {
-    return self.subviews;
+    return self->__ssWidgets;
     }
 
 - ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
     {
+    self->__ssWidgets = _Widgets;
+
     [ self __cleanUpSSWidgetsConstraints ];
     [ self setSubviews: _Widgets ];
 
-    CGFloat horGap = 3.5f;
-    CGFloat verGap = 3.6f;
-    NSDictionary* metrics = @{ @"horGap" : @( horGap )
-                             , @"verGap" : @( verGap )
+    NSDictionary* metrics = @{ @"horGap" : @( kHorGap )
+                             , @"verGap" : @( kVerGap )
                              };
 
     NSMutableDictionary* viewsDict = [ NSMutableDictionary dictionary ];
@@ -138,6 +171,9 @@
             if ( self->__ssType == __SSWidgetsPalletTypeLeftAnchored
                     || self->__ssType == __SSWidgetsPalletTypeLeftFloat )
                 {
+//                if ( self.isFloat )
+//                    headComponent = @"-(==horGap)";
+
                 bodyComponent = @"-(==horGap)-[%@(==%@)]";
                 tailComponent = @"-(>=0)-|";
                 }
@@ -146,7 +182,11 @@
                 {
                 headComponent = @"-(>=0)";
                 bodyComponent = @"-[%@(==%@)]-(==horGap)";
-                tailComponent = @"-|";
+
+//                if ( self.isFloat )
+//                    tailComponent = @"-(==horGap)-|";
+//                else
+                    tailComponent = @"-|";
                 }
 
             // Assembling the head component
@@ -179,7 +219,7 @@
     [ self->__ssWidgetsConstraints addObjectsFromArray: verLayoutConstraints ];
     [ self addConstraints: self->__ssWidgetsConstraints ];
 
-    self->__widthConstraint.constant = _Widgets.count * ( SS_WIDGETS_FIX_WIDTH + horGap ) + horGap;
+    self->__widthConstraint.constant = [ self __calcWidth ];
     }
 
 - ( __SSBar* ) ssHostingBar
@@ -193,6 +233,16 @@
     }
 
 #pragma mark Private Interfaces
+
+- ( CGFloat ) __calcWidth
+    {
+    CGFloat finalWidth = self->__ssWidgets.count * ( SS_WIDGETS_FIX_WIDTH + kHorGap ) + kHorGap;
+
+    if ( self.isFloat )
+        finalWidth += kHorGap * 2 + kSpliterWidth;
+
+    return finalWidth;
+    }
 
 - ( void ) __cleanUpSSWidgetsConstraints
     {
