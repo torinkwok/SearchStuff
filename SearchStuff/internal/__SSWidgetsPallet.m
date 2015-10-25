@@ -228,18 +228,20 @@ CGFloat kSpliterWidth = 1.f;
 
                 NSString* visualFormatBody = nil;
                 if ( self.__direction == __SSPalletDirectionLeft )
-                    visualFormatBody = [ NSString stringWithFormat: bodyComponent
-                                                            , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
-                                                            , _ViewName
-                                                            , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
-                                                            ];
+                    visualFormatBody = [ NSString stringWithFormat:
+                          bodyComponent
+                        , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                        , _ViewName
+                        , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
+                        ];
 
                 else if ( self.__direction == __SSPalletDirectionRight )
-                    visualFormatBody = [ NSString stringWithFormat: bodyComponent
-                                                            , _ViewName
-                                                            , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
-                                                            , ( self.isFloat && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
-                                                            ];
+                    visualFormatBody = [ NSString stringWithFormat:
+                          bodyComponent
+                        , _ViewName
+                        , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
+                        , ( self.isFloat && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                        ];
 
                 [ horVisualFormat appendString: visualFormatBody ];
                 }
