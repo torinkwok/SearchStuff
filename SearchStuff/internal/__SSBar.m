@@ -35,6 +35,7 @@
 #import "SearchStuffWidget.h"
 #import "SearchStuffToolbarItem.h"
 
+@import QuartzCore;
 #import <objc/message.h>
 
 typedef NS_ENUM( NSUInteger, __SSBarButtonState )
@@ -196,6 +197,50 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     self.__isInputting = YES;
     }
 
+- ( void ) mouseEntered: ( NSEvent* )_Event
+    {
+    BOOL yesOrNo = YES;
+
+    CATransition* slideIOTransition = [ CATransition animation ];
+    [ slideIOTransition setType: yesOrNo ? kCATransitionReveal : kCATransitionMoveIn ];
+    [ slideIOTransition setSubtype: yesOrNo ? kCATransitionFromLeft : kCATransitionFromRight ];
+    [ slideIOTransition setDuration: .7f ];
+    [ slideIOTransition setStartProgress: 0.f ];
+    [ slideIOTransition setEndProgress: 1.f ];
+
+    [ slideIOTransition setFillMode: kCAFillModeBackwards ];
+
+    [ slideIOTransition setTimingFunction: [ CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn ] ];
+
+    [ self.__leftFloatWidgetsPallet setHidden: !yesOrNo ];
+    [ self.__rightFloatWidgetsPallet setHidden: !yesOrNo ];
+
+    [ self.__leftFloatWidgetsPallet.layer addAnimation: slideIOTransition forKey: @"transition" ];
+    [ self.__rightFloatWidgetsPallet.layer addAnimation: slideIOTransition forKey: @"transition" ];
+    }
+
+- ( void ) mouseExited: ( NSEvent* )_Event
+    {
+    BOOL yesOrNo = NO;
+
+    CATransition* slideIOTransition = [ CATransition animation ];
+    [ slideIOTransition setType: yesOrNo ? kCATransitionReveal : kCATransitionMoveIn ];
+    [ slideIOTransition setSubtype: yesOrNo ? kCATransitionFromLeft : kCATransitionFromRight ];
+    [ slideIOTransition setDuration: .7f ];
+    [ slideIOTransition setStartProgress: 0.f ];
+    [ slideIOTransition setEndProgress: 1.f ];
+
+    [ slideIOTransition setFillMode: kCAFillModeBackwards ];
+
+    [ slideIOTransition setTimingFunction: [ CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut ] ];
+
+    [ self.__leftFloatWidgetsPallet setHidden: !yesOrNo ];
+    [ self.__rightFloatWidgetsPallet setHidden: !yesOrNo ];
+
+    [ self.__leftFloatWidgetsPallet.layer addAnimation: slideIOTransition forKey: @"transition" ];
+    [ self.__rightFloatWidgetsPallet.layer addAnimation: slideIOTransition forKey: @"transition" ];
+    }
+
 #pragma mark - Conforms to <NSTextFieldDelegate>
 
 - ( void ) controlTextDidEndEditing: ( NSNotification* )_Notif
@@ -276,7 +321,6 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                                       , rhsFloatWidgetsPallet
                                       , titlePallet
                                       );
-
     CGFloat palletWidth = 0.f;
     NSArray* horLayoutConstraints = [ NSLayoutConstraint
         constraintsWithVisualFormat: @"H:|"
@@ -316,6 +360,17 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     [ self addConstraints: horLayoutConstraints ];
     [ self addConstraints: verLayoutConstraints ];
     [ self addConstraint: self->__widthConstraint ];
+
+    NSTrackingArea* trackingArea =
+        [ [ NSTrackingArea alloc ] initWithRect: self.bounds
+                                        options: NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingCursorUpdate
+                                                    | NSTrackingActiveAlways
+                                                    /* This NSTrackingArea object was created with NSTrackingInVisibleRect option,
+                                                     * in which case the AppKit handles the re-computation of tracking area */
+                                                    | NSTrackingInVisibleRect
+                                          owner: self
+                                       userInfo: nil ];
+    [ self addTrackingArea: trackingArea ];
     }
 
 @end // __SSBar class

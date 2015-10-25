@@ -75,6 +75,8 @@ CGFloat kSpliterWidth = 1.f;
 
     if ( self = [ super initWithFrame: NSZeroRect ] )
         {
+        [ self setWantsLayer: YES ];
+
         self->__hostingBar = _HostingBar;
         self->__ssType = _Type;
         [ self->__hostingBar addSubview: self ];
@@ -117,6 +119,8 @@ CGFloat kSpliterWidth = 1.f;
         self->__ssWidgetsConstraints = [ NSMutableArray array ];
 
         [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
+
+        self.hidden = self.isFloat;
         }
 
     return self;
