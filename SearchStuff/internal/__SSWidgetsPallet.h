@@ -55,6 +55,8 @@ typedef NS_ENUM( NSUInteger, __SSWidgetsPalletType )
 
 @property ( assign, readonly ) BOOL isFloat;
 
+@property ( assign, readonly ) CGFloat ssConstraintWidth;
+
 #pragma mark - Initializations
 
 - ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar type: ( __SSWidgetsPalletType )_Type;

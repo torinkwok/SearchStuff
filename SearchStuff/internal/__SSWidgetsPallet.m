@@ -40,8 +40,6 @@ typedef NS_ENUM( NSUInteger, __SSPalletDirection )
 @property ( assign, readwrite ) BOOL isFloat;
 
 @property ( assign, readonly ) __SSPalletDirection __direction;
-
-- ( CGFloat ) __calcWidth;
 - ( void ) __cleanUpSSWidgetsConstraints;
 
 @end // Private Interfaces
@@ -56,6 +54,8 @@ typedef NS_ENUM( NSUInteger, __SSPalletDirection )
 @dynamic ssHostingBar;
 @dynamic ssType;
 @dynamic ssWidgets;
+
+@dynamic ssConstraintWidth;
 
 CGFloat kHorGap = 3.5f;
 CGFloat kVerGap = 3.6f;
@@ -110,7 +110,8 @@ CGFloat kSpliterWidth = 1.f;
                         toItem: nil
                      attribute: NSLayoutAttributeNotAnAttribute
                     multiplier: 0
-                      constant: NSWidth( self.bounds ) /* 0.f */ ];
+                      constant: ( _Type == __SSWidgetsPalletTypeTitle ) ? 50.f
+                                                                        : NSWidth( self.bounds ) ];
 
         [ self addConstraints: @[ self->__widthConstraint ] ];
 
@@ -128,7 +129,7 @@ CGFloat kSpliterWidth = 1.f;
     {
     [ super drawRect: _DirtyRect ];
 
-    #if 0 // DEBUG
+    #if 1 // DEBUG
     srand( ( unsigned int )time( NULL ) );
 
     CGFloat r = ( CGFloat )( ( random() % 255 ) / 255.f );
@@ -258,7 +259,7 @@ CGFloat kSpliterWidth = 1.f;
     [ self->__ssWidgetsConstraints addObjectsFromArray: verLayoutConstraints ];
     [ self addConstraints: self->__ssWidgetsConstraints ];
 
-    self->__widthConstraint.constant = [ self __calcWidth ];
+    self->__widthConstraint.constant = [ self ssConstraintWidth ];
     }
 
 - ( __SSBar* ) ssHostingBar
@@ -271,21 +272,29 @@ CGFloat kSpliterWidth = 1.f;
     return self->__ssType;
     }
 
-- ( __SSPalletDirection ) __direction
+- ( CGFloat ) ssConstraintWidth
     {
-    return self->__direction;
+    CGFloat finalWidth = 0.f;
+
+    if ( self.__direction == __SSPalletDirectionCentral )
+        finalWidth = NSWidth( self.bounds );
+    else
+        {
+        finalWidth = self->__ssWidgets.count * ( SS_WIDGETS_FIX_WIDTH + kHorGap ) + kHorGap;
+
+        if ( self.isFloat )
+            finalWidth += kHorGap * 2 + kSpliterWidth;
+        }
+
+    return finalWidth;
     }
 
 #pragma mark Private Interfaces
 
-- ( CGFloat ) __calcWidth
+@dynamic __direction;
+- ( __SSPalletDirection ) __direction
     {
-    CGFloat finalWidth = self->__ssWidgets.count * ( SS_WIDGETS_FIX_WIDTH + kHorGap ) + kHorGap;
-
-    if ( self.isFloat )
-        finalWidth += kHorGap * 2 + kSpliterWidth;
-
-    return finalWidth;
+    return self->__direction;
     }
 
 - ( void ) __cleanUpSSWidgetsConstraints
