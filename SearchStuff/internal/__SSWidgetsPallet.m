@@ -128,7 +128,7 @@ CGFloat kSpliterWidth = 1.f;
     {
     [ super drawRect: _DirtyRect ];
 
-    #if 1 // DEBUG
+    #if 0 // DEBUG
     srand( ( unsigned int )time( NULL ) );
 
     CGFloat r = ( CGFloat )( ( random() % 255 ) / 255.f );
@@ -221,18 +221,23 @@ CGFloat kSpliterWidth = 1.f;
             for ( NSString* _ViewName in allViewNames )
                 {
                 NSUInteger index = [ allViewNames indexOfObject: _ViewName ];
+
+                NSString* visualFormatBody = nil;
                 if ( self.__direction == __SSPalletDirectionLeft )
-                    [ horVisualFormat appendString: [ NSString stringWithFormat: bodyComponent
-                                                                               , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
-                                                                               , _ViewName
-                                                                               , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
-                                                                               ] ];
+                    visualFormatBody = [ NSString stringWithFormat: bodyComponent
+                                                            , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                                                            , _ViewName
+                                                            , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
+                                                            ];
+
                 else if ( self.__direction == __SSPalletDirectionRight )
-                    [ horVisualFormat appendString: [ NSString stringWithFormat: bodyComponent
-                                                                               , _ViewName
-                                                                               , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
-                                                                               , ( self.isFloat && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
-                                                                               ] ];
+                    visualFormatBody = [ NSString stringWithFormat: bodyComponent
+                                                            , _ViewName
+                                                            , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
+                                                            , ( self.isFloat && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                                                            ];
+
+                [ horVisualFormat appendString: visualFormatBody ];
                 }
 
             // Assembling the tail component

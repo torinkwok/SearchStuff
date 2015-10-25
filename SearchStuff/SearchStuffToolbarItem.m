@@ -72,6 +72,8 @@
     NSRect screenFrame = [ NSScreen mainScreen ].frame;
     CGFloat maxWidth = floor( NSWidth( screenFrame ) / 2 );
     [ self setMaxSize: NSMakeSize( maxWidth, stdHeight ) ];
+
+    self.visibilityPriority = NSToolbarItemVisibilityPriorityHigh;
     }
 
 @end // SearchStuffToolbarItem class
