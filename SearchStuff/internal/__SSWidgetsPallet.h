@@ -24,6 +24,7 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 @import Cocoa;
+@import QuartzCore;
 
 @class __SSBar;
 @class __SSWidget;

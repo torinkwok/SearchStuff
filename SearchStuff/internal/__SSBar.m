@@ -199,46 +199,39 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 - ( void ) mouseEntered: ( NSEvent* )_Event
     {
-    BOOL yesOrNo = YES;
-
-    CATransition* slideIOTransition = [ CATransition animation ];
-    [ slideIOTransition setType: yesOrNo ? kCATransitionReveal : kCATransitionMoveIn ];
-    [ slideIOTransition setSubtype: yesOrNo ? kCATransitionFromLeft : kCATransitionFromRight ];
-    [ slideIOTransition setDuration: .7f ];
-    [ slideIOTransition setStartProgress: 0.f ];
-    [ slideIOTransition setEndProgress: 1.f ];
-
-    [ slideIOTransition setFillMode: kCAFillModeBackwards ];
-
-    [ slideIOTransition setTimingFunction: [ CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn ] ];
-
-    [ self.__leftFloatWidgetsPallet setHidden: !yesOrNo ];
-    [ self.__rightFloatWidgetsPallet setHidden: !yesOrNo ];
-
-    [ self.__leftFloatWidgetsPallet.layer addAnimation: slideIOTransition forKey: @"transition" ];
-    [ self.__rightFloatWidgetsPallet.layer addAnimation: slideIOTransition forKey: @"transition" ];
+    [ self.__leftFloatWidgetsPallet setHidden: NO ];
+    [ self.__rightFloatWidgetsPallet setHidden: NO ];
     }
 
 - ( void ) mouseExited: ( NSEvent* )_Event
     {
-    BOOL yesOrNo = NO;
+    [ self.__leftFloatWidgetsPallet setHidden: YES ];
+    [ self.__rightFloatWidgetsPallet setHidden: YES ];
+    }
 
-    CATransition* slideIOTransition = [ CATransition animation ];
-    [ slideIOTransition setType: yesOrNo ? kCATransitionReveal : kCATransitionMoveIn ];
-    [ slideIOTransition setSubtype: yesOrNo ? kCATransitionFromLeft : kCATransitionFromRight ];
-    [ slideIOTransition setDuration: .7f ];
-    [ slideIOTransition setStartProgress: 0.f ];
-    [ slideIOTransition setEndProgress: 1.f ];
+#pragma mark - Conforms to <CALayerDelegate>
 
-    [ slideIOTransition setFillMode: kCAFillModeBackwards ];
+- ( id <CAAction> ) actionForLayer: ( CALayer* )_Layer
+                            forKey: ( NSString* )_EventKey
+    {
+    id <CAAction> action = nil;
 
-    [ slideIOTransition setTimingFunction: [ CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut ] ];
+    if ( [ _EventKey isEqualToString: @"hidden" ] )
+        {
+        CATransition* transitionAnim = [ CATransition animation ];
+        [ transitionAnim setDuration: .7f ];
+        [ transitionAnim setStartProgress: 0.f ];
+        [ transitionAnim setEndProgress: 1.f ];
 
-    [ self.__leftFloatWidgetsPallet setHidden: !yesOrNo ];
-    [ self.__rightFloatWidgetsPallet setHidden: !yesOrNo ];
+        [ transitionAnim setFillMode: kCAFillModeBackwards ];
+        [ transitionAnim setTimingFunction:
+            [ CAMediaTimingFunction functionWithName: _Layer.hidden ? kCAMediaTimingFunctionEaseIn
+                                                                    : kCAMediaTimingFunctionEaseOut ] ];
 
-    [ self.__leftFloatWidgetsPallet.layer addAnimation: slideIOTransition forKey: @"transition" ];
-    [ self.__rightFloatWidgetsPallet.layer addAnimation: slideIOTransition forKey: @"transition" ];
+        action = transitionAnim;
+        }
+
+    return action;
     }
 
 #pragma mark - Conforms to <NSTextFieldDelegate>
