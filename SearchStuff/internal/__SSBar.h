@@ -32,6 +32,8 @@
     {
 @private
     BOOL __isInputting;
+
+    NSLayoutConstraint __strong* __widthConstraint;
     }
 
 @property ( assign, readonly ) CGFloat constraintWidth;

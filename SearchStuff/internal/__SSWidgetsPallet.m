@@ -110,8 +110,7 @@ CGFloat kSpliterWidth = 1.f;
                         toItem: nil
                      attribute: NSLayoutAttributeNotAnAttribute
                     multiplier: 0
-                      constant: ( _Type == __SSWidgetsPalletTypeTitle ) ? 50.f
-                                                                        : NSWidth( self.bounds ) ];
+                      constant: NSWidth( self.bounds ) ];
 
         [ self addConstraints: @[ self->__widthConstraint ] ];
 

@@ -151,7 +151,10 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
             }
         }
 
-    NSLog( @"🍉%g", self.constraintWidth );
+    self->__widthConstraint.constant = self.constraintWidth;
+
+    [ self.hostingSSToolbarItem setMinSize:
+        NSMakeSize( self->__widthConstraint.constant, self.hostingSSToolbarItem.minSize.height ) ];
     }
 
 #pragma mark - Drawing
@@ -301,8 +304,18 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
         [ verLayoutConstraints addObjectsFromArray: constraints ];
         }
 
+    self->__widthConstraint = [ NSLayoutConstraint
+        constraintWithItem: self
+                 attribute: NSLayoutAttributeWidth
+                 relatedBy: NSLayoutRelationGreaterThanOrEqual
+                    toItem: nil
+                 attribute: NSLayoutAttributeNotAnAttribute
+                multiplier: 0.f
+                  constant: 0.f ];
+
     [ self addConstraints: horLayoutConstraints ];
     [ self addConstraints: verLayoutConstraints ];
+    [ self addConstraint: self->__widthConstraint ];
     }
 
 @end // __SSBar class
