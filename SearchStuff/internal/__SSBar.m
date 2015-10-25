@@ -29,6 +29,7 @@
 #import "__SSInputField.h"
 #import "__SSWidget.h"
 #import "__SSWidgetsPallet.h"
+#import "__SSConstants.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 
@@ -67,6 +68,11 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 // __SSBar class
 @implementation __SSBar
+    {
+@protected
+    NSTimer __strong* __mouseEnteredTimer;
+    NSTimer __strong* __mouseMovedTimer;
+    }
 
 @dynamic constraintWidth;
 
@@ -199,14 +205,23 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 - ( void ) mouseEntered: ( NSEvent* )_Event
     {
-    [ self.__leftFloatWidgetsPallet setHidden: NO ];
-    [ self.__rightFloatWidgetsPallet setHidden: NO ];
+    [ self->__mouseEnteredTimer invalidate ];
+
+    self->__mouseEnteredTimer =
+        [ NSTimer timerWithTimeInterval: .3f target: self selector: @selector( __mouseEnteredTimerFired: ) userInfo: nil repeats: NO ];
+
+    [ [ NSRunLoop currentRunLoop ] addTimer: self->__mouseEnteredTimer forMode: NSDefaultRunLoopMode ];
     }
 
 - ( void ) mouseExited: ( NSEvent* )_Event
     {
-    [ self.__leftFloatWidgetsPallet setHidden: YES ];
-    [ self.__rightFloatWidgetsPallet setHidden: YES ];
+    [ self->__mouseEnteredTimer invalidate ];
+
+    if ( !self.__leftFloatWidgetsPallet.hidden )
+        [ self.__leftFloatWidgetsPallet setHidden: YES ];
+
+    if ( !self.__rightFloatWidgetsPallet.hidden )
+        [ self.__rightFloatWidgetsPallet setHidden: YES ];
     }
 
 #pragma mark - Conforms to <CALayerDelegate>
@@ -223,11 +238,10 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
         [ transitionAnim setStartProgress: 0.f ];
         [ transitionAnim setEndProgress: 1.f ];
 
-        [ transitionAnim setFillMode: kCAFillModeBackwards ];
+        [ transitionAnim setFillMode: kCAFillModeForwards ];
         [ transitionAnim setTimingFunction:
             [ CAMediaTimingFunction functionWithName: _Layer.hidden ? kCAMediaTimingFunctionEaseIn
                                                                     : kCAMediaTimingFunctionEaseOut ] ];
-
         action = transitionAnim;
         }
 
@@ -364,6 +378,20 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                                           owner: self
                                        userInfo: nil ];
     [ self addTrackingArea: trackingArea ];
+    }
+
+- ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer
+    {
+    __CA_TRANSACTION_BEGIN__
+    [ CATransaction setCompletionBlock:
+    ^( void )
+        {
+        NSLog( @"🍌" );
+        } ];
+
+    [ self.__leftFloatWidgetsPallet setHidden: NO ];
+    [ self.__rightFloatWidgetsPallet setHidden: NO ];
+    __CA_TRANSACTION_COMMIT__
     }
 
 @end // __SSBar class

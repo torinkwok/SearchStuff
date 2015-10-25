@@ -26,6 +26,9 @@
 // __SSWidget class
 #define SS_WIDGETS_FIX_WIDTH ( 15.f )
 
+#define __CA_TRANSACTION_BEGIN__ [ CATransaction begin ];
+#define __CA_TRANSACTION_COMMIT__ [ CATransaction commit ];
+
 /*===============================================================================┐
 |                                                                                |
 |                           The MIT License (MIT)                                |
