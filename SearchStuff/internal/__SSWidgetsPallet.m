@@ -28,10 +28,18 @@
 #import "__SSWidget.h"
 #import "__SSConstants.h"
 
+typedef NS_ENUM( NSUInteger, __SSPalletDirection )
+    { __SSPalletDirectionLeft       = 0
+    , __SSPalletDirectionRight      = 1
+    , __SSPalletDirectionCentral    = 2
+    };
+
 // Private Interfaces
 @interface __SSWidgetsPallet ()
 
 @property ( assign, readwrite ) BOOL isFloat;
+
+@property ( assign, readonly ) __SSPalletDirection __direction;
 
 - ( CGFloat ) __calcWidth;
 - ( void ) __cleanUpSSWidgetsConstraints;
@@ -40,6 +48,10 @@
 
 // __SSWidgetsPallet class
 @implementation __SSWidgetsPallet
+    {
+@protected
+    __SSPalletDirection __direction;
+    }
 
 @dynamic ssHostingBar;
 @dynamic ssType;
@@ -69,6 +81,26 @@ CGFloat kSpliterWidth = 1.f;
 
         self.isFloat = ( self->__ssType == __SSWidgetsPalletTypeLeftFloat
                             || self->__ssType == __SSWidgetsPalletTypeRightFloat );
+
+        switch ( self->__ssType )
+            {
+            case __SSWidgetsPalletTypeLeftAnchored:
+            case __SSWidgetsPalletTypeLeftFloat:
+                {
+                self->__direction = __SSPalletDirectionLeft;
+                } break;
+
+            case __SSWidgetsPalletTypeRightAnchored:
+            case __SSWidgetsPalletTypeRightFloat:
+                {
+                self->__direction = __SSPalletDirectionRight;
+                } break;
+
+            default:
+                {
+                self->__direction = __SSPalletDirectionCentral;
+                } break;
+            }
 
         self->__widthConstraint = [ NSLayoutConstraint
             constraintWithItem: self
@@ -168,14 +200,12 @@ CGFloat kSpliterWidth = 1.f;
             NSString* bodyComponent = @"";
             NSString* tailComponent = @"";
 
-            if ( self->__ssType == __SSWidgetsPalletTypeLeftAnchored
-                    || self->__ssType == __SSWidgetsPalletTypeLeftFloat )
+            if ( self.__direction == __SSPalletDirectionLeft )
                 {
                 bodyComponent = @"-(==%@)-[%@(==%@)]";
                 tailComponent = @"-(>=0)-|";
                 }
-            else if ( self->__ssType == __SSWidgetsPalletTypeRightAnchored
-                    || self->__ssType == __SSWidgetsPalletTypeRightFloat )
+            else if ( self.__direction == __SSPalletDirectionRight )
                 {
                 headComponent = @"-(>=0)";
                 bodyComponent = @"-[%@(==%@)]-(==%@)";
@@ -191,14 +221,13 @@ CGFloat kSpliterWidth = 1.f;
             for ( NSString* _ViewName in allViewNames )
                 {
                 NSUInteger index = [ allViewNames indexOfObject: _ViewName ];
-                if ( self->__ssType == __SSWidgetsPalletTypeLeftAnchored
-                        || self->__ssType == __SSWidgetsPalletTypeLeftFloat )
+                if ( self.__direction == __SSPalletDirectionLeft )
                     [ horVisualFormat appendString: [ NSString stringWithFormat: bodyComponent
                                                                                , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
                                                                                , _ViewName
                                                                                , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
                                                                                ] ];
-                else
+                else if ( self.__direction == __SSPalletDirectionRight )
                     [ horVisualFormat appendString: [ NSString stringWithFormat: bodyComponent
                                                                                , _ViewName
                                                                                , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
@@ -240,6 +269,11 @@ CGFloat kSpliterWidth = 1.f;
 - ( __SSWidgetsPalletType ) ssType
     {
     return self->__ssType;
+    }
+
+- ( __SSPalletDirection ) __direction
+    {
+    return self->__direction;
     }
 
 #pragma mark Private Interfaces

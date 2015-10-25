@@ -234,6 +234,14 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     self.__rightFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeRightFloat ];
     self.__titlePallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeTitle ];
 
+    #if DEBUG
+    self.__leftAnchoredWidgetsPallet.identifier = @"left-anchored-wp";
+    self.__rightAnchoredWidgetsPallet.identifier = @"right-anchored-wp";
+    self.__leftFloatWidgetsPallet.identifier = @"left-float-wp";
+    self.__rightFloatWidgetsPallet.identifier = @"right-float-wp";
+    self.__titlePallet.identifier = @"title-wp";
+    #endif
+
     NSView* lhsAnchoredWidgetsPallet = self.__leftAnchoredWidgetsPallet;
     NSView* rhsAnchoredWidgetsPallet = self.__rightAnchoredWidgetsPallet;
     NSView* lhsFloatWidgetsPallet = self.__leftFloatWidgetsPallet;
