@@ -55,7 +55,7 @@ typedef NS_ENUM( NSUInteger, __SSWidgetsPalletType )
 
 @property ( assign, readonly ) BOOL isFloat;
 
-@property ( assign, readonly ) CGFloat ssConstraintWidth;
+@property ( assign, readonly ) CGFloat constraintWidth;
 
 #pragma mark - Initializations
 

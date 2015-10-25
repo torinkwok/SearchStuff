@@ -67,9 +67,9 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 // __SSBar class
 @implementation __SSBar
 
-@synthesize __backingCell;
-@synthesize __inputField;
-@dynamic __isInputting;
+@dynamic constraintWidth;
+
+@synthesize hostingSSToolbarItem;
 
 #pragma mark - Initializations
 
@@ -150,6 +150,8 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                 }
             }
         }
+
+    NSLog( @"🍉%g", self.constraintWidth );
     }
 
 #pragma mark - Drawing
@@ -205,6 +207,24 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 #pragma mark - Dynamic Properties
 
+- ( CGFloat ) constraintWidth
+    {
+    CGFloat finalWidth =
+        self.__leftAnchoredWidgetsPallet.constraintWidth
+            + self.__leftFloatWidgetsPallet.constraintWidth
+            + self.__rightAnchoredWidgetsPallet.constraintWidth
+            + self.__rightFloatWidgetsPallet.constraintWidth
+            + 50.f;
+
+    return finalWidth;
+    }
+
+#pragma mark - Private Interfaces
+
+@synthesize __backingCell;
+@synthesize __inputField;
+@dynamic __isInputting;
+
 - ( void ) set__isInputting: ( BOOL )_Flag
     {
     self->__isInputting = _Flag;
@@ -214,8 +234,6 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     {
     return self->__isInputting;
     }
-
-#pragma mark - Private Interfaces
 
 - ( void ) __init
     {

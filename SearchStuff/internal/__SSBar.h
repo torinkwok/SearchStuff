@@ -34,6 +34,8 @@
     BOOL __isInputting;
     }
 
+@property ( assign, readonly ) CGFloat constraintWidth;
+
 #pragma mark - Manipulating Widgets
 
 @property ( weak, readwrite ) SearchStuffToolbarItem* hostingSSToolbarItem;

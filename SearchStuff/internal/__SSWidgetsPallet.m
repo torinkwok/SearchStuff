@@ -55,7 +55,7 @@ typedef NS_ENUM( NSUInteger, __SSPalletDirection )
 @dynamic ssType;
 @dynamic ssWidgets;
 
-@dynamic ssConstraintWidth;
+@dynamic constraintWidth;
 
 CGFloat kHorGap = 3.5f;
 CGFloat kVerGap = 3.6f;
@@ -259,7 +259,7 @@ CGFloat kSpliterWidth = 1.f;
     [ self->__ssWidgetsConstraints addObjectsFromArray: verLayoutConstraints ];
     [ self addConstraints: self->__ssWidgetsConstraints ];
 
-    self->__widthConstraint.constant = [ self ssConstraintWidth ];
+    self->__widthConstraint.constant = [ self constraintWidth ];
     }
 
 - ( __SSBar* ) ssHostingBar
@@ -272,7 +272,7 @@ CGFloat kSpliterWidth = 1.f;
     return self->__ssType;
     }
 
-- ( CGFloat ) ssConstraintWidth
+- ( CGFloat ) constraintWidth
     {
     CGFloat finalWidth = 0.f;
 
