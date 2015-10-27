@@ -144,6 +144,11 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
 NSString* const kSearchStuffAddWidgetIdentifier = @"kSearchStuffAddWidgetIdentifier";
 NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetIdentifier";
 
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemTitleWidgetsIdentifiers
+    {
+    return @[];
+    }
+
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers
     {
     return @[ kSearchStuffAddWidgetIdentifier

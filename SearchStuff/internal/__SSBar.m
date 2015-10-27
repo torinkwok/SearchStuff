@@ -107,20 +107,22 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     SEL rhsAnchoredDelSEL = @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers );
     SEL lhsFloatDelSEL = @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers );
     SEL rhsFloatDelSEL = @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers );
+    SEL titleDelSEL = @selector( ssToolbarItemTitleWidgetsIdentifiers );
 
-    NSArray <__kindof NSValue*>* SELs = @[ [ NSValue valueWithPointer: lhsAnchoredDelSEL ]
-                                         , [ NSValue valueWithPointer: rhsAnchoredDelSEL ]
-                                         , [ NSValue valueWithPointer: lhsFloatDelSEL ]
-                                         , [ NSValue valueWithPointer: rhsFloatDelSEL ]
-                                         ];
-    for ( NSValue* _SEL in SELs )
+    NSArray <__kindof NSValue*>* widgetsSELs = @[ [ NSValue valueWithPointer: lhsAnchoredDelSEL ]
+                                                , [ NSValue valueWithPointer: rhsAnchoredDelSEL ]
+                                                , [ NSValue valueWithPointer: lhsFloatDelSEL ]
+                                                , [ NSValue valueWithPointer: rhsFloatDelSEL ]
+                                                , [ NSValue valueWithPointer: titleDelSEL ]
+                                                ];
+    for ( NSValue* _SEL in widgetsSELs )
         {
-        SEL sel = ( SEL )_SEL.pointerValue;
+        SEL delSel = ( SEL )_SEL.pointerValue;
 
         // Manipulation of widgets
-        if ( [ tlbItemDel respondsToSelector: sel ] )
+        if ( [ tlbItemDel respondsToSelector: delSel ] )
             {
-            NSArray <__kindof NSString*>* widgetIdentifiers = objc_msgSend( tlbItemDel, sel );
+            NSArray <__kindof NSString*>* widgetIdentifiers = objc_msgSend( tlbItemDel, delSel );
             NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: widgetIdentifiers.count ];
 
             if ( widgetIdentifiers.count > 0 )
@@ -147,10 +149,10 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
                     __SSWidgetsPallet* ssPallet = nil;
 
-                    if ( sel == lhsAnchoredDelSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
-                    else if ( sel == rhsAnchoredDelSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
-                    else if ( sel == lhsFloatDelSEL )    ssPallet = self.__leftFloatWidgetsPallet;
-                    else if ( sel == rhsFloatDelSEL )    ssPallet = self.__rightFloatWidgetsPallet;
+                    if ( delSel == lhsAnchoredDelSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
+                    else if ( delSel == rhsAnchoredDelSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
+                    else if ( delSel == lhsFloatDelSEL )    ssPallet = self.__leftFloatWidgetsPallet;
+                    else if ( delSel == rhsFloatDelSEL )    ssPallet = self.__rightFloatWidgetsPallet;
 
                     ssPallet.ssWidgets = ssWidgets;
                     }

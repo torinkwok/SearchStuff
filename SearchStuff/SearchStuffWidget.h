@@ -37,10 +37,10 @@ NSString extern* const SearchStuffReloadWidgetIdentifier;
 
 @property ( strong, readwrite ) NSImage* image;
 @property ( strong, readwrite ) NSImage* alternativeImage;
+@property ( strong, readwrite ) NSString* toolTip;
+@property ( strong, readwrite ) NSString* title;
 
 @property ( strong, readwrite ) NSView* view;
-
-@property ( strong, readwrite ) NSString* toolTip;
 
 @property ( strong, readonly ) NSString* identifier;
 

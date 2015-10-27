@@ -46,7 +46,7 @@
 @protocol SearchStuffDelegate <NSObject>
 
 @optional
-- ( SearchStuffWidget* ) ssToolbarItemWithTitleWidget: ( SearchStuffToolbarItem* )_ssToolbarItem;
+- ( NSArray <__kindof NSString*>* ) ssToolbarItemTitleWidgetsIdentifiers;
 
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers;
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemRightHandSideAnchoredWidgetIdentifiers;
