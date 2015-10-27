@@ -234,7 +234,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     if ( [ _EventKey isEqualToString: @"hidden" ] )
         {
         CATransition* transitionAnim = [ CATransition animation ];
-        [ transitionAnim setDuration: .7f ];
+        [ transitionAnim setDuration: .4f ];
         [ transitionAnim setStartProgress: 0.f ];
         [ transitionAnim setEndProgress: 1.f ];
 
@@ -386,7 +386,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     [ CATransaction setCompletionBlock:
     ^( void )
         {
-        NSLog( @"🍌" );
+        // TODO:
         } ];
 
     [ self.__leftFloatWidgetsPallet setHidden: NO ];
