@@ -29,6 +29,7 @@
 // Standard Identifiers
 NSString* const SearchStuffSearchWidgetIdentifier = @"__ssSearchWidgetIdentifier";
 NSString* const SearchStuffReloadWidgetIdentifier = @"__ssReloadWidgetIdentifier";
+NSString* const SearchStuffLockWidgetIdentifier = @"__SearchStuffLockWidgetIdentifier";
 
 NSArray <__kindof NSString*> static* sStandardIdentifiers;
 

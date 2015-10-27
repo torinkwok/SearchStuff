@@ -60,7 +60,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @property ( strong ) __SSWidgetsPallet* __rightAnchoredWidgetsPallet;
 @property ( strong ) __SSWidgetsPallet* __leftFloatWidgetsPallet;
 @property ( strong ) __SSWidgetsPallet* __rightFloatWidgetsPallet;
-@property ( strong ) __SSWidgetsPallet* __titlePallet;
+@property ( strong ) __SSWidgetsPallet* __titleWidgetsPallet;
 
 - ( void ) __init;
 
@@ -103,17 +103,17 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     SearchStuffToolbarItem* tlbItem = self.hostingSSToolbarItem;
     NSObject <SearchStuffDelegate>* tlbItemDel = self.hostingSSToolbarItem.delegate;
 
-    SEL lhsAnchoredDelSEL = @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers );
-    SEL rhsAnchoredDelSEL = @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers );
-    SEL lhsFloatDelSEL = @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers );
-    SEL rhsFloatDelSEL = @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers );
-    SEL titleDelSEL = @selector( ssToolbarItemTitleWidgetsIdentifiers );
+    SEL lhsAnchoredWidgetIDsDelSEL = @selector( ssToolbarItemLeftHandSideAnchoredWidgetIdentifiers );
+    SEL rhsAnchoredWidgetIDsDelSEL = @selector( ssToolbarItemRightHandSideAnchoredWidgetIdentifiers );
+    SEL lhsFloatWidgetIDsDelSEL = @selector( ssToolbarItemLeftHandSideFloatWidgetIdentifiers );
+    SEL rhsFloatWidgetIDsDelSEL = @selector( ssToolbarItemRightHandSideFloatWidgetIdentifiers );
+    SEL titleWidgetIDsDelSEL = @selector( ssToolbarItemTitleWidgetsIdentifiers );
 
-    NSArray <__kindof NSValue*>* widgetsSELs = @[ [ NSValue valueWithPointer: lhsAnchoredDelSEL ]
-                                                , [ NSValue valueWithPointer: rhsAnchoredDelSEL ]
-                                                , [ NSValue valueWithPointer: lhsFloatDelSEL ]
-                                                , [ NSValue valueWithPointer: rhsFloatDelSEL ]
-                                                , [ NSValue valueWithPointer: titleDelSEL ]
+    NSArray <__kindof NSValue*>* widgetsSELs = @[ [ NSValue valueWithPointer: lhsAnchoredWidgetIDsDelSEL ]
+                                                , [ NSValue valueWithPointer: rhsAnchoredWidgetIDsDelSEL ]
+                                                , [ NSValue valueWithPointer: lhsFloatWidgetIDsDelSEL ]
+                                                , [ NSValue valueWithPointer: rhsFloatWidgetIDsDelSEL ]
+                                                , [ NSValue valueWithPointer: titleWidgetIDsDelSEL ]
                                                 ];
     for ( NSValue* _SEL in widgetsSELs )
         {
@@ -123,36 +123,38 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
         if ( [ tlbItemDel respondsToSelector: delSel ] )
             {
             NSArray <__kindof NSString*>* widgetIdentifiers = objc_msgSend( tlbItemDel, delSel );
-            NSMutableArray* lhsAnchoredWidgets = [ NSMutableArray arrayWithCapacity: widgetIdentifiers.count ];
+            NSLog( @"%@", widgetIdentifiers );
+            NSMutableArray <__kindof SearchStuffWidget*>* repWidgets = [ NSMutableArray arrayWithCapacity: widgetIdentifiers.count ];
 
             if ( widgetIdentifiers.count > 0 )
                 {
                 for ( NSString* _WidgetIdentifier in widgetIdentifiers )
                     {
                     if ( [ [ [ SearchStuffWidget class ] __stdIdentifiers ] containsObject: _WidgetIdentifier ] )
-                        [ lhsAnchoredWidgets addObject: [ [ SearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
+                        [ repWidgets addObject: [ [ SearchStuffWidget alloc ] initWithIdentifier: _WidgetIdentifier ] ];
                     else
                         {
                         if ( [ tlbItemDel respondsToSelector: @selector( ssToolbarItem:widgetForWidgetIdentifier: ) ] )
                             {
                             SearchStuffWidget* ssWidget = [ tlbItemDel ssToolbarItem: tlbItem widgetForWidgetIdentifier: _WidgetIdentifier ];
-                            [ lhsAnchoredWidgets addObject: ssWidget ];
+                            [ repWidgets addObject: ssWidget ];
                             }
                         }
                     }
 
-                NSMutableArray* ssWidgets = [ NSMutableArray arrayWithCapacity: widgetIdentifiers.count ];
-                for ( SearchStuffWidget* _Widget in lhsAnchoredWidgets )
+                NSMutableArray <__kindof __SSWidget*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
+                for ( SearchStuffWidget* _repWidget in repWidgets )
                     {
-                    __SSWidget* ssWidget = [ __SSWidget ssButtonWithSSWidget: _Widget ];
+                    __SSWidget* ssWidget = [ __SSWidget ssButtonWithSSWidget: _repWidget ];
                     [ ssWidgets addObject: ssWidget ];
 
                     __SSWidgetsPallet* ssPallet = nil;
 
-                    if ( delSel == lhsAnchoredDelSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
-                    else if ( delSel == rhsAnchoredDelSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
-                    else if ( delSel == lhsFloatDelSEL )    ssPallet = self.__leftFloatWidgetsPallet;
-                    else if ( delSel == rhsFloatDelSEL )    ssPallet = self.__rightFloatWidgetsPallet;
+                    if ( delSel == lhsAnchoredWidgetIDsDelSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
+                    else if ( delSel == rhsAnchoredWidgetIDsDelSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
+                    else if ( delSel == lhsFloatWidgetIDsDelSEL )    ssPallet = self.__leftFloatWidgetsPallet;
+                    else if ( delSel == rhsFloatWidgetIDsDelSEL )    ssPallet = self.__rightFloatWidgetsPallet;
+                    else if ( delSel == titleWidgetIDsDelSEL )       ssPallet = self.__titleWidgetsPallet;
 
                     ssPallet.ssWidgets = ssWidgets;
                     }
@@ -307,21 +309,21 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     self.__rightAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeRightAnchored ];
     self.__leftFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeLeftFloat ];
     self.__rightFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeRightFloat ];
-    self.__titlePallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeTitle ];
+    self.__titleWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeTitle ];
 
     #if DEBUG
     self.__leftAnchoredWidgetsPallet.identifier = @"left-anchored-wp";
     self.__rightAnchoredWidgetsPallet.identifier = @"right-anchored-wp";
     self.__leftFloatWidgetsPallet.identifier = @"left-float-wp";
     self.__rightFloatWidgetsPallet.identifier = @"right-float-wp";
-    self.__titlePallet.identifier = @"title-wp";
+    self.__titleWidgetsPallet.identifier = @"title-wp";
     #endif
 
     NSView* lhsAnchoredWidgetsPallet = self.__leftAnchoredWidgetsPallet;
     NSView* rhsAnchoredWidgetsPallet = self.__rightAnchoredWidgetsPallet;
     NSView* lhsFloatWidgetsPallet = self.__leftFloatWidgetsPallet;
     NSView* rhsFloatWidgetsPallet = self.__rightFloatWidgetsPallet;
-    NSView* titlePallet = self.__titlePallet;
+    NSView* titlePallet = self.__titleWidgetsPallet;
 
     NSDictionary* viewsDict =
         NSDictionaryOfVariableBindings( lhsAnchoredWidgetsPallet
