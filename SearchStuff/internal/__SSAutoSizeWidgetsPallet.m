@@ -24,9 +24,45 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSAutoSizeWidgetsPallet.h"
+#import "__SSFixedWidgetsPallet.h"
 
 // __SSAutoSizeWidgetsPallet class
 @implementation __SSAutoSizeWidgetsPallet
+
+#pragma mark - Initializations
+
+- ( instancetype ) initWithHost: ( NSView* )_Host
+                           type: ( __SSFixedWidgetsPalletType )_Type
+    {
+    if ( self = [ super initWithHost: _Host type: _Type ] )
+        {
+        self->__subPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeLeftAnchored ];
+
+        NSLayoutConstraint* centerXConstraint = [ NSLayoutConstraint
+            constraintWithItem: self->__subPallet
+                     attribute: NSLayoutAttributeCenterX
+                     relatedBy: NSLayoutRelationEqual
+                        toItem: self->__subPallet.superview
+                     attribute: NSLayoutAttributeCenterX
+                    multiplier: 1.f
+                      constant: 0.f ];
+
+        NSLayoutConstraint* centerYConstraint = [ NSLayoutConstraint
+            constraintWithItem: self->__subPallet
+                     attribute: NSLayoutAttributeCenterY
+                     relatedBy: NSLayoutRelationEqual
+                        toItem: self->__subPallet.superview
+                     attribute: NSLayoutAttributeCenterY
+                    multiplier: 1.f
+                      constant: 0.f ];
+
+        [ self addConstraints: @[ centerXConstraint, centerYConstraint ] ];
+        }
+
+    return self;
+    }
+
+#pragma mark - Default Properties
 
 + ( CGFloat ) ssMinimumWidth
     {
@@ -37,12 +73,12 @@
 
 - ( NSArray <__kindof __SSWidget*>* ) ssWidgets
     {
-    return nil;
+    return [ self->__subPallet ssWidgets ];
     }
 
 - ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
     {
-
+    [ self->__subPallet setSsWidgets: _Widgets ];
     }
 
 @end // __SSAutoSizeWidgetsPallet class

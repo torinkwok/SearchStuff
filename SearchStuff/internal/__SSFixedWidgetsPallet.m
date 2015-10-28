@@ -51,10 +51,10 @@ CGFloat kSpliterWidth = 1.f;
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar
-                                 type: ( __SSFixedWidgetsPalletType )_Type
+- ( instancetype ) initWithHost: ( NSView* )_Host
+                           type: ( __SSFixedWidgetsPalletType )_Type
     {
-    if ( self = [ super initWithHostingBar: _HostingBar type: _Type ] )
+    if ( self = [ super initWithHost: _Host type: _Type ] )
         {
         self.isFloat = ( self->__ssType == __SSPalletTypeLeftFloat
                             || self->__ssType == __SSPalletTypeRightFloat );
@@ -71,18 +71,6 @@ CGFloat kSpliterWidth = 1.f;
 - ( void ) drawRect: ( NSRect )_DirtyRect
     {
     [ super drawRect: _DirtyRect ];
-
-    #if 1 // DEBUG
-    srand( ( unsigned int )time( NULL ) );
-
-    CGFloat r = ( CGFloat )( ( random() % 255 ) / 255.f );
-    CGFloat g = ( CGFloat )( ( random() % 255 ) / 255.f );
-    CGFloat b = ( CGFloat )( ( random() % 255 ) / 255.f );
-
-    NSColor* color = [ NSColor colorWithSRGBRed: r green: g blue: b alpha: 1.f ];
-    [ color set ];
-    NSRectFill( _DirtyRect );
-    #endif // DEBUG
 
     if ( self.isFloat )
         {

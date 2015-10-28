@@ -305,11 +305,11 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
     self.__isInputting = NO;
 
-    self.__leftAnchoredWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSPalletTypeLeftAnchored ];
-    self.__rightAnchoredWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSPalletTypeRightAnchored ];
-    self.__leftFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSPalletTypeLeftFloat ];
-    self.__rightFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSPalletTypeRightFloat ];
-    self.__titleWidgetsPallet = [ [ __SSAutoSizeWidgetsPallet alloc ] initWithHostingBar: self type: __SSPalletTypeTitle ];
+    self.__leftAnchoredWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeLeftAnchored ];
+    self.__rightAnchoredWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeRightAnchored ];
+    self.__leftFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeLeftFloat ];
+    self.__rightFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeRightFloat ];
+    self.__titleWidgetsPallet = [ [ __SSAutoSizeWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeTitle ];
 
     #if DEBUG
     self.__leftAnchoredWidgetsPallet.identifier = @"left-anchored-wp";

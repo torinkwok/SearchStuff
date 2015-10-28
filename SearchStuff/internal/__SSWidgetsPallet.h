@@ -47,7 +47,7 @@ typedef NS_ENUM( NSUInteger, __SSPalletDirection )
 @interface __SSWidgetsPallet : NSView
     {
 @protected
-    __SSBar __weak* __hostingBar;
+    NSView __weak* __host;
 
     __SSFixedWidgetsPalletType __ssType;
     __SSPalletDirection __direction;
@@ -55,15 +55,15 @@ typedef NS_ENUM( NSUInteger, __SSPalletDirection )
     NSLayoutConstraint __strong* __widthConstraint;
     }
 
-@property ( weak, readonly ) __SSBar* ssHostingBar;
+@property ( weak, readonly ) NSView* ssHost;
 @property ( assign, readonly ) __SSFixedWidgetsPalletType ssType;
 
 @property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar
-                                 type: ( __SSFixedWidgetsPalletType )_Type;
+- ( instancetype ) initWithHost: ( NSView* )_Host type: ( __SSFixedWidgetsPalletType )_Type;
+
 @end // __SSWidgetsPallet class
 
 /*===============================================================================┐

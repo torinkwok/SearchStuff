@@ -25,8 +25,16 @@
 
 #import "__SSWidgetsPallet.h"
 
+@class __SSFixedWidgetsPallet;
+
 // __SSAutoSizeWidgetsPallet class
 @interface __SSAutoSizeWidgetsPallet : __SSWidgetsPallet
+    {
+@protected
+    __SSFixedWidgetsPallet* __subPallet;
+    }
+
+#pragma mark - Default Properties
 
 + ( CGFloat ) ssMinimumWidth;
 

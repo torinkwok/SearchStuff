@@ -31,29 +31,29 @@
 // __SSWidgetsPallet class
 @implementation __SSWidgetsPallet
 
-@dynamic ssHostingBar;
+@dynamic ssHost;
 @dynamic ssType;
 
 @dynamic ssWidgets;
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar
-                                 type: ( __SSFixedWidgetsPalletType )_Type
+- ( instancetype ) initWithHost: ( NSView* )_Host
+                           type: ( __SSFixedWidgetsPalletType )_Type
     {
-    if ( !_HostingBar )
+    if ( !_Host )
         return nil;
 
     if ( self = [ super initWithFrame: NSZeroRect ] )
         {
         [ self setWantsLayer: YES ];
-        [ self.layer setDelegate: _HostingBar ];
+        [ self.layer setDelegate: _Host ];
         [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
 
-        self->__hostingBar = _HostingBar;
-        self->__ssType = _Type;
-        [ self->__hostingBar addSubview: self ];
+        self->__host = _Host;
+        [ self->__host addSubview: self ];
 
+        self->__ssType = _Type;
         if ( self->__ssType == __SSPalletTypeLeftAnchored
                 || self->__ssType == __SSPalletTypeLeftFloat )
             self->__direction = __SSPalletDirectionLeft;
@@ -89,17 +89,16 @@
     CGFloat g = ( CGFloat )( ( random() % 255 ) / 255.f );
     CGFloat b = ( CGFloat )( ( random() % 255 ) / 255.f );
 
-    NSColor* color = [ NSColor colorWithSRGBRed: r green: g blue: b alpha: 1.f ];
-    [ color set ];
+    [ [ NSColor colorWithSRGBRed: r green: g blue: b alpha: 1.f ] set ];
     NSRectFill( _DirtyRect );
     }
 #endif // DEBUG
 
 #pragma mark - Dynamic Properties
 
-- ( __SSBar* ) ssHostingBar
+- ( NSView* ) ssHost
     {
-    return self->__hostingBar;
+    return self->__host;
     }
 
 - ( __SSFixedWidgetsPalletType ) ssType
