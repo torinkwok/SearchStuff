@@ -47,6 +47,8 @@ CGFloat kTrailingGap = 3.5;
 
 CGFloat kSpliterWidth = 1.f;
 
+@dynamic constraintWidth;
+
 #pragma mark - Initializations
 
 - ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar
@@ -54,11 +56,10 @@ CGFloat kSpliterWidth = 1.f;
     {
     if ( self = [ super initWithHostingBar: _HostingBar type: _Type ] )
         {
-        self.isFloat = ( self->__ssType == __SSFixedWidgetsPalletTypeLeftFloat
-                            || self->__ssType == __SSFixedWidgetsPalletTypeRightFloat );
+        self.isFloat = ( self->__ssType == __SSPalletTypeLeftFloat
+                            || self->__ssType == __SSPalletTypeRightFloat );
 
         self->__ssWidgetsConstraints = [ NSMutableArray array ];
-        self.translatesAutoresizingMaskIntoConstraints = NO;
         self.hidden = self.isFloat;
         }
 
@@ -87,7 +88,7 @@ CGFloat kSpliterWidth = 1.f;
         {
         NSBezierPath* spliterPath = [ NSBezierPath bezierPath ];
 
-        CGFloat x = ( self->__ssType == __SSFixedWidgetsPalletTypeLeftFloat ) ? kHorGap : ( NSWidth( self.bounds ) - kHorGap );
+        CGFloat x = ( self->__ssType == __SSPalletTypeLeftFloat ) ? kHorGap : ( NSWidth( self.bounds ) - kHorGap );
 
         [ spliterPath moveToPoint: NSMakePoint( x, 4.5f ) ];
         [ spliterPath lineToPoint: NSMakePoint( x, NSHeight( self.bounds ) - 4.5f ) ];

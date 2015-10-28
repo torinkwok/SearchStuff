@@ -28,6 +28,8 @@
 // __SSAutoSizeWidgetsPallet class
 @interface __SSAutoSizeWidgetsPallet : __SSWidgetsPallet
 
++ ( CGFloat ) ssMinimumWidth;
+
 @end // __SSAutoSizeWidgetsPallet class
 
 /*===============================================================================┐

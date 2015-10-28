@@ -30,11 +30,11 @@
 @class __SSWidget;
 
 typedef NS_ENUM( NSUInteger, __SSFixedWidgetsPalletType )
-    { __SSFixedWidgetsPalletTypeLeftAnchored  = 0
-    , __SSFixedWidgetsPalletTypeRightAnchored = 1
-    , __SSFixedWidgetsPalletTypeLeftFloat     = 2
-    , __SSFixedWidgetsPalletTypeRightFloat    = 3
-    , __SSFixedWidgetsPalletTypeTitle         = 4
+    { __SSPalletTypeLeftAnchored  = 0
+    , __SSPalletTypeRightAnchored = 1
+    , __SSPalletTypeLeftFloat     = 2
+    , __SSPalletTypeRightFloat    = 3
+    , __SSPalletTypeTitle         = 4
     };
 
 typedef NS_ENUM( NSUInteger, __SSPalletDirection )
@@ -57,7 +57,6 @@ typedef NS_ENUM( NSUInteger, __SSPalletDirection )
 
 @property ( weak, readonly ) __SSBar* ssHostingBar;
 @property ( assign, readonly ) __SSFixedWidgetsPalletType ssType;
-@property ( assign, readonly ) CGFloat constraintWidth;
 
 @property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
 

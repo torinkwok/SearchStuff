@@ -28,11 +28,21 @@
 // __SSAutoSizeWidgetsPallet class
 @implementation __SSAutoSizeWidgetsPallet
 
++ ( CGFloat ) ssMinimumWidth
+    {
+    return 50.f;
+    }
+
 #pragma mark - Dynamic Properties
 
-- ( CGFloat ) constraintWidth
+- ( NSArray <__kindof __SSWidget*>* ) ssWidgets
     {
-    return NSWidth( self.bounds );
+    return nil;
+    }
+
+- ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
+    {
+
     }
 
 @end // __SSAutoSizeWidgetsPallet class

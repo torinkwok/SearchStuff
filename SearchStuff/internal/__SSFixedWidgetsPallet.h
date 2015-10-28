@@ -34,6 +34,7 @@
     }
 
 @property ( assign, readonly ) BOOL isFloat;
+@property ( assign, readonly ) CGFloat constraintWidth;
 
 @end // __SSFixedWidgetsPallet class
 

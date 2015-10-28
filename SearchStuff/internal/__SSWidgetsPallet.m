@@ -33,7 +33,6 @@
 
 @dynamic ssHostingBar;
 @dynamic ssType;
-@dynamic constraintWidth;
 
 @dynamic ssWidgets;
 
@@ -49,16 +48,17 @@
         {
         [ self setWantsLayer: YES ];
         [ self.layer setDelegate: _HostingBar ];
+        [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
 
         self->__hostingBar = _HostingBar;
         self->__ssType = _Type;
         [ self->__hostingBar addSubview: self ];
 
-        if ( self->__ssType == __SSFixedWidgetsPalletTypeLeftAnchored
-                || self->__ssType == __SSFixedWidgetsPalletTypeLeftFloat )
+        if ( self->__ssType == __SSPalletTypeLeftAnchored
+                || self->__ssType == __SSPalletTypeLeftFloat )
             self->__direction = __SSPalletDirectionLeft;
-        else if ( self->__ssType == __SSFixedWidgetsPalletTypeRightAnchored
-                    || self->__ssType == __SSFixedWidgetsPalletTypeRightFloat )
+        else if ( self->__ssType == __SSPalletTypeRightAnchored
+                    || self->__ssType == __SSPalletTypeRightFloat )
             self->__direction = __SSPalletDirectionRight;
         else
             self->__direction = __SSPalletDirectionCentral;
@@ -66,8 +66,8 @@
         self->__widthConstraint = [ NSLayoutConstraint
             constraintWithItem: self
                      attribute: NSLayoutAttributeWidth
-                     relatedBy: ( _Type == __SSFixedWidgetsPalletTypeTitle ) ? NSLayoutRelationGreaterThanOrEqual
-                                                                             : NSLayoutRelationEqual
+                     relatedBy: ( _Type == __SSPalletTypeTitle ) ? NSLayoutRelationGreaterThanOrEqual
+                                                                 : NSLayoutRelationEqual
                         toItem: nil
                      attribute: NSLayoutAttributeNotAnAttribute
                     multiplier: 0
@@ -77,6 +77,23 @@
 
     return self;
     }
+
+#if 1 // DEBUG
+- ( void ) drawRect: ( NSRect )_DirtyRect
+    {
+    [ super drawRect: _DirtyRect ];
+
+    srand( ( unsigned int )time( NULL ) );
+
+    CGFloat r = ( CGFloat )( ( random() % 255 ) / 255.f );
+    CGFloat g = ( CGFloat )( ( random() % 255 ) / 255.f );
+    CGFloat b = ( CGFloat )( ( random() % 255 ) / 255.f );
+
+    NSColor* color = [ NSColor colorWithSRGBRed: r green: g blue: b alpha: 1.f ];
+    [ color set ];
+    NSRectFill( _DirtyRect );
+    }
+#endif // DEBUG
 
 #pragma mark - Dynamic Properties
 
@@ -88,11 +105,6 @@
 - ( __SSFixedWidgetsPalletType ) ssType
     {
     return self->__ssType;
-    }
-
-- ( CGFloat ) constraintWidth
-    {
-    __Throw_Exception_Due_to_Invocation_of_PureVirual_Method;
     }
 
 - ( NSArray <__kindof __SSWidget*>* ) ssWidgets
