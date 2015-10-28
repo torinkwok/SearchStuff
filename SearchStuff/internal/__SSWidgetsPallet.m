@@ -33,6 +33,9 @@
 
 @dynamic ssHostingBar;
 @dynamic ssType;
+@dynamic constraintWidth;
+
+@dynamic ssWidgets;
 
 #pragma mark - Initializations
 
@@ -85,6 +88,22 @@
 - ( __SSFixedWidgetsPalletType ) ssType
     {
     return self->__ssType;
+    }
+
+- ( CGFloat ) constraintWidth
+    {
+    __Throw_Exception_Due_to_Invocation_of_PureVirual_Method;
+    }
+
+- ( NSArray <__kindof __SSWidget*>* ) ssWidgets
+    {
+    __Throw_Exception_Due_to_Invocation_of_PureVirual_Method;
+    return nil;
+    }
+
+- ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
+    {
+    __Throw_Exception_Due_to_Invocation_of_PureVirual_Method;
     }
 
 @end // __SSWidgetsPallet class

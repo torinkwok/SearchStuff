@@ -35,9 +35,7 @@
     NSMutableArray __strong* __ssWidgetsConstraints;
     }
 
-@property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
 @property ( assign, readonly ) BOOL isFloat;
-@property ( assign, readonly ) CGFloat constraintWidth;
 
 @end // __SSFixedWidgetsPallet class
 

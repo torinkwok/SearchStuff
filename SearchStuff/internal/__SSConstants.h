@@ -23,6 +23,15 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
+#define __Throw_Exception_Due_to_Invocation_of_PureVirual_Method \
+@throw [ NSException exceptionWithName: NSGenericException \
+                     reason: [ NSString stringWithFormat: @"Unimplemented pure virtual method `%@` in `%@` " \
+                                                           "from instance: %p" \
+                                                        , NSStringFromSelector( _cmd ) \
+                                                        , NSStringFromClass( [ self class ] ) \
+                                                        , self ] \
+                   userInfo: nil ]
+
 // __SSWidget class
 #define SS_WIDGETS_FIX_WIDTH ( 15.f )
 

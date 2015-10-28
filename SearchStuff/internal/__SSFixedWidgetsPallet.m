@@ -39,10 +39,6 @@
 // __SSFixedWidgetsPallet class
 @implementation __SSFixedWidgetsPallet
 
-@dynamic ssWidgets;
-
-@dynamic constraintWidth;
-
 CGFloat kHorGap = 3.5f;
 CGFloat kVerGap = 3.6f;
 
