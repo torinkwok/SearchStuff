@@ -23,34 +23,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-@import Cocoa;
+#import "__SSWidget.h"
 
-// Standard Identifiers
-NSString extern* const SearchStuffSearchWidgetIdentifier;
-NSString extern* const SearchStuffReloadWidgetIdentifier;
-NSString extern* const SearchStuffGreenLockWidgetIdentifier;
-NSString extern* const SearchStuffGrayLockWidgetIdentifier;
+// __SSWidgetStdGrayLock class
+@interface __SSWidgetStdGrayLock : __SSWidget
 
-// SearchStuffWidget class
-@interface SearchStuffWidget : NSObject
-
-@property ( assign, readwrite ) SEL action;
-@property ( weak, readwrite ) id target;
-
-@property ( strong, readwrite ) NSImage* image;
-@property ( strong, readwrite ) NSImage* alternativeImage;
-@property ( strong, readwrite ) NSString* toolTip;
-@property ( strong, readwrite ) NSString* title;
-
-@property ( strong, readwrite ) NSView* view;
-
-@property ( strong, readonly ) NSString* identifier;
-
-#pragma mark - Initializations
-
-- ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier;
-
-@end // SearchStuffWidget class
+@end // __SSWidgetStdGrayLock class
 
 /*===============================================================================┐
 |                                                                                |

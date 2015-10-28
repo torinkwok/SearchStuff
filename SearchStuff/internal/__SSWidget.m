@@ -25,9 +25,12 @@
 
 #import "__SSWidget.h"
 #import "__SSWidgetCell.h"
+
 #import "__SSWidgetStdSearch.h"
 #import "__SSWidgetStdReload.h"
 #import "__SSWidgetStdGreenLock.h"
+#import "__SSWidgetStdGrayLock.h"
+
 #import "__SSWidgetUser.h"
 #import "__SSWidget+__SSPrivate.h"
 #import "__SSConstants.h"
@@ -76,6 +79,9 @@
 
         else if ( [ _RepWidget.identifier isEqualToString: SearchStuffGreenLockWidgetIdentifier ] )
             clusterMember = [ [ __SSWidgetStdGreenLock alloc ] __initWithSSWiget: _RepWidget ];
+
+        else if ( [ _RepWidget.identifier isEqualToString: SearchStuffGrayLockWidgetIdentifier ] )
+            clusterMember = [ [ __SSWidgetStdGrayLock alloc ] __initWithSSWiget: _RepWidget ];
         }
     else
         clusterMember = [ [ __SSWidgetUser alloc ] __initWithSSWiget: _RepWidget ];

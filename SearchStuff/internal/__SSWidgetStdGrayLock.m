@@ -23,34 +23,30 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-@import Cocoa;
+#import "__SSWidgetStdGrayLock.h"
+#import "__SSWidget+__SSPrivate.h"
 
-// Standard Identifiers
-NSString extern* const SearchStuffSearchWidgetIdentifier;
-NSString extern* const SearchStuffReloadWidgetIdentifier;
-NSString extern* const SearchStuffGreenLockWidgetIdentifier;
-NSString extern* const SearchStuffGrayLockWidgetIdentifier;
+// __SSWidgetStdGrayLock class
+@implementation __SSWidgetStdGrayLock
+@end // __SSWidgetStdGrayLock class
 
-// SearchStuffWidget class
-@interface SearchStuffWidget : NSObject
+// __SSWidgetStdGrayLock + __SSPrivate
+@implementation __SSWidgetStdGrayLock ( __SSPrivate )
 
-@property ( assign, readwrite ) SEL action;
-@property ( weak, readwrite ) id target;
+#pragma mark Private Initializations ( only used by friend classes )
 
-@property ( strong, readwrite ) NSImage* image;
-@property ( strong, readwrite ) NSImage* alternativeImage;
-@property ( strong, readwrite ) NSString* toolTip;
-@property ( strong, readwrite ) NSString* title;
+- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
+    {
+    if ( self = [ super __initWithSSWiget: _Widget ] )
+        {
+        self.ssImage = [ NSImage imageNamed: @"search-stuff-graylock" ];
+        self.ssAlternativeImage = [ NSImage imageNamed: @"search-stuff-graylock-highlighted" ];
+        }
 
-@property ( strong, readwrite ) NSView* view;
+    return self;
+    }
 
-@property ( strong, readonly ) NSString* identifier;
-
-#pragma mark - Initializations
-
-- ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier;
-
-@end // SearchStuffWidget class
+@end // __SSWidgetStdGrayLock + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |

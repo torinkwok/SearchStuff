@@ -30,6 +30,7 @@
 NSString* const SearchStuffSearchWidgetIdentifier = @"__ssStdSearchWidgetIdentifier";
 NSString* const SearchStuffReloadWidgetIdentifier = @"__ssStdReloadWidgetIdentifier";
 NSString* const SearchStuffGreenLockWidgetIdentifier = @"__ssStdGreenLockWidgetIdentifier";
+NSString* const SearchStuffGrayLockWidgetIdentifier = @"__ssStdGrayLockWidgetIdentifier";
 
 NSArray <__kindof NSString*> static* sStandardIdentifiers;
 
@@ -74,6 +75,7 @@ NSArray <__kindof NSString*> static* sStdIds;
                     sStdIds = @[ SearchStuffSearchWidgetIdentifier
                                , SearchStuffReloadWidgetIdentifier
                                , SearchStuffGreenLockWidgetIdentifier
+                               , SearchStuffGrayLockWidgetIdentifier
                                ];
                     } );
 
