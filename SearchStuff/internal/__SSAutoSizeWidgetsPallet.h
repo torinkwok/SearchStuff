@@ -25,17 +25,10 @@
 
 #import "__SSWidgetsPallet.h"
 
-// __SSFixedWidgetsPallet class
-@interface __SSFixedWidgetsPallet : __SSWidgetsPallet
-    {
-@protected
-    NSArray <__kindof __SSWidget*>* __ssWidgets;
-    NSMutableArray __strong* __ssWidgetsConstraints;
-    }
+// __SSAutoSizeWidgetsPallet class
+@interface __SSAutoSizeWidgetsPallet : __SSWidgetsPallet
 
-@property ( assign, readonly ) BOOL isFloat;
-
-@end // __SSFixedWidgetsPallet class
+@end // __SSAutoSizeWidgetsPallet class
 
 /*===============================================================================┐
 |                                                                                |

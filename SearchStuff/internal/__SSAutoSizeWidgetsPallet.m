@@ -23,19 +23,19 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidgetsPallet.h"
+#import "__SSAutoSizeWidgetsPallet.h"
 
-// __SSFixedWidgetsPallet class
-@interface __SSFixedWidgetsPallet : __SSWidgetsPallet
+// __SSAutoSizeWidgetsPallet class
+@implementation __SSAutoSizeWidgetsPallet
+
+#pragma mark - Dynamic Properties
+
+- ( CGFloat ) constraintWidth
     {
-@protected
-    NSArray <__kindof __SSWidget*>* __ssWidgets;
-    NSMutableArray __strong* __ssWidgetsConstraints;
+    return NSWidth( self.bounds );
     }
 
-@property ( assign, readonly ) BOOL isFloat;
-
-@end // __SSFixedWidgetsPallet class
+@end // __SSAutoSizeWidgetsPallet class
 
 /*===============================================================================┐
 |                                                                                |

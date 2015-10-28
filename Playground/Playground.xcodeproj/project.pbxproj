@@ -48,6 +48,7 @@
 		83FF7E961BE03E4200A505F5 /* search-stuff-greenlock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E921BE03E4200A505F5 /* search-stuff-greenlock@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7E991BE03F5500A505F5 /* __SSWidgetStdGreenLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
+		83FF7E9F1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,8 @@
 		83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetStdGreenLock.m; sourceTree = "<group>"; };
 		83FF7E9A1BE0596100A505F5 /* __SSWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetsPallet.h; sourceTree = "<group>"; };
 		83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetsPallet.m; sourceTree = "<group>"; };
+		83FF7E9D1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSAutoSizeWidgetsPallet.h; sourceTree = "<group>"; };
+		83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSAutoSizeWidgetsPallet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +279,8 @@
 				83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */,
 				83B621C31BD82637005FA2DE /* __SSFixedWidgetsPallet.h */,
 				83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */,
+				83FF7E9D1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.h */,
+				83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */,
 			);
 			path = internal;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				83F47F971BCEA3290086F42D /* SearchStuffWidget.m in Sources */,
 				83FF7E991BE03F5500A505F5 /* __SSWidgetStdGreenLock.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */,
+				83FF7E9F1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m in Sources */,
 				83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

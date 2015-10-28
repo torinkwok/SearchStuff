@@ -29,6 +29,7 @@
 #import "__SSInputField.h"
 #import "__SSWidget.h"
 #import "__SSFixedWidgetsPallet.h"
+#import "__SSAutoSizeWidgetsPallet.h"
 #import "__SSConstants.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 #import "SearchStuffWidget+__SSPrivate.h"
@@ -60,7 +61,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @property ( strong ) __SSFixedWidgetsPallet* __rightAnchoredWidgetsPallet;
 @property ( strong ) __SSFixedWidgetsPallet* __leftFloatWidgetsPallet;
 @property ( strong ) __SSFixedWidgetsPallet* __rightFloatWidgetsPallet;
-@property ( strong ) __SSFixedWidgetsPallet* __titleWidgetsPallet;
+@property ( strong ) __SSAutoSizeWidgetsPallet* __titleWidgetsPallet;
 
 - ( void ) __init;
 
@@ -147,7 +148,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                     __SSWidget* ssWidget = [ __SSWidget ssWidgetWithRepWidget: _repWidget ];
                     [ ssWidgets addObject: ssWidget ];
 
-                    __SSFixedWidgetsPallet* ssPallet = nil;
+                    __SSWidgetsPallet* ssPallet = nil;
 
                     if ( delSel == lhsAnchoredWidgetIDsDelSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
                     else if ( delSel == rhsAnchoredWidgetIDsDelSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
@@ -308,7 +309,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     self.__rightAnchoredWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeRightAnchored ];
     self.__leftFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeLeftFloat ];
     self.__rightFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeRightFloat ];
-    self.__titleWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeTitle ];
+    self.__titleWidgetsPallet = [ [ __SSAutoSizeWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeTitle ];
 
     #if DEBUG
     self.__leftAnchoredWidgetsPallet.identifier = @"left-anchored-wp";

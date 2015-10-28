@@ -71,7 +71,7 @@ CGFloat kSpliterWidth = 1.f;
     {
     [ super drawRect: _DirtyRect ];
 
-    #if 0 // DEBUG
+    #if 1 // DEBUG
     srand( ( unsigned int )time( NULL ) );
 
     CGFloat r = ( CGFloat )( ( random() % 255 ) / 255.f );
@@ -228,17 +228,10 @@ CGFloat kSpliterWidth = 1.f;
 
 - ( CGFloat ) constraintWidth
     {
-    CGFloat finalWidth = 0.f;
+    CGFloat finalWidth = self->__ssWidgets.count * ( SS_WIDGETS_FIX_WIDTH + kHorGap ) + kHorGap;
 
-    if ( self->__direction == __SSPalletDirectionCentral )
-        finalWidth = NSWidth( self.bounds );
-    else
-        {
-        finalWidth = self->__ssWidgets.count * ( SS_WIDGETS_FIX_WIDTH + kHorGap ) + kHorGap;
-
-        if ( self.isFloat )
-            finalWidth += kHorGap * 2 + kSpliterWidth;
-        }
+    if ( self.isFloat )
+        finalWidth += kHorGap * 2 + kSpliterWidth;
 
     return finalWidth;
     }
