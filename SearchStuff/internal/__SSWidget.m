@@ -27,6 +27,7 @@
 #import "__SSWidgetCell.h"
 #import "__SSWidgetStdSearch.h"
 #import "__SSWidgetStdReload.h"
+#import "__SSWidgetStdGreenLock.h"
 #import "__SSWidgetUser.h"
 #import "__SSWidget+__SSPrivate.h"
 #import "__SSConstants.h"
@@ -59,22 +60,25 @@
 
 #pragma mark - Initializations
 
-+ ( instancetype ) ssButtonWithSSWidget: ( SearchStuffWidget* )_Widget
++ ( instancetype ) ssWidgetWithRepWidget: ( SearchStuffWidget* )_RepWidget
     {
-    if ( !_Widget )
+    if ( !_RepWidget )
         return nil;
 
     __SSWidget* clusterMember = nil;
-    if ( _Widget.__isStd )
+    if ( _RepWidget.__isStd )
         {
-        if ( [ _Widget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetStdSearch alloc ] __initWithSSWiget: _Widget ];
+        if ( [ _RepWidget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
+            clusterMember = [ [ __SSWidgetStdSearch alloc ] __initWithSSWiget: _RepWidget ];
 
-        else if ( [ _Widget.identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetStdReload alloc ] __initWithSSWiget: _Widget ];
+        else if ( [ _RepWidget.identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
+            clusterMember = [ [ __SSWidgetStdReload alloc ] __initWithSSWiget: _RepWidget ];
+
+        else if ( [ _RepWidget.identifier isEqualToString: SearchStuffGreenLockWidgetIdentifier ] )
+            clusterMember = [ [ __SSWidgetStdGreenLock alloc ] __initWithSSWiget: _RepWidget ];
         }
     else
-        clusterMember = [ [ __SSWidgetUser alloc ] __initWithSSWiget: _Widget ];
+        clusterMember = [ [ __SSWidgetUser alloc ] __initWithSSWiget: _RepWidget ];
 
     return clusterMember;
     }

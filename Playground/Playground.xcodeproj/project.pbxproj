@@ -46,6 +46,7 @@
 		83FF7E941BE03E4200A505F5 /* search-stuff-greenlock-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E901BE03E4200A505F5 /* search-stuff-greenlock-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7E951BE03E4200A505F5 /* search-stuff-greenlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E911BE03E4200A505F5 /* search-stuff-greenlock.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7E961BE03E4200A505F5 /* search-stuff-greenlock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E921BE03E4200A505F5 /* search-stuff-greenlock@2x.png */; settings = {ASSET_TAGS = (); }; };
+		83FF7E991BE03F5500A505F5 /* __SSWidgetStdGreenLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,8 @@
 		83FF7E901BE03E4200A505F5 /* search-stuff-greenlock-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock-highlighted@2x.png"; sourceTree = "<group>"; };
 		83FF7E911BE03E4200A505F5 /* search-stuff-greenlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock.png"; sourceTree = "<group>"; };
 		83FF7E921BE03E4200A505F5 /* search-stuff-greenlock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock@2x.png"; sourceTree = "<group>"; };
+		83FF7E971BE03F5500A505F5 /* __SSWidgetStdGreenLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetStdGreenLock.h; sourceTree = "<group>"; };
+		83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetStdGreenLock.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 				830531EE1BD51AEF00223917 /* __SSWidgetStdSearch.m */,
 				832CBAFD1BD6675400693DC1 /* __SSWidgetStdReload.h */,
 				832CBAFE1BD6675400693DC1 /* __SSWidgetStdReload.m */,
+				83FF7E971BE03F5500A505F5 /* __SSWidgetStdGreenLock.h */,
+				83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */,
 				83FD30401BD7A561001B5B02 /* __SSWidgetUser.h */,
 				83FD30411BD7A561001B5B02 /* __SSWidgetUser.m */,
 				83F47F791BCEA3280086F42D /* __SSWidgetCell.h */,
@@ -458,6 +463,7 @@
 				830531EF1BD51AEF00223917 /* __SSWidgetStdSearch.m in Sources */,
 				83F47F911BCEA3290086F42D /* __SSWidgetCell.m in Sources */,
 				83F47F971BCEA3290086F42D /* SearchStuffWidget.m in Sources */,
+				83FF7E991BE03F5500A505F5 /* __SSWidgetStdGreenLock.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */,
 				83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */,
 			);

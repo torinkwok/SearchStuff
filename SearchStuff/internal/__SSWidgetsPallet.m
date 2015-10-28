@@ -192,78 +192,89 @@ CGFloat kSpliterWidth = 1.f;
 
     NSMutableArray* horLayoutConstraints = [ NSMutableArray array ];
     NSMutableArray* verLayoutConstraints = [ NSMutableArray array ];
-    switch ( self->__ssType )
+
+    NSString* headComponent = @"";
+    NSString* bodyComponent = @"";
+    NSString* tailComponent = @"";
+
+    if ( self.__direction == __SSPalletDirectionLeft )
         {
-        case __SSWidgetsPalletTypeTitle:
-            {
-            // TODO:
-            } break;
-
-        default:
-            {
-            NSString* headComponent = @"";
-            NSString* bodyComponent = @"";
-            NSString* tailComponent = @"";
-
-            if ( self.__direction == __SSPalletDirectionLeft )
-                {
-                bodyComponent = @"-(==%@)-[%@(==%@)]";
-                tailComponent = @"-(>=0)-|";
-                }
-            else if ( self.__direction == __SSPalletDirectionRight )
-                {
-                headComponent = @"-(>=0)";
-                bodyComponent = @"-[%@(==%@)]-(==%@)";
-                tailComponent = @"-|";
-                }
-
-            // Assembling the head component
-            [ horVisualFormat appendString: headComponent ];
-
-            NSArray* allViewNames = [ viewsDict allKeys ];
-
-            // Assembling the body components
-            for ( NSString* _ViewName in allViewNames )
-                {
-                NSUInteger index = [ allViewNames indexOfObject: _ViewName ];
-
-                NSString* visualFormatBody = nil;
-                if ( self.__direction == __SSPalletDirectionLeft )
-                    {
-                    visualFormatBody = [ NSString stringWithFormat:
-                          bodyComponent
-                        , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
-                        , _ViewName
-                        , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
-                        ];
-                    }
-
-                else if ( self.__direction == __SSPalletDirectionRight )
-                    {
-                    visualFormatBody = [ NSString stringWithFormat:
-                          bodyComponent
-                        , _ViewName
-                        , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
-                        , ( self.isFloat && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
-                        ];
-                    }
-
-                [ horVisualFormat appendString: visualFormatBody ];
-                }
-
-            // Assembling the tail component
-            [ horVisualFormat appendString: tailComponent ];
-
-            [ horLayoutConstraints addObjectsFromArray:
-                [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: metrics views: viewsDict ] ];
-            } break;
+        bodyComponent = @"-(==%@)-[%@(==%@)]";
+        tailComponent = @"-(>=0)-|";
         }
+    else if ( self.__direction == __SSPalletDirectionRight )
+        {
+        headComponent = @"-(>=0)";
+        bodyComponent = @"-[%@(==%@)]-(==%@)";
+        tailComponent = @"-|";
+        }
+    else if ( self.__direction == __SSPalletDirectionCentral )
+        {
+        headComponent = @"-(>=0)";
+        bodyComponent = @"-[%@(==%@)]";
+        tailComponent = @"-(>=0)-|";
+        }
+
+    // Assembling the head component
+    [ horVisualFormat appendString: headComponent ];
+
+    NSArray* allViewNames = [ viewsDict allKeys ];
+
+    // Assembling the body components
+    for ( NSString* _ViewName in allViewNames )
+        {
+        NSUInteger index = [ allViewNames indexOfObject: _ViewName ];
+
+        NSString* visualFormatBody = nil;
+        switch ( self.__direction )
+            {
+            case __SSPalletDirectionLeft:
+                {
+                visualFormatBody = [ NSString stringWithFormat:
+                      bodyComponent
+                    , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                    , _ViewName
+                    , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
+                    ];
+                } break;
+
+
+            case __SSPalletDirectionRight:
+                {
+                visualFormatBody = [ NSString stringWithFormat:
+                      bodyComponent
+                    , _ViewName
+                    , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
+                    , ( self.isFloat && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                    ];
+                } break;
+
+            case __SSPalletDirectionCentral:
+                {
+                visualFormatBody = [ NSString stringWithFormat:
+                      bodyComponent
+                    , _ViewName
+                    , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
+                    ];
+                } break;
+            }
+
+        [ horVisualFormat appendString: visualFormatBody ];
+        }
+
+    // Assembling the tail component
+    [ horVisualFormat appendString: tailComponent ];
+
+    [ horLayoutConstraints addObjectsFromArray:
+        [ NSLayoutConstraint constraintsWithVisualFormat: horVisualFormat options: 0 metrics: metrics views: viewsDict ] ];
 
     for ( NSString* _ViewName in viewsDict )
         {
         NSArray* constraints = [ NSLayoutConstraint
             constraintsWithVisualFormat: [ NSString stringWithFormat: @"V:|-(==verGap)-[%@(==%@)]-(>=0)-|", _ViewName, @( NSHeight( [ viewsDict[ _ViewName ] frame ] ) ) ]
-                                options: 0
+                                options: ( self->__direction == __SSPalletDirectionCentral )
+                                            ? ( NSLayoutFormatAlignAllCenterX | NSLayoutFormatAlignAllCenterY )
+                                            : 0
                                 metrics: metrics
                                   views: @{ _ViewName : viewsDict[ _ViewName ] } ];
 

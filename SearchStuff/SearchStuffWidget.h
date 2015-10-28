@@ -28,7 +28,7 @@
 // Standard Identifiers
 NSString extern* const SearchStuffSearchWidgetIdentifier;
 NSString extern* const SearchStuffReloadWidgetIdentifier;
-NSString extern* const SearchStuffLockWidgetIdentifier;
+NSString extern* const SearchStuffGreenLockWidgetIdentifier;
 
 // SearchStuffWidget class
 @interface SearchStuffWidget : NSObject

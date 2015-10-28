@@ -23,70 +23,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "SearchStuffWidget.h"
-#import "SearchStuffWidget+__SSPrivate.h"
+#import "__SSWidget.h"
 
-// Standard Identifiers
-NSString* const SearchStuffSearchWidgetIdentifier = @"__ssStdSearchWidgetIdentifier";
-NSString* const SearchStuffReloadWidgetIdentifier = @"__ssStdReloadWidgetIdentifier";
-NSString* const SearchStuffGreenLockWidgetIdentifier = @"__ssStdGreenLockWidgetIdentifier";
+// __SSWidgetStdGreenLock class
+@interface __SSWidgetStdGreenLock : __SSWidget
 
-NSArray <__kindof NSString*> static* sStandardIdentifiers;
-
-// Private Interface
-@interface SearchStuffWidget ()
-@property ( strong, readwrite ) NSString* identifier;
-@end // Private Interface
-
-// SearchStuffWidget 
-@implementation SearchStuffWidget
-    {
-@private
-    BOOL __isStd;
-    }
-
-#pragma mark - Initializations
-
-- ( instancetype ) initWithIdentifier: ( NSString* )_WidgetIdentifier
-    {
-    if ( self = [ super init ] )
-        {
-        self.identifier = _WidgetIdentifier;
-        self->__isStd = [ [ [ self class ] __stdIdentifiers ] containsObject: self.identifier ];
-        }
-
-    return self;
-    }
-
-@end // SearchStuffWidget class
-
-// SearchStuffWidget + __SSPrivate
-@implementation SearchStuffWidget ( __SSPrivate )
-
-NSArray <__kindof NSString*> static* sStdIds;
-+ ( NSArray <__kindof NSString*>* ) __stdIdentifiers
-    {
-    dispatch_once_t static onceToken;
-
-    dispatch_once( &onceToken
-                 , ( dispatch_block_t )^( void )
-                    {
-                    sStdIds = @[ SearchStuffSearchWidgetIdentifier
-                               , SearchStuffReloadWidgetIdentifier
-                               , SearchStuffGreenLockWidgetIdentifier
-                               ];
-                    } );
-
-    return sStdIds;
-    }
-
-@dynamic __isStd;
-- ( BOOL ) __isStd
-    {
-    return self->__isStd;
-    }
-
-@end // SearchStuffWidget + __SSPrivate
+@end // __SSWidgetStdGreenLock class
 
 /*===============================================================================┐
 |                                                                                |

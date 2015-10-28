@@ -39,7 +39,7 @@
 
 @property ( assign, readonly ) NSSize ssSize;
 
-+ ( instancetype ) ssButtonWithSSWidget: ( SearchStuffWidget* )_Widget;
++ ( instancetype ) ssWidgetWithRepWidget: ( SearchStuffWidget* )_Widget;
 
 @end // __SSWidget class
 

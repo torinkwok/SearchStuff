@@ -123,7 +123,6 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
         if ( [ tlbItemDel respondsToSelector: delSel ] )
             {
             NSArray <__kindof NSString*>* widgetIdentifiers = objc_msgSend( tlbItemDel, delSel );
-            NSLog( @"%@", widgetIdentifiers );
             NSMutableArray <__kindof SearchStuffWidget*>* repWidgets = [ NSMutableArray arrayWithCapacity: widgetIdentifiers.count ];
 
             if ( widgetIdentifiers.count > 0 )
@@ -145,7 +144,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                 NSMutableArray <__kindof __SSWidget*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
                 for ( SearchStuffWidget* _repWidget in repWidgets )
                     {
-                    __SSWidget* ssWidget = [ __SSWidget ssButtonWithSSWidget: _repWidget ];
+                    __SSWidget* ssWidget = [ __SSWidget ssWidgetWithRepWidget: _repWidget ];
                     [ ssWidgets addObject: ssWidget ];
 
                     __SSWidgetsPallet* ssPallet = nil;
