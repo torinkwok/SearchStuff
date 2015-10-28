@@ -47,16 +47,13 @@
                     multiplier: 1.f
                       constant: 0.f ];
 
-        NSLayoutConstraint* centerYConstraint = [ NSLayoutConstraint
-            constraintWithItem: self->__subPallet
-                     attribute: NSLayoutAttributeCenterY
-                     relatedBy: NSLayoutRelationEqual
-                        toItem: self->__subPallet.superview
-                     attribute: NSLayoutAttributeCenterY
-                    multiplier: 1.f
-                      constant: 0.f ];
+        NSView* subPallet = self->__subPallet;
+        NSDictionary* viewsDict = NSDictionaryOfVariableBindings( subPallet );
+        NSArray* verConstraints = [ NSLayoutConstraint
+            constraintsWithVisualFormat: @"V:|[subPallet]|" options: 0 metrics: nil views: viewsDict ];
 
-        [ self addConstraints: @[ centerXConstraint, centerYConstraint ] ];
+        [ self addConstraints: @[ centerXConstraint ] ];
+        [ self addConstraints: verConstraints ];
         }
 
     return self;

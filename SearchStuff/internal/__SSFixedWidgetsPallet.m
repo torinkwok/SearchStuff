@@ -56,11 +56,10 @@ CGFloat kSpliterWidth = 1.f;
     {
     if ( self = [ super initWithHost: _Host type: _Type ] )
         {
-        self.isFloat = ( self->__ssType == __SSPalletTypeLeftFloat
-                            || self->__ssType == __SSPalletTypeRightFloat );
+        self.isFloat = ( self->__ssType == __SSPalletTypeLeftFloat || self->__ssType == __SSPalletTypeRightFloat );
+        self.hidden = self.isFloat;
 
         self->__ssWidgetsConstraints = [ NSMutableArray array ];
-        self.hidden = self.isFloat;
         }
 
     return self;
@@ -135,12 +134,6 @@ CGFloat kSpliterWidth = 1.f;
         bodyComponent = @"-[%@(==%@)]-(==%@)";
         tailComponent = @"-|";
         }
-    else if ( self->__direction == __SSPalletDirectionCentral )
-        {
-        headComponent = @"-(>=0)";
-        bodyComponent = @"-[%@(==%@)]";
-        tailComponent = @"-(>=0)-|";
-        }
 
     // Assembling the head component
     [ horVisualFormat appendString: headComponent ];
@@ -176,14 +169,7 @@ CGFloat kSpliterWidth = 1.f;
                     ];
                 } break;
 
-            case __SSPalletDirectionCentral:
-                {
-                visualFormatBody = [ NSString stringWithFormat:
-                      bodyComponent
-                    , _ViewName
-                    , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
-                    ];
-                } break;
+            default:;
             }
 
         [ horVisualFormat appendString: visualFormatBody ];

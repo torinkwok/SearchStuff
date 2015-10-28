@@ -54,11 +54,9 @@
         [ self->__host addSubview: self ];
 
         self->__ssType = _Type;
-        if ( self->__ssType == __SSPalletTypeLeftAnchored
-                || self->__ssType == __SSPalletTypeLeftFloat )
+        if ( self->__ssType == __SSPalletTypeLeftAnchored || self->__ssType == __SSPalletTypeLeftFloat )
             self->__direction = __SSPalletDirectionLeft;
-        else if ( self->__ssType == __SSPalletTypeRightAnchored
-                    || self->__ssType == __SSPalletTypeRightFloat )
+        else if ( self->__ssType == __SSPalletTypeRightAnchored || self->__ssType == __SSPalletTypeRightFloat )
             self->__direction = __SSPalletDirectionRight;
         else
             self->__direction = __SSPalletDirectionCentral;
@@ -71,14 +69,14 @@
                         toItem: nil
                      attribute: NSLayoutAttributeNotAnAttribute
                     multiplier: 0
-                      constant: NSWidth( self.bounds ) ];
+                      constant: 25.f ];
         [ self addConstraints: @[ self->__widthConstraint ] ];
         }
 
     return self;
     }
 
-#if 1 // DEBUG
+#if 0 // DEBUG
 - ( void ) drawRect: ( NSRect )_DirtyRect
     {
     [ super drawRect: _DirtyRect ];
