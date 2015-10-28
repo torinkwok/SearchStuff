@@ -28,7 +28,7 @@
 #import "__SSBackingCell.h"
 #import "__SSInputField.h"
 #import "__SSWidget.h"
-#import "__SSWidgetsPallet.h"
+#import "__SSFixedWidgetsPallet.h"
 #import "__SSConstants.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 #import "SearchStuffWidget+__SSPrivate.h"
@@ -56,11 +56,11 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 @property ( assign ) BOOL __isInputting;
 
-@property ( strong ) __SSWidgetsPallet* __leftAnchoredWidgetsPallet;
-@property ( strong ) __SSWidgetsPallet* __rightAnchoredWidgetsPallet;
-@property ( strong ) __SSWidgetsPallet* __leftFloatWidgetsPallet;
-@property ( strong ) __SSWidgetsPallet* __rightFloatWidgetsPallet;
-@property ( strong ) __SSWidgetsPallet* __titleWidgetsPallet;
+@property ( strong ) __SSFixedWidgetsPallet* __leftAnchoredWidgetsPallet;
+@property ( strong ) __SSFixedWidgetsPallet* __rightAnchoredWidgetsPallet;
+@property ( strong ) __SSFixedWidgetsPallet* __leftFloatWidgetsPallet;
+@property ( strong ) __SSFixedWidgetsPallet* __rightFloatWidgetsPallet;
+@property ( strong ) __SSFixedWidgetsPallet* __titleWidgetsPallet;
 
 - ( void ) __init;
 
@@ -147,7 +147,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                     __SSWidget* ssWidget = [ __SSWidget ssWidgetWithRepWidget: _repWidget ];
                     [ ssWidgets addObject: ssWidget ];
 
-                    __SSWidgetsPallet* ssPallet = nil;
+                    __SSFixedWidgetsPallet* ssPallet = nil;
 
                     if ( delSel == lhsAnchoredWidgetIDsDelSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
                     else if ( delSel == rhsAnchoredWidgetIDsDelSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
@@ -304,11 +304,11 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
     self.__isInputting = NO;
 
-    self.__leftAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeLeftAnchored ];
-    self.__rightAnchoredWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeRightAnchored ];
-    self.__leftFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeLeftFloat ];
-    self.__rightFloatWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeRightFloat ];
-    self.__titleWidgetsPallet = [ [ __SSWidgetsPallet alloc ] initWithHostingBar: self type: __SSWidgetsPalletTypeTitle ];
+    self.__leftAnchoredWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeLeftAnchored ];
+    self.__rightAnchoredWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeRightAnchored ];
+    self.__leftFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeLeftFloat ];
+    self.__rightFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeRightFloat ];
+    self.__titleWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHostingBar: self type: __SSFixedWidgetsPalletTypeTitle ];
 
     #if DEBUG
     self.__leftAnchoredWidgetsPallet.identifier = @"left-anchored-wp";

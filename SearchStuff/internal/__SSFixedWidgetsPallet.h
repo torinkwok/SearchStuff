@@ -24,70 +24,22 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSWidgetsPallet.h"
-#import "__SSBar.h"
-#import "__SSWidgetsPallet.h"
-#import "__SSConstants.h"
 
-// __SSWidgetsPallet class
-@implementation __SSWidgetsPallet
+@class __SSWidget;
 
-@dynamic ssHostingBar;
-@dynamic ssType;
-
-#pragma mark - Initializations
-
-- ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar
-                                 type: ( __SSFixedWidgetsPalletType )_Type
+// __SSFixedWidgetsPallet class
+@interface __SSFixedWidgetsPallet : __SSWidgetsPallet
     {
-    if ( !_HostingBar )
-        return nil;
-
-    if ( self = [ super initWithFrame: NSZeroRect ] )
-        {
-        [ self setWantsLayer: YES ];
-        [ self.layer setDelegate: _HostingBar ];
-
-        self->__hostingBar = _HostingBar;
-        self->__ssType = _Type;
-        [ self->__hostingBar addSubview: self ];
-
-        if ( self->__ssType == __SSFixedWidgetsPalletTypeLeftAnchored
-                || self->__ssType == __SSFixedWidgetsPalletTypeLeftFloat )
-            self->__direction = __SSPalletDirectionLeft;
-        else if ( self->__ssType == __SSFixedWidgetsPalletTypeRightAnchored
-                    || self->__ssType == __SSFixedWidgetsPalletTypeRightFloat )
-            self->__direction = __SSPalletDirectionRight;
-        else
-            self->__direction = __SSPalletDirectionCentral;
-
-        self->__widthConstraint = [ NSLayoutConstraint
-            constraintWithItem: self
-                     attribute: NSLayoutAttributeWidth
-                     relatedBy: ( _Type == __SSFixedWidgetsPalletTypeTitle ) ? NSLayoutRelationGreaterThanOrEqual
-                                                                             : NSLayoutRelationEqual
-                        toItem: nil
-                     attribute: NSLayoutAttributeNotAnAttribute
-                    multiplier: 0
-                      constant: NSWidth( self.bounds ) ];
-        [ self addConstraints: @[ self->__widthConstraint ] ];
-        }
-
-    return self;
+@protected
+    NSArray <__kindof __SSWidget*>* __ssWidgets;
+    NSMutableArray __strong* __ssWidgetsConstraints;
     }
 
-#pragma mark - Dynamic Properties
+@property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
+@property ( assign, readonly ) BOOL isFloat;
+@property ( assign, readonly ) CGFloat constraintWidth;
 
-- ( __SSBar* ) ssHostingBar
-    {
-    return self->__hostingBar;
-    }
-
-- ( __SSFixedWidgetsPalletType ) ssType
-    {
-    return self->__ssType;
-    }
-
-@end // __SSWidgetsPallet class
+@end // __SSFixedWidgetsPallet class
 
 /*===============================================================================┐
 |                                                                                |

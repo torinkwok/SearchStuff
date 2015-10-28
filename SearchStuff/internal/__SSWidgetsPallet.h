@@ -27,14 +27,19 @@
 @import QuartzCore;
 
 @class __SSBar;
-@class __SSWidget;
 
-typedef NS_ENUM( NSUInteger, __SSWidgetsPalletType )
-    { __SSWidgetsPalletTypeLeftAnchored  = 0
-    , __SSWidgetsPalletTypeRightAnchored = 1
-    , __SSWidgetsPalletTypeLeftFloat     = 2
-    , __SSWidgetsPalletTypeRightFloat    = 3
-    , __SSWidgetsPalletTypeTitle         = 4
+typedef NS_ENUM( NSUInteger, __SSFixedWidgetsPalletType )
+    { __SSFixedWidgetsPalletTypeLeftAnchored  = 0
+    , __SSFixedWidgetsPalletTypeRightAnchored = 1
+    , __SSFixedWidgetsPalletTypeLeftFloat     = 2
+    , __SSFixedWidgetsPalletTypeRightFloat    = 3
+    , __SSFixedWidgetsPalletTypeTitle         = 4
+    };
+
+typedef NS_ENUM( NSUInteger, __SSPalletDirection )
+    { __SSPalletDirectionLeft       = 0
+    , __SSPalletDirectionRight      = 1
+    , __SSPalletDirectionCentral    = 2
     };
 
 // __SSWidgetsPallet class
@@ -42,26 +47,20 @@ typedef NS_ENUM( NSUInteger, __SSWidgetsPalletType )
     {
 @protected
     __SSBar __weak* __hostingBar;
-    __SSWidgetsPalletType __ssType;
 
-    NSArray <__kindof __SSWidget*>* __ssWidgets;
+    __SSFixedWidgetsPalletType __ssType;
+    __SSPalletDirection __direction;
 
     NSLayoutConstraint __strong* __widthConstraint;
-    NSMutableArray __strong* __ssWidgetsConstraints;
     }
 
 @property ( weak, readonly ) __SSBar* ssHostingBar;
-@property ( assign, readonly ) __SSWidgetsPalletType ssType;
-@property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
-
-@property ( assign, readonly ) BOOL isFloat;
-
-@property ( assign, readonly ) CGFloat constraintWidth;
+@property ( assign, readonly ) __SSFixedWidgetsPalletType ssType;
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar type: ( __SSWidgetsPalletType )_Type;
-
+- ( instancetype ) initWithHostingBar: ( __SSBar* )_HostingBar
+                                 type: ( __SSFixedWidgetsPalletType )_Type;
 @end // __SSWidgetsPallet class
 
 /*===============================================================================┐

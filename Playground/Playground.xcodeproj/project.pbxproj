@@ -24,7 +24,7 @@
 		838A9BE11BD80DCE008E1B12 /* search-stuff-remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD91BD80DCE008E1B12 /* search-stuff-remove.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BE21BD80DCE008E1B12 /* search-stuff-remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */; settings = {ASSET_TAGS = (); }; };
 		838BC7FA1BDC9AC2009C2DA5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 838BC7F91BDC9AC2009C2DA5 /* QuartzCore.framework */; };
-		83B621C51BD82637005FA2DE /* __SSWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B621C41BD82637005FA2DE /* __SSWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
+		83B621C51BD82637005FA2DE /* __SSFixedWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F901BCEA3290086F42D /* __SSWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSWidget.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F911BCEA3290086F42D /* __SSWidgetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSWidgetCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7C1BCEA3280086F42D /* __SSBackingCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -47,6 +47,7 @@
 		83FF7E951BE03E4200A505F5 /* search-stuff-greenlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E911BE03E4200A505F5 /* search-stuff-greenlock.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7E961BE03E4200A505F5 /* search-stuff-greenlock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E921BE03E4200A505F5 /* search-stuff-greenlock@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7E991BE03F5500A505F5 /* __SSWidgetStdGreenLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */; settings = {ASSET_TAGS = (); }; };
+		83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +96,8 @@
 		838A9BD91BD80DCE008E1B12 /* search-stuff-remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-remove.png"; sourceTree = "<group>"; };
 		838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-remove@2x.png"; sourceTree = "<group>"; };
 		838BC7F91BDC9AC2009C2DA5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		83B621C31BD82637005FA2DE /* __SSWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetsPallet.h; sourceTree = "<group>"; };
-		83B621C41BD82637005FA2DE /* __SSWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetsPallet.m; sourceTree = "<group>"; };
+		83B621C31BD82637005FA2DE /* __SSFixedWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSFixedWidgetsPallet.h; sourceTree = "<group>"; };
+		83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSFixedWidgetsPallet.m; sourceTree = "<group>"; };
 		83BE312E1BDB03F10099BAF2 /* __SSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSConstants.h; sourceTree = "<group>"; };
 		83F47F771BCEA3280086F42D /* __SSWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidget.h; sourceTree = "<group>"; };
 		83F47F781BCEA3280086F42D /* __SSWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidget.m; sourceTree = "<group>"; };
@@ -131,6 +132,8 @@
 		83FF7E921BE03E4200A505F5 /* search-stuff-greenlock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock@2x.png"; sourceTree = "<group>"; };
 		83FF7E971BE03F5500A505F5 /* __SSWidgetStdGreenLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetStdGreenLock.h; sourceTree = "<group>"; };
 		83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetStdGreenLock.m; sourceTree = "<group>"; };
+		83FF7E9A1BE0596100A505F5 /* __SSWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetsPallet.h; sourceTree = "<group>"; };
+		83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetsPallet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,8 +272,10 @@
 				83F47F801BCEA3280086F42D /* __SSInputFieldCell.m */,
 				83F47FD11BCFD8120086F42D /* __SSBar.h */,
 				83F47FD01BCFD8120086F42D /* __SSBar.m */,
-				83B621C31BD82637005FA2DE /* __SSWidgetsPallet.h */,
-				83B621C41BD82637005FA2DE /* __SSWidgetsPallet.m */,
+				83FF7E9A1BE0596100A505F5 /* __SSWidgetsPallet.h */,
+				83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */,
+				83B621C31BD82637005FA2DE /* __SSFixedWidgetsPallet.h */,
+				83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */,
 			);
 			path = internal;
 			sourceTree = "<group>";
@@ -457,11 +462,12 @@
 				83F47FD21BCFD8120086F42D /* __SSBar.m in Sources */,
 				83FD30421BD7A561001B5B02 /* __SSWidgetUser.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
-				83B621C51BD82637005FA2DE /* __SSWidgetsPallet.m in Sources */,
+				83B621C51BD82637005FA2DE /* __SSFixedWidgetsPallet.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83F47F941BCEA3290086F42D /* __SSInputFieldCell.m in Sources */,
 				830531EF1BD51AEF00223917 /* __SSWidgetStdSearch.m in Sources */,
 				83F47F911BCEA3290086F42D /* __SSWidgetCell.m in Sources */,
+				83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */,
 				83F47F971BCEA3290086F42D /* SearchStuffWidget.m in Sources */,
 				83FF7E991BE03F5500A505F5 /* __SSWidgetStdGreenLock.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */,
