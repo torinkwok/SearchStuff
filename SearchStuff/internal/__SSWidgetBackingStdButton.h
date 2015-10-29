@@ -26,10 +26,11 @@
 #import "__SSWidgetBackingButton.h"
 
 typedef NS_ENUM( NSUInteger, __SSWidgetBackingStdButtonType )
-    { __SSWidgetBackingStdButtonTypeSearch      = 0
-    , __SSWidgetBackingStdButtonTypeReload      = 1
-    , __SSWidgetBackingStdButtonTypeGreenLock   = 2
-    , __SSWidgetBackingStdButtonTypeGrayLock    = 3
+    { __SSWidgetBackingStdButtonTypeUnknown     = 0
+    , __SSWidgetBackingStdButtonTypeSearch      = 1
+    , __SSWidgetBackingStdButtonTypeReload      = 2
+    , __SSWidgetBackingStdButtonTypeGreenLock   = 3
+    , __SSWidgetBackingStdButtonTypeGrayLock    = 4
     };
 
 // __SSWidgetBackingStdButton class
