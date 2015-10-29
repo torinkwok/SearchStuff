@@ -25,10 +25,10 @@
 
 #import "__SSWidgetBackingButton.h"
 
-// __SSWidgetStdGrayLock class
-@interface __SSWidgetStdGrayLock : __SSWidgetBackingButton
+// __SSWidgetBackingStdGrayLockButton class
+@interface __SSWidgetBackingStdGrayLockButton : __SSWidgetBackingButton
 
-@end // __SSWidgetStdGrayLock class
+@end // __SSWidgetBackingStdGrayLockButton class
 
 /*===============================================================================┐
 |                                                                                |

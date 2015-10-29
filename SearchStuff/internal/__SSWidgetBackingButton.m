@@ -29,7 +29,7 @@
 #import "__SSWidgetBackingStdSearchButton.h"
 #import "__SSWidgetBackingStdReloadButton.h"
 #import "__SSWidgetBackingStdGreenLockButton.h"
-#import "__SSWidgetStdGrayLock.h"
+#import "__SSWidgetBackingStdGrayLockButton.h"
 
 #import "__SSWidgetUser.h"
 #import "__SSWidgetBackingButton+__SSPrivate.h"
@@ -81,7 +81,7 @@
             clusterMember = [ [ __SSWidgetBackingStdGreenLockButton alloc ] __initWithSSWiget: _RepWidget ];
 
         else if ( [ _RepWidget.identifier isEqualToString: SearchStuffGrayLockWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetStdGrayLock alloc ] __initWithSSWiget: _RepWidget ];
+            clusterMember = [ [ __SSWidgetBackingStdGrayLockButton alloc ] __initWithSSWiget: _RepWidget ];
         }
     else
         clusterMember = [ [ __SSWidgetUser alloc ] __initWithSSWiget: _RepWidget ];

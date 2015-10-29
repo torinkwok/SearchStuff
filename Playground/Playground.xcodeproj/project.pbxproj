@@ -49,7 +49,7 @@
 		83FF7E991BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E981BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7E9F1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
-		83FF7EA21BE0C10800A505F5 /* __SSWidgetStdGrayLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7EA11BE0C10800A505F5 /* __SSWidgetStdGrayLock.m */; settings = {ASSET_TAGS = (); }; };
+		83FF7EA21BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7EA11BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7EA71BE0C44300A505F5 /* search-stuff-graylock-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7EA31BE0C44300A505F5 /* search-stuff-graylock-highlighted.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7EA81BE0C44300A505F5 /* search-stuff-graylock-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7EA41BE0C44300A505F5 /* search-stuff-graylock-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7EA91BE0C44300A505F5 /* search-stuff-graylock.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7EA51BE0C44300A505F5 /* search-stuff-graylock.png */; settings = {ASSET_TAGS = (); }; };
@@ -142,8 +142,8 @@
 		83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetsPallet.m; sourceTree = "<group>"; };
 		83FF7E9D1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSAutoSizeWidgetsPallet.h; sourceTree = "<group>"; };
 		83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSAutoSizeWidgetsPallet.m; sourceTree = "<group>"; };
-		83FF7EA01BE0C10800A505F5 /* __SSWidgetStdGrayLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetStdGrayLock.h; sourceTree = "<group>"; };
-		83FF7EA11BE0C10800A505F5 /* __SSWidgetStdGrayLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetStdGrayLock.m; sourceTree = "<group>"; };
+		83FF7EA01BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingStdGrayLockButton.h; sourceTree = "<group>"; };
+		83FF7EA11BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingStdGrayLockButton.m; sourceTree = "<group>"; };
 		83FF7EA31BE0C44300A505F5 /* search-stuff-graylock-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-graylock-highlighted.png"; sourceTree = "<group>"; };
 		83FF7EA41BE0C44300A505F5 /* search-stuff-graylock-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-graylock-highlighted@2x.png"; sourceTree = "<group>"; };
 		83FF7EA51BE0C44300A505F5 /* search-stuff-graylock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-graylock.png"; sourceTree = "<group>"; };
@@ -274,8 +274,8 @@
 				832CBAFE1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m */,
 				83FF7E971BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.h */,
 				83FF7E981BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m */,
-				83FF7EA01BE0C10800A505F5 /* __SSWidgetStdGrayLock.h */,
-				83FF7EA11BE0C10800A505F5 /* __SSWidgetStdGrayLock.m */,
+				83FF7EA01BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.h */,
+				83FF7EA11BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m */,
 				83FD30401BD7A561001B5B02 /* __SSWidgetUser.h */,
 				83FD30411BD7A561001B5B02 /* __SSWidgetUser.m */,
 				83F47F791BCEA3280086F42D /* __SSWidgetBackingButtonCell.h */,
@@ -485,7 +485,7 @@
 				83F47F961BCEA3290086F42D /* SearchStuffToolbarItem.m in Sources */,
 				83F47F901BCEA3290086F42D /* __SSWidgetBackingButton.m in Sources */,
 				832CBAFF1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m in Sources */,
-				83FF7EA21BE0C10800A505F5 /* __SSWidgetStdGrayLock.m in Sources */,
+				83FF7EA21BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSBar.m in Sources */,
 				83FD30421BD7A561001B5B02 /* __SSWidgetUser.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,

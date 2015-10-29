@@ -23,15 +23,15 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidgetStdGrayLock.h"
+#import "__SSWidgetBackingStdGrayLockButton.h"
 #import "__SSWidgetBackingButton+__SSPrivate.h"
 
-// __SSWidgetStdGrayLock class
-@implementation __SSWidgetStdGrayLock
-@end // __SSWidgetStdGrayLock class
+// __SSWidgetBackingStdGrayLockButton class
+@implementation __SSWidgetBackingStdGrayLockButton
+@end // __SSWidgetBackingStdGrayLockButton class
 
-// __SSWidgetStdGrayLock + __SSPrivate
-@implementation __SSWidgetStdGrayLock ( __SSPrivate )
+// __SSWidgetBackingStdGrayLockButton + __SSPrivate
+@implementation __SSWidgetBackingStdGrayLockButton ( __SSPrivate )
 
 #pragma mark Private Initializations ( only used by friend classes )
 
@@ -46,7 +46,7 @@
     return self;
     }
 
-@end // __SSWidgetStdGrayLock + __SSPrivate
+@end // __SSWidgetBackingStdGrayLockButton + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |
