@@ -32,12 +32,13 @@
 @implementation __SSWidget
     {
 @protected
-    SearchStuffWidget __strong* __repWidget;
-
     __SSWidgetBackingButton* __ssBackingButton;
+
+    NSArray __strong* __sizeConstraints;
+    NSArray __strong* __backingButtonConstraints;
     }
 
-#pragma mrak Initilizations
+#pragma mrak - Initilizations
 
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget;
     {
@@ -46,11 +47,65 @@
 
     if ( self = [ super initWithFrame: NSZeroRect ] )
         {
-        self->__repWidget = _RepWidget;
-        self->__ssBackingButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: self->__repWidget ];
+        self.repWidget = _RepWidget;
+        self.translatesAutoresizingMaskIntoConstraints = NO;
         }
 
     return self;
+    }
+
+#pragma mark - Dynamic Properties
+
+- ( SearchStuffWidget* ) repWidget
+    {
+    return self->__repWidget;
+    }
+
+- ( void ) setRepWidget: ( SearchStuffWidget* )_RepWidget
+    {
+    self->__repWidget = _RepWidget;
+    self->__ssBackingButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: self->__repWidget ];
+    [ self addSubview: self->__ssBackingButton ];
+
+    NSLayoutConstraint* widthConstraint = [ NSLayoutConstraint
+        constraintWithItem: self
+                 attribute: NSLayoutAttributeWidth
+                 relatedBy: NSLayoutRelationEqual
+                    toItem: nil
+                 attribute: NSLayoutAttributeNotAnAttribute
+                multiplier: 1.f
+                  constant: NSWidth( self->__ssBackingButton.bounds ) ];
+
+    NSLayoutConstraint* heightConstraint = [ NSLayoutConstraint
+        constraintWithItem: self
+                 attribute: NSLayoutAttributeHeight
+                 relatedBy: NSLayoutRelationEqual
+                    toItem: nil
+                 attribute: NSLayoutAttributeNotAnAttribute
+                multiplier: 1.f
+                  constant: NSHeight( self->__ssBackingButton.bounds ) ];
+
+    [ self removeConstraints: self->__sizeConstraints ];
+    self->__sizeConstraints = @[ widthConstraint, heightConstraint ];
+    [ self addConstraints: self->__sizeConstraints ];
+
+    NSView* backingButton = self->__ssBackingButton;
+    NSDictionary* viewsDict = NSDictionaryOfVariableBindings( backingButton );
+    NSArray <__kindof NSLayoutConstraint*>* horBackingButtonConstraints =
+        [ NSLayoutConstraint constraintsWithVisualFormat: @"H:|[horBackingButtonConstraints]|"
+                                                 options: 0
+                                                 metrics: nil
+                                                   views: viewsDict ];
+
+    NSArray <__kindof NSLayoutConstraint*>* verBackingButtonConstraints =
+        [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[horBackingButtonConstraints]|"
+                                                 options: 0
+                                                 metrics: nil
+                                                   views: viewsDict ];
+
+    [ self removeConstraints: self->__backingButtonConstraints ];
+    self->__backingButtonConstraints = [ horBackingButtonConstraints arrayByAddingObjectsFromArray: verBackingButtonConstraints ];
+    [ self addConstraints: self->__backingButtonConstraints ];
     }
 
 @end // __SSWidget class

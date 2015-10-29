@@ -29,10 +29,18 @@
 
 // __SSWidget class
 @interface __SSWidget : NSView
+    {
+@protected
+    SearchStuffWidget __strong* __repWidget;
+    }
 
-#pragma mrak Initilizations
+#pragma mrak - Initilizations
 
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget;
+
+#pragma mark - Dynamic Properties
+
+@property ( readwrite, strong ) SearchStuffWidget* repWidget;
 
 @end // __SSWidget class
 

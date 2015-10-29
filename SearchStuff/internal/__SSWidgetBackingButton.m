@@ -49,6 +49,8 @@
     NSImage __strong* __ssAlternativeImage;
 
     NSSize __ssSize;
+
+    NSArray __strong* __sizeConstraints;
     }
 
 @dynamic ssWidget;
