@@ -135,8 +135,8 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                         {
                         if ( [ tlbItemDel respondsToSelector: @selector( ssToolbarItem:widgetForWidgetIdentifier: ) ] )
                             {
-                            SearchStuffWidget* ssWidget = [ tlbItemDel ssToolbarItem: tlbItem widgetForWidgetIdentifier: _WidgetIdentifier ];
-                            [ repWidgets addObject: ssWidget ];
+                            SearchStuffWidget* repWidget = [ tlbItemDel ssToolbarItem: tlbItem widgetForWidgetIdentifier: _WidgetIdentifier ];
+                            [ repWidgets addObject: repWidget ];
                             }
                         }
                     }

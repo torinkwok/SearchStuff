@@ -225,6 +225,7 @@
                                               owner: self
                                            userInfo: nil ];
         [ self addTrackingArea: trackingArea ];
+        [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
         }
 
     return self;

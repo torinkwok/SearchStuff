@@ -108,8 +108,6 @@ CGFloat kSpliterWidth = 1.f;
     NSMutableDictionary* viewsDict = [ NSMutableDictionary dictionary ];
     for ( int _Index = 0; _Index < _Widgets.count; _Index++ )
         {
-        [ _Widgets[ _Index ] setTranslatesAutoresizingMaskIntoConstraints: NO ];
-
         NSString* viewName = [ @"widget" stringByAppendingString: @( _Index ).stringValue ];
         [ viewsDict addEntriesFromDictionary: @{ viewName : _Widgets[ _Index ] } ];
         }
