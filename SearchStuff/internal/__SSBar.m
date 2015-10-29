@@ -143,20 +143,16 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
                 NSMutableArray <__kindof __SSWidget*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
                 for ( SearchStuffWidget* _repWidget in repWidgets )
-                    {
-                    __SSWidget* ssWidget = [ [ __SSWidget alloc ] initWithRepWidget: _repWidget ];
-                    [ ssWidgets addObject: ssWidget ];
+                    [ ssWidgets addObject: [ [ __SSWidget alloc ] initWithRepWidget: _repWidget ] ];
 
-                    __SSWidgetsPallet* ssPallet = nil;
-
-                    if ( delSel == lhsAnchoredWidgetIDsDelSEL )      ssPallet = self.__leftAnchoredWidgetsPallet;
+                __SSWidgetsPallet* ssPallet = nil;
+                if ( delSel == lhsAnchoredWidgetIDsDelSEL )          ssPallet = self.__leftAnchoredWidgetsPallet;
                     else if ( delSel == rhsAnchoredWidgetIDsDelSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
                     else if ( delSel == lhsFloatWidgetIDsDelSEL )    ssPallet = self.__leftFloatWidgetsPallet;
                     else if ( delSel == rhsFloatWidgetIDsDelSEL )    ssPallet = self.__rightFloatWidgetsPallet;
                     else if ( delSel == titleWidgetIDsDelSEL )       ssPallet = self.__titleWidgetsPallet;
 
-                    ssPallet.ssWidgets = ssWidgets;
-                    }
+                ssPallet.ssWidgets = ssWidgets;
                 }
             }
         }
