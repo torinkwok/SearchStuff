@@ -29,6 +29,10 @@
 
 // __SSWidgetBackingButton class
 @interface __SSWidgetBackingButton : NSButton
+    {
+@protected
+    NSArray __strong* __sizeConstraints;
+    }
 
 #pragma mark - Dynamic Properties
 

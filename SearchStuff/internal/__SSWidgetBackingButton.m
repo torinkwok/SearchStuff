@@ -101,6 +101,8 @@
     {
     if ( self->__ssImage != _Image )
         {
+        self->__sizeConstraints = nil;
+
         self->__ssImage = _Image;
         [ self setImage: self->__ssImage ];
 
@@ -109,7 +111,28 @@
                                    );
 
         if ( ( self->__ssSize.width ) > 0 && ( self->__ssSize.height > 0 ) )
-        [ self setFrameSize: [ self ssSize ] ];
+            {
+            NSLayoutConstraint* widthConstraint = [ NSLayoutConstraint
+                constraintWithItem: self
+                         attribute: NSLayoutAttributeWidth
+                         relatedBy: NSLayoutRelationEqual
+                            toItem: nil
+                         attribute: NSLayoutAttributeNotAnAttribute
+                        multiplier: 1.f
+                          constant: [ self ssSize ].width ];
+
+            NSLayoutConstraint* heightConstraint = [ NSLayoutConstraint
+                constraintWithItem: self
+                         attribute: NSLayoutAttributeHeight
+                         relatedBy: NSLayoutRelationEqual
+                            toItem: nil
+                         attribute: NSLayoutAttributeNotAnAttribute
+                        multiplier: 1.f
+                          constant: [ self ssSize ].height ];
+
+            self->__sizeConstraints = @[ widthConstraint, heightConstraint ];
+            [ self addConstraints: self->__sizeConstraints ];
+            }
         }
     }
 

@@ -125,13 +125,13 @@ CGFloat kSpliterWidth = 1.f;
 
     if ( self->__direction == __SSPalletDirectionLeft )
         {
-        bodyComponent = @"-(==%@)-[%@(==%@)]";
+        bodyComponent = @"-(==%@)-[%@]";
         tailComponent = @"-(>=0)-|";
         }
     else if ( self->__direction == __SSPalletDirectionRight )
         {
         headComponent = @"-(>=0)";
-        bodyComponent = @"-[%@(==%@)]-(==%@)";
+        bodyComponent = @"-[%@]-(==%@)";
         tailComponent = @"-|";
         }
 
@@ -154,7 +154,6 @@ CGFloat kSpliterWidth = 1.f;
                       bodyComponent
                     , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
                     , _ViewName
-                    , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
                     ];
                 } break;
 
@@ -163,7 +162,6 @@ CGFloat kSpliterWidth = 1.f;
                 visualFormatBody = [ NSString stringWithFormat:
                       bodyComponent
                     , _ViewName
-                    , @( NSWidth( [ viewsDict[ _ViewName ] frame ] ) )
                     , ( self.isFloat && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
                     ];
                 } break;
@@ -183,7 +181,7 @@ CGFloat kSpliterWidth = 1.f;
     for ( NSString* _ViewName in viewsDict )
         {
         NSArray* constraints = [ NSLayoutConstraint
-            constraintsWithVisualFormat: [ NSString stringWithFormat: @"V:|-(==verGap)-[%@(==%@)]-(>=0)-|", _ViewName, @( NSHeight( [ viewsDict[ _ViewName ] frame ] ) ) ]
+            constraintsWithVisualFormat: [ NSString stringWithFormat: @"V:|-(==verGap)-[%@]-(>=0)-|", _ViewName ]
                                 options: ( self->__direction == __SSPalletDirectionCentral )
                                             ? ( NSLayoutFormatAlignAllCenterX | NSLayoutFormatAlignAllCenterY )
                                             : 0
