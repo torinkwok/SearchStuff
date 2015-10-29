@@ -43,7 +43,15 @@
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
     {
     if ( self = [ super initWithFrame: NSZeroRect ] )
+        {
+        self.selectable = NO;
+        self.editable = NO;
+        self.drawsBackground = NO;
+        self.bordered = NO;
+
         self.repWidget = _RepWidget;
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+        }
 
     return self;
     }

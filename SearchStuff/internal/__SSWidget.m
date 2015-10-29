@@ -36,7 +36,10 @@
     __SSWidgetBackingButton* __ssBackingButton;
     __SSWidgetBackingTitleField* __ssBackingTitleField;
 
+    NSLayoutConstraint __weak* __widthConstraint;
+    NSLayoutConstraint __weak* __heightConstraint;
     NSArray __strong* __sizeConstraints;
+
     NSArray __strong* __backingButtonConstraints;
     }
 
@@ -81,7 +84,7 @@
         [ self addSubview: self->__ssBackingTitleField ];
         }
 
-    NSLayoutConstraint* widthConstraint = [ NSLayoutConstraint
+    self->__widthConstraint = [ NSLayoutConstraint
         constraintWithItem: self
                  attribute: NSLayoutAttributeWidth
                  relatedBy: NSLayoutRelationEqual
@@ -91,7 +94,7 @@
                   constant: self->__ssBackingTitleField ? self->__ssBackingButton.ssSize.width + 3.f + self->__ssBackingTitleField.constraintWidth
                                                         : self->__ssBackingButton.ssSize.width ];
 
-    NSLayoutConstraint* heightConstraint = [ NSLayoutConstraint
+    self->__heightConstraint = [ NSLayoutConstraint
         constraintWithItem: self
                  attribute: NSLayoutAttributeHeight
                  relatedBy: NSLayoutRelationEqual
@@ -103,7 +106,7 @@
     if ( self->__sizeConstraints.count > 0 )
         [ self removeConstraints: self->__sizeConstraints ];
 
-    self->__sizeConstraints = @[ widthConstraint, heightConstraint ];
+    self->__sizeConstraints = @[ self->__widthConstraint, self->__heightConstraint ];
     [ self addConstraints: self->__sizeConstraints ];
 
     NSView* backingButton = self->__ssBackingButton;
@@ -131,6 +134,16 @@
 
     self->__backingButtonConstraints = [ horBackingButtonConstraints arrayByAddingObjectsFromArray: verBackingButtonConstraints ];
     [ self addConstraints: self->__backingButtonConstraints ];
+    }
+
+- ( CGFloat ) constraintWidth
+    {
+    return self->__widthConstraint.constant;
+    }
+
+- ( CGFloat ) constraintHeight
+    {
+    return self->__heightConstraint.constant;
     }
 
 @end // __SSWidget class
