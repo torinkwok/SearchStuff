@@ -53,7 +53,7 @@
     NSArray __strong* __sizeConstraints;
     }
 
-@dynamic ssWidget;
+@dynamic repWidget;
 
 @dynamic ssImage;
 @dynamic ssAlternativeImage;
@@ -94,7 +94,7 @@
 
 #pragma mark - Dynamic Properties
 
-- ( SearchStuffWidget* ) ssWidget
+- ( SearchStuffWidget* ) repWidget
     {
     return [ __SSWidgetBackingButton copy ];
     }
@@ -114,7 +114,6 @@
 
         if ( ( self->__ssSize.width ) > 0 && ( self->__ssSize.height > 0 ) )
             {
-//            [ self setFrameSize: self->__ssSize ];
             NSLayoutConstraint* widthConstraint = [ NSLayoutConstraint
                 constraintWithItem: self
                          attribute: NSLayoutAttributeWidth

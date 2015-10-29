@@ -27,21 +27,18 @@
 
 @class SearchStuffWidget;
 
-// __SSWidgetBackingButton class
-@interface __SSWidgetBackingButton : NSButton
+// __SSWidgetBackingTitleField class
+@interface __SSWidgetBackingTitleField : NSTextField
+
+#pragma mark - Initializations
+
+- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget;
 
 #pragma mark - Dynamic Properties
 
-@property ( strong, readonly ) SearchStuffWidget* repWidget;
+@property ( readwrite, strong ) SearchStuffWidget* repWidget;
 
-@property ( strong, readwrite ) NSImage* ssImage;
-@property ( strong, readwrite ) NSImage* ssAlternativeImage;
-
-@property ( assign, readonly ) NSSize ssSize;
-
-+ ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget;
-
-@end // __SSWidgetBackingButton class
+@end // __SSWidgetBackingTitleField class
 
 /*===============================================================================┐
 |                                                                                |

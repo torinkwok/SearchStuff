@@ -31,13 +31,13 @@
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_Widget
+- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
                              stdType: ( __SSWidgetBackingStdButtonType )_StdButtonType
     {
     if ( _StdButtonType == __SSWidgetBackingStdButtonTypeUnspecified )
         return nil;
 
-    if ( self = [ super __initWithRepWidget: _Widget ] )
+    if ( self = [ super __initWithRepWidget: _RepWidget ] )
         {
         NSString* artworkName = nil;
         switch ( _StdButtonType )

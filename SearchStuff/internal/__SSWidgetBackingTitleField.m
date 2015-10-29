@@ -23,25 +23,44 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-@import Cocoa;
+#import "__SSWidgetBackingTitleField.h"
 
-@class SearchStuffWidget;
+#import "SearchStuffWidget.h"
 
-// __SSWidgetBackingButton class
-@interface __SSWidgetBackingButton : NSButton
+// __SSWidgetBackingTitleField class
+@implementation __SSWidgetBackingTitleField
+    {
+@protected
+    SearchStuffWidget __strong*  __repWidget;
+    }
+
+#pragma mark - Initializations
+
+- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
+    {
+    if ( self = [ super initWithFrame: NSZeroRect ] )
+        self.repWidget = _RepWidget;
+
+    return self;
+    }
 
 #pragma mark - Dynamic Properties
 
-@property ( strong, readonly ) SearchStuffWidget* repWidget;
+@dynamic repWidget;
 
-@property ( strong, readwrite ) NSImage* ssImage;
-@property ( strong, readwrite ) NSImage* ssAlternativeImage;
+- ( SearchStuffWidget* ) repWidget
+    {
+    return self->__repWidget;
+    }
 
-@property ( assign, readonly ) NSSize ssSize;
+- ( void ) setRepWidget: ( SearchStuffWidget* )_RepWidget
+    {
+    self->__repWidget = _RepWidget;
 
-+ ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget;
+    [ self setStringValue: _RepWidget.title ?: @"" ];
+    }
 
-@end // __SSWidgetBackingButton class
+@end // __SSWidgetBackingTitleField class
 
 /*===============================================================================┐
 |                                                                                |
