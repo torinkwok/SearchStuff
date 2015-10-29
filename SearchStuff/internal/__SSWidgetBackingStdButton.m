@@ -34,6 +34,9 @@
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_Widget
                              stdType: ( __SSWidgetBackingStdButtonType )_StdButtonType
     {
+    if ( _StdButtonType == __SSWidgetBackingStdButtonTypeUnspecified )
+        return nil;
+
     if ( self = [ super __initWithRepWidget: _Widget ] )
         {
         NSString* artworkName = nil;
@@ -43,6 +46,8 @@
             case __SSWidgetBackingStdButtonTypeReload:      artworkName = @"search-stuff-reload";    break;
             case __SSWidgetBackingStdButtonTypeGreenLock:   artworkName = @"search-stuff-greenlock"; break;
             case __SSWidgetBackingStdButtonTypeGrayLock:    artworkName = @"search-stuff-graylock";  break;
+
+            default:;
             }
 
         if ( artworkName )

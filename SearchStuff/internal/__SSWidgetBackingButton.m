@@ -68,7 +68,7 @@
     __SSWidgetBackingButton* clusterMember = nil;
     if ( _RepWidget.__isStd )
         {
-        __SSWidgetBackingStdButtonType stdType = __SSWidgetBackingStdButtonTypeUnknown;
+        __SSWidgetBackingStdButtonType stdType = __SSWidgetBackingStdButtonTypeUnspecified;
 
         if ( [ _RepWidget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
             stdType = __SSWidgetBackingStdButtonTypeSearch;
