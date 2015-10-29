@@ -173,6 +173,11 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 #pragma mark - Events
 
+- ( BOOL ) mouseDownCanMoveWindow
+    {
+    return NO;
+    }
+
 - ( void ) mouseDown: ( NSEvent* )_Event
     {
     [ super mouseDown: _Event ];
