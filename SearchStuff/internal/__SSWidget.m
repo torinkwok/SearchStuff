@@ -25,6 +25,7 @@
 
 #import "__SSWidget.h"
 #import "__SSWidgetBackingButton.h"
+#import "__SSWidgetBackingTitleField.h"
 
 #import "SearchStuffWidget.h"
 
@@ -33,6 +34,7 @@
     {
 @protected
     __SSWidgetBackingButton* __ssBackingButton;
+    __SSWidgetBackingTitleField* __ssBackingTitleField;
 
     NSArray __strong* __sizeConstraints;
     NSArray __strong* __backingButtonConstraints;
@@ -64,8 +66,20 @@
 - ( void ) setRepWidget: ( SearchStuffWidget* )_RepWidget
     {
     self->__repWidget = _RepWidget;
+
+    [ self->__ssBackingButton removeFromSuperview ];
+    self->__ssBackingButton = nil;
     self->__ssBackingButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: self->__repWidget ];
+
     [ self addSubview: self->__ssBackingButton ];
+
+    if ( self->__repWidget.title.length > 0 )
+        {
+        [ self->__ssBackingTitleField removeFromSuperview ];
+        self->__ssBackingTitleField = nil;
+        self->__ssBackingTitleField = [ [ __SSWidgetBackingTitleField alloc ] initWithRepWidget: self->__repWidget ];
+        [ self addSubview: self->__ssBackingTitleField ];
+        }
 
     NSLayoutConstraint* widthConstraint = [ NSLayoutConstraint
         constraintWithItem: self
@@ -74,7 +88,8 @@
                     toItem: nil
                  attribute: NSLayoutAttributeNotAnAttribute
                 multiplier: 1.f
-                  constant: self->__ssBackingButton.ssSize.width ];
+                  constant: self->__ssBackingTitleField ? self->__ssBackingButton.ssSize.width + 3.f + self->__ssBackingTitleField.constraintWidth
+                                                        : self->__ssBackingButton.ssSize.width ];
 
     NSLayoutConstraint* heightConstraint = [ NSLayoutConstraint
         constraintWithItem: self
@@ -83,7 +98,7 @@
                     toItem: nil
                  attribute: NSLayoutAttributeNotAnAttribute
                 multiplier: 1.f
-                  constant: self->__ssBackingButton.ssSize.height ];
+                  constant: MAX( self->__ssBackingButton.ssSize.height, self->__ssBackingTitleField.constraintHeight ) ];
 
     if ( self->__sizeConstraints.count > 0 )
         [ self removeConstraints: self->__sizeConstraints ];
@@ -92,9 +107,15 @@
     [ self addConstraints: self->__sizeConstraints ];
 
     NSView* backingButton = self->__ssBackingButton;
-    NSDictionary* viewsDict = NSDictionaryOfVariableBindings( backingButton );
+    NSView* backingTitleField = self->__ssBackingTitleField;
+    NSMutableDictionary* viewsDict = [ NSDictionaryOfVariableBindings( backingButton ) mutableCopy ];
+
+    if ( backingTitleField )
+        [ viewsDict addEntriesFromDictionary: NSDictionaryOfVariableBindings( backingTitleField ) ];
+
     NSArray <__kindof NSLayoutConstraint*>* horBackingButtonConstraints =
-        [ NSLayoutConstraint constraintsWithVisualFormat: @"H:|[backingButton]|"
+        [ NSLayoutConstraint constraintsWithVisualFormat: self->__ssBackingTitleField ? @"H:|[backingButton]-(==3)-[backingTitleField]|"
+                                                                                      : @"H:|[backingButton]|"
                                                  options: 0
                                                  metrics: nil
                                                    views: viewsDict ];

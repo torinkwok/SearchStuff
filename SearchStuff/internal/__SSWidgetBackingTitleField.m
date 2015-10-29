@@ -32,6 +32,10 @@
     {
 @protected
     SearchStuffWidget __strong*  __repWidget;
+
+    NSLayoutConstraint __weak* __widthConstraint;
+    NSLayoutConstraint __weak* __heightConstraint;
+    NSArray __strong* __sizeConstraints;
     }
 
 #pragma mark - Initializations
@@ -48,6 +52,9 @@
 
 @dynamic repWidget;
 
+@dynamic constraintWidth;
+@dynamic constraintHeight;
+
 - ( SearchStuffWidget* ) repWidget
     {
     return self->__repWidget;
@@ -58,6 +65,39 @@
     self->__repWidget = _RepWidget;
 
     [ self setStringValue: _RepWidget.title ?: @"" ];
+
+    NSSize size = [ _RepWidget.title sizeWithAttributes: @{ NSFontAttributeName : self.font } ];
+
+    self->__widthConstraint = [ NSLayoutConstraint
+        constraintWithItem: self
+                 attribute: NSLayoutAttributeWidth
+                 relatedBy: NSLayoutRelationEqual
+                    toItem: nil
+                 attribute: NSLayoutAttributeNotAnAttribute
+                multiplier: 1.f
+                  constant: size.width ];
+
+    self->__heightConstraint = [ NSLayoutConstraint
+        constraintWithItem: self
+                 attribute: NSLayoutAttributeHeight
+                 relatedBy: NSLayoutRelationEqual
+                    toItem: nil
+                 attribute: NSLayoutAttributeNotAnAttribute
+                multiplier: 1.f
+                  constant: size.height ];
+
+    self->__sizeConstraints = @[ self->__widthConstraint, self->__heightConstraint ];
+    [ self addConstraints: self->__sizeConstraints ];
+    }
+
+- ( CGFloat ) constraintWidth
+    {
+    return self->__widthConstraint.constant;
+    }
+
+- ( CGFloat ) constraintHeight
+    {
+    return self->__heightConstraint.constant;
     }
 
 @end // __SSWidgetBackingTitleField class
