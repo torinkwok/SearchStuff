@@ -26,7 +26,7 @@
 		838BC7FA1BDC9AC2009C2DA5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 838BC7F91BDC9AC2009C2DA5 /* QuartzCore.framework */; };
 		83B621C51BD82637005FA2DE /* __SSFixedWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F901BCEA3290086F42D /* __SSWidgetBackingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSWidgetBackingButton.m */; settings = {ASSET_TAGS = (); }; };
-		83F47F911BCEA3290086F42D /* __SSWidgetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSWidgetCell.m */; settings = {ASSET_TAGS = (); }; };
+		83F47F911BCEA3290086F42D /* __SSWidgetBackingButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSWidgetBackingButtonCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7C1BCEA3280086F42D /* __SSBackingCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7E1BCEA3280086F42D /* __SSInputField.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F941BCEA3290086F42D /* __SSInputFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F801BCEA3280086F42D /* __SSInputFieldCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -107,8 +107,8 @@
 		83BE312E1BDB03F10099BAF2 /* __SSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSConstants.h; sourceTree = "<group>"; };
 		83F47F771BCEA3280086F42D /* __SSWidgetBackingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingButton.h; sourceTree = "<group>"; };
 		83F47F781BCEA3280086F42D /* __SSWidgetBackingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingButton.m; sourceTree = "<group>"; };
-		83F47F791BCEA3280086F42D /* __SSWidgetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetCell.h; sourceTree = "<group>"; };
-		83F47F7A1BCEA3280086F42D /* __SSWidgetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetCell.m; sourceTree = "<group>"; };
+		83F47F791BCEA3280086F42D /* __SSWidgetBackingButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingButtonCell.h; sourceTree = "<group>"; };
+		83F47F7A1BCEA3280086F42D /* __SSWidgetBackingButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingButtonCell.m; sourceTree = "<group>"; };
 		83F47F7B1BCEA3280086F42D /* __SSBackingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSBackingCell.h; sourceTree = "<group>"; };
 		83F47F7C1BCEA3280086F42D /* __SSBackingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSBackingCell.m; sourceTree = "<group>"; };
 		83F47F7D1BCEA3280086F42D /* __SSInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSInputField.h; sourceTree = "<group>"; };
@@ -278,8 +278,8 @@
 				83FF7EA11BE0C10800A505F5 /* __SSWidgetStdGrayLock.m */,
 				83FD30401BD7A561001B5B02 /* __SSWidgetUser.h */,
 				83FD30411BD7A561001B5B02 /* __SSWidgetUser.m */,
-				83F47F791BCEA3280086F42D /* __SSWidgetCell.h */,
-				83F47F7A1BCEA3280086F42D /* __SSWidgetCell.m */,
+				83F47F791BCEA3280086F42D /* __SSWidgetBackingButtonCell.h */,
+				83F47F7A1BCEA3280086F42D /* __SSWidgetBackingButtonCell.m */,
 				83F47F7B1BCEA3280086F42D /* __SSBackingCell.h */,
 				83F47F7C1BCEA3280086F42D /* __SSBackingCell.m */,
 				83F47F7D1BCEA3280086F42D /* __SSInputField.h */,
@@ -493,7 +493,7 @@
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83F47F941BCEA3290086F42D /* __SSInputFieldCell.m in Sources */,
 				830531EF1BD51AEF00223917 /* __SSWidgetStdSearch.m in Sources */,
-				83F47F911BCEA3290086F42D /* __SSWidgetCell.m in Sources */,
+				83F47F911BCEA3290086F42D /* __SSWidgetBackingButtonCell.m in Sources */,
 				83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */,
 				83F47F971BCEA3290086F42D /* SearchStuffWidget.m in Sources */,
 				83FF7E991BE03F5500A505F5 /* __SSWidgetStdGreenLock.m in Sources */,

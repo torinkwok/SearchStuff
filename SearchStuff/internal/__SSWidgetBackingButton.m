@@ -24,7 +24,7 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSWidgetBackingButton.h"
-#import "__SSWidgetCell.h"
+#import "__SSWidgetBackingButtonCell.h"
 
 #import "__SSWidgetStdSearch.h"
 #import "__SSWidgetStdReload.h"
@@ -141,7 +141,7 @@
 
 + ( Class ) cellClass
     {
-    return [ __SSWidgetCell class ];
+    return [ __SSWidgetBackingButtonCell class ];
     }
 
 #pragma mark - Events

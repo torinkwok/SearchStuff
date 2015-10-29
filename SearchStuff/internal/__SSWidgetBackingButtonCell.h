@@ -23,34 +23,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidgetCell.h"
+@import Cocoa;
 
-// __SSWidgetCell class
-@implementation __SSWidgetCell
+// __SSWidgetBackingButtonCell class
+@interface __SSWidgetBackingButtonCell : NSButtonCell
 
-#pragma mark - Drawing
-
-- ( void ) drawWithFrame: ( NSRect )_CellFrame
-                  inView: ( NSView* )_ControlView
-    {
-    NSImage* finalImage = self.isHighlighted ? self.alternateImage : self.image;
-
-    NSRect ctrlFrameRect = _ControlView.bounds;
-    NSAffineTransform* flipTransform = [ NSAffineTransform transform ];
-    [ flipTransform translateXBy: 0.f yBy: ctrlFrameRect.size.height ];
-    [ flipTransform scaleXBy: 1.f yBy: -1.f ];
-    [ flipTransform concat ];
-
-    [ finalImage drawInRect: _ControlView.bounds
-                   fromRect: NSZeroRect
-                  operation: NSCompositeSourceOver
-                   fraction: 1.f ];
-
-    [ flipTransform invert ];
-    [ flipTransform concat ];
-    }
-
-@end // __SSWidgetCell class
+@end // __SSWidgetBackingButtonCell class
 
 /*===============================================================================┐
 |                                                                                |
