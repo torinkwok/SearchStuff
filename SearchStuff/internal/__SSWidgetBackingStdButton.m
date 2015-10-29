@@ -34,7 +34,7 @@
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_Widget
                              stdType: ( __SSWidgetBackingStdButtonType )_StdButtonType
     {
-    if ( self = [ super __initWithSSWiget: _Widget ] )
+    if ( self = [ super __initWithRepWidget: _Widget ] )
         {
         NSString* artworkName = nil;
         switch ( _StdButtonType )

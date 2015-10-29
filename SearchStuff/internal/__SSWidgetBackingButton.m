@@ -84,7 +84,7 @@
         clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: stdType ];
         }
     else
-        clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithSSWiget: _RepWidget ];
+        clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithRepWidget: _RepWidget ];
 
     return clusterMember;
     }
@@ -181,7 +181,7 @@
 
 #pragma mark Private Initializations ( only used by friend classes )
 
-- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_RepWidget
+- ( instancetype ) __initWithRepWidget: ( SearchStuffWidget* )_RepWidget
     {
     if ( !_RepWidget )
         return nil;

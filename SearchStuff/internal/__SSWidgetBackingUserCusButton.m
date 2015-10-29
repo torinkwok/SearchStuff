@@ -37,9 +37,9 @@
 
 #pragma mark Private Initializations ( only used by friend classes )
 
-- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
+- ( instancetype ) __initWithRepWidget: ( SearchStuffWidget* )_Widget
     {
-    if ( self = [ super __initWithSSWiget: _Widget ] )
+    if ( self = [ super __initWithRepWidget: _Widget ] )
         {
         self.ssImage = _Widget.image;
         self.ssAlternativeImage = _Widget.alternativeImage;
