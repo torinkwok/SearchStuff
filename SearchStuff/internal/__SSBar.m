@@ -72,7 +72,6 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     {
 @protected
     NSTimer __strong* __mouseEnteredTimer;
-    NSTimer __strong* __mouseMovedTimer;
     }
 
 @dynamic constraintWidth;
