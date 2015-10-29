@@ -144,7 +144,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                 NSMutableArray <__kindof __SSWidgetBackingButton*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
                 for ( SearchStuffWidget* _repWidget in repWidgets )
                     {
-                    __SSWidgetBackingButton* ssWidget = [ __SSWidgetBackingButton ssWidgetWithRepWidget: _repWidget ];
+                    __SSWidgetBackingButton* ssWidget = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: _repWidget ];
                     [ ssWidgets addObject: ssWidget ];
 
                     __SSWidgetsPallet* ssPallet = nil;

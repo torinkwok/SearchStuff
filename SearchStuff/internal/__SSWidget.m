@@ -23,25 +23,11 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-@import Cocoa;
+#import "__SSWidget.h"
 
-@class SearchStuffWidget;
-
-// __SSWidgetBackingButton class
-@interface __SSWidgetBackingButton : NSButton
-
-#pragma mark - Dynamic Properties
-
-@property ( strong, readonly ) SearchStuffWidget* ssWidget;
-
-@property ( strong, readwrite ) NSImage* ssImage;
-@property ( strong, readwrite ) NSImage* ssAlternativeImage;
-
-@property ( assign, readonly ) NSSize ssSize;
-
-+ ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget;
-
-@end // __SSWidgetBackingButton class
+// __SSWidget class
+@implementation __SSWidget
+@end // __SSWidget class
 
 /*===============================================================================┐
 |                                                                                |

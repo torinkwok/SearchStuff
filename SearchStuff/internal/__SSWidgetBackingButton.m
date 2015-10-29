@@ -46,7 +46,7 @@
 @implementation __SSWidgetBackingButton
     {
 @protected
-    SearchStuffWidget __strong*  __SSWidgetBackingButton;
+    SearchStuffWidget __strong*  __repWidget;
 
     NSImage __strong* __ssImage;
     NSImage __strong* __ssAlternativeImage;
@@ -63,7 +63,7 @@
 
 #pragma mark - Initializations
 
-+ ( instancetype ) ssWidgetWithRepWidget: ( SearchStuffWidget* )_RepWidget
++ ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget
     {
     if ( !_RepWidget )
         return nil;
@@ -181,14 +181,14 @@
 
 #pragma mark Private Initializations ( only used by friend classes )
 
-- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
+- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_RepWidget
     {
-    if ( !_Widget )
+    if ( !_RepWidget )
         return nil;
 
     if ( self = [ super initWithFrame: NSZeroRect /* Frame doesn't matter */ ] )
         {
-        self->__SSWidgetBackingButton = _Widget;
+        self->__repWidget = _RepWidget;
         self->__ssSize = NSZeroSize;
 
         NSTrackingArea* trackingArea =

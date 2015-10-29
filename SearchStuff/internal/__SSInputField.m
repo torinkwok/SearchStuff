@@ -57,7 +57,7 @@
         [ self setPlaceholderString: NSLocalizedString( @"Search the fucking stuff", nil ) ];
 
         SearchStuffWidget* stdSearchWidget = [ [ SearchStuffWidget alloc ] initWithIdentifier: SearchStuffSearchWidgetIdentifier ];
-        self.__searchButton = [ __SSWidgetBackingButton ssWidgetWithRepWidget: stdSearchWidget ];
+        self.__searchButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: stdSearchWidget ];
 
         [ self.__searchButton setFrameOrigin: NSMakePoint( 6.5f, 5.f ) ];
 
