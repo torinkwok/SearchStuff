@@ -31,7 +31,7 @@
 #import "__SSWidgetBackingStdGreenLockButton.h"
 #import "__SSWidgetBackingStdGrayLockButton.h"
 
-#import "__SSWidgetUser.h"
+#import "__SSWidgetBackingUserCusButton.h"
 #import "__SSWidgetBackingButton+__SSPrivate.h"
 #import "__SSConstants.h"
 
@@ -84,7 +84,7 @@
             clusterMember = [ [ __SSWidgetBackingStdGrayLockButton alloc ] __initWithSSWiget: _RepWidget ];
         }
     else
-        clusterMember = [ [ __SSWidgetUser alloc ] __initWithSSWiget: _RepWidget ];
+        clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithSSWiget: _RepWidget ];
 
     return clusterMember;
     }
