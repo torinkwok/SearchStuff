@@ -68,17 +68,20 @@
     __SSWidgetBackingButton* clusterMember = nil;
     if ( _RepWidget.__isStd )
         {
+        __SSWidgetBackingStdButtonType stdType;
         if ( [ _RepWidget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: __SSWidgetBackingStdButtonTypeSearch ];
+            stdType = __SSWidgetBackingStdButtonTypeSearch;
 
         else if ( [ _RepWidget.identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: __SSWidgetBackingStdButtonTypeReload ];
+            stdType = __SSWidgetBackingStdButtonTypeReload;
 
         else if ( [ _RepWidget.identifier isEqualToString: SearchStuffGreenLockWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: __SSWidgetBackingStdButtonTypeGreenLock ];
+            stdType = __SSWidgetBackingStdButtonTypeGreenLock;
 
         else if ( [ _RepWidget.identifier isEqualToString: SearchStuffGrayLockWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: __SSWidgetBackingStdButtonTypeGrayLock ];
+            stdType = __SSWidgetBackingStdButtonTypeGrayLock;
+
+        clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: stdType ];
         }
     else
         clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithSSWiget: _RepWidget ];
