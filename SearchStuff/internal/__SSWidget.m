@@ -74,7 +74,7 @@
                     toItem: nil
                  attribute: NSLayoutAttributeNotAnAttribute
                 multiplier: 1.f
-                  constant: NSWidth( self->__ssBackingButton.bounds ) ];
+                  constant: self->__ssBackingButton.ssSize.width ];
 
     NSLayoutConstraint* heightConstraint = [ NSLayoutConstraint
         constraintWithItem: self
@@ -83,27 +83,31 @@
                     toItem: nil
                  attribute: NSLayoutAttributeNotAnAttribute
                 multiplier: 1.f
-                  constant: NSHeight( self->__ssBackingButton.bounds ) ];
+                  constant: self->__ssBackingButton.ssSize.height ];
 
-    [ self removeConstraints: self->__sizeConstraints ];
+    if ( self->__sizeConstraints.count > 0 )
+        [ self removeConstraints: self->__sizeConstraints ];
+
     self->__sizeConstraints = @[ widthConstraint, heightConstraint ];
     [ self addConstraints: self->__sizeConstraints ];
 
     NSView* backingButton = self->__ssBackingButton;
     NSDictionary* viewsDict = NSDictionaryOfVariableBindings( backingButton );
     NSArray <__kindof NSLayoutConstraint*>* horBackingButtonConstraints =
-        [ NSLayoutConstraint constraintsWithVisualFormat: @"H:|[horBackingButtonConstraints]|"
+        [ NSLayoutConstraint constraintsWithVisualFormat: @"H:|[backingButton]|"
                                                  options: 0
                                                  metrics: nil
                                                    views: viewsDict ];
 
     NSArray <__kindof NSLayoutConstraint*>* verBackingButtonConstraints =
-        [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[horBackingButtonConstraints]|"
+        [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[backingButton]|"
                                                  options: 0
                                                  metrics: nil
                                                    views: viewsDict ];
 
-    [ self removeConstraints: self->__backingButtonConstraints ];
+    if ( self->__backingButtonConstraints.count > 0 )
+        [ self removeConstraints: self->__backingButtonConstraints ];
+
     self->__backingButtonConstraints = [ horBackingButtonConstraints arrayByAddingObjectsFromArray: verBackingButtonConstraints ];
     [ self addConstraints: self->__backingButtonConstraints ];
     }

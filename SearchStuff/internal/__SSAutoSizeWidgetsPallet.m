@@ -68,12 +68,12 @@
 
 #pragma mark - Dynamic Properties
 
-- ( NSArray <__kindof __SSWidgetBackingButton*>* ) ssWidgets
+- ( NSArray <__kindof __SSWidget*>* ) ssWidgets
     {
     return [ self->__subPallet ssWidgets ];
     }
 
-- ( void ) setSsWidgets: ( NSArray <__kindof __SSWidgetBackingButton*>* )_Widgets
+- ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
     {
     [ self->__subPallet setSsWidgets: _Widgets ];
     }

@@ -114,6 +114,7 @@
 
         if ( ( self->__ssSize.width ) > 0 && ( self->__ssSize.height > 0 ) )
             {
+//            [ self setFrameSize: self->__ssSize ];
             NSLayoutConstraint* widthConstraint = [ NSLayoutConstraint
                 constraintWithItem: self
                          attribute: NSLayoutAttributeWidth

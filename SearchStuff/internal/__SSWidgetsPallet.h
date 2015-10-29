@@ -27,7 +27,7 @@
 @import QuartzCore;
 
 @class __SSBar;
-@class __SSWidgetBackingButton;
+@class __SSWidget;
 
 typedef NS_ENUM( NSUInteger, __SSFixedWidgetsPalletType )
     { __SSPalletTypeLeftAnchored  = 0
@@ -58,7 +58,7 @@ typedef NS_ENUM( NSUInteger, __SSPalletDirection )
 @property ( weak, readonly ) NSView* ssHost;
 @property ( assign, readonly ) __SSFixedWidgetsPalletType ssType;
 
-@property ( strong, readwrite ) NSArray <__kindof __SSWidgetBackingButton*>* ssWidgets;
+@property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;
 
 #pragma mark - Initializations
 
