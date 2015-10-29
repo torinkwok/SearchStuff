@@ -158,7 +158,6 @@ CGFloat kSpliterWidth = 1.f;
                     ];
                 } break;
 
-
             case __SSPalletDirectionRight:
                 {
                 visualFormatBody = [ NSString stringWithFormat:

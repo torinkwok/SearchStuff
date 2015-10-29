@@ -24,6 +24,7 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 
 #import "SearchStuffWidget.h"
 
@@ -31,7 +32,9 @@
 @implementation __SSWidget
     {
 @protected
-    SearchStuffWidget __strong*  __repWidget;
+    SearchStuffWidget __strong* __repWidget;
+
+    __SSWidgetBackingButton* __ssBackingButton;
     }
 
 #pragma mrak Initilizations
@@ -42,7 +45,10 @@
         return nil;
 
     if ( self = [ super initWithFrame: NSZeroRect ] )
-        ;
+        {
+        self->__repWidget = _RepWidget;
+        self->__ssBackingButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: self->__repWidget ];
+        }
 
     return self;
     }
