@@ -42,18 +42,21 @@
         NSString* artworkName = nil;
         switch ( _StdButtonType )
             {
-            case __SSWidgetBackingStdButtonTypeSearch:      artworkName = @"search-stuff-search";    break;
-            case __SSWidgetBackingStdButtonTypeReload:      artworkName = @"search-stuff-reload";    break;
-            case __SSWidgetBackingStdButtonTypeGreenLock:   artworkName = @"search-stuff-greenlock"; break;
-            case __SSWidgetBackingStdButtonTypeGrayLock:    artworkName = @"search-stuff-graylock";  break;
+            case __SSWidgetBackingStdButtonTypeSearch:    artworkName = @"search";    break;
+            case __SSWidgetBackingStdButtonTypeReload:    artworkName = @"reload";    break;
+            case __SSWidgetBackingStdButtonTypeGreenLock: artworkName = @"greenlock"; break;
+            case __SSWidgetBackingStdButtonTypeGrayLock:  artworkName = @"graylock";  break;
 
             default:;
             }
 
         if ( artworkName )
             {
-            self.ssImage = [ NSImage imageNamed: artworkName ];
-            self.ssAlternativeImage = [ NSImage imageNamed: [ artworkName stringByAppendingString: @"-highlighted" ] ];
+            NSString* prefix = @"search-stuff-";
+            NSString* suffix = @"-highlighted";
+
+            self.ssImage = [ NSImage imageNamed: [ prefix stringByAppendingString: artworkName ] ];
+            self.ssAlternativeImage = [ NSImage imageNamed: [ NSString stringWithFormat: @"%@%@%@", prefix, artworkName, suffix ] ];
             }
         }
 
