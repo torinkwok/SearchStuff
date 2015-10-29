@@ -27,8 +27,8 @@
 
 @class SearchStuffWidget;
 
-// __SSWidget class
-@interface __SSWidget : NSButton
+// __SSWidgetBackingButton class
+@interface __SSWidgetBackingButton : NSButton
 
 #pragma mark - Dynamic Properties
 
@@ -41,7 +41,7 @@
 
 + ( instancetype ) ssWidgetWithRepWidget: ( SearchStuffWidget* )_Widget;
 
-@end // __SSWidget class
+@end // __SSWidgetBackingButton class
 
 /*===============================================================================┐
 |                                                                                |

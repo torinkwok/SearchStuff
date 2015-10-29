@@ -23,10 +23,10 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 
 // __SSWidgetStdGreenLock class
-@interface __SSWidgetStdGreenLock : __SSWidget
+@interface __SSWidgetStdGreenLock : __SSWidgetBackingButton
 
 @end // __SSWidgetStdGreenLock class
 

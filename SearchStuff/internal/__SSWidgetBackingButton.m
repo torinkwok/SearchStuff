@@ -23,7 +23,7 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 #import "__SSWidgetCell.h"
 
 #import "__SSWidgetStdSearch.h"
@@ -32,21 +32,21 @@
 #import "__SSWidgetStdGrayLock.h"
 
 #import "__SSWidgetUser.h"
-#import "__SSWidget+__SSPrivate.h"
+#import "__SSWidgetBackingButton+__SSPrivate.h"
 #import "__SSConstants.h"
 
 #import "SearchStuffWidget+__SSPrivate.h"
 
 // Private Interfaces
-@interface __SSWidget ()
+@interface __SSWidgetBackingButton ()
 - ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted;
 @end // Private Interfaces
 
-// __SSWidget class
-@implementation __SSWidget
+// __SSWidgetBackingButton class
+@implementation __SSWidgetBackingButton
     {
 @protected
-    SearchStuffWidget __strong*  __ssWidget;
+    SearchStuffWidget __strong*  __SSWidgetBackingButton;
 
     NSImage __strong* __ssImage;
     NSImage __strong* __ssAlternativeImage;
@@ -68,7 +68,7 @@
     if ( !_RepWidget )
         return nil;
 
-    __SSWidget* clusterMember = nil;
+    __SSWidgetBackingButton* clusterMember = nil;
     if ( _RepWidget.__isStd )
         {
         if ( [ _RepWidget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
@@ -93,7 +93,7 @@
 
 - ( SearchStuffWidget* ) ssWidget
     {
-    return [ __ssWidget copy ];
+    return [ __SSWidgetBackingButton copy ];
     }
 
 - ( void ) setSsImage: ( NSImage* )_Image
@@ -174,10 +174,10 @@
     [ self setNeedsDisplay ];
     }
 
-@end // __SSWidget class
+@end // __SSWidgetBackingButton class
 
-// __SSWidget + __SSPrivate
-@implementation __SSWidget ( __SSPrivate )
+// __SSWidgetBackingButton + __SSPrivate
+@implementation __SSWidgetBackingButton ( __SSPrivate )
 
 #pragma mark Private Initializations ( only used by friend classes )
 
@@ -188,7 +188,7 @@
 
     if ( self = [ super initWithFrame: NSZeroRect /* Frame doesn't matter */ ] )
         {
-        self->__ssWidget = _Widget;
+        self->__SSWidgetBackingButton = _Widget;
         self->__ssSize = NSZeroSize;
 
         NSTrackingArea* trackingArea =
@@ -206,7 +206,7 @@
     return self;
     }
 
-@end // __SSWidget + __SSPrivate
+@end // __SSWidgetBackingButton + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |

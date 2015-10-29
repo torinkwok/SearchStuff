@@ -23,10 +23,10 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 
 // __SSWidgetStdGrayLock class
-@interface __SSWidgetStdGrayLock : __SSWidget
+@interface __SSWidgetStdGrayLock : __SSWidgetBackingButton
 
 @end // __SSWidgetStdGrayLock class
 

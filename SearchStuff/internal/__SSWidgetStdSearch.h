@@ -23,10 +23,10 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 
 // __SSWidgetStdSearch class
-@interface __SSWidgetStdSearch : __SSWidget
+@interface __SSWidgetStdSearch : __SSWidgetBackingButton
 
 @end // __SSWidgetStdSearch class
 

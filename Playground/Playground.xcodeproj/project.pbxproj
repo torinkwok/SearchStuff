@@ -25,7 +25,7 @@
 		838A9BE21BD80DCE008E1B12 /* search-stuff-remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */; settings = {ASSET_TAGS = (); }; };
 		838BC7FA1BDC9AC2009C2DA5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 838BC7F91BDC9AC2009C2DA5 /* QuartzCore.framework */; };
 		83B621C51BD82637005FA2DE /* __SSFixedWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
-		83F47F901BCEA3290086F42D /* __SSWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSWidget.m */; settings = {ASSET_TAGS = (); }; };
+		83F47F901BCEA3290086F42D /* __SSWidgetBackingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F781BCEA3280086F42D /* __SSWidgetBackingButton.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F911BCEA3290086F42D /* __SSWidgetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7A1BCEA3280086F42D /* __SSWidgetCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7C1BCEA3280086F42D /* __SSBackingCell.m */; settings = {ASSET_TAGS = (); }; };
 		83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F47F7E1BCEA3280086F42D /* __SSInputField.m */; settings = {ASSET_TAGS = (); }; };
@@ -92,7 +92,7 @@
 		832CBAFD1BD6675400693DC1 /* __SSWidgetStdReload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetStdReload.h; sourceTree = "<group>"; };
 		832CBAFE1BD6675400693DC1 /* __SSWidgetStdReload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetStdReload.m; sourceTree = "<group>"; };
 		832CBB071BD691E400693DC1 /* SearchStuffWidget+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchStuffWidget+__SSPrivate.h"; sourceTree = "<group>"; };
-		838A9BCA1BD7AB42008E1B12 /* __SSWidget+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "__SSWidget+__SSPrivate.h"; sourceTree = "<group>"; };
+		838A9BCA1BD7AB42008E1B12 /* __SSWidgetBackingButton+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "__SSWidgetBackingButton+__SSPrivate.h"; sourceTree = "<group>"; };
 		838A9BD31BD80DCE008E1B12 /* search-stuff-add-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add-highlighted.png"; sourceTree = "<group>"; };
 		838A9BD41BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add-highlighted@2x.png"; sourceTree = "<group>"; };
 		838A9BD51BD80DCE008E1B12 /* search-stuff-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add.png"; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 		83B621C31BD82637005FA2DE /* __SSFixedWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSFixedWidgetsPallet.h; sourceTree = "<group>"; };
 		83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSFixedWidgetsPallet.m; sourceTree = "<group>"; };
 		83BE312E1BDB03F10099BAF2 /* __SSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSConstants.h; sourceTree = "<group>"; };
-		83F47F771BCEA3280086F42D /* __SSWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidget.h; sourceTree = "<group>"; };
-		83F47F781BCEA3280086F42D /* __SSWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidget.m; sourceTree = "<group>"; };
+		83F47F771BCEA3280086F42D /* __SSWidgetBackingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingButton.h; sourceTree = "<group>"; };
+		83F47F781BCEA3280086F42D /* __SSWidgetBackingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingButton.m; sourceTree = "<group>"; };
 		83F47F791BCEA3280086F42D /* __SSWidgetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetCell.h; sourceTree = "<group>"; };
 		83F47F7A1BCEA3280086F42D /* __SSWidgetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetCell.m; sourceTree = "<group>"; };
 		83F47F7B1BCEA3280086F42D /* __SSBackingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSBackingCell.h; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				832CBB071BD691E400693DC1 /* SearchStuffWidget+__SSPrivate.h */,
-				838A9BCA1BD7AB42008E1B12 /* __SSWidget+__SSPrivate.h */,
+				838A9BCA1BD7AB42008E1B12 /* __SSWidgetBackingButton+__SSPrivate.h */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -266,8 +266,8 @@
 				832CBB061BD691C000693DC1 /* extensions */,
 				83F47FD31BCFD8350086F42D /* artwork */,
 				83BE312E1BDB03F10099BAF2 /* __SSConstants.h */,
-				83F47F771BCEA3280086F42D /* __SSWidget.h */,
-				83F47F781BCEA3280086F42D /* __SSWidget.m */,
+				83F47F771BCEA3280086F42D /* __SSWidgetBackingButton.h */,
+				83F47F781BCEA3280086F42D /* __SSWidgetBackingButton.m */,
 				830531ED1BD51AEF00223917 /* __SSWidgetStdSearch.h */,
 				830531EE1BD51AEF00223917 /* __SSWidgetStdSearch.m */,
 				832CBAFD1BD6675400693DC1 /* __SSWidgetStdReload.h */,
@@ -483,7 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83F47F961BCEA3290086F42D /* SearchStuffToolbarItem.m in Sources */,
-				83F47F901BCEA3290086F42D /* __SSWidget.m in Sources */,
+				83F47F901BCEA3290086F42D /* __SSWidgetBackingButton.m in Sources */,
 				832CBAFF1BD6675400693DC1 /* __SSWidgetStdReload.m in Sources */,
 				83FF7EA21BE0C10800A505F5 /* __SSWidgetStdGrayLock.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSBar.m in Sources */,

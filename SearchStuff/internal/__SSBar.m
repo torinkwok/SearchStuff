@@ -27,7 +27,7 @@
 
 #import "__SSBackingCell.h"
 #import "__SSInputField.h"
-#import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 #import "__SSFixedWidgetsPallet.h"
 #import "__SSAutoSizeWidgetsPallet.h"
 #import "__SSConstants.h"
@@ -141,10 +141,10 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                         }
                     }
 
-                NSMutableArray <__kindof __SSWidget*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
+                NSMutableArray <__kindof __SSWidgetBackingButton*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
                 for ( SearchStuffWidget* _repWidget in repWidgets )
                     {
-                    __SSWidget* ssWidget = [ __SSWidget ssWidgetWithRepWidget: _repWidget ];
+                    __SSWidgetBackingButton* ssWidget = [ __SSWidgetBackingButton ssWidgetWithRepWidget: _repWidget ];
                     [ ssWidgets addObject: ssWidget ];
 
                     __SSWidgetsPallet* ssPallet = nil;

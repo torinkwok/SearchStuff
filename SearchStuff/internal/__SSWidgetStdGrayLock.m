@@ -24,7 +24,7 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSWidgetStdGrayLock.h"
-#import "__SSWidget+__SSPrivate.h"
+#import "__SSWidgetBackingButton+__SSPrivate.h"
 
 // __SSWidgetStdGrayLock class
 @implementation __SSWidgetStdGrayLock

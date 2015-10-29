@@ -23,12 +23,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 
-// __SSWidget + __SSPrivate
-@interface __SSWidget ( __SSPrivate )
+// __SSWidgetBackingButton + __SSPrivate
+@interface __SSWidgetBackingButton ( __SSPrivate )
 - ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget;
-@end // __SSWidget + __SSPrivate
+@end // __SSWidgetBackingButton + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |

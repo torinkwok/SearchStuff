@@ -23,10 +23,10 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 
 // __SSWidgetUser class
-@interface __SSWidgetUser : __SSWidget
+@interface __SSWidgetUser : __SSWidgetBackingButton
 
 @end // __SSWidgetUser class
 

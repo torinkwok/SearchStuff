@@ -24,7 +24,7 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSWidgetStdReload.h"
-#import "__SSWidget+__SSPrivate.h"
+#import "__SSWidgetBackingButton+__SSPrivate.h"
 
 // __SSWidgetStdReload class
 @implementation __SSWidgetStdReload

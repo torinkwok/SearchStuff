@@ -23,10 +23,10 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 
 // __SSWidgetStdReload class
-@interface __SSWidgetStdReload : __SSWidget
+@interface __SSWidgetStdReload : __SSWidgetBackingButton
 
 @end // __SSWidgetStdReload class
 

@@ -24,7 +24,7 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSWidgetUser.h"
-#import "__SSWidget+__SSPrivate.h"
+#import "__SSWidgetBackingButton+__SSPrivate.h"
 
 #import "SearchStuffWidget.h"
 

@@ -32,7 +32,7 @@
                                                         , self ] \
                    userInfo: nil ]
 
-// __SSWidget class
+// __SSWidgetBackingButton class
 #define SS_WIDGETS_FIX_WIDTH ( 15.f )
 
 #define __CA_TRANSACTION_BEGIN__ [ CATransaction begin ];

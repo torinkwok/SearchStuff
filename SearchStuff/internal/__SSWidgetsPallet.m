@@ -104,13 +104,13 @@
     return self->__ssType;
     }
 
-- ( NSArray <__kindof __SSWidget*>* ) ssWidgets
+- ( NSArray <__kindof __SSWidgetBackingButton*>* ) ssWidgets
     {
     __Throw_Exception_Due_to_Invocation_of_PureVirual_Method;
     return nil;
     }
 
-- ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
+- ( void ) setSsWidgets: ( NSArray <__kindof __SSWidgetBackingButton*>* )_Widgets
     {
     __Throw_Exception_Due_to_Invocation_of_PureVirual_Method;
     }

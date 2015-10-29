@@ -29,7 +29,7 @@
 @interface __SSFixedWidgetsPallet : __SSWidgetsPallet
     {
 @protected
-    NSArray <__kindof __SSWidget*>* __ssWidgets;
+    NSArray <__kindof __SSWidgetBackingButton*>* __ssWidgets;
     NSMutableArray __strong* __ssWidgetsConstraints;
     }
 

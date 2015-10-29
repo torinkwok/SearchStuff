@@ -25,7 +25,7 @@
 
 #import "__SSFixedWidgetsPallet.h"
 #import "__SSBar.h"
-#import "__SSWidget.h"
+#import "__SSWidgetBackingButton.h"
 #import "__SSConstants.h"
 
 // Private Interfaces
@@ -89,12 +89,12 @@ CGFloat kSpliterWidth = 1.f;
 
 #pragma mark - Dynamic Properties
 
-- ( NSArray <__kindof __SSWidget*>* ) ssWidgets
+- ( NSArray <__kindof __SSWidgetBackingButton*>* ) ssWidgets
     {
     return self->__ssWidgets;
     }
 
-- ( void ) setSsWidgets: ( NSArray <__kindof __SSWidget*>* )_Widgets
+- ( void ) setSsWidgets: ( NSArray <__kindof __SSWidgetBackingButton*>* )_Widgets
     {
     self->__ssWidgets = _Widgets;
 
