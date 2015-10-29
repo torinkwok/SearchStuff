@@ -46,7 +46,7 @@
 		83FF7E941BE03E4200A505F5 /* search-stuff-greenlock-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E901BE03E4200A505F5 /* search-stuff-greenlock-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7E951BE03E4200A505F5 /* search-stuff-greenlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E911BE03E4200A505F5 /* search-stuff-greenlock.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7E961BE03E4200A505F5 /* search-stuff-greenlock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E921BE03E4200A505F5 /* search-stuff-greenlock@2x.png */; settings = {ASSET_TAGS = (); }; };
-		83FF7E991BE03F5500A505F5 /* __SSWidgetStdGreenLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */; settings = {ASSET_TAGS = (); }; };
+		83FF7E991BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E981BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7E9F1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7EA21BE0C10800A505F5 /* __SSWidgetStdGrayLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7EA11BE0C10800A505F5 /* __SSWidgetStdGrayLock.m */; settings = {ASSET_TAGS = (); }; };
@@ -136,8 +136,8 @@
 		83FF7E901BE03E4200A505F5 /* search-stuff-greenlock-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock-highlighted@2x.png"; sourceTree = "<group>"; };
 		83FF7E911BE03E4200A505F5 /* search-stuff-greenlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock.png"; sourceTree = "<group>"; };
 		83FF7E921BE03E4200A505F5 /* search-stuff-greenlock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock@2x.png"; sourceTree = "<group>"; };
-		83FF7E971BE03F5500A505F5 /* __SSWidgetStdGreenLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetStdGreenLock.h; sourceTree = "<group>"; };
-		83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetStdGreenLock.m; sourceTree = "<group>"; };
+		83FF7E971BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingStdGreenLockButton.h; sourceTree = "<group>"; };
+		83FF7E981BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingStdGreenLockButton.m; sourceTree = "<group>"; };
 		83FF7E9A1BE0596100A505F5 /* __SSWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetsPallet.h; sourceTree = "<group>"; };
 		83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetsPallet.m; sourceTree = "<group>"; };
 		83FF7E9D1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSAutoSizeWidgetsPallet.h; sourceTree = "<group>"; };
@@ -272,8 +272,8 @@
 				830531EE1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.m */,
 				832CBAFD1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.h */,
 				832CBAFE1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m */,
-				83FF7E971BE03F5500A505F5 /* __SSWidgetStdGreenLock.h */,
-				83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */,
+				83FF7E971BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.h */,
+				83FF7E981BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m */,
 				83FF7EA01BE0C10800A505F5 /* __SSWidgetStdGrayLock.h */,
 				83FF7EA11BE0C10800A505F5 /* __SSWidgetStdGrayLock.m */,
 				83FD30401BD7A561001B5B02 /* __SSWidgetUser.h */,
@@ -496,7 +496,7 @@
 				83F47F911BCEA3290086F42D /* __SSWidgetBackingButtonCell.m in Sources */,
 				83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */,
 				83F47F971BCEA3290086F42D /* SearchStuffWidget.m in Sources */,
-				83FF7E991BE03F5500A505F5 /* __SSWidgetStdGreenLock.m in Sources */,
+				83FF7E991BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */,
 				83FF7E9F1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m in Sources */,
 				83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */,
