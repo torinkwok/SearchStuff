@@ -26,12 +26,9 @@
 #import "__SSWidgetBackingButton.h"
 #import "__SSWidgetBackingButtonCell.h"
 
-#import "__SSWidgetBackingStdSearchButton.h"
-#import "__SSWidgetBackingStdReloadButton.h"
-#import "__SSWidgetBackingStdGreenLockButton.h"
-#import "__SSWidgetBackingStdGrayLockButton.h"
-
+#import "__SSWidgetBackingStdButton.h"
 #import "__SSWidgetBackingUserCusButton.h"
+
 #import "__SSWidgetBackingButton+__SSPrivate.h"
 #import "__SSConstants.h"
 
@@ -72,16 +69,16 @@
     if ( _RepWidget.__isStd )
         {
         if ( [ _RepWidget.identifier isEqualToString: SearchStuffSearchWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetBackingStdSearchButton alloc ] __initWithSSWiget: _RepWidget ];
+            clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: __SSWidgetBackingStdButtonTypeSearch ];
 
         else if ( [ _RepWidget.identifier isEqualToString: SearchStuffReloadWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetBackingStdReloadButton alloc ] __initWithSSWiget: _RepWidget ];
+            clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: __SSWidgetBackingStdButtonTypeReload ];
 
         else if ( [ _RepWidget.identifier isEqualToString: SearchStuffGreenLockWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetBackingStdGreenLockButton alloc ] __initWithSSWiget: _RepWidget ];
+            clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: __SSWidgetBackingStdButtonTypeGreenLock ];
 
         else if ( [ _RepWidget.identifier isEqualToString: SearchStuffGrayLockWidgetIdentifier ] )
-            clusterMember = [ [ __SSWidgetBackingStdGrayLockButton alloc ] __initWithSSWiget: _RepWidget ];
+            clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: __SSWidgetBackingStdButtonTypeGrayLock ];
         }
     else
         clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithSSWiget: _RepWidget ];

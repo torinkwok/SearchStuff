@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		830531EF1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 830531EE1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.m */; settings = {ASSET_TAGS = (); }; };
 		832718FE1BC1279100C28426 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832718FD1BC1279100C28426 /* AppDelegate.m */; };
 		832719011BC1279100C28426 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719001BC1279100C28426 /* main.m */; };
 		832719031BC1279100C28426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832719021BC1279100C28426 /* Assets.xcassets */; };
 		832719061BC1279100C28426 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832719041BC1279100C28426 /* MainMenu.xib */; };
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
-		832CBAFF1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 832CBAFE1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m */; settings = {ASSET_TAGS = (); }; };
 		838A9BDB1BD80DCE008E1B12 /* search-stuff-add-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD31BD80DCE008E1B12 /* search-stuff-add-highlighted.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BDC1BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD41BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BDD1BD80DCE008E1B12 /* search-stuff-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD51BD80DCE008E1B12 /* search-stuff-add.png */; settings = {ASSET_TAGS = (); }; };
@@ -48,10 +46,8 @@
 		83FF7E941BE03E4200A505F5 /* search-stuff-greenlock-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E901BE03E4200A505F5 /* search-stuff-greenlock-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7E951BE03E4200A505F5 /* search-stuff-greenlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E911BE03E4200A505F5 /* search-stuff-greenlock.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7E961BE03E4200A505F5 /* search-stuff-greenlock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7E921BE03E4200A505F5 /* search-stuff-greenlock@2x.png */; settings = {ASSET_TAGS = (); }; };
-		83FF7E991BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E981BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7E9F1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
-		83FF7EA21BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FF7EA11BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m */; settings = {ASSET_TAGS = (); }; };
 		83FF7EA71BE0C44300A505F5 /* search-stuff-graylock-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7EA31BE0C44300A505F5 /* search-stuff-graylock-highlighted.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7EA81BE0C44300A505F5 /* search-stuff-graylock-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7EA41BE0C44300A505F5 /* search-stuff-graylock-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		83FF7EA91BE0C44300A505F5 /* search-stuff-graylock.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FF7EA51BE0C44300A505F5 /* search-stuff-graylock.png */; settings = {ASSET_TAGS = (); }; };
@@ -76,8 +72,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		830531ED1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingStdSearchButton.h; sourceTree = "<group>"; };
-		830531EE1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingStdSearchButton.m; sourceTree = "<group>"; };
 		832718F91BC1279100C28426 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		832718FC1BC1279100C28426 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		832718FD1BC1279100C28426 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -91,8 +85,6 @@
 		832719171BC1279100C28426 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8327191B1BC1279100C28426 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		832CBAFD1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingStdReloadButton.h; sourceTree = "<group>"; };
-		832CBAFE1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingStdReloadButton.m; sourceTree = "<group>"; };
 		832CBB071BD691E400693DC1 /* SearchStuffWidget+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchStuffWidget+__SSPrivate.h"; sourceTree = "<group>"; };
 		838A9BCA1BD7AB42008E1B12 /* __SSWidgetBackingButton+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "__SSWidgetBackingButton+__SSPrivate.h"; sourceTree = "<group>"; };
 		838A9BD31BD80DCE008E1B12 /* search-stuff-add-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add-highlighted.png"; sourceTree = "<group>"; };
@@ -142,14 +134,10 @@
 		83FF7E901BE03E4200A505F5 /* search-stuff-greenlock-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock-highlighted@2x.png"; sourceTree = "<group>"; };
 		83FF7E911BE03E4200A505F5 /* search-stuff-greenlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock.png"; sourceTree = "<group>"; };
 		83FF7E921BE03E4200A505F5 /* search-stuff-greenlock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-greenlock@2x.png"; sourceTree = "<group>"; };
-		83FF7E971BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingStdGreenLockButton.h; sourceTree = "<group>"; };
-		83FF7E981BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingStdGreenLockButton.m; sourceTree = "<group>"; };
 		83FF7E9A1BE0596100A505F5 /* __SSWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetsPallet.h; sourceTree = "<group>"; };
 		83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetsPallet.m; sourceTree = "<group>"; };
 		83FF7E9D1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSAutoSizeWidgetsPallet.h; sourceTree = "<group>"; };
 		83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSAutoSizeWidgetsPallet.m; sourceTree = "<group>"; };
-		83FF7EA01BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingStdGrayLockButton.h; sourceTree = "<group>"; };
-		83FF7EA11BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingStdGrayLockButton.m; sourceTree = "<group>"; };
 		83FF7EA31BE0C44300A505F5 /* search-stuff-graylock-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-graylock-highlighted.png"; sourceTree = "<group>"; };
 		83FF7EA41BE0C44300A505F5 /* search-stuff-graylock-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-graylock-highlighted@2x.png"; sourceTree = "<group>"; };
 		83FF7EA51BE0C44300A505F5 /* search-stuff-graylock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-graylock.png"; sourceTree = "<group>"; };
@@ -278,14 +266,6 @@
 				83F47F781BCEA3280086F42D /* __SSWidgetBackingButton.m */,
 				83CFE9591BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.h */,
 				83CFE95A1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m */,
-				830531ED1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.h */,
-				830531EE1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.m */,
-				832CBAFD1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.h */,
-				832CBAFE1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m */,
-				83FF7E971BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.h */,
-				83FF7E981BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m */,
-				83FF7EA01BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.h */,
-				83FF7EA11BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m */,
 				83FD30401BD7A561001B5B02 /* __SSWidgetBackingUserCusButton.h */,
 				83FD30411BD7A561001B5B02 /* __SSWidgetBackingUserCusButton.m */,
 				83F47F791BCEA3280086F42D /* __SSWidgetBackingButtonCell.h */,
@@ -494,8 +474,6 @@
 			files = (
 				83F47F961BCEA3290086F42D /* SearchStuffToolbarItem.m in Sources */,
 				83F47F901BCEA3290086F42D /* __SSWidgetBackingButton.m in Sources */,
-				832CBAFF1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m in Sources */,
-				83FF7EA21BE0C10800A505F5 /* __SSWidgetBackingStdGrayLockButton.m in Sources */,
 				83CFE9581BE1E54900C8BF38 /* __SSWidget.m in Sources */,
 				83CFE95B1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSBar.m in Sources */,
@@ -504,11 +482,9 @@
 				83B621C51BD82637005FA2DE /* __SSFixedWidgetsPallet.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83F47F941BCEA3290086F42D /* __SSInputFieldCell.m in Sources */,
-				830531EF1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.m in Sources */,
 				83F47F911BCEA3290086F42D /* __SSWidgetBackingButtonCell.m in Sources */,
 				83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */,
 				83F47F971BCEA3290086F42D /* SearchStuffWidget.m in Sources */,
-				83FF7E991BE03F5500A505F5 /* __SSWidgetBackingStdGreenLockButton.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */,
 				83FF7E9F1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m in Sources */,
 				83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */,
