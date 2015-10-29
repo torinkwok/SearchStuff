@@ -14,7 +14,7 @@
 		832719061BC1279100C28426 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832719041BC1279100C28426 /* MainMenu.xib */; };
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
-		832CBAFF1BD6675400693DC1 /* __SSWidgetStdReload.m in Sources */ = {isa = PBXBuildFile; fileRef = 832CBAFE1BD6675400693DC1 /* __SSWidgetStdReload.m */; settings = {ASSET_TAGS = (); }; };
+		832CBAFF1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 832CBAFE1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m */; settings = {ASSET_TAGS = (); }; };
 		838A9BDB1BD80DCE008E1B12 /* search-stuff-add-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD31BD80DCE008E1B12 /* search-stuff-add-highlighted.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BDC1BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD41BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BDD1BD80DCE008E1B12 /* search-stuff-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD51BD80DCE008E1B12 /* search-stuff-add.png */; settings = {ASSET_TAGS = (); }; };
@@ -89,8 +89,8 @@
 		832719171BC1279100C28426 /* PlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8327191B1BC1279100C28426 /* PlaygroundUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundUITests.m; sourceTree = "<group>"; };
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		832CBAFD1BD6675400693DC1 /* __SSWidgetStdReload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetStdReload.h; sourceTree = "<group>"; };
-		832CBAFE1BD6675400693DC1 /* __SSWidgetStdReload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetStdReload.m; sourceTree = "<group>"; };
+		832CBAFD1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSWidgetBackingStdReloadButton.h; sourceTree = "<group>"; };
+		832CBAFE1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSWidgetBackingStdReloadButton.m; sourceTree = "<group>"; };
 		832CBB071BD691E400693DC1 /* SearchStuffWidget+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchStuffWidget+__SSPrivate.h"; sourceTree = "<group>"; };
 		838A9BCA1BD7AB42008E1B12 /* __SSWidgetBackingButton+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "__SSWidgetBackingButton+__SSPrivate.h"; sourceTree = "<group>"; };
 		838A9BD31BD80DCE008E1B12 /* search-stuff-add-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add-highlighted.png"; sourceTree = "<group>"; };
@@ -270,8 +270,8 @@
 				83F47F781BCEA3280086F42D /* __SSWidgetBackingButton.m */,
 				830531ED1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.h */,
 				830531EE1BD51AEF00223917 /* __SSWidgetBackingStdSearchButton.m */,
-				832CBAFD1BD6675400693DC1 /* __SSWidgetStdReload.h */,
-				832CBAFE1BD6675400693DC1 /* __SSWidgetStdReload.m */,
+				832CBAFD1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.h */,
+				832CBAFE1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m */,
 				83FF7E971BE03F5500A505F5 /* __SSWidgetStdGreenLock.h */,
 				83FF7E981BE03F5500A505F5 /* __SSWidgetStdGreenLock.m */,
 				83FF7EA01BE0C10800A505F5 /* __SSWidgetStdGrayLock.h */,
@@ -484,7 +484,7 @@
 			files = (
 				83F47F961BCEA3290086F42D /* SearchStuffToolbarItem.m in Sources */,
 				83F47F901BCEA3290086F42D /* __SSWidgetBackingButton.m in Sources */,
-				832CBAFF1BD6675400693DC1 /* __SSWidgetStdReload.m in Sources */,
+				832CBAFF1BD6675400693DC1 /* __SSWidgetBackingStdReloadButton.m in Sources */,
 				83FF7EA21BE0C10800A505F5 /* __SSWidgetStdGrayLock.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSBar.m in Sources */,
 				83FD30421BD7A561001B5B02 /* __SSWidgetUser.m in Sources */,

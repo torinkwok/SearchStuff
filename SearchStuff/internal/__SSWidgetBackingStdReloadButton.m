@@ -23,12 +23,30 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidgetBackingButton.h"
+#import "__SSWidgetBackingStdReloadButton.h"
+#import "__SSWidgetBackingButton+__SSPrivate.h"
 
-// __SSWidgetStdReload class
-@interface __SSWidgetStdReload : __SSWidgetBackingButton
+// __SSWidgetBackingStdReloadButton class
+@implementation __SSWidgetBackingStdReloadButton
+@end // __SSWidgetBackingStdReloadButton class
 
-@end // __SSWidgetStdReload class
+// __SSWidgetBackingStdReloadButton + __SSPrivate
+@implementation __SSWidgetBackingStdReloadButton ( __SSPrivate )
+
+#pragma mark Private Initializations ( only used by friend classes )
+
+- ( instancetype ) __initWithSSWiget: ( SearchStuffWidget* )_Widget
+    {
+    if ( self = [ super __initWithSSWiget: _Widget ] )
+        {
+        self.ssImage = [ NSImage imageNamed: @"search-stuff-reload" ];
+        self.ssAlternativeImage = [ NSImage imageNamed: @"search-stuff-reload-highlighted" ];
+        }
+
+    return self;
+    }
+
+@end // __SSWidgetBackingStdReloadButton + __SSPrivate
 
 /*===============================================================================┐
 |                                                                                |
