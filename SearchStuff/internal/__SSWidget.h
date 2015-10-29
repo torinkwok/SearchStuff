@@ -25,8 +25,14 @@
 
 @import Cocoa;
 
+@class SearchStuffWidget;
+
 // __SSWidget class
 @interface __SSWidget : NSView
+
+#pragma mrak Initilizations
+
+- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget;
 
 @end // __SSWidget class
 

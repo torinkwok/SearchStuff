@@ -25,8 +25,28 @@
 
 #import "__SSWidget.h"
 
+#import "SearchStuffWidget.h"
+
 // __SSWidget class
 @implementation __SSWidget
+    {
+@protected
+    SearchStuffWidget __strong*  __repWidget;
+    }
+
+#pragma mrak Initilizations
+
+- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget;
+    {
+    if ( !_RepWidget )
+        return nil;
+
+    if ( self = [ super initWithFrame: NSZeroRect ] )
+        ;
+
+    return self;
+    }
+
 @end // __SSWidget class
 
 /*===============================================================================┐
