@@ -114,7 +114,18 @@
     NSMutableDictionary* viewsDict = [ NSDictionaryOfVariableBindings( backingButton ) mutableCopy ];
 
     if ( backingTitleField )
+        {
         [ viewsDict addEntriesFromDictionary: NSDictionaryOfVariableBindings( backingTitleField ) ];
+
+        NSArray <__kindof NSLayoutConstraint*>* verBackingTitleFieldConstraints =
+            [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[backingTitleField]|"
+                                                     options: 0
+                                                     metrics: nil
+                                                       views: viewsDict ];
+
+        if ( verBackingTitleFieldConstraints.count > 0 )
+            [ self addConstraints: verBackingTitleFieldConstraints ];
+        }
 
     NSArray <__kindof NSLayoutConstraint*>* horBackingButtonConstraints =
         [ NSLayoutConstraint constraintsWithVisualFormat: self->__ssBackingTitleField ? @"H:|[backingButton]-(==3)-[backingTitleField]|"
@@ -124,11 +135,10 @@
                                                    views: viewsDict ];
 
     NSArray <__kindof NSLayoutConstraint*>* verBackingButtonConstraints =
-        [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[backingButton]|"
+        [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[backingButton]-(>=0)-|"
                                                  options: 0
                                                  metrics: nil
                                                    views: viewsDict ];
-
     if ( self->__backingButtonConstraints.count > 0 )
         [ self removeConstraints: self->__backingButtonConstraints ];
 
