@@ -47,10 +47,15 @@
         self.selectable = NO;
         self.editable = NO;
         self.drawsBackground = NO;
+        self.textColor = [ NSColor controlTextColor ];
+//        self.backgroundColor = [ NSColor orangeColor ];
         self.bordered = NO;
 
         self.repWidget = _RepWidget;
         self.translatesAutoresizingMaskIntoConstraints = NO;
+
+        self.cell.usesSingleLineMode = YES;
+        self.cell.lineBreakMode = NSLineBreakByTruncatingTail;
         }
 
     return self;
@@ -74,7 +79,7 @@
 
     [ self setStringValue: _RepWidget.title ?: @"" ];
 
-    NSSize size = [ _RepWidget.title sizeWithAttributes: @{ NSFontAttributeName : self.font } ];
+    NSSize size = [ self.stringValue sizeWithAttributes: @{ NSFontAttributeName : self.font } ];
 
     self->__widthConstraint = [ NSLayoutConstraint
         constraintWithItem: self
@@ -83,7 +88,7 @@
                     toItem: nil
                  attribute: NSLayoutAttributeNotAnAttribute
                 multiplier: 1.f
-                  constant: size.width ];
+                  constant: MIN( size.width, 200.f ) ];
 
     self->__heightConstraint = [ NSLayoutConstraint
         constraintWithItem: self
@@ -93,6 +98,9 @@
                  attribute: NSLayoutAttributeNotAnAttribute
                 multiplier: 1.f
                   constant: size.height ];
+
+    if ( self->__sizeConstraints.count > 0  )
+        [ self removeConstraints: self->__sizeConstraints ];
 
     self->__sizeConstraints = @[ self->__widthConstraint, self->__heightConstraint ];
     [ self addConstraints: self->__sizeConstraints ];

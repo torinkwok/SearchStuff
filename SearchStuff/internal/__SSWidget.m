@@ -118,7 +118,7 @@
         [ viewsDict addEntriesFromDictionary: NSDictionaryOfVariableBindings( backingTitleField ) ];
 
         NSArray <__kindof NSLayoutConstraint*>* verBackingTitleFieldConstraints =
-            [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[backingTitleField]|"
+            [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|-(-1)-[backingTitleField]-(>=0)-|"
                                                      options: 0
                                                      metrics: nil
                                                        views: viewsDict ];
