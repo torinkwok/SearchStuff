@@ -33,9 +33,9 @@ NSString extern* const SearchStuffGrayLockWidgetIdentifier;
 
 // Text Position
 typedef NS_ENUM( NSUInteger, SearchStuffWidgetTextPosition )
-    { SearchStuffNoText
-    , SearchStuffTextLeft
-    , SearchStuffTextRight
+    { SearchStuffNoText                 = 0
+    , SearchStuffTextDefault            = 1
+    , SearchStuffTextOppositeToDefault  = 2
     };
 
 // SearchStuffWidget class
