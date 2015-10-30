@@ -176,7 +176,6 @@
 		832718F01BC1279100C28426 = {
 			isa = PBXGroup;
 			children = (
-				838BC7F91BDC9AC2009C2DA5 /* QuartzCore.framework */,
 				83F47F6C1BCEA3280086F42D /* SearchStuff */,
 				832718FB1BC1279100C28426 /* Playground */,
 				8327190F1BC1279100C28426 /* PlaygroundTests */,
@@ -211,6 +210,7 @@
 		832718FF1BC1279100C28426 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				838BC7F91BDC9AC2009C2DA5 /* QuartzCore.framework */,
 				832719001BC1279100C28426 /* main.m */,
 			);
 			name = "Supporting Files";
