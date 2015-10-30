@@ -48,8 +48,10 @@
     NSImage __strong* __ssImage;
     NSImage __strong* __ssAlternativeImage;
 
-    NSSize __ssSize;
+    NSSize __ssConstraintSize;
 
+    NSLayoutConstraint __weak* __widthConstraint;
+    NSLayoutConstraint __weak* __heightConstraint;
     NSArray __strong* __sizeConstraints;
     }
 
@@ -58,7 +60,7 @@
 @dynamic ssImage;
 @dynamic ssAlternativeImage;
 
-@dynamic ssSize;
+@dynamic constraintSize;
 
 #pragma mark - Initializations
 
@@ -108,31 +110,31 @@
         self->__ssImage = _Image;
         [ self setImage: self->__ssImage ];
 
-        self->__ssSize = NSMakeSize( SS_WIDGETS_FIX_WIDTH * self->__ssImage.size.width / self->__ssImage.size.height
+        self->__ssConstraintSize = NSMakeSize( SS_WIDGETS_FIX_WIDTH * self->__ssImage.size.width / self->__ssImage.size.height
                                    , SS_WIDGETS_FIX_WIDTH
                                    );
 
-        if ( ( self->__ssSize.width ) > 0 && ( self->__ssSize.height > 0 ) )
+        if ( ( self->__ssConstraintSize.width ) > 0 && ( self->__ssConstraintSize.height > 0 ) )
             {
-            NSLayoutConstraint* widthConstraint = [ NSLayoutConstraint
+            self->__widthConstraint = [ NSLayoutConstraint
                 constraintWithItem: self
                          attribute: NSLayoutAttributeWidth
                          relatedBy: NSLayoutRelationEqual
                             toItem: nil
                          attribute: NSLayoutAttributeNotAnAttribute
                         multiplier: 1.f
-                          constant: [ self ssSize ].width ];
+                          constant: [ self constraintSize ].width ];
 
-            NSLayoutConstraint* heightConstraint = [ NSLayoutConstraint
+            self->__heightConstraint = [ NSLayoutConstraint
                 constraintWithItem: self
                          attribute: NSLayoutAttributeHeight
                          relatedBy: NSLayoutRelationEqual
                             toItem: nil
                          attribute: NSLayoutAttributeNotAnAttribute
                         multiplier: 1.f
-                          constant: [ self ssSize ].height ];
+                          constant: [ self constraintSize ].height ];
 
-            self->__sizeConstraints = @[ widthConstraint, heightConstraint ];
+            self->__sizeConstraints = @[ self->__widthConstraint, self->__heightConstraint ];
             [ self addConstraints: self->__sizeConstraints ];
             }
         }
@@ -158,9 +160,9 @@
     }
 
 
-- ( NSSize ) ssSize
+- ( NSSize ) constraintSize
     {
-    return self->__ssSize;
+    return self->__ssConstraintSize;
     }
 
 #pragma mark - Drawing
@@ -215,7 +217,7 @@
     if ( self = [ super initWithFrame: NSZeroRect /* Frame doesn't matter */ ] )
         {
         self->__repWidget = _RepWidget;
-        self->__ssSize = NSZeroSize;
+        self->__ssConstraintSize = NSZeroSize;
 
         NSTrackingArea* trackingArea =
             [ [ NSTrackingArea alloc ] initWithRect: self.bounds

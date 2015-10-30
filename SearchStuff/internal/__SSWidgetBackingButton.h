@@ -37,7 +37,7 @@
 @property ( strong, readwrite ) NSImage* ssImage;
 @property ( strong, readwrite ) NSImage* ssAlternativeImage;
 
-@property ( assign, readonly ) NSSize ssSize;
+@property ( assign, readonly ) NSSize constraintSize;
 
 + ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget;
 

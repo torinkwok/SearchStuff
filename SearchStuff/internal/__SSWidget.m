@@ -165,11 +165,11 @@
     CGFloat widthConstant = 0.f;
 
     if ( self->__repWidget.textPosition == SearchStuffNoText )
-        widthConstant = self->__ssBackingButton.ssSize.width;
+        widthConstant = self->__ssBackingButton.constraintSize.width;
 
     else if ( self->__repWidget.textPosition == SearchStuffTextDefault
                 || self->__repWidget.textPosition == SearchStuffTextOppositeToDefault )
-        widthConstant = self->__ssBackingButton.ssSize.width + 3.f + self->__ssBackingTitleField.constraintWidth;
+        widthConstant = self->__ssBackingButton.constraintSize.width + 3.f + self->__ssBackingTitleField.constraintWidth;
 
     else if ( self->__repWidget.textPosition == SearchStuffTextOnly )
         widthConstant = self->__ssBackingTitleField.constraintWidth;
@@ -190,7 +190,7 @@
                     toItem: nil
                  attribute: NSLayoutAttributeNotAnAttribute
                 multiplier: 1.f
-                  constant: MAX( self->__ssBackingButton.ssSize.height, self->__ssBackingTitleField.constraintHeight ) ];
+                  constant: MAX( self->__ssBackingButton.constraintSize.height, self->__ssBackingTitleField.constraintHeight ) ];
 
     [ self->__sizeConstraints addObjectsFromArray: @[ self->__widthConstraint, self->__heightConstraint ] ];
     [ self addConstraints: self->__sizeConstraints ];
