@@ -39,7 +39,7 @@ typedef NS_ENUM( NSUInteger, SearchStuffWidgetTextPosition )
     };
 
 // SearchStuffWidget class
-@interface SearchStuffWidget : NSObject
+@interface SearchStuffWidget : NSObject <NSCopying>
 
 @property ( assign, readwrite ) SEL action;
 @property ( weak, readwrite ) id target;

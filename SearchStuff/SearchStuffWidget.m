@@ -27,10 +27,10 @@
 #import "SearchStuffWidget+__SSPrivate.h"
 
 // Standard Identifiers
-NSString* const SearchStuffSearchWidgetIdentifier = @"__ssStdSearchWidgetIdentifier";
-NSString* const SearchStuffReloadWidgetIdentifier = @"__ssStdReloadWidgetIdentifier";
-NSString* const SearchStuffGreenLockWidgetIdentifier = @"__ssStdGreenLockWidgetIdentifier";
-NSString* const SearchStuffGrayLockWidgetIdentifier = @"__ssStdGrayLockWidgetIdentifier";
+NSString* const SearchStuffSearchWidgetIdentifier       = @"__ssStdSearchWidgetIdentifier";
+NSString* const SearchStuffReloadWidgetIdentifier       = @"__ssStdReloadWidgetIdentifier";
+NSString* const SearchStuffGreenLockWidgetIdentifier    = @"__ssStdGreenLockWidgetIdentifier";
+NSString* const SearchStuffGrayLockWidgetIdentifier     = @"__ssStdGrayLockWidgetIdentifier";
 
 NSArray <__kindof NSString*> static* sStandardIdentifiers;
 
@@ -58,6 +58,30 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
         }
 
     return self;
+    }
+
+#pragma mark - Copying
+
+- ( instancetype ) copyWithZone: ( NSZone* )_Zone
+    {
+    SearchStuffWidget* copy = [ [ [ self class ] alloc ] initWithIdentifier: self.identifier ];
+
+    if ( copy )
+        {
+        copy.action = self.action;
+        copy.target = self.target;
+
+        copy.image = [ self.image copy ];
+        copy.alternativeImage = [ self.alternativeImage copy ];
+
+        copy.text = self.text;
+        copy.textPosition = self.textPosition;
+
+        copy.toolTip = self.toolTip;
+        copy.identifier = self.identifier;
+        }
+
+    return copy;
     }
 
 @end // SearchStuffWidget class
