@@ -31,6 +31,13 @@ NSString extern* const SearchStuffReloadWidgetIdentifier;
 NSString extern* const SearchStuffGreenLockWidgetIdentifier;
 NSString extern* const SearchStuffGrayLockWidgetIdentifier;
 
+// Text Position
+typedef NS_ENUM( NSUInteger, SearchStuffWidgetTextPosition )
+    { SearchStuffNoText
+    , SearchStuffTextLeft
+    , SearchStuffTextRight
+    };
+
 // SearchStuffWidget class
 @interface SearchStuffWidget : NSObject
 
@@ -39,11 +46,11 @@ NSString extern* const SearchStuffGrayLockWidgetIdentifier;
 
 @property ( strong, readwrite ) NSImage* image;
 @property ( strong, readwrite ) NSImage* alternativeImage;
+
+@property ( strong, readwrite ) NSString* text;
+@property ( assign, readwrite ) SearchStuffWidgetTextPosition textPosition;
+
 @property ( strong, readwrite ) NSString* toolTip;
-@property ( strong, readwrite ) NSString* title;
-
-@property ( strong, readwrite ) NSView* view;
-
 @property ( strong, readonly ) NSString* identifier;
 
 #pragma mark - Initializations

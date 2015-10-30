@@ -77,7 +77,7 @@
     {
     self->__repWidget = _RepWidget;
 
-    [ self setStringValue: _RepWidget.title ?: @"" ];
+    [ self setStringValue: _RepWidget.text ?: @"" ];
 
     NSSize size = [ self.stringValue sizeWithAttributes: @{ NSFontAttributeName : self.font } ];
 

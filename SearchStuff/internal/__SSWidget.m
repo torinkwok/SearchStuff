@@ -71,14 +71,15 @@
     self->__repWidget = _RepWidget;
 
     [ self->__ssBackingButton removeFromSuperview ];
+    [ self->__ssBackingTitleField removeFromSuperview ];
+
     self->__ssBackingButton = nil;
     self->__ssBackingButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: self->__repWidget ];
 
     [ self addSubview: self->__ssBackingButton ];
 
-    if ( self->__repWidget.title.length > 0 )
+    if ( self->__repWidget.text.length > 0 )
         {
-        [ self->__ssBackingTitleField removeFromSuperview ];
         self->__ssBackingTitleField = nil;
         self->__ssBackingTitleField = [ [ __SSWidgetBackingTitleField alloc ] initWithRepWidget: self->__repWidget ];
         [ self addSubview: self->__ssBackingTitleField ];
@@ -93,7 +94,6 @@
                 multiplier: 1.f
                   constant: self->__ssBackingTitleField ? self->__ssBackingButton.ssSize.width + 3.f + self->__ssBackingTitleField.constraintWidth
                                                         : self->__ssBackingButton.ssSize.width ];
-
     self->__heightConstraint = [ NSLayoutConstraint
         constraintWithItem: self
                  attribute: NSLayoutAttributeHeight
@@ -122,7 +122,6 @@
                                                      options: 0
                                                      metrics: nil
                                                        views: viewsDict ];
-
         if ( verBackingTitleFieldConstraints.count > 0 )
             [ self addConstraints: verBackingTitleFieldConstraints ];
         }
