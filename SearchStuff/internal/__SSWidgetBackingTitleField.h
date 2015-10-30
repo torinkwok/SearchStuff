@@ -38,8 +38,7 @@
 
 @property ( readwrite, strong ) SearchStuffWidget* repWidget;
 
-@property ( readonly, assign ) CGFloat constraintWidth;
-@property ( readonly, assign ) CGFloat constraintHeight;
+@property ( readonly, assign ) NSSize constraintSize;
 
 @end // __SSWidgetBackingTitleField class
 

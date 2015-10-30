@@ -201,7 +201,7 @@ CGFloat kSpliterWidth = 1.f;
     CGFloat finalWidth = kHorGap;
 
     for ( __SSWidget* _ssWidget in __ssWidgets )
-        finalWidth += ( _ssWidget.constraintWidth + kHorGap );
+        finalWidth += ( _ssWidget.constraintSize.width + kHorGap );
 
     if ( self.isFloat )
         finalWidth += kHorGap * 2 + kSpliterWidth;

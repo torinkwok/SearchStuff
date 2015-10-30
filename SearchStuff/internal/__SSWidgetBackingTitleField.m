@@ -68,8 +68,7 @@
 
 @dynamic repWidget;
 
-@dynamic constraintWidth;
-@dynamic constraintHeight;
+@dynamic constraintSize;
 
 - ( SearchStuffWidget* ) repWidget
     {
@@ -109,14 +108,11 @@
     [ self addConstraints: self->__sizeConstraints ];
     }
 
-- ( CGFloat ) constraintWidth
+- ( NSSize ) constraintSize
     {
-    return self->__widthConstraint.constant;
-    }
-
-- ( CGFloat ) constraintHeight
-    {
-    return self->__heightConstraint.constant;
+    return NSMakeSize( self->__widthConstraint.constant
+                     , self->__heightConstraint.constant
+                     );
     }
 
 @end // __SSWidgetBackingTitleField class

@@ -69,6 +69,9 @@
 
 #pragma mark - Dynamic Properties
 
+@dynamic repWidget;
+@dynamic constraintSize;
+
 - ( SearchStuffWidget* ) repWidget
     {
     return self->__repWidget;
@@ -80,6 +83,13 @@
 
     [ self __updateBackingWidgetConstriants ];
     [ self __updateSizeConstraints ];
+    }
+
+- ( NSSize ) constraintSize
+    {
+    return NSMakeSize( self->__widthConstraint.constant
+                     , self->__heightConstraint.constant
+                     );
     }
 
 - ( void ) __updateBackingWidgetConstriants
@@ -169,10 +179,10 @@
 
     else if ( self->__repWidget.textPosition == SearchStuffTextDefault
                 || self->__repWidget.textPosition == SearchStuffTextOppositeToDefault )
-        widthConstant = self->__ssBackingButton.constraintSize.width + 3.f + self->__ssBackingTitleField.constraintWidth;
+        widthConstant = self->__ssBackingButton.constraintSize.width + 3.f + self->__ssBackingTitleField.constraintSize.width;
 
     else if ( self->__repWidget.textPosition == SearchStuffTextOnly )
-        widthConstant = self->__ssBackingTitleField.constraintWidth;
+        widthConstant = self->__ssBackingTitleField.constraintSize.width;
 
     self->__widthConstraint = [ NSLayoutConstraint
         constraintWithItem: self
@@ -190,20 +200,12 @@
                     toItem: nil
                  attribute: NSLayoutAttributeNotAnAttribute
                 multiplier: 1.f
-                  constant: MAX( self->__ssBackingButton.constraintSize.height, self->__ssBackingTitleField.constraintHeight ) ];
+                  constant: MAX( self->__ssBackingButton.constraintSize.height
+                               , self->__ssBackingTitleField.constraintSize.height
+                               ) ];
 
     [ self->__sizeConstraints addObjectsFromArray: @[ self->__widthConstraint, self->__heightConstraint ] ];
     [ self addConstraints: self->__sizeConstraints ];
-    }
-
-- ( CGFloat ) constraintWidth
-    {
-    return self->__widthConstraint.constant;
-    }
-
-- ( CGFloat ) constraintHeight
-    {
-    return self->__heightConstraint.constant;
     }
 
 @end // __SSWidget class
