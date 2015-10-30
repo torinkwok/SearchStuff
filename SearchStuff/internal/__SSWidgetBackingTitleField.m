@@ -42,6 +42,9 @@
 
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
     {
+    if ( !( _RepWidget.text.length > 0 ) )
+        return nil;
+
     if ( self = [ super initWithFrame: NSZeroRect ] )
         {
         self.selectable = NO;

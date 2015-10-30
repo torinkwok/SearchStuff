@@ -36,6 +36,7 @@ typedef NS_ENUM( NSUInteger, SearchStuffWidgetTextPosition )
     { SearchStuffNoText                 = 0
     , SearchStuffTextDefault            = 1
     , SearchStuffTextOppositeToDefault  = 2
+    , SearchStuffTextOnly               = 3
     };
 
 // SearchStuffWidget class
