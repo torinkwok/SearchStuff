@@ -46,8 +46,8 @@
 
     NSLayoutConstraint __weak* __widthConstraint;
     NSLayoutConstraint __weak* __heightConstraint;
-
     NSMutableArray __strong* __sizeConstraints;
+
     NSMutableArray __strong* __backingWidgetsConstraints;
     }
 
@@ -135,10 +135,18 @@
             }
         }
 
+    NSString* horVFL = nil;
+    if ( self->__repWidget.textPosition == SearchStuffNoText )
+        horVFL = @"H:|[backingButton]|";
+    else if ( self->__repWidget.textPosition == SearchStuffTextDefault )
+        horVFL = @"H:|[backingButton]-(==3)-[backingTitleField]|";
+    else if ( self->__repWidget.textPosition == SearchStuffTextOppositeToDefault )
+        horVFL = @"H:|[backingTitleField]-(==3)-[backingButton]|";
+    else if ( self->__repWidget.textPosition == SearchStuffTextOnly )
+        horVFL = @"H:|[backingTitleField]|";
+
     NSArray <__kindof NSLayoutConstraint*>* horBackingWidgetsConstraints =
-        [ NSLayoutConstraint constraintsWithVisualFormat: self->__ssBackingTitleField ? @"H:|[backingButton]-(==3)-[backingTitleField]|"
-                                                                                      : @"H:|[backingButton]|"
-                                                 options: 0 metrics: nil views: viewsDict ];
+        [ NSLayoutConstraint constraintsWithVisualFormat: horVFL options: 0 metrics: nil views: viewsDict ];
     [ self->__backingWidgetsConstraints addObjectsFromArray: horBackingWidgetsConstraints ];
 
     [ self addConstraints: self->__backingWidgetsConstraints ];
@@ -154,6 +162,18 @@
         [ self->__sizeConstraints removeAllObjects ];
         }
 
+    CGFloat widthConstant = 0.f;
+
+    if ( self->__repWidget.textPosition == SearchStuffNoText )
+        widthConstant = self->__ssBackingButton.ssSize.width;
+
+    else if ( self->__repWidget.textPosition == SearchStuffTextDefault
+                || self->__repWidget.textPosition == SearchStuffTextOppositeToDefault )
+        widthConstant = self->__ssBackingButton.ssSize.width + 3.f + self->__ssBackingTitleField.constraintWidth;
+
+    else if ( self->__repWidget.textPosition == SearchStuffTextOnly )
+        widthConstant = self->__ssBackingTitleField.constraintWidth;
+
     self->__widthConstraint = [ NSLayoutConstraint
         constraintWithItem: self
                  attribute: NSLayoutAttributeWidth
@@ -161,8 +181,8 @@
                     toItem: nil
                  attribute: NSLayoutAttributeNotAnAttribute
                 multiplier: 1.f
-                  constant: self->__ssBackingTitleField ? self->__ssBackingButton.ssSize.width + 3.f + self->__ssBackingTitleField.constraintWidth
-                                                        : self->__ssBackingButton.ssSize.width ];
+                  constant: widthConstant ];
+
     self->__heightConstraint = [ NSLayoutConstraint
         constraintWithItem: self
                  attribute: NSLayoutAttributeHeight

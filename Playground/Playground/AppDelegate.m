@@ -196,8 +196,8 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         {
         ssWidget.image = [ NSImage imageNamed: @"search-stuff-add" ];
         ssWidget.alternativeImage = [ NSImage imageNamed: @"search-stuff-add-highlighted" ];
-        ssWidget.text = @"FINISHED running Playground: Playground";
-        ssWidget.textPosition = SearchStuffNoText;
+        ssWidget.text = @"150";
+        ssWidget.textPosition = SearchStuffTextOnly;
         }
     else if ( [ _Identifier isEqualToString: kSearchStuffRemoveWidgetIdentifier ] )
         {

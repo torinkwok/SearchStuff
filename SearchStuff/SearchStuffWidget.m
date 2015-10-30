@@ -52,7 +52,7 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
     {
     if ( self = [ super init ] )
         {
-        self.textPosition = SearchStuffTextDefault;
+        self.textPosition = SearchStuffNoText;
         self.identifier = _WidgetIdentifier;
         self->__isStd = [ [ [ self class ] __stdIdentifiers ] containsObject: self.identifier ];
         }
