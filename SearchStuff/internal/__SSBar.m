@@ -64,6 +64,8 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @property ( strong ) __SSAutoSizeWidgetsPallet* __titleWidgetsPallet;
 
 - ( void ) __init;
+- ( void ) __appDidSwitchActivity: ( NSNotification* )_Notif;
+- ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer;
 
 @end // Private Interfaces
 
@@ -94,6 +96,12 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
         [ self __init ];
 
     return self;
+    }
+
+- ( void ) dealloc
+    {
+    [ [ NSNotificationCenter defaultCenter ] removeObserver: self name: NSApplicationDidBecomeActiveNotification object: NSApp ];
+    [ [ NSNotificationCenter defaultCenter ] removeObserver: self name: NSApplicationDidResignActiveNotification object: NSApp ];
     }
 
 #pragma mark - Manipulating Widgets
@@ -172,7 +180,19 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 - ( void ) drawRect: ( NSRect )_DirtyRect
     {
     [ super drawRect: _DirtyRect ];
-    [ self.__backingCell drawWithFrame: self.bounds inView: self ];
+
+    if ( [ NSApp isActive ] )
+        [ self.__backingCell drawWithFrame: self.bounds inView: self ];
+    else
+        {
+        NSBezierPath* roundedRectPath = [ NSBezierPath bezierPathWithRoundedRect: NSInsetRect( self.bounds, .3f, 1.6f )
+                                                                         xRadius: 4.f
+                                                                         yRadius: 4.f ];
+        [ roundedRectPath setLineWidth: .5f ];
+
+        [ [ [ NSColor lightGrayColor ] colorWithAlphaComponent: .6f ] setStroke ];
+        [ roundedRectPath stroke ];
+        }
     }
 
 #pragma mark - Events
@@ -216,7 +236,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     [ self->__mouseEnteredTimer invalidate ];
 
     self->__mouseEnteredTimer =
-        [ NSTimer timerWithTimeInterval: .3f target: self selector: @selector( __mouseEnteredTimerFired: ) userInfo: nil repeats: NO ];
+        [ NSTimer timerWithTimeInterval: .2f target: self selector: @selector( __mouseEnteredTimerFired: ) userInfo: nil repeats: NO ];
 
     [ [ NSRunLoop currentRunLoop ] addTimer: self->__mouseEnteredTimer forMode: NSDefaultRunLoopMode ];
     }
@@ -417,6 +437,21 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                                           owner: self
                                        userInfo: nil ];
     [ self addTrackingArea: trackingArea ];
+
+    [ [ NSNotificationCenter defaultCenter ] addObserver: self
+                                                selector: @selector( __appDidSwitchActivity: )
+                                                    name: NSApplicationDidBecomeActiveNotification
+                                                  object: NSApp ];
+
+    [ [ NSNotificationCenter defaultCenter ] addObserver: self
+                                                selector: @selector( __appDidSwitchActivity: )
+                                                    name: NSApplicationDidResignActiveNotification
+                                                  object: NSApp ];
+    }
+
+- ( void ) __appDidSwitchActivity: ( NSNotification* )_Notif
+    {
+    [ self setNeedsDisplay: YES ];
     }
 
 - ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer

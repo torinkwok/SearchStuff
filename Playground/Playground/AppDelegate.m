@@ -80,9 +80,9 @@ NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
 - ( NSArray* ) toolbarDefaultItemIdentifiers: ( NSToolbar* )_Toolbar
     {
     return @[ kLhsPlaceholderButton
-            , NSToolbarSpaceItemIdentifier
+//            , NSToolbarSpaceItemIdentifier
             , kSearchStuffWidget
-            , NSToolbarFlexibleSpaceItemIdentifier
+//            , NSToolbarFlexibleSpaceItemIdentifier
             , kRhsPlaceholderButton
             ];
     }
