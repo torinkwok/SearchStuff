@@ -34,7 +34,7 @@
 
 // __SSWidgetBackingButton class
 #define SS_WIDGETS_FIX_REGULAR_WIDTH    ( 15.f )
-#define SS_WIDGETS_FIX_SMALL_WIDTH      ( 12.f )
+#define SS_WIDGETS_FIX_SMALL_WIDTH      ( 12.5f )
 #define SS_WIDGETS_FIX_MINI_WIDTH       ( 10.f )
 
 #define __CA_TRANSACTION_BEGIN__ [ CATransaction begin ];

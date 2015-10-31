@@ -122,9 +122,20 @@
 
             [ viewsDict addEntriesFromDictionary: NSDictionaryOfVariableBindings( backingButton ) ];
 
-            NSArray <__kindof NSLayoutConstraint*>* verBackingButtonConstraints =
-                [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[backingButton]-(>=0)-|" options: 0 metrics: nil views: viewsDict ];
-            [ self->__backingWidgetsConstraints addObjectsFromArray: verBackingButtonConstraints ];
+            NSLayoutConstraint* centerYConstraint = [ NSLayoutConstraint
+                constraintWithItem: backingButton
+                         attribute: NSLayoutAttributeCenterY
+                         relatedBy: NSLayoutRelationEqual
+                            toItem: backingButton.superview
+                         attribute: NSLayoutAttributeCenterY
+                        multiplier: 1.f
+                          constant: 0.f ];
+
+
+//            NSArray <__kindof NSLayoutConstraint*>* verBackingButtonConstraints =
+//                [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[backingButton]-(>=0)-|" options: 0 metrics: nil views: viewsDict ];
+//            [ self->__backingWidgetsConstraints addObjectsFromArray: verBackingButtonConstraints ];
+            [ self->__backingWidgetsConstraints addObject: centerYConstraint ];
             }
         }
 

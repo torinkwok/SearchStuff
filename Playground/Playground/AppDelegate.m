@@ -196,6 +196,8 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         {
         ssWidget.image = [ NSImage imageNamed: @"search-stuff-add" ];
         ssWidget.alternativeImage = [ NSImage imageNamed: @"search-stuff-add-highlighted" ];
+        ssWidget.text = @"fuck you";
+        ssWidget.textPosition = SearchStuffTextDefault;
         }
     else if ( [ _Identifier isEqualToString: kSearchStuffRemoveWidgetIdentifier ] )
         {
@@ -213,8 +215,9 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         _Widget.text = @"GitHub Inc.";
         _Widget.textPosition = SearchStuffTextDefault;
         _Widget.textColor = [ NSColor colorWithSRGBRed: 19.f / 255 green: 197.f / 255 blue: 119.f / 255 alpha: 1.f ];
-        _Widget.widgetSize = SearchStuffSmallWidgetSize;
+
         }
+        _Widget.widgetSize = SearchStuffSmallWidgetSize;
     }
 
 #pragma mark - Private Interfaces
