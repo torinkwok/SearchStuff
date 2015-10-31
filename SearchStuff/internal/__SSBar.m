@@ -242,7 +242,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     if ( [ _EventKey isEqualToString: @"hidden" ] )
         {
         CATransition* transitionAnim = [ CATransition animation ];
-        [ transitionAnim setDuration: .4f ];
+        [ transitionAnim setDuration: .3f ];
         [ transitionAnim setStartProgress: 0.f ];
         [ transitionAnim setEndProgress: 1.f ];
 
