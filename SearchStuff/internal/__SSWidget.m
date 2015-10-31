@@ -155,7 +155,7 @@
                             toItem: backingTitleField.superview
                          attribute: NSLayoutAttributeCenterY
                         multiplier: 1.f
-                          constant: -.5f ];
+                          constant: 0.f ];
 
             [ self->__backingWidgetsConstraints addObject: centerYConstraint ];
             }
