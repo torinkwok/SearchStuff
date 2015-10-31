@@ -68,6 +68,16 @@
     return self;
     }
 
+#if 0 // DEBUG
+- ( void ) drawRect: ( NSRect )_DirtyRect
+    {
+    [ [ NSColor orangeColor ] set ];
+    NSRectFill( _DirtyRect );
+
+    [ super drawRect: _DirtyRect ];
+    }
+#endif
+
 #pragma mark - Dynamic Properties
 
 @dynamic repWidget;

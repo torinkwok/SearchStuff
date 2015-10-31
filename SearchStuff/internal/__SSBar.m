@@ -270,6 +270,12 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 #pragma mark - Dynamic Properties
 
+@dynamic hasLeftAnchoredWidgets;
+@dynamic hasRightAnchoredWidgets;
+@dynamic hasLeftFloatWidgets;
+@dynamic hasRightFloatWidgets;
+@dynamic hasTitleWidgets;
+
 - ( CGFloat ) constraintWidth
     {
     CGFloat finalWidth =
@@ -280,6 +286,31 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
             + [ __SSAutoSizeWidgetsPallet ssMinimumWidth ];
 
     return finalWidth;
+    }
+
+- ( BOOL ) hasLeftAnchoredWidgets
+    {
+    return ( self.__leftAnchoredWidgetsPallet.ssWidgets.count > 0 );
+    }
+
+- ( BOOL ) hasRightAnchoredWidgets
+    {
+    return ( self.__rightAnchoredWidgetsPallet.ssWidgets.count > 0 );
+    }
+
+- ( BOOL ) hasLeftFloatWidgets
+    {
+    return ( self.__leftFloatWidgetsPallet.ssWidgets.count > 0 );
+    }
+
+- ( BOOL ) hasRightFloatWidgets
+    {
+    return ( self.__rightFloatWidgetsPallet.ssWidgets.count > 0 );
+    }
+
+- ( BOOL ) hasTitleWidgets
+    {
+    return ( self.__titleWidgetsPallet.ssWidgets.count > 0 );
     }
 
 #pragma mark - Private Interfaces

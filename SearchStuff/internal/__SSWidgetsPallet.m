@@ -69,7 +69,7 @@
                         toItem: nil
                      attribute: NSLayoutAttributeNotAnAttribute
                     multiplier: 0
-                      constant: 25.f ];
+                      constant: 0.f ];
         [ self addConstraints: @[ self->__widthConstraint ] ];
         }
 

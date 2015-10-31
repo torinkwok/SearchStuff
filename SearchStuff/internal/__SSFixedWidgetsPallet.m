@@ -47,8 +47,6 @@ CGFloat kTrailingGap = 3.5;
 
 CGFloat kSpliterWidth = 1.f;
 
-@dynamic constraintWidth;
-
 #pragma mark - Initializations
 
 - ( instancetype ) initWithHost: ( NSView* )_Host
@@ -71,7 +69,7 @@ CGFloat kSpliterWidth = 1.f;
     {
     [ super drawRect: _DirtyRect ];
 
-    if ( self.isFloat )
+    if ( self.isFloat && self.hasSeparator )
         {
         NSBezierPath* spliterPath = [ NSBezierPath bezierPath ];
 
@@ -88,6 +86,9 @@ CGFloat kSpliterWidth = 1.f;
     }
 
 #pragma mark - Dynamic Properties
+
+@dynamic hasSeparator;
+@dynamic constraintWidth;
 
 - ( NSArray <__kindof __SSWidget*>* ) ssWidgets
     {
@@ -150,7 +151,7 @@ CGFloat kSpliterWidth = 1.f;
                 {
                 visualFormatBody = [ NSString stringWithFormat:
                       bodyComponent
-                    , ( self.isFloat && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                    , ( self.hasSeparator && ( index == 0 ) ) ? @( kHorGap * 3 ) : @"horGap"
                     , _ViewName
                     ];
                 } break;
@@ -160,7 +161,7 @@ CGFloat kSpliterWidth = 1.f;
                 visualFormatBody = [ NSString stringWithFormat:
                       bodyComponent
                     , _ViewName
-                    , ( self.isFloat && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
+                    , ( self.hasSeparator && ( index == allViewNames.count - 1 ) ) ? @( kHorGap * 3 ) : @"horGap"
                     ];
                 } break;
 
@@ -198,6 +199,24 @@ CGFloat kSpliterWidth = 1.f;
     self->__widthConstraint.constant = [ self constraintWidth ];
     }
 
+- ( BOOL ) hasSeparator
+    {
+    BOOL yesOrNo = NO;
+
+    if ( self.ssType == __SSPalletTypeLeftFloat )
+        {
+        if ( [ self.ssHost isKindOfClass: [ __SSBar class ] ] )
+            yesOrNo = ( ( __SSBar* )self.ssHost ).hasLeftAnchoredWidgets;
+        }
+    else if ( self.ssType == __SSPalletTypeRightFloat )
+        {
+        if ( [ self.ssHost isKindOfClass: [ __SSBar class ] ] )
+            yesOrNo = ( ( __SSBar* )self.ssHost ).hasRightAnchoredWidgets;
+        }
+
+    return self.isFloat && yesOrNo;
+    }
+
 - ( CGFloat ) constraintWidth
     {
     CGFloat finalWidth = kHorGap;
@@ -205,7 +224,7 @@ CGFloat kSpliterWidth = 1.f;
     for ( __SSWidget* _ssWidget in __ssWidgets )
         finalWidth += ( _ssWidget.constraintSize.width + kHorGap );
 
-    if ( self.isFloat )
+    if ( self.hasSeparator )
         finalWidth += kHorGap * 2 + kSpliterWidth;
 
     return finalWidth;

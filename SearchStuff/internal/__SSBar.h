@@ -42,6 +42,12 @@
 
 @property ( weak, readwrite ) SearchStuffToolbarItem* hostingSSToolbarItem;
 
+@property ( assign, readonly ) BOOL hasLeftAnchoredWidgets;
+@property ( assign, readonly ) BOOL hasRightAnchoredWidgets;
+@property ( assign, readonly ) BOOL hasLeftFloatWidgets;
+@property ( assign, readonly ) BOOL hasRightFloatWidgets;
+@property ( assign, readonly ) BOOL hasTitleWidgets;
+
 - ( void ) reload;
 
 @end // __SSBar class
