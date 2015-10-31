@@ -213,6 +213,7 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         _Widget.text = @"GitHub Inc.";
         _Widget.textPosition = SearchStuffTextDefault;
         _Widget.textColor = [ NSColor colorWithSRGBRed: 19.f / 255 green: 197.f / 255 blue: 119.f / 255 alpha: 1.f ];
+        _Widget.widgetSize = SearchStuffSmallWidgetSize;
         }
     }
 

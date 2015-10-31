@@ -39,18 +39,27 @@ typedef NS_ENUM( NSUInteger, SearchStuffWidgetTextPosition )
     , SearchStuffTextOnly               = 3
     };
 
+// Widget Size
+typedef NS_ENUM( NSUInteger, SearchStuffWidgetSize )
+    { SearchStuffRegularWidgetSize  = 0
+    , SearchStuffSmallWidgetSize    = 1
+    , SearchStuffMiniWidgetSize     = 2
+    };
+
 // SearchStuffWidget class
 @interface SearchStuffWidget : NSObject <NSCopying>
 
 @property ( assign, readwrite ) SEL action;
 @property ( weak, readwrite ) id target;
 
+@property ( assign, readwrite ) SearchStuffWidgetSize widgetSize;
+
 @property ( strong, readwrite ) NSImage* image;
 @property ( strong, readwrite ) NSImage* alternativeImage;
 
 @property ( strong, readwrite ) NSString* text;
-@property ( assign, readwrite ) SearchStuffWidgetTextPosition textPosition;
 @property ( assign, readwrite ) NSColor* textColor;
+@property ( assign, readwrite ) SearchStuffWidgetTextPosition textPosition;
 
 @property ( strong, readwrite ) NSString* toolTip;
 @property ( strong, readonly ) NSString* identifier;

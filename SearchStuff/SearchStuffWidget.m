@@ -52,6 +52,7 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
     {
     if ( self = [ super init ] )
         {
+        self.widgetSize = SearchStuffRegularWidgetSize;
         self.textPosition = SearchStuffNoText;
         self.identifier = _WidgetIdentifier;
         self->__isStd = [ [ [ self class ] __stdIdentifiers ] containsObject: self.identifier ];
@@ -71,10 +72,13 @@ NSArray <__kindof NSString*> static* sStandardIdentifiers;
         copy.action = self.action;
         copy.target = self.target;
 
+        copy.widgetSize = self.widgetSize;
+
         copy.image = [ self.image copy ];
         copy.alternativeImage = [ self.alternativeImage copy ];
 
         copy.text = self.text;
+        copy.textColor = self.textColor;
         copy.textPosition = self.textPosition;
 
         copy.toolTip = self.toolTip;

@@ -110,9 +110,17 @@
         self->__ssImage = _Image;
         [ self setImage: self->__ssImage ];
 
-        self->__ssConstraintSize = NSMakeSize( SS_WIDGETS_FIX_WIDTH * self->__ssImage.size.width / self->__ssImage.size.height
-                                   , SS_WIDGETS_FIX_WIDTH
-                                   );
+        CGFloat fixedWidth = 0.f;
+        if ( self->__repWidget.widgetSize == SearchStuffMiniWidgetSize )
+            fixedWidth = SS_WIDGETS_FIX_MINI_WIDTH;
+        else if ( self->__repWidget.widgetSize == SearchStuffSmallWidgetSize )
+            fixedWidth = SS_WIDGETS_FIX_SMALL_WIDTH;
+        else
+            fixedWidth = SS_WIDGETS_FIX_REGULAR_WIDTH;
+
+        self->__ssConstraintSize = NSMakeSize( fixedWidth * self->__ssImage.size.width / self->__ssImage.size.height
+                                             , fixedWidth
+                                             );
 
         if ( ( self->__ssConstraintSize.width ) > 0 && ( self->__ssConstraintSize.height > 0 ) )
             {
