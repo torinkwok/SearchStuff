@@ -54,6 +54,8 @@
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemLeftHandSideFloatWidgetIdentifiers;
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemRightHandSideFloatWidgetIdentifiers;
 
+- ( void ) ssToolbarWillAddWidget: ( SearchStuffWidget* )_Widget;
+
 @required
 - ( SearchStuffWidget* ) ssToolbarItem: ( SearchStuffToolbarItem* )_ssToolbarItem
              widgetForWidgetIdentifier: ( NSString* )_Identifier;

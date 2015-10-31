@@ -50,8 +50,8 @@
         self.selectable = NO;
         self.editable = NO;
         self.drawsBackground = NO;
-        self.textColor = [ NSColor controlTextColor ];
-//        self.backgroundColor = [ NSColor orangeColor ];
+
+        self.textColor = _RepWidget.textColor ?: [ NSColor controlTextColor ];
         self.bordered = NO;
 
         self.repWidget = _RepWidget;

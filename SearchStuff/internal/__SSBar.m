@@ -141,6 +141,10 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                         }
                     }
 
+                if ( [ tlbItemDel respondsToSelector: @selector( ssToolbarWillAddWidget: ) ] )
+                    for ( SearchStuffWidget* _RepWidget in repWidgets )
+                        [ tlbItemDel ssToolbarWillAddWidget: _RepWidget ];
+
                 NSMutableArray <__kindof __SSWidget*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
                 for ( SearchStuffWidget* _repWidget in repWidgets )
                     [ ssWidgets addObject: [ [ __SSWidget alloc ] initWithRepWidget: _repWidget ] ];

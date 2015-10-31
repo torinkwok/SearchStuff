@@ -147,7 +147,7 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemTitleWidgetsIdentifiers
     {
     return @[ SearchStuffGreenLockWidgetIdentifier
-            , SearchStuffGrayLockWidgetIdentifier
+//            , SearchStuffGrayLockWidgetIdentifier
             ];
     }
 
@@ -162,10 +162,10 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
     {
     return @[ SearchStuffSearchWidgetIdentifier
             , SearchStuffReloadWidgetIdentifier
-            , SearchStuffReloadWidgetIdentifier
-            , SearchStuffReloadWidgetIdentifier
-            , SearchStuffReloadWidgetIdentifier
-            , SearchStuffReloadWidgetIdentifier
+//            , SearchStuffReloadWidgetIdentifier
+//            , SearchStuffReloadWidgetIdentifier
+//            , SearchStuffReloadWidgetIdentifier
+//            , SearchStuffReloadWidgetIdentifier
             ];
     }
 
@@ -188,7 +188,7 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
     }
 
 - ( SearchStuffWidget* ) ssToolbarItem: ( SearchStuffToolbarItem* )_ssToolbarItem
-               widgetForWidgetIdentifier: ( NSString* )_Identifier
+             widgetForWidgetIdentifier: ( NSString* )_Identifier
     {
     SearchStuffWidget* ssWidget = [ [ SearchStuffWidget alloc ] initWithIdentifier: _Identifier ];
 
@@ -196,8 +196,6 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         {
         ssWidget.image = [ NSImage imageNamed: @"search-stuff-add" ];
         ssWidget.alternativeImage = [ NSImage imageNamed: @"search-stuff-add-highlighted" ];
-        ssWidget.text = @"Barack Obama";
-        ssWidget.textPosition = SearchStuffTextDefault;
         }
     else if ( [ _Identifier isEqualToString: kSearchStuffRemoveWidgetIdentifier ] )
         {
@@ -206,6 +204,16 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         }
 
     return ssWidget;
+    }
+
+- ( void ) ssToolbarWillAddWidget: ( SearchStuffWidget* )_Widget
+    {
+    if ( [ _Widget.identifier isEqualToString: SearchStuffGreenLockWidgetIdentifier ] )
+        {
+        _Widget.text = @"GitHub Inc.";
+        _Widget.textPosition = SearchStuffTextDefault;
+        _Widget.textColor = [ NSColor colorWithSRGBRed: 19.f / 255 green: 197.f / 255 blue: 119.f / 255 alpha: 1.f ];
+        }
     }
 
 #pragma mark - Private Interfaces

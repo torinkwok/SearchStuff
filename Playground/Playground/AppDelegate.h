@@ -26,9 +26,8 @@
 #import "SearchStuff.h"
 
 // AppDelegate class
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSToolbarDelegate, SearchStuffDelegate>
-
-
+@interface AppDelegate : NSObject
+    <NSApplicationDelegate, NSToolbarDelegate, SearchStuffDelegate>
 @end // AppDelegate class
 
 /*===============================================================================┐

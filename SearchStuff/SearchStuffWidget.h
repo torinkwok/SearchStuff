@@ -50,6 +50,7 @@ typedef NS_ENUM( NSUInteger, SearchStuffWidgetTextPosition )
 
 @property ( strong, readwrite ) NSString* text;
 @property ( assign, readwrite ) SearchStuffWidgetTextPosition textPosition;
+@property ( assign, readwrite ) NSColor* textColor;
 
 @property ( strong, readwrite ) NSString* toolTip;
 @property ( strong, readonly ) NSString* identifier;
