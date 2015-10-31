@@ -26,6 +26,7 @@
 #import "__SSWidget.h"
 #import "__SSWidgetBackingButton.h"
 #import "__SSWidgetBackingTitleField.h"
+#import "__SSConstants.h"
 
 #import "SearchStuffWidget.h"
 
@@ -110,6 +111,7 @@
     self->__ssBackingTitleField = nil;
 
     NSMutableDictionary* viewsDict = [ NSMutableDictionary dictionary ];
+    NSMutableDictionary* metricsDict = [ NSMutableDictionary dictionary ];
 
     if ( self->__repWidget.textPosition != SearchStuffTextOnly )
         {
@@ -131,10 +133,6 @@
                         multiplier: 1.f
                           constant: 0.f ];
 
-
-//            NSArray <__kindof NSLayoutConstraint*>* verBackingButtonConstraints =
-//                [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|[backingButton]-(>=0)-|" options: 0 metrics: nil views: viewsDict ];
-//            [ self->__backingWidgetsConstraints addObjectsFromArray: verBackingButtonConstraints ];
             [ self->__backingWidgetsConstraints addObject: centerYConstraint ];
             }
         }
@@ -150,24 +148,32 @@
 
             [ viewsDict addEntriesFromDictionary: NSDictionaryOfVariableBindings( backingTitleField ) ];
 
-            NSArray <__kindof NSLayoutConstraint*>* verBackingTitleFieldConstraints =
-                [ NSLayoutConstraint constraintsWithVisualFormat: @"V:|-(-1)-[backingTitleField]-(>=0)-|" options: 0 metrics: nil views: viewsDict ];
-            [ self->__backingWidgetsConstraints addObjectsFromArray: verBackingTitleFieldConstraints ];
+            NSLayoutConstraint* centerYConstraint = [ NSLayoutConstraint
+                constraintWithItem: backingTitleField
+                         attribute: NSLayoutAttributeCenterY
+                         relatedBy: NSLayoutRelationEqual
+                            toItem: backingTitleField.superview
+                         attribute: NSLayoutAttributeCenterY
+                        multiplier: 1.f
+                          constant: -.5f ];
+
+            [ self->__backingWidgetsConstraints addObject: centerYConstraint ];
             }
         }
 
     NSString* horVFL = nil;
+    [ metricsDict addEntriesFromDictionary: @{ @"fixedGap" : @( SS_WIDGETS_FIXED_GAP ) } ];
     if ( self->__repWidget.textPosition == SearchStuffNoText )
         horVFL = @"H:|[backingButton]|";
     else if ( self->__repWidget.textPosition == SearchStuffTextDefault )
-        horVFL = @"H:|[backingButton]-(==3)-[backingTitleField]|";
+        horVFL = @"H:|[backingButton]-(==fixedGap)-[backingTitleField]|";
     else if ( self->__repWidget.textPosition == SearchStuffTextOppositeToDefault )
-        horVFL = @"H:|[backingTitleField]-(==3)-[backingButton]|";
+        horVFL = @"H:|[backingTitleField]-(==fixedGap)-[backingButton]|";
     else if ( self->__repWidget.textPosition == SearchStuffTextOnly )
         horVFL = @"H:|[backingTitleField]|";
 
     NSArray <__kindof NSLayoutConstraint*>* horBackingWidgetsConstraints =
-        [ NSLayoutConstraint constraintsWithVisualFormat: horVFL options: 0 metrics: nil views: viewsDict ];
+        [ NSLayoutConstraint constraintsWithVisualFormat: horVFL options: 0 metrics: metricsDict views: viewsDict ];
     [ self->__backingWidgetsConstraints addObjectsFromArray: horBackingWidgetsConstraints ];
 
     [ self addConstraints: self->__backingWidgetsConstraints ];
@@ -190,7 +196,7 @@
 
     else if ( self->__repWidget.textPosition == SearchStuffTextDefault
                 || self->__repWidget.textPosition == SearchStuffTextOppositeToDefault )
-        widthConstant = self->__ssBackingButton.constraintSize.width + 3.f + self->__ssBackingTitleField.constraintSize.width;
+        widthConstant = self->__ssBackingButton.constraintSize.width + SS_WIDGETS_FIXED_GAP + self->__ssBackingTitleField.constraintSize.width;
 
     else if ( self->__repWidget.textPosition == SearchStuffTextOnly )
         widthConstant = self->__ssBackingTitleField.constraintSize.width;

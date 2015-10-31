@@ -112,11 +112,11 @@
 
         CGFloat fixedWidth = 0.f;
         if ( self->__repWidget.widgetSize == SearchStuffMiniWidgetSize )
-            fixedWidth = SS_WIDGETS_FIX_MINI_WIDTH;
+            fixedWidth = SS_WIDGETS_FIXED_MINI_WIDTH;
         else if ( self->__repWidget.widgetSize == SearchStuffSmallWidgetSize )
-            fixedWidth = SS_WIDGETS_FIX_SMALL_WIDTH;
+            fixedWidth = SS_WIDGETS_FIXED_SMALL_WIDTH;
         else
-            fixedWidth = SS_WIDGETS_FIX_REGULAR_WIDTH;
+            fixedWidth = SS_WIDGETS_FIXED_REGULAR_WIDTH;
 
         self->__ssConstraintSize = NSMakeSize( fixedWidth * self->__ssImage.size.width / self->__ssImage.size.height
                                              , fixedWidth

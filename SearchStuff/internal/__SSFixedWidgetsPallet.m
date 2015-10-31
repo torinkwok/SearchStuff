@@ -178,15 +178,17 @@ CGFloat kSpliterWidth = 1.f;
 
     for ( NSString* _ViewName in viewsDict )
         {
-        NSArray* constraints = [ NSLayoutConstraint
-            constraintsWithVisualFormat: [ NSString stringWithFormat: @"V:|-(==verGap)-[%@]-(>=0)-|", _ViewName ]
-                                options: ( self->__direction == __SSPalletDirectionCentral )
-                                            ? ( NSLayoutFormatAlignAllCenterX | NSLayoutFormatAlignAllCenterY )
-                                            : 0
-                                metrics: metrics
-                                  views: @{ _ViewName : viewsDict[ _ViewName ] } ];
+        NSView* view = viewsDict[ _ViewName ];
+        NSLayoutConstraint* centerYConstraint = [ NSLayoutConstraint
+            constraintWithItem: view
+                     attribute: NSLayoutAttributeCenterY
+                     relatedBy: NSLayoutRelationEqual
+                        toItem: view.superview
+                     attribute: NSLayoutAttributeCenterY
+                    multiplier: 1.f
+                      constant: 0.f ];
 
-        [ verLayoutConstraints addObjectsFromArray: constraints ];
+        [ verLayoutConstraints addObject: centerYConstraint ];
         }
 
     [ self->__ssWidgetsConstraints addObjectsFromArray: horLayoutConstraints ];
