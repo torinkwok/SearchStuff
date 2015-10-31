@@ -131,7 +131,7 @@
                             toItem: backingButton.superview
                          attribute: NSLayoutAttributeCenterY
                         multiplier: 1.f
-                          constant: ( __repWidget.widgetSize != SearchStuffRegularWidgetSize ) ? .6f : 0.f ];
+                          constant: ( __repWidget.widgetSize != SearchStuffRegularWidgetSize ) ? .4f : 0.f ];
 
             [ self->__backingWidgetsConstraints addObject: centerYConstraint ];
             }
