@@ -32,6 +32,7 @@
 #import "__SSTitleWidgetsPallet.h"
 #import "__SSConstants.h"
 #import "__SSMouseEnteredTimer.h"
+#import "__SSMouseTrackingArea.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 
@@ -445,16 +446,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     [ self addConstraints: verLayoutConstraints ];
     [ self addConstraint: self->__widthConstraint ];
 
-    NSTrackingArea* trackingArea =
-        [ [ NSTrackingArea alloc ] initWithRect: self.bounds
-                                        options: NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingCursorUpdate
-                                                    | NSTrackingActiveAlways
-                                                    /* This NSTrackingArea object was created with NSTrackingInVisibleRect option,
-                                                     * in which case the AppKit handles the re-computation of tracking area */
-                                                    | NSTrackingInVisibleRect
-                                          owner: self
-                                       userInfo: nil ];
-    [ self addTrackingArea: trackingArea ];
+    [ self addTrackingArea: [ [ __SSMouseTrackingArea alloc ] initWithHost: self ] ];
 
     [ [ NSNotificationCenter defaultCenter ] addObserver: self
                                                 selector: @selector( __appDidSwitchActivity: )

@@ -36,6 +36,7 @@
 #import "__SSWidgetsPallet.h"
 #import "__SSBar.h"
 #import "__SSMouseEnteredTimer.h"
+#import "__SSMouseTrackingArea.h"
 
 #import "SearchStuffWidget+__SSPrivate.h"
 
@@ -302,19 +303,10 @@
         self->__repWidget = _RepWidget;
         self->__ssConstraintSize = NSZeroSize;
 
-        NSTrackingArea* trackingArea =
-            [ [ NSTrackingArea alloc ] initWithRect: self.bounds
-                                            options: NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingCursorUpdate
-                                                        | NSTrackingActiveAlways
-                                                        /* This NSTrackingArea object was created with NSTrackingInVisibleRect option,
-                                                         * in which case the AppKit handles the re-computation of tracking area */
-                                                        | NSTrackingInVisibleRect
-                                              owner: self
-                                           userInfo: nil ];
-        [ self addTrackingArea: trackingArea ];
-
         self.translatesAutoresizingMaskIntoConstraints = NO;
         self.ssToolTip = _RepWidget.toolTip;
+
+        [ self addTrackingArea: [ [ __SSMouseTrackingArea alloc ] initWithHost: self ] ];
         }
 
     return self;

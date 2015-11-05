@@ -32,8 +32,7 @@
 
 #pragma mark - Initializations
 
-+ ( instancetype ) ssMouseTrackingAreaWithHost: ( NSView* )_HostView;
-- ( instancetype ) initWithAreaWithHost: ( NSView* )_HostView;
+- ( instancetype ) initWithHost: ( NSView* )_HostView;
 
 @end // __SSMouseTrackingArea class
 

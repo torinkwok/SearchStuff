@@ -34,12 +34,7 @@
 
 #pragma mark - Initializations
 
-+ ( instancetype ) ssMouseTrackingAreaWithHost: ( NSView* )_HostView
-    {
-    return [ [ self alloc ] initWithAreaWithHost: _HostView ];
-    }
-
-- ( instancetype ) initWithAreaWithHost: ( NSView* )_HostView
+- ( instancetype ) initWithHost: ( NSView* )_HostView
     {
     if ( self = [ super initWithRect: _HostView.bounds
                              options: NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingCursorUpdate
@@ -47,7 +42,7 @@
                                         /* This NSTrackingArea object was created with NSTrackingInVisibleRect option,
                                          * in which case the AppKit handles the re-computation of tracking area */
                                         | NSTrackingInVisibleRect
-                               owner: self
+                               owner: _HostView
                             userInfo: nil ] )
         self->__host = _HostView;
 
