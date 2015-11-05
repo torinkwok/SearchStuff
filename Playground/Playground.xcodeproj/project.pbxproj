@@ -25,6 +25,7 @@
 		83AFE4231BEB79B600E103EC /* __SSTitleWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE4221BEB79B600E103EC /* __SSTitleWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83AFE4251BEB7B7A00E103EC /* __SSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE4241BEB7B7A00E103EC /* __SSConstants.m */; settings = {ASSET_TAGS = (); }; };
 		83AFE4281BEB928D00E103EC /* __SSCommonTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE4271BEB928D00E103EC /* __SSCommonTextField.m */; settings = {ASSET_TAGS = (); }; };
+		83AFE42B1BEBACC300E103EC /* __SSMouseEnteredTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE42A1BEBACC300E103EC /* __SSMouseEnteredTimer.m */; settings = {ASSET_TAGS = (); }; };
 		83B621C51BD82637005FA2DE /* __SSFixedWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83CFE9581BE1E54900C8BF38 /* __SSWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CFE9571BE1E54900C8BF38 /* __SSWidget.m */; settings = {ASSET_TAGS = (); }; };
 		83CFE95B1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CFE95A1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m */; settings = {ASSET_TAGS = (); }; };
@@ -105,6 +106,8 @@
 		83AFE4241BEB7B7A00E103EC /* __SSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSConstants.m; sourceTree = "<group>"; };
 		83AFE4261BEB928D00E103EC /* __SSCommonTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSCommonTextField.h; sourceTree = "<group>"; };
 		83AFE4271BEB928D00E103EC /* __SSCommonTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSCommonTextField.m; sourceTree = "<group>"; };
+		83AFE4291BEBACC300E103EC /* __SSMouseEnteredTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSMouseEnteredTimer.h; sourceTree = "<group>"; };
+		83AFE42A1BEBACC300E103EC /* __SSMouseEnteredTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSMouseEnteredTimer.m; sourceTree = "<group>"; };
 		83B621C31BD82637005FA2DE /* __SSFixedWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSFixedWidgetsPallet.h; sourceTree = "<group>"; };
 		83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSFixedWidgetsPallet.m; sourceTree = "<group>"; };
 		83BE312E1BDB03F10099BAF2 /* __SSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSConstants.h; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				83F47FD31BCFD8350086F42D /* artwork */,
 				83BE312E1BDB03F10099BAF2 /* __SSConstants.h */,
 				83AFE4241BEB7B7A00E103EC /* __SSConstants.m */,
+				83AFE4291BEBACC300E103EC /* __SSMouseEnteredTimer.h */,
+				83AFE42A1BEBACC300E103EC /* __SSMouseEnteredTimer.m */,
 				83CFE9561BE1E54900C8BF38 /* __SSWidget.h */,
 				83CFE9571BE1E54900C8BF38 /* __SSWidget.m */,
 				83F47FD11BCFD8120086F42D /* __SSBar.h */,
@@ -498,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83AFE42B1BEBACC300E103EC /* __SSMouseEnteredTimer.m in Sources */,
 				83F47F961BCEA3290086F42D /* SearchStuffToolbarItem.m in Sources */,
 				83F47F901BCEA3290086F42D /* __SSWidgetBackingButton.m in Sources */,
 				83EDA5BC1BE235FA00EA1309 /* __SSWidgetBackingTitleField.m in Sources */,
