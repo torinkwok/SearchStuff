@@ -193,8 +193,6 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         ssWidget.image = [ NSImage imageNamed: @"search-stuff-add" ];
         ssWidget.alternativeImage = [ NSImage imageNamed: @"search-stuff-add-highlighted" ];
         ssWidget.toolTip = @"Add";
-//        ssWidget.text = @"RUNNING Playground: Playground";
-//        ssWidget.textPosition = SearchStuffTextDefault;
         }
     else if ( [ _Identifier isEqualToString: kSearchStuffRemoveWidgetIdentifier ] )
         {
@@ -214,6 +212,7 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         _Widget.textPosition = SearchStuffTextDefault;
         _Widget.textColor = [ NSColor colorWithSRGBRed: 19.f / 255 green: 197.f / 255 blue: 119.f / 255 alpha: 1.f ];
         _Widget.widgetSize = SearchStuffSmallWidgetSize;
+        _Widget.toolTip = @"Show extended validation certificate";
         }
     }
 

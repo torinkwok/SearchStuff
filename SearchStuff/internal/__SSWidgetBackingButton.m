@@ -51,6 +51,7 @@
 
     NSImage __strong* __ssImage;
     NSImage __strong* __ssAlternativeImage;
+    NSString __strong* __ssToolTip;
 
     NSSize __ssConstraintSize;
 
@@ -65,10 +66,12 @@
 
 @dynamic ssImage;
 @dynamic ssAlternativeImage;
+@dynamic ssToolTip;
 
 @dynamic constraintSize;
 
 @dynamic host;
+@dynamic usesSearchStuffStyleToolTip;
 
 #pragma mark - Initializations
 
@@ -103,30 +106,15 @@
     return clusterMember;
     }
 
-- ( __SSWidgetsPallet* ) __ssPalletHost
-    {
-    return ( __SSWidgetsPallet* )( ( ( __SSWidget* )self.host ).host );
-    }
-
 - ( void ) setToolTip: ( NSString* )_ToolTip
     {
-    // Banned the tool tip
-    NSLog( @"%@", self.__ssPalletHost );
-
-    if ( [ self.__ssPalletHost isKindOfClass: [ __SSWidgetsPallet class ] ] )
-        {
-        __SSWidgetsPallet* palletHost = self.__ssPalletHost;
-
-        if ( palletHost.ssType == __SSPalletTypeTitle )
-            {
-            NSLog( @"✨" );
-            [ super setToolTip: _ToolTip ];
-            }
-        else
-            NSLog( @"❤️" );
-        }
+    if ( self.usesSearchStuffStyleToolTip )
+        NSLog( @"❤️" );
     else
+        {
         [ super setToolTip: _ToolTip ];
+        NSLog( @"👹" );
+        }
     }
 
 #pragma mark - Dynamic Properties
@@ -202,6 +190,19 @@
     return self->__ssAlternativeImage;
     }
 
+- ( void ) setSsToolTip: ( NSString* )_ToolTip
+    {
+    if ( self->__ssToolTip != _ToolTip )
+        {
+        self->__ssToolTip = _ToolTip;
+        self.toolTip = self->__ssToolTip;
+        }
+    }
+
+- ( NSString* ) ssToolTip
+    {
+    return self->__ssToolTip;
+    }
 
 - ( NSSize ) constraintSize
     {
@@ -211,6 +212,17 @@
 - ( NSView* ) host
     {
     return self->__host;
+    }
+
+- ( BOOL ) usesSearchStuffStyleToolTip
+    {
+    BOOL yesOrNo = NO;
+
+    __SSWidgetsPallet* palletHost = ( __SSWidgetsPallet* )( ( ( __SSWidget* )self.host ).host );
+    if ( [ palletHost isKindOfClass: [ __SSWidgetsPallet class ] ] )
+        yesOrNo = palletHost.ssType != __SSPalletTypeTitle;
+
+    return yesOrNo;
     }
 
 #pragma mark - Drawing
@@ -280,8 +292,9 @@
                                               owner: self
                                            userInfo: nil ];
         [ self addTrackingArea: trackingArea ];
-        [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
-        [ self setToolTip: _RepWidget.toolTip ];
+
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+        self.ssToolTip = _RepWidget.toolTip;
         }
 
     return self;
