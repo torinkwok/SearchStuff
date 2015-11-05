@@ -40,7 +40,10 @@
 
 @property ( assign, readonly ) NSSize constraintSize;
 
-+ ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget;
+@property ( readonly, weak ) NSView* host;
+
++ ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget
+                                                 host: ( NSView* )_HostView;
 
 @end // __SSWidgetBackingButton class
 

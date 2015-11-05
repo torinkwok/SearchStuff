@@ -36,12 +36,15 @@
 
 #pragma mrak - Initilizations
 
-- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget;
+- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
+                                host: ( NSView* )_HostView;
 
 #pragma mark - Dynamic Properties
 
 @property ( readwrite, strong ) SearchStuffWidget* repWidget;
 @property ( readonly, assign ) NSSize constraintSize;
+
+@property ( readonly, weak ) NSView* host;
 
 @end // __SSWidget class
 

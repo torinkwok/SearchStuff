@@ -53,6 +53,8 @@
     NSLayoutConstraint __weak* __widthConstraint;
     NSLayoutConstraint __weak* __heightConstraint;
     NSArray __strong* __sizeConstraints;
+
+    NSView __weak* __host;
     }
 
 @dynamic repWidget;
@@ -62,9 +64,12 @@
 
 @dynamic constraintSize;
 
+@dynamic host;
+
 #pragma mark - Initializations
 
 + ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget
+                                                 host: ( NSView* )_HostView
     {
     if ( !_RepWidget )
         return nil;
@@ -86,10 +91,10 @@
         else if ( [ _RepWidget.identifier isEqualToString: SearchStuffGrayLockWidgetIdentifier ] )
             stdType = __SSWidgetBackingStdButtonTypeGrayLock;
 
-        clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: stdType ];
+        clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: stdType host: _HostView ];
         }
     else
-        clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithRepWidget: _RepWidget ];
+        clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithRepWidget: _RepWidget host: _HostView ];
 
     [ clusterMember setToolTip: _RepWidget.toolTip ];
 
@@ -186,6 +191,11 @@
     return self->__ssConstraintSize;
     }
 
+- ( NSView* ) host
+    {
+    return self->__host;
+    }
+
 #pragma mark - Drawing
 
 + ( Class ) cellClass
@@ -231,6 +241,7 @@
 #pragma mark Private Initializations ( only used by friend classes )
 
 - ( instancetype ) __initWithRepWidget: ( SearchStuffWidget* )_RepWidget
+                                  host: ( NSView* )_HostView
     {
     if ( !_RepWidget )
         return nil;
@@ -251,6 +262,8 @@
                                            userInfo: nil ];
         [ self addTrackingArea: trackingArea ];
         [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
+
+        self->__host = _HostView;
         }
 
     return self;

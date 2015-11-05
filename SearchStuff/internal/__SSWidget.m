@@ -50,19 +50,24 @@
     NSMutableArray __strong* __sizeConstraints;
 
     NSMutableArray __strong* __backingWidgetsConstraints;
+
+    NSView __weak* __host;
     }
 
 #pragma mrak - Initilizations
 
-- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget;
+- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
+                                host: ( NSView* )_HostView
     {
-    if ( !_RepWidget )
+    if ( !_RepWidget || !_HostView )
         return nil;
 
     if ( self = [ super initWithFrame: NSZeroRect ] )
         {
         self.repWidget = _RepWidget;
         self.translatesAutoresizingMaskIntoConstraints = NO;
+
+        self->__host = _HostView;
         }
 
     return self;
@@ -93,6 +98,8 @@
 @dynamic repWidget;
 @dynamic constraintSize;
 
+@dynamic host;
+
 - ( SearchStuffWidget* ) repWidget
     {
     return self->__repWidget;
@@ -111,6 +118,11 @@
     return NSMakeSize( self->__widthConstraint.constant
                      , self->__heightConstraint.constant
                      );
+    }
+
+- ( NSView* ) host
+    {
+    return self->__host;
     }
 
 - ( void ) __updateBackingWidgetConstriants
@@ -135,7 +147,7 @@
 
     if ( self->__repWidget.textPosition != SearchStuffTextOnly )
         {
-        self->__ssBackingButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: self->__repWidget ];
+        self->__ssBackingButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: self->__repWidget host: self ];
 
         if ( self->__ssBackingButton )
             {

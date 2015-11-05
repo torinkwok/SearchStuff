@@ -39,7 +39,8 @@ typedef NS_ENUM( NSUInteger, __SSWidgetBackingStdButtonType )
 #pragma mark - Initializations
 
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
-                             stdType: ( __SSWidgetBackingStdButtonType )_StdButtonType;
+                             stdType: ( __SSWidgetBackingStdButtonType )_StdButtonType
+                                host: ( NSView* )_HostView;
 
 @end // __SSWidgetBackingStdButton class
 

@@ -33,11 +33,12 @@
 
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
                              stdType: ( __SSWidgetBackingStdButtonType )_StdButtonType
+                                host: ( NSView* )_HostView
     {
     if ( _StdButtonType == __SSWidgetBackingStdButtonTypeUnspecified )
         return nil;
 
-    if ( self = [ super __initWithRepWidget: _RepWidget ] )
+    if ( self = [ super __initWithRepWidget: _RepWidget host: _HostView ] )
         {
         NSString* artworkName = nil;
         switch ( _StdButtonType )

@@ -38,8 +38,9 @@
 #pragma mark Private Initializations ( only used by friend classes )
 
 - ( instancetype ) __initWithRepWidget: ( SearchStuffWidget* )_Widget
+                                  host: ( NSView* )_HostView
     {
-    if ( self = [ super __initWithRepWidget: _Widget ] )
+    if ( self = [ super __initWithRepWidget: _Widget host: _HostView ] )
         {
         self.ssImage = _Widget.image;
         self.ssAlternativeImage = _Widget.alternativeImage;
