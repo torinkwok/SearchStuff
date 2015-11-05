@@ -32,6 +32,10 @@
 #import "__SSWidgetBackingButton+__SSPrivate.h"
 #import "__SSConstants.h"
 
+#import "__SSWidget.h"
+#import "__SSWidgetsPallet.h"
+#import "__SSBar.h"
+
 #import "SearchStuffWidget+__SSPrivate.h"
 
 // Private Interfaces
@@ -96,20 +100,33 @@
     else
         clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithRepWidget: _RepWidget host: _HostView ];
 
-    [ clusterMember setToolTip: _RepWidget.toolTip ];
-
     return clusterMember;
+    }
+
+- ( __SSWidgetsPallet* ) __ssPalletHost
+    {
+    return ( __SSWidgetsPallet* )( ( ( __SSWidget* )self.host ).host );
     }
 
 - ( void ) setToolTip: ( NSString* )_ToolTip
     {
     // Banned the tool tip
-    [ super setToolTip: _ToolTip ];
-    }
+    NSLog( @"%@", self.__ssPalletHost );
 
-- ( NSString* ) toolTip
-    {
-    return [ super toolTip ];
+    if ( [ self.__ssPalletHost isKindOfClass: [ __SSWidgetsPallet class ] ] )
+        {
+        __SSWidgetsPallet* palletHost = self.__ssPalletHost;
+
+        if ( palletHost.ssType == __SSPalletTypeTitle )
+            {
+            NSLog( @"✨" );
+            [ super setToolTip: _ToolTip ];
+            }
+        else
+            NSLog( @"❤️" );
+        }
+    else
+        [ super setToolTip: _ToolTip ];
     }
 
 #pragma mark - Dynamic Properties
@@ -248,6 +265,8 @@
 
     if ( self = [ super initWithFrame: NSZeroRect /* Frame doesn't matter */ ] )
         {
+        self->__host = _HostView;
+
         self->__repWidget = _RepWidget;
         self->__ssConstraintSize = NSZeroSize;
 
@@ -262,8 +281,7 @@
                                            userInfo: nil ];
         [ self addTrackingArea: trackingArea ];
         [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
-
-        self->__host = _HostView;
+        [ self setToolTip: _RepWidget.toolTip ];
         }
 
     return self;

@@ -64,10 +64,10 @@
 
     if ( self = [ super initWithFrame: NSZeroRect ] )
         {
+        self->__host = _HostView;
+
         self.repWidget = _RepWidget;
         self.translatesAutoresizingMaskIntoConstraints = NO;
-
-        self->__host = _HostView;
         }
 
     return self;

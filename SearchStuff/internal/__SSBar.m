@@ -153,16 +153,16 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                     for ( SearchStuffWidget* _RepWidget in repWidgets )
                         [ tlbItemDel ssToolbarWillAddWidget: _RepWidget ];
 
-                NSMutableArray <__kindof __SSWidget*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
-                for ( SearchStuffWidget* _repWidget in repWidgets )
-                    [ ssWidgets addObject: [ [ __SSWidget alloc ] initWithRepWidget: _repWidget host: self ] ];
-
                 __SSWidgetsPallet* ssPallet = nil;
                 if ( delSel == lhsAnchoredWidgetIDsDelSEL )          ssPallet = self.__leftAnchoredWidgetsPallet;
                     else if ( delSel == rhsAnchoredWidgetIDsDelSEL ) ssPallet = self.__rightAnchoredWidgetsPallet;
                     else if ( delSel == lhsFloatWidgetIDsDelSEL )    ssPallet = self.__leftFloatWidgetsPallet;
                     else if ( delSel == rhsFloatWidgetIDsDelSEL )    ssPallet = self.__rightFloatWidgetsPallet;
                     else if ( delSel == titleWidgetIDsDelSEL )       ssPallet = self.__titleWidgetsPallet;
+
+                NSMutableArray <__kindof __SSWidget*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
+                for ( SearchStuffWidget* _repWidget in repWidgets )
+                    [ ssWidgets addObject: [ [ __SSWidget alloc ] initWithRepWidget: _repWidget host: ssPallet ] ];
 
                 ssPallet.ssWidgets = ssWidgets;
                 }
