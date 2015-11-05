@@ -108,13 +108,8 @@
 
 - ( void ) setToolTip: ( NSString* )_ToolTip
     {
-    if ( self.usesSearchStuffStyleToolTip )
-        NSLog( @"❤️" );
-    else
-        {
+    if ( !self.usesSearchStuffStyleToolTip )
         [ super setToolTip: _ToolTip ];
-        NSLog( @"👹" );
-        }
     }
 
 #pragma mark - Dynamic Properties
@@ -218,9 +213,9 @@
     {
     BOOL yesOrNo = NO;
 
-    __SSWidgetsPallet* palletHost = ( __SSWidgetsPallet* )( ( ( __SSWidget* )self.host ).host );
+    NSView* palletHost = ( ( ( __SSWidget* )self.host ).host );
     if ( [ palletHost isKindOfClass: [ __SSWidgetsPallet class ] ] )
-        yesOrNo = palletHost.ssType != __SSPalletTypeTitle;
+        yesOrNo = [ ( __SSWidgetsPallet* )palletHost ssType ] != __SSPalletTypeTitle;
 
     return yesOrNo;
     }
