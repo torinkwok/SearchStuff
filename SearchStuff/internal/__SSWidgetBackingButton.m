@@ -35,15 +35,13 @@
 #import "__SSWidget.h"
 #import "__SSWidgetsPallet.h"
 #import "__SSBar.h"
+#import "__SSMouseEnteredTimer.h"
 
 #import "SearchStuffWidget+__SSPrivate.h"
 
 // Private Interfaces
 @interface __SSWidgetBackingButton ()
-
 - ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted;
-- ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer;
-
 @end // Private Interfaces
 
 // __SSWidgetBackingButton class
@@ -64,7 +62,7 @@
 
     NSView __weak* __host;
 
-    NSTimer __strong* __mouseEnteredTimer;
+    __SSMouseEnteredTimer* __mouseEnteredTimer;
     }
 
 @dynamic repWidget;
@@ -238,20 +236,28 @@
     {
     [ self __redrawWithHighlighted: YES ];
 
-    [ self->__mouseEnteredTimer invalidate ];
-
     if ( self.usesSearchStuffStyleToolTip )
         {
-        self->__mouseEnteredTimer =
-            [ NSTimer timerWithTimeInterval: .5f target: self selector: @selector( __mouseEnteredTimerFired: ) userInfo: nil repeats: NO ];
+        if ( !self->__mouseEnteredTimer )
+            {
+            self->__mouseEnteredTimer = [ [ __SSMouseEnteredTimer alloc ] initWithTimeInterval: .5f
+                                                                                 excutionBlock:
+                ( __SSMouseEnteredTimerExcutionBlockType )^( void )
+                    {
+                    if ( self.ssToolTip.length > 0 )
+                        [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldDisplayToolTip
+                                                                               object: self
+                                                                             userInfo: @{ kToolTip : self.ssToolTip } ];
+                    } ];
+            }
 
-        [ [ NSRunLoop currentRunLoop ] addTimer: self->__mouseEnteredTimer forMode: NSDefaultRunLoopMode ];
+        [ self->__mouseEnteredTimer start ];
         }
     }
 
 - ( void ) mouseExited: ( NSEvent* )_Event
     {
-    [ self->__mouseEnteredTimer invalidate ];
+    [ self->__mouseEnteredTimer stop ];
     [ self __redrawWithHighlighted: NO ];
 
     if ( self.usesSearchStuffStyleToolTip )
@@ -274,16 +280,6 @@
     {
     [ self.cell setHighlighted: _IsHighlighted ];
     [ self setNeedsDisplay ];
-    }
-
-- ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer
-    {
-    if ( self.ssToolTip.length > 0 )
-        {
-        [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldDisplayToolTip
-                                                               object: self
-                                                             userInfo: @{ kToolTip : self.ssToolTip } ];
-        }
     }
 
 @end // __SSWidgetBackingButton class

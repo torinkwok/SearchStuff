@@ -65,7 +65,6 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @property ( strong ) __SSTitleWidgetsPallet* __titleWidgetsPallet;
 
 - ( void ) __init;
-- ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer;
 
 // Notification Methods
 - ( void ) __appDidSwitchActivity: ( NSNotification* )_Notif;
@@ -238,6 +237,25 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 - ( void ) mouseEntered: ( NSEvent* )_Event
     {
+    if ( !self->__mouseEnteredTimer )
+        {
+        self->__mouseEnteredTimer = [ [ __SSMouseEnteredTimer alloc ] initWithTimeInterval: .2f
+                                                                             excutionBlock:
+            ( __SSMouseEnteredTimerExcutionBlockType )^( void )
+                {
+                __CA_TRANSACTION_BEGIN__
+                [ CATransaction setCompletionBlock:
+                ^( void )
+                    {
+                    // TODO:
+                    } ];
+
+                [ self.__leftFloatWidgetsPallet setHidden: NO ];
+                [ self.__rightFloatWidgetsPallet setHidden: NO ];
+                __CA_TRANSACTION_COMMIT__
+                } ];
+        }
+
     [ self ->__mouseEnteredTimer start ];
     }
 
@@ -457,22 +475,6 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                                                 selector: @selector( __shouldHideToolTip: )
                                                     name: SearchStuffShouldHideToolTip
                                                   object: nil ];
-
-    self->__mouseEnteredTimer = [ [ __SSMouseEnteredTimer alloc ] initWithTimeInterval: .2f
-                                                                         excutionBlock:
-        ( __SSMouseEnteredTimerExcutionBlockType )^( void )
-            {
-            __CA_TRANSACTION_BEGIN__
-            [ CATransaction setCompletionBlock:
-            ^( void )
-                {
-                // TODO:
-                } ];
-
-            [ self.__leftFloatWidgetsPallet setHidden: NO ];
-            [ self.__rightFloatWidgetsPallet setHidden: NO ];
-            __CA_TRANSACTION_COMMIT__
-            } ];
     }
 
 - ( void ) __appDidSwitchActivity: ( NSNotification* )_Notif
