@@ -52,6 +52,9 @@
         self->__toolTipField.cell.usesSingleLineMode = YES;
         self->__toolTipField.cell.alignment = NSCenterTextAlignment;
         self->__toolTipField.cell.lineBreakMode = NSLineBreakByTruncatingTail;
+
+        self->__subPallet.layer.delegate = self;
+        self->__toolTipField.layer.delegate = self;
         }
 
     return self;
@@ -103,6 +106,30 @@
 
     [ self->__toolTipField setHidden: YES ];
     [ self->__subPallet setHidden: NO ];
+    }
+
+#pragma mark - Conforms to <CALayerDelegate>
+
+- ( id <CAAction> ) actionForLayer: ( CALayer* )_Layer
+                            forKey: ( NSString* )_EventKey
+    {
+    id <CAAction> action = nil;
+
+    if ( [ _EventKey isEqualToString: @"hidden" ] )
+        {
+        CATransition* transitionAnim = [ CATransition animation ];
+
+        [ transitionAnim setStartProgress: 0.f ];
+        [ transitionAnim setEndProgress: 1.f ];
+
+        [ transitionAnim setFillMode: kCAFillModeForwards ];
+        [ transitionAnim setTimingFunction:
+            [ CAMediaTimingFunction functionWithName: _Layer.hidden ? kCAMediaTimingFunctionEaseIn
+                                                                    : kCAMediaTimingFunctionEaseOut ] ];
+        action = transitionAnim;
+        }
+
+    return action;
     }
 
 @end // __SSTitleWidgetsPallet class

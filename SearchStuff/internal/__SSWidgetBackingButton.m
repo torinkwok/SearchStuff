@@ -40,7 +40,10 @@
 
 // Private Interfaces
 @interface __SSWidgetBackingButton ()
+
 - ( void ) __redrawWithHighlighted: ( BOOL )_IsHighlighted;
+- ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer;
+
 @end // Private Interfaces
 
 // __SSWidgetBackingButton class
@@ -60,6 +63,8 @@
     NSArray __strong* __sizeConstraints;
 
     NSView __weak* __host;
+
+    NSTimer __strong* __mouseEnteredTimer;
     }
 
 @dynamic repWidget;
@@ -233,20 +238,24 @@
     {
     [ self __redrawWithHighlighted: YES ];
 
+    [ self->__mouseEnteredTimer invalidate ];
+
     if ( self.usesSearchStuffStyleToolTip )
-        if ( self.ssToolTip.length > 0 )
-            [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldDisplayToolTip
-                                                                   object: self
-                                                                 userInfo: @{ kToolTip : self.ssToolTip } ];
+        {
+        self->__mouseEnteredTimer =
+            [ NSTimer timerWithTimeInterval: .5f target: self selector: @selector( __mouseEnteredTimerFired: ) userInfo: nil repeats: NO ];
+
+        [ [ NSRunLoop currentRunLoop ] addTimer: self->__mouseEnteredTimer forMode: NSDefaultRunLoopMode ];
+        }
     }
 
 - ( void ) mouseExited: ( NSEvent* )_Event
     {
+    [ self->__mouseEnteredTimer invalidate ];
     [ self __redrawWithHighlighted: NO ];
 
     if ( self.usesSearchStuffStyleToolTip )
-        [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldHideToolTip
-                                                               object: self ];
+        [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldHideToolTip object: self ];
     }
 
 - ( void ) mouseDown: ( NSEvent* )_Event
@@ -265,6 +274,16 @@
     {
     [ self.cell setHighlighted: _IsHighlighted ];
     [ self setNeedsDisplay ];
+    }
+
+- ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer
+    {
+    if ( self.ssToolTip.length > 0 )
+        {
+        [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldDisplayToolTip
+                                                               object: self
+                                                             userInfo: @{ kToolTip : self.ssToolTip } ];
+        }
     }
 
 @end // __SSWidgetBackingButton class
