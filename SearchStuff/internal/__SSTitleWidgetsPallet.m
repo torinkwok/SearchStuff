@@ -28,16 +28,80 @@
 
 // __SSTitleWidgetsPallet class
 @implementation __SSTitleWidgetsPallet
+    {
+@protected
+    NSTextField* __toolTipField;
+    }
+
+#pragma mark - Initializations
+
+- ( instancetype ) initWithHost: ( NSView* )_Host
+                           type: ( __SSFixedWidgetsPalletType )_Type
+    {
+    if ( self = [ super initWithHost: _Host type: _Type ] )
+        {
+        self->__toolTipField = [ [ NSTextField alloc ] initWithFrame: NSZeroRect ];
+        self->__toolTipField.translatesAutoresizingMaskIntoConstraints = NO;
+
+        self->__toolTipField.textColor = [ [ NSColor blackColor ] colorWithAlphaComponent: .8f ];
+        self->__toolTipField.selectable = NO;
+        self->__toolTipField.editable = NO;
+        self->__toolTipField.drawsBackground = NO;
+        self->__toolTipField.bordered = NO;
+
+        self->__toolTipField.cell.usesSingleLineMode = YES;
+        self->__toolTipField.cell.alignment = NSCenterTextAlignment;
+        self->__toolTipField.cell.lineBreakMode = NSLineBreakByTruncatingTail;
+        }
+
+    return self;
+    }
 
 #pragma mark - Tool Tip
 
 - ( void ) showToolTip: ( NSString* )_ToolTip
     {
+    [ self->__toolTipField setStringValue: _ToolTip ?: @"" ];
+
+    if ( self->__toolTipField.superview != self )
+        {
+        [ self addSubview: self->__toolTipField ];
+
+        NSMutableArray* toolTipFieldConstraints = [ NSMutableArray array ];
+
+        NSView* toolTipField = self->__toolTipField;
+        NSDictionary* viewsDict = NSDictionaryOfVariableBindings( toolTipField );
+
+        NSLayoutConstraint* centerYConstraint = [ NSLayoutConstraint
+            constraintWithItem: self->__toolTipField
+                     attribute: NSLayoutAttributeCenterY
+                     relatedBy: NSLayoutRelationEqual
+                        toItem: self
+                     attribute: NSLayoutAttributeCenterY
+                    multiplier: 1.f
+                      constant: -.5f ];
+
+        NSArray* widthConstraints = [ NSLayoutConstraint
+            constraintsWithVisualFormat: @"H:|[toolTipField]|"
+                                options: 0
+                                metrics: nil
+                                  views: viewsDict ];
+
+        [ toolTipFieldConstraints addObject: centerYConstraint ];
+        [ toolTipFieldConstraints addObjectsFromArray: widthConstraints ];
+
+        [ self addConstraints: toolTipFieldConstraints ];
+        }
+
+    [ self->__toolTipField setHidden: NO ];
     [ self->__subPallet setHidden: YES ];
     }
     
 - ( void ) hideToolTip
     {
+    [ self->__toolTipField setStringValue: @"" ];
+
+    [ self->__toolTipField setHidden: YES ];
     [ self->__subPallet setHidden: NO ];
     }
 
