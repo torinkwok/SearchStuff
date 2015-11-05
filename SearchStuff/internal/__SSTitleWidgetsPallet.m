@@ -25,12 +25,13 @@
 
 #import "__SSTitleWidgetsPallet.h"
 #import "__SSFixedWidgetsPallet.h"
+#import "__SSCommonTextField.h"
 
 // __SSTitleWidgetsPallet class
 @implementation __SSTitleWidgetsPallet
     {
 @protected
-    NSTextField* __toolTipField;
+    __SSCommonTextField* __toolTipField;
     }
 
 #pragma mark - Initializations
@@ -40,18 +41,10 @@
     {
     if ( self = [ super initWithHost: _Host type: _Type ] )
         {
-        self->__toolTipField = [ [ NSTextField alloc ] initWithFrame: NSZeroRect ];
-        self->__toolTipField.translatesAutoresizingMaskIntoConstraints = NO;
+        self->__toolTipField = [ [ __SSCommonTextField alloc ] initWithFrame: NSZeroRect ];
 
         self->__toolTipField.textColor = [ [ NSColor blackColor ] colorWithAlphaComponent: .8f ];
-        self->__toolTipField.selectable = NO;
-        self->__toolTipField.editable = NO;
-        self->__toolTipField.drawsBackground = NO;
-        self->__toolTipField.bordered = NO;
-
-        self->__toolTipField.cell.usesSingleLineMode = YES;
         self->__toolTipField.cell.alignment = NSCenterTextAlignment;
-        self->__toolTipField.cell.lineBreakMode = NSLineBreakByTruncatingTail;
 
         self->__subPallet.layer.delegate = self;
         self->__toolTipField.layer.delegate = self;

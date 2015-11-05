@@ -23,89 +23,33 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidgetBackingTitleField.h"
+#import "__SSCommonTextField.h"
 
-#import "SearchStuffWidget.h"
-
-// __SSWidgetBackingTitleField class
-@implementation __SSWidgetBackingTitleField
-    {
-@protected
-    SearchStuffWidget __strong*  __repWidget;
-
-    NSLayoutConstraint __weak* __widthConstraint;
-    NSLayoutConstraint __weak* __heightConstraint;
-    NSArray __strong* __sizeConstraints;
-    }
+// __SSCommonTextField class
+@implementation __SSCommonTextField
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
+- ( instancetype ) initWithFrame: ( NSRect )_Frame
     {
-    if ( !( _RepWidget.text.length > 0 ) )
-        return nil;
-
-    if ( self = [ super initWithFrame: NSZeroRect ] )
+    if ( self = [ super initWithFrame: _Frame ] )
         {
-        self.repWidget = _RepWidget;
-        self.textColor = _RepWidget.textColor ?: [ NSColor controlTextColor ];
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+
+        self.selectable = NO;
+        self.editable = NO;
+        self.drawsBackground = NO;
+
+        self.textColor = [ NSColor controlTextColor ];
+        self.bordered = NO;
+        self.cell.usesSingleLineMode = YES;
+        self.cell.lineBreakMode = NSLineBreakByTruncatingTail;
         }
 
     return self;
     }
 
-#pragma mark - Dynamic Properties
-
-@dynamic repWidget;
-
-@dynamic constraintSize;
-
-- ( SearchStuffWidget* ) repWidget
-    {
-    return self->__repWidget;
-    }
-
-- ( void ) setRepWidget: ( SearchStuffWidget* )_RepWidget
-    {
-    self->__repWidget = _RepWidget;
-
-    [ self setStringValue: _RepWidget.text ?: @"" ];
-
-    NSSize size = [ self.stringValue sizeWithAttributes: @{ NSFontAttributeName : self.font } ];
-
-    self->__widthConstraint = [ NSLayoutConstraint
-        constraintWithItem: self
-                 attribute: NSLayoutAttributeWidth
-                 relatedBy: NSLayoutRelationEqual
-                    toItem: nil
-                 attribute: NSLayoutAttributeNotAnAttribute
-                multiplier: 1.f
-                  constant: MIN( size.width, 200.f ) ];
-
-    self->__heightConstraint = [ NSLayoutConstraint
-        constraintWithItem: self
-                 attribute: NSLayoutAttributeHeight
-                 relatedBy: NSLayoutRelationEqual
-                    toItem: nil
-                 attribute: NSLayoutAttributeNotAnAttribute
-                multiplier: 1.f
-                  constant: size.height ];
-
-    if ( self->__sizeConstraints.count > 0  )
-        [ self removeConstraints: self->__sizeConstraints ];
-
-    self->__sizeConstraints = @[ self->__widthConstraint, self->__heightConstraint ];
-    [ self addConstraints: self->__sizeConstraints ];
-    }
-
-- ( NSSize ) constraintSize
-    {
-    return NSMakeSize( self->__widthConstraint.constant
-                     , self->__heightConstraint.constant
-                     );
-    }
-
-@end // __SSWidgetBackingTitleField class
+@end // __SSCommonTextField class
 
 /*===============================================================================┐
 |                                                                                |

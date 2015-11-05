@@ -23,12 +23,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-@import Cocoa;
+#import "__SSCommonTextField.h"
 
 @class SearchStuffWidget;
 
 // __SSWidgetBackingTitleField class
-@interface __SSWidgetBackingTitleField : NSTextField
+@interface __SSWidgetBackingTitleField : __SSCommonTextField
 
 #pragma mark - Initializations
 

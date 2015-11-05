@@ -23,89 +23,12 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#import "__SSWidgetBackingTitleField.h"
+@import Cocoa;
 
-#import "SearchStuffWidget.h"
+// __SSCommonTextField class
+@interface __SSCommonTextField : NSTextField
 
-// __SSWidgetBackingTitleField class
-@implementation __SSWidgetBackingTitleField
-    {
-@protected
-    SearchStuffWidget __strong*  __repWidget;
-
-    NSLayoutConstraint __weak* __widthConstraint;
-    NSLayoutConstraint __weak* __heightConstraint;
-    NSArray __strong* __sizeConstraints;
-    }
-
-#pragma mark - Initializations
-
-- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
-    {
-    if ( !( _RepWidget.text.length > 0 ) )
-        return nil;
-
-    if ( self = [ super initWithFrame: NSZeroRect ] )
-        {
-        self.repWidget = _RepWidget;
-        self.textColor = _RepWidget.textColor ?: [ NSColor controlTextColor ];
-        }
-
-    return self;
-    }
-
-#pragma mark - Dynamic Properties
-
-@dynamic repWidget;
-
-@dynamic constraintSize;
-
-- ( SearchStuffWidget* ) repWidget
-    {
-    return self->__repWidget;
-    }
-
-- ( void ) setRepWidget: ( SearchStuffWidget* )_RepWidget
-    {
-    self->__repWidget = _RepWidget;
-
-    [ self setStringValue: _RepWidget.text ?: @"" ];
-
-    NSSize size = [ self.stringValue sizeWithAttributes: @{ NSFontAttributeName : self.font } ];
-
-    self->__widthConstraint = [ NSLayoutConstraint
-        constraintWithItem: self
-                 attribute: NSLayoutAttributeWidth
-                 relatedBy: NSLayoutRelationEqual
-                    toItem: nil
-                 attribute: NSLayoutAttributeNotAnAttribute
-                multiplier: 1.f
-                  constant: MIN( size.width, 200.f ) ];
-
-    self->__heightConstraint = [ NSLayoutConstraint
-        constraintWithItem: self
-                 attribute: NSLayoutAttributeHeight
-                 relatedBy: NSLayoutRelationEqual
-                    toItem: nil
-                 attribute: NSLayoutAttributeNotAnAttribute
-                multiplier: 1.f
-                  constant: size.height ];
-
-    if ( self->__sizeConstraints.count > 0  )
-        [ self removeConstraints: self->__sizeConstraints ];
-
-    self->__sizeConstraints = @[ self->__widthConstraint, self->__heightConstraint ];
-    [ self addConstraints: self->__sizeConstraints ];
-    }
-
-- ( NSSize ) constraintSize
-    {
-    return NSMakeSize( self->__widthConstraint.constant
-                     , self->__heightConstraint.constant
-                     );
-    }
-
-@end // __SSWidgetBackingTitleField class
+@end // __SSCommonTextField class
 
 /*===============================================================================┐
 |                                                                                |
