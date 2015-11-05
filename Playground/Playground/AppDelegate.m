@@ -192,6 +192,7 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         {
         ssWidget.image = [ NSImage imageNamed: @"search-stuff-add" ];
         ssWidget.alternativeImage = [ NSImage imageNamed: @"search-stuff-add-highlighted" ];
+        ssWidget.toolTip = @"Add";
 //        ssWidget.text = @"RUNNING Playground: Playground";
 //        ssWidget.textPosition = SearchStuffTextDefault;
         }
@@ -199,6 +200,7 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
         {
         ssWidget.image = [ NSImage imageNamed: @"search-stuff-remove" ];
         ssWidget.alternativeImage = [ NSImage imageNamed: @"search-stuff-remove-highlighted" ];
+        ssWidget.toolTip = @"Remove";
         }
 
     return ssWidget;

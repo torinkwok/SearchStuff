@@ -78,6 +78,16 @@
     }
 #endif
 
+- ( void ) setToolTip: ( NSString* )_ToolTip
+    {
+    // Banned the tool tip
+    }
+
+- ( NSString* ) toolTip
+    {
+    return nil;
+    }
+
 #pragma mark - Dynamic Properties
 
 @dynamic repWidget;

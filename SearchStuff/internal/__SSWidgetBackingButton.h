@@ -36,6 +36,7 @@
 
 @property ( strong, readwrite ) NSImage* ssImage;
 @property ( strong, readwrite ) NSImage* ssAlternativeImage;
+@property ( strong, readwrite ) NSString* ssToolTip;
 
 @property ( assign, readonly ) NSSize constraintSize;
 

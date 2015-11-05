@@ -91,7 +91,20 @@
     else
         clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithRepWidget: _RepWidget ];
 
+    [ clusterMember setToolTip: _RepWidget.toolTip ];
+
     return clusterMember;
+    }
+
+- ( void ) setToolTip: ( NSString* )_ToolTip
+    {
+    // Banned the tool tip
+    [ super setToolTip: _ToolTip ];
+    }
+
+- ( NSString* ) toolTip
+    {
+    return [ super toolTip ];
     }
 
 #pragma mark - Dynamic Properties
