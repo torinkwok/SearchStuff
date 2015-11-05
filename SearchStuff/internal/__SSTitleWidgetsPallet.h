@@ -23,33 +23,17 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#define __Throw_Exception_Due_to_Invocation_of_PureVirual_Method \
-@throw [ NSException exceptionWithName: NSGenericException \
-                     reason: [ NSString stringWithFormat: @"Unimplemented pure virtual method `%@` in `%@` " \
-                                                           "from instance: %p" \
-                                                        , NSStringFromSelector( _cmd ) \
-                                                        , NSStringFromClass( [ self class ] ) \
-                                                        , self ] \
-                   userInfo: nil ]
+#import "__SSAutoSizeWidgetsPallet.h"
 
-// __SSWidgetBackingButton class
-#define SS_WIDGETS_FIXED_REGULAR_WIDTH  ( 15.f )
-#define SS_WIDGETS_FIXED_SMALL_WIDTH    ( 12.5f )
-#define SS_WIDGETS_FIXED_MINI_WIDTH     ( 10.f )
+// __SSTitleWidgetsPallet class
+@interface __SSTitleWidgetsPallet : __SSAutoSizeWidgetsPallet
 
-#define SS_WIDGETS_FIXED_GAP            ( 3.f )
+#pragma mark - Tool Tip
 
-#define __CA_TRANSACTION_BEGIN__ [ CATransaction begin ];
-#define __CA_TRANSACTION_COMMIT__ [ CATransaction commit ];
+- ( void ) showToolTip: ( NSString* )_ToolTip;
+- ( void ) hideToolTip;
 
-@import Foundation;
-
-// Notification Names
-NSString extern* const SearchStuffShouldDisplayToolTip;
-NSString extern* const SearchStuffShouldHideToolTip;
-
-// Notification User Info Keys
-NSString extern* const kToolTip;
+@end // __SSTitleWidgetsPallet class
 
 /*===============================================================================┐
 |                                                                                |

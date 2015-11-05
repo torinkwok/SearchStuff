@@ -23,33 +23,14 @@
   ████████████████████████████████████████████████████████████████████████████████
   ██████████████████████████████████████████████████████████████████████████████*/
 
-#define __Throw_Exception_Due_to_Invocation_of_PureVirual_Method \
-@throw [ NSException exceptionWithName: NSGenericException \
-                     reason: [ NSString stringWithFormat: @"Unimplemented pure virtual method `%@` in `%@` " \
-                                                           "from instance: %p" \
-                                                        , NSStringFromSelector( _cmd ) \
-                                                        , NSStringFromClass( [ self class ] ) \
-                                                        , self ] \
-                   userInfo: nil ]
-
-// __SSWidgetBackingButton class
-#define SS_WIDGETS_FIXED_REGULAR_WIDTH  ( 15.f )
-#define SS_WIDGETS_FIXED_SMALL_WIDTH    ( 12.5f )
-#define SS_WIDGETS_FIXED_MINI_WIDTH     ( 10.f )
-
-#define SS_WIDGETS_FIXED_GAP            ( 3.f )
-
-#define __CA_TRANSACTION_BEGIN__ [ CATransaction begin ];
-#define __CA_TRANSACTION_COMMIT__ [ CATransaction commit ];
-
-@import Foundation;
+#import "__SSConstants.h"
 
 // Notification Names
-NSString extern* const SearchStuffShouldDisplayToolTip;
-NSString extern* const SearchStuffShouldHideToolTip;
+NSString* const SearchStuffShouldDisplayToolTip = @"__ssShouldDisplayToolTip";
+NSString* const SearchStuffShouldHideToolTip = @"__ssShouldHideToolTip";
 
 // Notification User Info Keys
-NSString extern* const kToolTip;
+NSString* const kToolTip = @"__kToolTip";
 
 /*===============================================================================┐
 |                                                                                |

@@ -29,7 +29,7 @@
 #import "__SSInputField.h"
 #import "__SSWidget.h"
 #import "__SSFixedWidgetsPallet.h"
-#import "__SSAutoSizeWidgetsPallet.h"
+#import "__SSTitleWidgetsPallet.h"
 #import "__SSConstants.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 #import "SearchStuffWidget+__SSPrivate.h"
@@ -61,11 +61,15 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @property ( strong ) __SSFixedWidgetsPallet* __rightAnchoredWidgetsPallet;
 @property ( strong ) __SSFixedWidgetsPallet* __leftFloatWidgetsPallet;
 @property ( strong ) __SSFixedWidgetsPallet* __rightFloatWidgetsPallet;
-@property ( strong ) __SSAutoSizeWidgetsPallet* __titleWidgetsPallet;
+@property ( strong ) __SSTitleWidgetsPallet* __titleWidgetsPallet;
 
 - ( void ) __init;
-- ( void ) __appDidSwitchActivity: ( NSNotification* )_Notif;
 - ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer;
+
+// Notification Methods
+- ( void ) __appDidSwitchActivity: ( NSNotification* )_Notif;
+- ( void ) __shouldDisplayToolTip: ( NSNotification* )_Notif;
+- ( void ) __shouldHideToolTip: ( NSNotification* )_Notif;
 
 @end // Private Interfaces
 
@@ -303,7 +307,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
             + self.__leftFloatWidgetsPallet.constraintWidth
             + self.__rightAnchoredWidgetsPallet.constraintWidth
             + self.__rightFloatWidgetsPallet.constraintWidth
-            + [ __SSAutoSizeWidgetsPallet ssMinimumWidth ];
+            + [ __SSTitleWidgetsPallet ssMinimumWidth ];
 
     return finalWidth;
     }
@@ -364,7 +368,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     self.__rightAnchoredWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeRightAnchored ];
     self.__leftFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeLeftFloat ];
     self.__rightFloatWidgetsPallet = [ [ __SSFixedWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeRightFloat ];
-    self.__titleWidgetsPallet = [ [ __SSAutoSizeWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeTitle ];
+    self.__titleWidgetsPallet = [ [ __SSTitleWidgetsPallet alloc ] initWithHost: self type: __SSPalletTypeTitle ];
 
     #if DEBUG
     self.__leftAnchoredWidgetsPallet.identifier = @"left-anchored-wp";
@@ -447,6 +451,16 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                                                 selector: @selector( __appDidSwitchActivity: )
                                                     name: NSApplicationDidResignActiveNotification
                                                   object: NSApp ];
+
+    [ [ NSNotificationCenter defaultCenter ] addObserver: self
+                                                selector: @selector( __shouldDisplayToolTip: )
+                                                    name: SearchStuffShouldDisplayToolTip
+                                                  object: nil ];
+
+    [ [ NSNotificationCenter defaultCenter ] addObserver: self
+                                                selector: @selector( __shouldHideToolTip: )
+                                                    name: SearchStuffShouldHideToolTip
+                                                  object: nil ];
     }
 
 - ( void ) __appDidSwitchActivity: ( NSNotification* )_Notif
@@ -466,6 +480,16 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     [ self.__leftFloatWidgetsPallet setHidden: NO ];
     [ self.__rightFloatWidgetsPallet setHidden: NO ];
     __CA_TRANSACTION_COMMIT__
+    }
+
+- ( void ) __shouldDisplayToolTip: ( NSNotification* )_Notif
+    {
+    [ self.__titleWidgetsPallet showToolTip: _Notif.userInfo[ kToolTip ] ];
+    }
+
+- ( void ) __shouldHideToolTip: ( NSNotification* )_Notif
+    {
+    [ self.__titleWidgetsPallet hideToolTip ];
     }
 
 @end // __SSBar class

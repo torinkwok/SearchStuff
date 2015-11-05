@@ -22,6 +22,8 @@
 		838A9BE11BD80DCE008E1B12 /* search-stuff-remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD91BD80DCE008E1B12 /* search-stuff-remove.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BE21BD80DCE008E1B12 /* search-stuff-remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */; settings = {ASSET_TAGS = (); }; };
 		838BC7FA1BDC9AC2009C2DA5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 838BC7F91BDC9AC2009C2DA5 /* QuartzCore.framework */; };
+		83AFE4231BEB79B600E103EC /* __SSTitleWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE4221BEB79B600E103EC /* __SSTitleWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
+		83AFE4251BEB7B7A00E103EC /* __SSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE4241BEB7B7A00E103EC /* __SSConstants.m */; settings = {ASSET_TAGS = (); }; };
 		83B621C51BD82637005FA2DE /* __SSFixedWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83CFE9581BE1E54900C8BF38 /* __SSWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CFE9571BE1E54900C8BF38 /* __SSWidget.m */; settings = {ASSET_TAGS = (); }; };
 		83CFE95B1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CFE95A1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m */; settings = {ASSET_TAGS = (); }; };
@@ -97,6 +99,9 @@
 		838A9BD91BD80DCE008E1B12 /* search-stuff-remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-remove.png"; sourceTree = "<group>"; };
 		838A9BDA1BD80DCE008E1B12 /* search-stuff-remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-remove@2x.png"; sourceTree = "<group>"; };
 		838BC7F91BDC9AC2009C2DA5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		83AFE4211BEB79B600E103EC /* __SSTitleWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSTitleWidgetsPallet.h; sourceTree = "<group>"; };
+		83AFE4221BEB79B600E103EC /* __SSTitleWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSTitleWidgetsPallet.m; sourceTree = "<group>"; };
+		83AFE4241BEB7B7A00E103EC /* __SSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSConstants.m; sourceTree = "<group>"; };
 		83B621C31BD82637005FA2DE /* __SSFixedWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSFixedWidgetsPallet.h; sourceTree = "<group>"; };
 		83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSFixedWidgetsPallet.m; sourceTree = "<group>"; };
 		83BE312E1BDB03F10099BAF2 /* __SSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSConstants.h; sourceTree = "<group>"; };
@@ -271,10 +276,9 @@
 				832CBB061BD691C000693DC1 /* extensions */,
 				83F47FD31BCFD8350086F42D /* artwork */,
 				83BE312E1BDB03F10099BAF2 /* __SSConstants.h */,
+				83AFE4241BEB7B7A00E103EC /* __SSConstants.m */,
 				83CFE9561BE1E54900C8BF38 /* __SSWidget.h */,
 				83CFE9571BE1E54900C8BF38 /* __SSWidget.m */,
-				83FF7E9A1BE0596100A505F5 /* __SSWidgetsPallet.h */,
-				83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */,
 				83F47FD11BCFD8120086F42D /* __SSBar.h */,
 				83F47FD01BCFD8120086F42D /* __SSBar.m */,
 				83EDA5BA1BE235FA00EA1309 /* __SSWidgetBackingTitleField.h */,
@@ -293,10 +297,14 @@
 				83F47F7E1BCEA3280086F42D /* __SSInputField.m */,
 				83F47F7F1BCEA3280086F42D /* __SSInputFieldCell.h */,
 				83F47F801BCEA3280086F42D /* __SSInputFieldCell.m */,
+				83FF7E9A1BE0596100A505F5 /* __SSWidgetsPallet.h */,
+				83FF7E9B1BE0596100A505F5 /* __SSWidgetsPallet.m */,
 				83B621C31BD82637005FA2DE /* __SSFixedWidgetsPallet.h */,
 				83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */,
 				83FF7E9D1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.h */,
 				83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */,
+				83AFE4211BEB79B600E103EC /* __SSTitleWidgetsPallet.h */,
+				83AFE4221BEB79B600E103EC /* __SSTitleWidgetsPallet.m */,
 			);
 			path = internal;
 			sourceTree = "<group>";
@@ -499,6 +507,8 @@
 				83F47F911BCEA3290086F42D /* __SSWidgetBackingButtonCell.m in Sources */,
 				83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */,
 				83F47F971BCEA3290086F42D /* SearchStuffWidget.m in Sources */,
+				83AFE4251BEB7B7A00E103EC /* __SSConstants.m in Sources */,
+				83AFE4231BEB79B600E103EC /* __SSTitleWidgetsPallet.m in Sources */,
 				83F47F931BCEA3290086F42D /* __SSInputField.m in Sources */,
 				83FF7E9F1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m in Sources */,
 				83F47F921BCEA3290086F42D /* __SSBackingCell.m in Sources */,

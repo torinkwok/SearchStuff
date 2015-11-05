@@ -232,11 +232,21 @@
 - ( void ) mouseEntered: ( NSEvent* )_Event
     {
     [ self __redrawWithHighlighted: YES ];
+
+    if ( self.usesSearchStuffStyleToolTip )
+        if ( self.ssToolTip.length > 0 )
+            [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldDisplayToolTip
+                                                                   object: self
+                                                                 userInfo: @{ kToolTip : self.ssToolTip } ];
     }
 
 - ( void ) mouseExited: ( NSEvent* )_Event
     {
     [ self __redrawWithHighlighted: NO ];
+
+    if ( self.usesSearchStuffStyleToolTip )
+        [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldHideToolTip
+                                                               object: self ];
     }
 
 - ( void ) mouseDown: ( NSEvent* )_Event
