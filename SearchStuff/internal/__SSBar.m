@@ -31,6 +31,7 @@
 #import "__SSFixedWidgetsPallet.h"
 #import "__SSTitleWidgetsPallet.h"
 #import "__SSConstants.h"
+#import "__SSMouseEnteredTimer.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 
@@ -77,7 +78,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @implementation __SSBar
     {
 @protected
-    NSTimer __strong* __mouseEnteredTimer;
+    __SSMouseEnteredTimer* __mouseEnteredTimer;
     }
 
 @dynamic constraintWidth;
@@ -237,17 +238,12 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 - ( void ) mouseEntered: ( NSEvent* )_Event
     {
-    [ self->__mouseEnteredTimer invalidate ];
-
-    self->__mouseEnteredTimer =
-        [ NSTimer timerWithTimeInterval: .2f target: self selector: @selector( __mouseEnteredTimerFired: ) userInfo: nil repeats: NO ];
-
-    [ [ NSRunLoop currentRunLoop ] addTimer: self->__mouseEnteredTimer forMode: NSDefaultRunLoopMode ];
+    [ self ->__mouseEnteredTimer start ];
     }
 
 - ( void ) mouseExited: ( NSEvent* )_Event
     {
-    [ self->__mouseEnteredTimer invalidate ];
+    [ self->__mouseEnteredTimer stop ];
 
     if ( !self.__leftFloatWidgetsPallet.hidden )
         [ self.__leftFloatWidgetsPallet setHidden: YES ];
@@ -461,25 +457,27 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
                                                 selector: @selector( __shouldHideToolTip: )
                                                     name: SearchStuffShouldHideToolTip
                                                   object: nil ];
+
+    self->__mouseEnteredTimer = [ [ __SSMouseEnteredTimer alloc ] initWithTimeInterval: .2f
+                                                                         excutionBlock:
+        ( __SSMouseEnteredTimerExcutionBlockType )^( void )
+            {
+            __CA_TRANSACTION_BEGIN__
+            [ CATransaction setCompletionBlock:
+            ^( void )
+                {
+                // TODO:
+                } ];
+
+            [ self.__leftFloatWidgetsPallet setHidden: NO ];
+            [ self.__rightFloatWidgetsPallet setHidden: NO ];
+            __CA_TRANSACTION_COMMIT__
+            } ];
     }
 
 - ( void ) __appDidSwitchActivity: ( NSNotification* )_Notif
     {
     [ self setNeedsDisplay: YES ];
-    }
-
-- ( void ) __mouseEnteredTimerFired: ( NSTimer* )_Timer
-    {
-    __CA_TRANSACTION_BEGIN__
-    [ CATransaction setCompletionBlock:
-    ^( void )
-        {
-        // TODO:
-        } ];
-
-    [ self.__leftFloatWidgetsPallet setHidden: NO ];
-    [ self.__rightFloatWidgetsPallet setHidden: NO ];
-    __CA_TRANSACTION_COMMIT__
     }
 
 - ( void ) __shouldDisplayToolTip: ( NSNotification* )_Notif

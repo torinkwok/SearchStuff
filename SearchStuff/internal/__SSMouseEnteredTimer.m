@@ -65,6 +65,8 @@
 
 - ( void ) start
     {
+    [ self stop ];
+
     self->__backingTimer = [ NSTimer timerWithTimeInterval: self->__timeInterval
                                                     target: self
                                                   selector: @selector( __mouseEnteredTimerFired: )
