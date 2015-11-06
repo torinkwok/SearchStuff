@@ -62,6 +62,26 @@
         [ self.__searchButton setFrameOrigin: NSMakePoint( 6.5f, 5.f ) ];
 
         [ self addSubview: self.__searchButton ];
+
+        NSLayoutConstraint* leftMostConstraint = [ NSLayoutConstraint
+            constraintWithItem: self.__searchButton
+                     attribute: NSLayoutAttributeLeft
+                     relatedBy: NSLayoutRelationEqual
+                        toItem: self
+                     attribute: NSLayoutAttributeLeft
+                    multiplier: 1.f
+                      constant: 3.5f ];
+
+        NSLayoutConstraint* centerYConstraint = [ NSLayoutConstraint
+            constraintWithItem: self.__searchButton
+                     attribute: NSLayoutAttributeCenterY
+                     relatedBy: NSLayoutRelationEqual
+                        toItem: self
+                     attribute: NSLayoutAttributeCenterY
+                    multiplier: 1.f
+                      constant: 0.f ];
+
+        [ self addConstraints: @[ leftMostConstraint, centerYConstraint ] ];
         }
 
     return self;
