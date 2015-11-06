@@ -75,7 +75,7 @@
         __SSAttachPanel* attachPanel = self.searchResultsAttachPanel;
 
         // Resizing attach panel
-        NSSize relativeViewSize = self.relativeView.frame.size;
+        NSSize relativeViewSize = self.relativeView.visibleRect.size;
         NSSize attachPanelConstraintSize = attachPanel.constraintSize;
 
         NSRect attachPanelNewframe = attachPanel.frame;
@@ -87,13 +87,13 @@
         [ attachPanel setFrame: attachPanelNewframe display: YES animate: YES ];
 
         // Repositioning attach panel
-        NSRect windowFrameOfRelativeView = [ self.relativeView convertRect: self.relativeView.frame toView: nil ];
+        NSRect windowFrameOfRelativeView = [ self.relativeView convertRect: self.relativeView.visibleRect toView: nil ];
         NSRect screenFrameOfRelativeView = [ self.relativeView.window convertRectToScreen: windowFrameOfRelativeView ];
 
         NSPoint attachPanelOrigin = screenFrameOfRelativeView.origin;
 
         if ( NSWidth( self.relativeView.frame ) < NSWidth( attachPanelNewframe ) )
-            attachPanelOrigin.x -= ( attachPanelConstraintSize.width - NSWidth( self.relativeView.frame ) ) / 2;
+            attachPanelOrigin.x -= ( attachPanelConstraintSize.width - NSWidth( self.relativeView.visibleRect ) ) / 2;
 
         attachPanelOrigin.y -= NSHeight( attachPanel.frame ) + 1.2f;
 
