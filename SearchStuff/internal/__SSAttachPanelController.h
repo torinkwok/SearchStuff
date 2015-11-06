@@ -38,10 +38,6 @@
 
 @property ( weak, readonly ) __SSAttachPanel* searchResultsAttachPanel;
 
-#pragma mark - Outlets
-
-@property ( weak ) IBOutlet PWSearchResultsTableView* searchResultsTableView;
-
 #pragma mark - Controlling The Attach Panel
 
 @property ( weak, readwrite ) NSView* relativeView;
@@ -58,7 +54,7 @@
 
 #pragma mark - Initializations
 
-+ ( instancetype ) controllerWithRelativeView: ( NSView* )_RelativeView;
+- ( instancetype ) initWithRelativeView: ( NSView* )_RelativeView;
 
 @end // __SSAttachPanelController class
 

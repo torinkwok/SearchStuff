@@ -39,11 +39,6 @@
 
 #pragma mark - Initializations
 
-+ ( instancetype ) controllerWithRelativeView: ( NSView* )_RelativeView
-    {
-    return [ [ self alloc ] initWithRelativeView: _RelativeView ];
-    }
-
 - ( instancetype ) initWithRelativeView: ( NSView* )_RelativeView
     {
     if ( self = [ super initWithWindowNibName: @"__SSAttachPanel" owner: self ] )
@@ -63,6 +58,12 @@
                                                 selector: @selector( _applicationDidBecomeActive: )
                                                     name: NSApplicationDidBecomeActiveNotification
                                                   object: nil ];
+    }
+
+- ( void ) dealloc
+    {
+    [ [ NSNotificationCenter defaultCenter ] removeObserver: self name: NSApplicationDidResignActiveNotification object: nil ];
+    [ [ NSNotificationCenter defaultCenter ] removeObserver: self name: NSApplicationDidBecomeActiveNotification object: nil ];
     }
 
 #pragma mark - Controlling The Attach Panel
