@@ -87,6 +87,13 @@
     return self;
     }
 
+- ( void ) mouseDown: ( NSEvent* )_Event
+    {
+    [ super mouseDown: _Event ];
+
+    NSLog( @"🐶" );
+    }
+
 #pragma mark - Drawing
 
 + ( Class ) cellClass

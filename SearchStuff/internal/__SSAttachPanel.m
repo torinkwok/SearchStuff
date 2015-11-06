@@ -29,6 +29,9 @@
 // Private Interfaces
 @interface __SSAttachPanel ()
 
+@property ( weak ) IBOutlet NSLayoutConstraint* __widthConstraint;
+@property ( weak ) IBOutlet NSLayoutConstraint* __heightConstraint;
+
 - ( NSImage* ) _maskImageWithCornerRadius: ( CGFloat )_CornerRadius;
 
 @end // Private Interfaces
@@ -48,6 +51,15 @@
     self.panelBlurBackgroundView.maskImage = maskImage;
 
     self.cornerMask = maskImage;
+    }
+
+#pragma mark Properties
+
+@dynamic constraintSize;
+
+- ( NSSize ) constraintSize
+    {
+    return NSMakeSize( self.__widthConstraint.constant, self.__heightConstraint.constant );
     }
 
 #pragma mark - Hack

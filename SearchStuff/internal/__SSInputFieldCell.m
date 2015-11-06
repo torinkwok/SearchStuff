@@ -24,6 +24,7 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSInputFieldCell.h"
+#import "__SSAttachPanelController.h"
 
 // Private Interfaces
 @interface __SSInputFieldCell ()
@@ -32,6 +33,10 @@
 
 // __SSInputFieldCell class
 @implementation __SSInputFieldCell
+    {
+@protected
+    __SSAttachPanelController* __attachPanelController;
+    }
 
 #pragma mark - Drawing
 
@@ -54,6 +59,11 @@
                    delegate: _DelegateObject
                       start: _SelStart
                      length: _SelLength ];
+
+    if ( !self->__attachPanelController )
+        self->__attachPanelController = [ [ __SSAttachPanelController alloc ] initWithRelativeView: _ControlView ];
+
+    [ self->__attachPanelController popUpAttachPanel ];
     }
 
 - ( void ) editWithFrame: ( NSRect )_CellFrame

@@ -72,13 +72,32 @@
     {
     if ( self.relativeView )
         {
+        __SSAttachPanel* attachPanel = self.searchResultsAttachPanel;
+
+        // Resizing attach panel
+        NSSize relativeViewSize = self.relativeView.frame.size;
+        NSSize attachPanelConstraintSize = attachPanel.constraintSize;
+
+        NSRect attachPanelNewframe = attachPanel.frame;
+
+        attachPanelNewframe.size.width =
+            ( relativeViewSize.width > attachPanelConstraintSize.width ) ? relativeViewSize.width
+                                                                         : attachPanelConstraintSize.width;
+
+        [ attachPanel setFrame: attachPanelNewframe display: YES animate: YES ];
+
+        // Repositioning attach panel
         NSRect windowFrameOfRelativeView = [ self.relativeView convertRect: self.relativeView.frame toView: nil ];
         NSRect screenFrameOfRelativeView = [ self.relativeView.window convertRectToScreen: windowFrameOfRelativeView ];
 
         NSPoint attachPanelOrigin = screenFrameOfRelativeView.origin;
-        attachPanelOrigin.x -= 3.5f;
-        attachPanelOrigin.y -= NSHeight( self.searchResultsAttachPanel.frame ) - 4.f;
 
+        if ( NSWidth( self.relativeView.frame ) < NSWidth( attachPanelNewframe ) )
+            attachPanelOrigin.x -= ( attachPanelConstraintSize.width - NSWidth( self.relativeView.frame ) ) / 2;
+
+        attachPanelOrigin.y -= NSHeight( attachPanel.frame ) + 1.2f;
+
+        // Pop up
         [ self popUpAttachPanelOnWindow: self.relativeView.window at: attachPanelOrigin ];
         }
 
@@ -86,7 +105,7 @@
     }
 
 - ( void ) popUpAttachPanelOnWindow: ( NSWindow* )_ParentWindow
-                                  at: ( NSPoint )_PointInScreen
+                                 at: ( NSPoint )_PointInScreen
     {
     if ( _ParentWindow )
         {
@@ -155,10 +174,6 @@
 
 - ( void ) _applicationDidResignActive: ( NSNotification* )_Notif
     {
-    #if DEBUG
-    NSLog( @">>> (Log) Application did resign active: \n{\n    %@\n    Observer:%@\n}", _Notif, self );
-    #endif
-
     [ self closeAttachPanel ];
     }
 
@@ -170,19 +185,11 @@
 
 - ( void ) _relativeWindowStartLiveResize: ( NSNotification* )_Notif
     {
-    #if DEBUG
-    NSLog( @">>> (Log) Relative window of attach panel starts live resize: \n{\n%@\n}", _Notif );
-    #endif
-
     [ self closeAttachPanel ];
     }
 
 - ( void ) _relativeWindowDidEndResize: ( NSNotification* )_Notif
     {
-    #if DEBUG
-    NSLog( @">>> (Log) Relative window of attach panel ends live resize: \n{\n%@\n}", _Notif );
-    #endif
-
     if ( self.isInUse )
         [ self popUpAttachPanel ];
     }

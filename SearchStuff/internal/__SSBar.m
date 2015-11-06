@@ -33,6 +33,7 @@
 #import "__SSConstants.h"
 #import "__SSMouseEnteredTimer.h"
 #import "__SSMouseTrackingArea.h"
+
 #import "SearchStuffWidget+__SSPrivate.h"
 #import "SearchStuffWidget+__SSPrivate.h"
 

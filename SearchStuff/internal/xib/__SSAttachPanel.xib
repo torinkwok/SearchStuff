@@ -35,6 +35,8 @@
                 </constraints>
             </view>
             <connections>
+                <outlet property="__heightConstraint" destination="yO0-6N-tFN" id="0Ux-f3-FWC"/>
+                <outlet property="__widthConstraint" destination="gRK-eU-VvB" id="dPX-pI-tZi"/>
                 <outlet property="delegate" destination="-2" id="7xz-Lo-UNM"/>
                 <outlet property="panelBlurBackgroundView" destination="NEo-s5-ZXu" id="hSF-Fy-fYD"/>
             </connections>
