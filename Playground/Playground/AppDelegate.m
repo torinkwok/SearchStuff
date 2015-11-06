@@ -158,17 +158,15 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
 
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemRightHandSideAnchoredWidgetIdentifiers
     {
-    return @[
-            SearchStuffReloadWidgetIdentifier
-            ];
+    return @[ SearchStuffReloadWidgetIdentifier ];
     }
 
 - ( NSArray <__kindof NSString*>* ) ssToolbarItemRightHandSideFloatWidgetIdentifiers
     {
     return @[ SearchStuffSearchWidgetIdentifier
             , SearchStuffReloadWidgetIdentifier
-            , kSearchStuffAddWidgetIdentifier
-            , kSearchStuffRemoveWidgetIdentifier
+//            , kSearchStuffAddWidgetIdentifier
+//            , kSearchStuffRemoveWidgetIdentifier
             ];
     }
 
@@ -176,8 +174,8 @@ NSString* const kSearchStuffRemoveWidgetIdentifier = @"kSearchStuffRemoveWidgetI
     {
     return @[ SearchStuffSearchWidgetIdentifier
             , SearchStuffReloadWidgetIdentifier
-            , kSearchStuffAddWidgetIdentifier
-            , kSearchStuffRemoveWidgetIdentifier
+//            , kSearchStuffAddWidgetIdentifier
+//            , kSearchStuffRemoveWidgetIdentifier
             ];
     }
 

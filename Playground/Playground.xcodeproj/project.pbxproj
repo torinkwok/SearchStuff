@@ -27,6 +27,10 @@
 		83AFE4281BEB928D00E103EC /* __SSCommonTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE4271BEB928D00E103EC /* __SSCommonTextField.m */; settings = {ASSET_TAGS = (); }; };
 		83AFE42B1BEBACC300E103EC /* __SSMouseEnteredTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE42A1BEBACC300E103EC /* __SSMouseEnteredTimer.m */; settings = {ASSET_TAGS = (); }; };
 		83AFE42E1BEBB2BB00E103EC /* __SSMouseTrackingArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE42D1BEBB2BB00E103EC /* __SSMouseTrackingArea.m */; settings = {ASSET_TAGS = (); }; };
+		83AFE4341BECC42800E103EC /* __SSAttachPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE42F1BECC42800E103EC /* __SSAttachPanel.m */; settings = {ASSET_TAGS = (); }; };
+		83AFE4351BECC42800E103EC /* __SSAttachPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE4311BECC42800E103EC /* __SSAttachPanelController.m */; settings = {ASSET_TAGS = (); }; };
+		83AFE4361BECC42800E103EC /* __SSAttachPanelBlurBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AFE4331BECC42800E103EC /* __SSAttachPanelBlurBgView.m */; settings = {ASSET_TAGS = (); }; };
+		83AFE4381BECC44200E103EC /* __SSAttachPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83AFE4371BECC44200E103EC /* __SSAttachPanel.xib */; settings = {ASSET_TAGS = (); }; };
 		83B621C51BD82637005FA2DE /* __SSFixedWidgetsPallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */; settings = {ASSET_TAGS = (); }; };
 		83CFE9581BE1E54900C8BF38 /* __SSWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CFE9571BE1E54900C8BF38 /* __SSWidget.m */; settings = {ASSET_TAGS = (); }; };
 		83CFE95B1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CFE95A1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m */; settings = {ASSET_TAGS = (); }; };
@@ -111,6 +115,13 @@
 		83AFE42A1BEBACC300E103EC /* __SSMouseEnteredTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSMouseEnteredTimer.m; sourceTree = "<group>"; };
 		83AFE42C1BEBB2BB00E103EC /* __SSMouseTrackingArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSMouseTrackingArea.h; sourceTree = "<group>"; };
 		83AFE42D1BEBB2BB00E103EC /* __SSMouseTrackingArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSMouseTrackingArea.m; sourceTree = "<group>"; };
+		83AFE42F1BECC42800E103EC /* __SSAttachPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSAttachPanel.m; sourceTree = "<group>"; };
+		83AFE4301BECC42800E103EC /* __SSAttachPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSAttachPanelController.h; sourceTree = "<group>"; };
+		83AFE4311BECC42800E103EC /* __SSAttachPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSAttachPanelController.m; sourceTree = "<group>"; };
+		83AFE4321BECC42800E103EC /* __SSAttachPanelBlurBgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSAttachPanelBlurBgView.h; sourceTree = "<group>"; };
+		83AFE4331BECC42800E103EC /* __SSAttachPanelBlurBgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSAttachPanelBlurBgView.m; sourceTree = "<group>"; };
+		83AFE4371BECC44200E103EC /* __SSAttachPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = __SSAttachPanel.xib; path = artwork/__SSAttachPanel.xib; sourceTree = "<group>"; };
+		83AFE4391BECC4EF00E103EC /* __SSAttachPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = __SSAttachPanel.h; sourceTree = "<group>"; };
 		83B621C31BD82637005FA2DE /* __SSFixedWidgetsPallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSFixedWidgetsPallet.h; sourceTree = "<group>"; };
 		83B621C41BD82637005FA2DE /* __SSFixedWidgetsPallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __SSFixedWidgetsPallet.m; sourceTree = "<group>"; };
 		83BE312E1BDB03F10099BAF2 /* __SSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SSConstants.h; sourceTree = "<group>"; };
@@ -257,6 +268,14 @@
 			name = extensions;
 			sourceTree = "<group>";
 		};
+		8337481C1BECC5EA00ACA174 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				83AFE4371BECC44200E103EC /* __SSAttachPanel.xib */,
+			);
+			name = xib;
+			sourceTree = "<group>";
+		};
 		83AFE4201BEB4A9D00E103EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +301,7 @@
 		83F47F761BCEA3280086F42D /* internal */ = {
 			isa = PBXGroup;
 			children = (
+				8337481C1BECC5EA00ACA174 /* xib */,
 				832CBB061BD691C000693DC1 /* extensions */,
 				83F47FD31BCFD8350086F42D /* artwork */,
 				83BE312E1BDB03F10099BAF2 /* __SSConstants.h */,
@@ -320,6 +340,12 @@
 				83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */,
 				83AFE4211BEB79B600E103EC /* __SSTitleWidgetsPallet.h */,
 				83AFE4221BEB79B600E103EC /* __SSTitleWidgetsPallet.m */,
+				83AFE4391BECC4EF00E103EC /* __SSAttachPanel.h */,
+				83AFE42F1BECC42800E103EC /* __SSAttachPanel.m */,
+				83AFE4301BECC42800E103EC /* __SSAttachPanelController.h */,
+				83AFE4311BECC42800E103EC /* __SSAttachPanelController.m */,
+				83AFE4321BECC42800E103EC /* __SSAttachPanelBlurBgView.h */,
+				83AFE4331BECC42800E103EC /* __SSAttachPanelBlurBgView.m */,
 			);
 			path = internal;
 			sourceTree = "<group>";
@@ -465,6 +491,7 @@
 				83F47FE21BCFD8350086F42D /* search-stuff-search.png in Resources */,
 				83F47FDD1BCFD8350086F42D /* search-stuff-reload-highlighted@2x.png in Resources */,
 				83FF7E931BE03E4200A505F5 /* search-stuff-greenlock-highlighted.png in Resources */,
+				83AFE4381BECC44200E103EC /* __SSAttachPanel.xib in Resources */,
 				83FF7E951BE03E4200A505F5 /* search-stuff-greenlock.png in Resources */,
 				832719031BC1279100C28426 /* Assets.xcassets in Resources */,
 				838A9BE21BD80DCE008E1B12 /* search-stuff-remove@2x.png in Resources */,
@@ -509,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83AFE42B1BEBACC300E103EC /* __SSMouseEnteredTimer.m in Sources */,
+				83AFE4341BECC42800E103EC /* __SSAttachPanel.m in Sources */,
 				83F47F961BCEA3290086F42D /* SearchStuffToolbarItem.m in Sources */,
 				83F47F901BCEA3290086F42D /* __SSWidgetBackingButton.m in Sources */,
 				83EDA5BC1BE235FA00EA1309 /* __SSWidgetBackingTitleField.m in Sources */,
@@ -516,11 +544,13 @@
 				83CFE95B1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSBar.m in Sources */,
 				83AFE4281BEB928D00E103EC /* __SSCommonTextField.m in Sources */,
+				83AFE4351BECC42800E103EC /* __SSAttachPanelController.m in Sources */,
 				83FD30421BD7A561001B5B02 /* __SSWidgetBackingUserCusButton.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
 				83B621C51BD82637005FA2DE /* __SSFixedWidgetsPallet.m in Sources */,
 				832718FE1BC1279100C28426 /* AppDelegate.m in Sources */,
 				83F47F941BCEA3290086F42D /* __SSInputFieldCell.m in Sources */,
+				83AFE4361BECC42800E103EC /* __SSAttachPanelBlurBgView.m in Sources */,
 				83F47F911BCEA3290086F42D /* __SSWidgetBackingButtonCell.m in Sources */,
 				83FF7E9C1BE0596100A505F5 /* __SSWidgetsPallet.m in Sources */,
 				83F47F971BCEA3290086F42D /* SearchStuffWidget.m in Sources */,
