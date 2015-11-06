@@ -340,12 +340,12 @@
 				83FF7E9E1BE06B2E00A505F5 /* __SSAutoSizeWidgetsPallet.m */,
 				83AFE4211BEB79B600E103EC /* __SSTitleWidgetsPallet.h */,
 				83AFE4221BEB79B600E103EC /* __SSTitleWidgetsPallet.m */,
+				83AFE4321BECC42800E103EC /* __SSAttachPanelBlurBgView.h */,
+				83AFE4331BECC42800E103EC /* __SSAttachPanelBlurBgView.m */,
 				83AFE4391BECC4EF00E103EC /* __SSAttachPanel.h */,
 				83AFE42F1BECC42800E103EC /* __SSAttachPanel.m */,
 				83AFE4301BECC42800E103EC /* __SSAttachPanelController.h */,
 				83AFE4311BECC42800E103EC /* __SSAttachPanelController.m */,
-				83AFE4321BECC42800E103EC /* __SSAttachPanelBlurBgView.h */,
-				83AFE4331BECC42800E103EC /* __SSAttachPanelBlurBgView.m */,
 			);
 			path = internal;
 			sourceTree = "<group>";
