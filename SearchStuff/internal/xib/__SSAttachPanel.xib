@@ -13,34 +13,33 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="s7G-Nl-iBY" customClass="__SSAttachPanel">
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="305" width="450" height="450"/>
+            <rect key="contentRect" x="283" y="305" width="450" height="66"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="nRr-2V-Obn">
-                <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
+                <rect key="frame" x="0.0" y="0.0" width="450" height="66"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="NEo-s5-ZXu" customClass="__SSAttachPanelBlurBgView">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="450"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="66"/>
                         <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="aJS-5Z-Rf4"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="450" id="gRK-eU-VvB"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="450" id="yO0-6N-tFN"/>
                         </constraints>
                     </visualEffectView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="NEo-s5-ZXu" secondAttribute="bottom" id="4Oz-0K-KTP"/>
                     <constraint firstItem="NEo-s5-ZXu" firstAttribute="top" secondItem="nRr-2V-Obn" secondAttribute="top" id="Lgh-V8-beM"/>
                     <constraint firstAttribute="trailing" secondItem="NEo-s5-ZXu" secondAttribute="trailing" id="VxJ-KX-LYj"/>
                     <constraint firstItem="NEo-s5-ZXu" firstAttribute="leading" secondItem="nRr-2V-Obn" secondAttribute="leading" id="YNA-sZ-1Rj"/>
-                    <constraint firstAttribute="bottom" secondItem="NEo-s5-ZXu" secondAttribute="bottom" id="nPn-19-FKD"/>
                 </constraints>
             </view>
             <connections>
-                <outlet property="__heightConstraint" destination="yO0-6N-tFN" id="0Ux-f3-FWC"/>
                 <outlet property="__widthConstraint" destination="gRK-eU-VvB" id="dPX-pI-tZi"/>
                 <outlet property="delegate" destination="-2" id="7xz-Lo-UNM"/>
                 <outlet property="panelBlurBackgroundView" destination="NEo-s5-ZXu" id="hSF-Fy-fYD"/>
             </connections>
-            <point key="canvasLocation" x="226" y="877"/>
+            <point key="canvasLocation" x="226" y="685"/>
         </window>
     </objects>
 </document>
