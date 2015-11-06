@@ -45,12 +45,6 @@
 - ( void ) popUpAttachPanel;
 - ( void ) popUpAttachPanelOnWindow: ( NSWindow* )_ParentWindow at: ( NSPoint )_PointInScreen;
 - ( void ) closeAttachPanel;
-- ( void ) closeAttachPanelAndClearResults;
-
-#pragma mark - Handling Search Results
-
-@property ( assign, readonly ) BOOL hasCompletedInstantSearch;
-@property ( assign, readonly ) BOOL isInUse;
 
 #pragma mark - Initializations
 

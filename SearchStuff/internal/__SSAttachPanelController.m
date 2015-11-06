@@ -122,11 +122,6 @@
     [ self.searchResultsAttachPanel orderOut: self ];
     }
 
-- ( void ) closeAttachPanelAndClearResults
-    {
-    [ self closeAttachPanel ];
-    }
-
 #pragma mark - Dynamic Properties
 
 - ( __SSAttachPanel* ) searchResultsAttachPanel
@@ -167,11 +162,6 @@
 
 #pragma mark - Private Interfaces
 
-- ( void ) _didEmptySearchContent: ( NSNotification* )_Notif
-    {
-    [ self closeAttachPanelAndClearResults ];
-    }
-
 - ( void ) _applicationDidResignActive: ( NSNotification* )_Notif
     {
     [ self closeAttachPanel ];
@@ -179,8 +169,8 @@
 
 - ( void ) _applicationDidBecomeActive: ( NSNotification* )_Notif
     {
-    if ( self.isInUse )
-        [ self popUpAttachPanel ];
+//    if ( self.isInUse )
+//        [ self popUpAttachPanel ];
     }
 
 - ( void ) _relativeWindowStartLiveResize: ( NSNotification* )_Notif
@@ -190,8 +180,8 @@
 
 - ( void ) _relativeWindowDidEndResize: ( NSNotification* )_Notif
     {
-    if ( self.isInUse )
-        [ self popUpAttachPanel ];
+//    if ( self.isInUse )
+//        [ self popUpAttachPanel ];
     }
 
 @end // __SSAttachPanelController class
