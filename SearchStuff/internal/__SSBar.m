@@ -65,6 +65,8 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @property ( strong ) __SSFixedWidgetsPallet* __rightFloatWidgetsPallet;
 @property ( strong ) __SSTitleWidgetsPallet* __titleWidgetsPallet;
 
+@property ( strong, readonly ) NSArray <__kindof __SSWidgetsPallet*>* __widgetsPallets;
+
 - ( void ) __init;
 
 // Notification Methods
@@ -233,31 +235,37 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     [ self addConstraints: self.__inputFieldConstraints ];
     [ self.window makeFirstResponder: inputField ];
 
+    for ( __SSWidgetsPallet* _Pallet in self.__widgetsPallets )
+        [ _Pallet setHidden: YES ];
+
     self.__isInputting = YES;
     }
 
 - ( void ) mouseEntered: ( NSEvent* )_Event
     {
-    if ( !self->__mouseEnteredTimer )
+    if ( !self.__isInputting )
         {
-        self->__mouseEnteredTimer = [ [ __SSMouseEnteredTimer alloc ] initWithTimeInterval: .2f
-                                                                             excutionBlock:
-            ( __SSMouseEnteredTimerExcutionBlockType )^( void )
-                {
-                __CA_TRANSACTION_BEGIN__
-                [ CATransaction setCompletionBlock:
-                ^( void )
+        if ( !self->__mouseEnteredTimer )
+            {
+            self->__mouseEnteredTimer = [ [ __SSMouseEnteredTimer alloc ] initWithTimeInterval: .2f
+                                                                                 excutionBlock:
+                ( __SSMouseEnteredTimerExcutionBlockType )^( void )
                     {
-                    // TODO:
+                    __CA_TRANSACTION_BEGIN__
+                    [ CATransaction setCompletionBlock:
+                    ^( void )
+                        {
+                        // TODO:
+                        } ];
+
+                    [ self.__leftFloatWidgetsPallet setHidden: NO ];
+                    [ self.__rightFloatWidgetsPallet setHidden: NO ];
+                    __CA_TRANSACTION_COMMIT__
                     } ];
+            }
 
-                [ self.__leftFloatWidgetsPallet setHidden: NO ];
-                [ self.__rightFloatWidgetsPallet setHidden: NO ];
-                __CA_TRANSACTION_COMMIT__
-                } ];
+        [ self ->__mouseEnteredTimer start ];
         }
-
-    [ self ->__mouseEnteredTimer start ];
     }
 
 - ( void ) mouseExited: ( NSEvent* )_Event
@@ -301,6 +309,12 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     {
     [ self.__inputField removeFromSuperview ];
     [ self removeConstraints: self.__inputFieldConstraints ];
+
+    for ( __SSWidgetsPallet* _Pallet in self.__widgetsPallets )
+        if ( _Pallet != self.__leftFloatWidgetsPallet && _Pallet != self.__rightFloatWidgetsPallet )
+            [ _Pallet setHidden: NO ];
+
+    [ self.__rightFloatWidgetsPallet setHidden: YES ];
 
     self.__isInputting = NO;
 
@@ -357,6 +371,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 @synthesize __backingCell;
 @synthesize __inputField;
 @dynamic __isInputting;
+@dynamic __widgetsPallets;
 
 - ( void ) set__isInputting: ( BOOL )_Flag
     {
@@ -366,6 +381,16 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 - ( BOOL ) __isInputting
     {
     return self->__isInputting;
+    }
+
+- ( NSArray <__kindof __SSWidgetsPallet*>* ) __widgetsPallets
+    {
+    return @[ self.__leftAnchoredWidgetsPallet
+            , self.__rightAnchoredWidgetsPallet
+            , self.__leftFloatWidgetsPallet
+            , self.__rightFloatWidgetsPallet
+            , self.__titleWidgetsPallet
+            ];
     }
 
 - ( void ) __init
