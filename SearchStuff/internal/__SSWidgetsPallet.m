@@ -31,7 +31,6 @@
 // __SSWidgetsPallet class
 @implementation __SSWidgetsPallet
 
-@dynamic ssHost;
 @dynamic ssType;
 
 @dynamic ssWidgets;
@@ -50,8 +49,7 @@
         [ self.layer setDelegate: _Host ];
         [ self setTranslatesAutoresizingMaskIntoConstraints: NO ];
 
-        self->__host = _Host;
-        [ self->__host addSubview: self ];
+        [ _Host addSubview: self ];
 
         self->__ssType = _Type;
         if ( self->__ssType == __SSPalletTypeLeftAnchored || self->__ssType == __SSPalletTypeLeftFloat )
@@ -93,11 +91,6 @@
 #endif // DEBUG
 
 #pragma mark - Dynamic Properties
-
-- ( NSView* ) ssHost
-    {
-    return self->__host;
-    }
 
 - ( __SSFixedWidgetsPalletType ) ssType
     {

@@ -74,7 +74,6 @@
 
 @dynamic constraintSize;
 
-@dynamic host;
 @dynamic usesSearchStuffStyleToolTip;
 
 #pragma mark - Initializations
@@ -208,16 +207,11 @@
     return self->__ssConstraintSize;
     }
 
-- ( NSView* ) host
-    {
-    return self->__host;
-    }
-
 - ( BOOL ) usesSearchStuffStyleToolTip
     {
     BOOL yesOrNo = NO;
 
-    NSView* palletHost = ( ( ( __SSWidget* )self.host ).host );
+    NSView* palletHost = ( ( ( __SSWidget* )self.superview ).superview );
     if ( [ palletHost isKindOfClass: [ __SSWidgetsPallet class ] ] )
         yesOrNo = [ ( __SSWidgetsPallet* )palletHost ssType ] != __SSPalletTypeTitle;
 
@@ -298,8 +292,6 @@
 
     if ( self = [ super initWithFrame: NSZeroRect /* Frame doesn't matter */ ] )
         {
-        self->__host = _HostView;
-
         self->__repWidget = _RepWidget;
         self->__ssConstraintSize = NSZeroSize;
 

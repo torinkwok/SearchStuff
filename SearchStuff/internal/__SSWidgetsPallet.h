@@ -47,15 +47,12 @@ typedef NS_ENUM( NSUInteger, __SSPalletDirection )
 @interface __SSWidgetsPallet : NSView
     {
 @protected
-    NSView __weak* __host;
-
     __SSFixedWidgetsPalletType __ssType;
     __SSPalletDirection __direction;
 
     NSLayoutConstraint __strong* __widthConstraint;
     }
 
-@property ( weak, readonly ) NSView* ssHost;
 @property ( assign, readonly ) __SSFixedWidgetsPalletType ssType;
 
 @property ( strong, readwrite ) NSArray <__kindof __SSWidget*>* ssWidgets;

@@ -203,15 +203,16 @@ CGFloat kSpliterWidth = 1.f;
     {
     BOOL yesOrNo = NO;
 
+    NSView* hostView = self.superview;
     if ( self.ssType == __SSPalletTypeLeftFloat )
         {
-        if ( [ self.ssHost isKindOfClass: [ __SSBar class ] ] )
-            yesOrNo = ( ( __SSBar* )self.ssHost ).hasLeftAnchoredWidgets;
+        if ( [ hostView isKindOfClass: [ __SSBar class ] ] )
+            yesOrNo = ( ( __SSBar* )hostView ).hasLeftAnchoredWidgets;
         }
     else if ( self.ssType == __SSPalletTypeRightFloat )
         {
-        if ( [ self.ssHost isKindOfClass: [ __SSBar class ] ] )
-            yesOrNo = ( ( __SSBar* )self.ssHost ).hasRightAnchoredWidgets;
+        if ( [ hostView isKindOfClass: [ __SSBar class ] ] )
+            yesOrNo = ( ( __SSBar* )hostView ).hasRightAnchoredWidgets;
         }
 
     return self.isFloat && yesOrNo;

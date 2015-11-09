@@ -64,8 +64,6 @@
 
     if ( self = [ super initWithFrame: NSZeroRect ] )
         {
-        self->__host = _HostView;
-
         self.repWidget = _RepWidget;
         self.translatesAutoresizingMaskIntoConstraints = NO;
         }
@@ -98,8 +96,6 @@
 @dynamic repWidget;
 @dynamic constraintSize;
 
-@dynamic host;
-
 - ( SearchStuffWidget* ) repWidget
     {
     return self->__repWidget;
@@ -118,11 +114,6 @@
     return NSMakeSize( self->__widthConstraint.constant
                      , self->__heightConstraint.constant
                      );
-    }
-
-- ( NSView* ) host
-    {
-    return self->__host;
     }
 
 - ( void ) __updateBackingWidgetConstriants

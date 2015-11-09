@@ -44,8 +44,6 @@
 @property ( readwrite, strong ) SearchStuffWidget* repWidget;
 @property ( readonly, assign ) NSSize constraintSize;
 
-@property ( readonly, weak ) NSView* host;
-
 @end // __SSWidget class
 
 /*===============================================================================┐
