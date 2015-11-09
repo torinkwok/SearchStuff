@@ -79,7 +79,6 @@
 #pragma mark - Initializations
 
 + ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget
-                                                 host: ( NSView* )_HostView
     {
     if ( !_RepWidget )
         return nil;

@@ -137,7 +137,7 @@
 
     if ( self->__repWidget.textPosition != SearchStuffTextOnly )
         {
-        self->__ssBackingButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: self->__repWidget host: self ];
+        self->__ssBackingButton = [ __SSWidgetBackingButton ssWidgetBackingButtonWithRepWidget: self->__repWidget ];
 
         if ( self->__ssBackingButton )
             {

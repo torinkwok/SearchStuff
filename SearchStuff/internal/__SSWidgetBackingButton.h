@@ -41,8 +41,7 @@
 @property ( assign, readonly ) NSSize constraintSize;
 @property ( readonly, assign ) BOOL usesSearchStuffStyleToolTip;
 
-+ ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget
-                                                 host: ( NSView* )_HostView;
++ ( instancetype ) ssWidgetBackingButtonWithRepWidget: ( SearchStuffWidget* )_RepWidget;
 
 @end // __SSWidgetBackingButton class
 
