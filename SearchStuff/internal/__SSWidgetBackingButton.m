@@ -61,8 +61,6 @@
     NSLayoutConstraint __weak* __heightConstraint;
     NSArray __strong* __sizeConstraints;
 
-    NSView __weak* __host;
-
     __SSMouseEnteredTimer* __mouseEnteredTimer;
     }
 

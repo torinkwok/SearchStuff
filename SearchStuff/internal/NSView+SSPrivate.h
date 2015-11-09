@@ -30,7 +30,6 @@
 // NSView + __SSPrivate
 @interface NSView ( __SSPrivate )
 
-@property ( readwrite, weak ) NSView* ssImmediateHost;
 @property ( readwrite, weak ) __SSBar* ssRootHostBar;
 
 @end // NSView + __SSPrivate

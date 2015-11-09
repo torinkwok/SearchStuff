@@ -50,8 +50,6 @@
     NSMutableArray __strong* __sizeConstraints;
 
     NSMutableArray __strong* __backingWidgetsConstraints;
-
-    NSView __weak* __host;
     }
 
 #pragma mrak - Initilizations

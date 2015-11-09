@@ -29,24 +29,12 @@
 
 #import <objc/runtime.h>
 
-void static* const kSSImmediateHostKey = @"__kSSImmediateHostKey";
 void static* const kSSRootHostBarKey = @"__kSSRootHostBarKey";
 
 // NSView + __SSPrivate
 @implementation NSView ( __SSPrivate )
 
-@dynamic ssImmediateHost;
 @dynamic ssRootHostBar;
-
-- ( NSView* ) ssImmediateHost
-    {
-    return ( NSView* )objc_getAssociatedObject( self, kSSImmediateHostKey );
-    }
-
-- ( void ) setSsImmediateHost: ( NSView* )_NewHost
-    {
-    objc_setAssociatedObject( self, kSSImmediateHostKey, _NewHost, OBJC_ASSOCIATION_ASSIGN );
-    }
 
 - ( __SSBar* ) ssRootHostBar
     {
@@ -55,7 +43,7 @@ void static* const kSSRootHostBarKey = @"__kSSRootHostBarKey";
 
 - ( void ) setSsRootHostBar: ( __SSBar* )_SSBar
     {
-    objc_setAssociatedObject( self, kSSImmediateHostKey, _SSBar, OBJC_ASSOCIATION_ASSIGN );
+    objc_setAssociatedObject( self, kSSRootHostBarKey, _SSBar, OBJC_ASSOCIATION_ASSIGN );
     }
 
 @end // NSView + __SSPrivate
