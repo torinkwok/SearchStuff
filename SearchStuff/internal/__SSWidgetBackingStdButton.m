@@ -38,7 +38,7 @@
     if ( _StdButtonType == __SSWidgetBackingStdButtonTypeUnspecified )
         return nil;
 
-    if ( self = [ super __initWithRepWidget: _RepWidget host: _HostView ] )
+    if ( self = [ super __initWithRepWidget: _RepWidget ] )
         {
         NSString* artworkName = nil;
         switch ( _StdButtonType )

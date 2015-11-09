@@ -27,7 +27,7 @@
 
 // __SSWidgetBackingButton + __SSPrivate
 @interface __SSWidgetBackingButton ( __SSPrivate )
-- ( instancetype ) __initWithRepWidget: ( SearchStuffWidget* )_Widget host: ( NSView* )_HostView;
+- ( instancetype ) __initWithRepWidget: ( SearchStuffWidget* )_Widget;
 @end // __SSWidgetBackingButton + __SSPrivate
 
 /*===============================================================================┐

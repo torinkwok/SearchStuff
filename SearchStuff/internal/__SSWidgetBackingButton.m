@@ -104,7 +104,7 @@
         clusterMember = [ [ __SSWidgetBackingStdButton alloc ] initWithRepWidget: _RepWidget stdType: stdType host: _HostView ];
         }
     else
-        clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithRepWidget: _RepWidget host: _HostView ];
+        clusterMember = [ [ __SSWidgetBackingUserCusButton alloc ] __initWithRepWidget: _RepWidget ];
 
     return clusterMember;
     }
@@ -285,7 +285,6 @@
 #pragma mark Private Initializations ( only used by friend classes )
 
 - ( instancetype ) __initWithRepWidget: ( SearchStuffWidget* )_RepWidget
-                                  host: ( NSView* )_HostView
     {
     if ( !_RepWidget )
         return nil;
