@@ -67,6 +67,15 @@ NSString* const kSearchStuffWidget = @"kSearchStuffWidget";
 NSString* const kLhsPlaceholderButton = @"kLhsPlaceholderButton";
 NSString* const kRhsPlaceholderButton = @"kRhsPlaceholderButton";
 
+- ( NSView* ) ssToolbarItemAttachPanelContentView
+    {
+    NSView* view = [ [ NSView alloc ] initWithFrame: NSZeroRect ];
+    [ view setWantsLayer: YES ];
+    [ view.layer setBackgroundColor: [ NSColor orangeColor ].CGColor ];
+
+    return view;
+    }
+
 - ( NSArray* ) toolbarAllowedItemIdentifiers: ( NSToolbar* )_Toolbar
     {
     return @[ NSToolbarFlexibleSpaceItemIdentifier

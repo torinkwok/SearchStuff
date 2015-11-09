@@ -26,6 +26,58 @@
 
 // __SSAttachPanelBlurBgView class
 @implementation __SSAttachPanelBlurBgView
+    {
+@protected
+    NSMutableArray __strong* __cachedContentViewConstraints;
+    }
+
+@dynamic userProvidedContentView;
+
+- ( void ) setUserProvidedContentView: ( NSView* )_View
+    {
+    [ self setSubviews: @[] ];
+
+    if ( !self->__cachedContentViewConstraints )
+        self->__cachedContentViewConstraints = [ NSMutableArray array ];
+
+    if ( self->__cachedContentViewConstraints.count > 0 )
+        {
+        [ self removeConstraints: self->__cachedContentViewConstraints ];
+        [ self->__cachedContentViewConstraints removeAllObjects ];
+        }
+
+    if ( _View )
+        {
+        NSView* contentView = _View;
+        [ contentView setTranslatesAutoresizingMaskIntoConstraints: NO ];
+        [ self addSubview: contentView ];
+
+        NSDictionary* viewsDict = NSDictionaryOfVariableBindings( contentView );
+
+        NSArray* contentViewHorConstraints = [ NSLayoutConstraint
+            constraintsWithVisualFormat: @"H:|[contentView]|"
+                                options: 0
+                                metrics: nil
+                                  views: viewsDict ];
+
+        NSArray* contentViewVerConstraints = [ NSLayoutConstraint
+            constraintsWithVisualFormat: @"V:|[contentView]|"
+                                options: 0
+                                metrics: nil
+                                  views: viewsDict ];
+
+        [ self->__cachedContentViewConstraints addObjectsFromArray: contentViewHorConstraints ];
+        [ self->__cachedContentViewConstraints addObjectsFromArray: contentViewVerConstraints ];
+
+        [ self addConstraints: self->__cachedContentViewConstraints ];
+        }
+    }
+
+- ( NSView* ) userProvidedContentView
+    {
+    return self.subviews[ 0 ];
+    }
+
 @end // __SSAttachPanelBlurBgView class
 
 /*===============================================================================┐

@@ -56,10 +56,21 @@
 #pragma mark Properties
 
 @dynamic constraintSize;
+@dynamic userProvidedContentView;
 
 - ( NSSize ) constraintSize
     {
     return NSMakeSize( self.__widthConstraint.constant, self.__heightConstraint.constant );
+    }
+
+- ( void ) setUserProvidedContentView: ( NSView* )_View
+    {
+    [ self.panelBlurBackgroundView setUserProvidedContentView: _View ];
+    }
+
+- ( NSView* ) userProvidedContentView
+    {
+    return self.panelBlurBackgroundView.userProvidedContentView;
     }
 
 #pragma mark - Hack

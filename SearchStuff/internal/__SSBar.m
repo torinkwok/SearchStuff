@@ -374,7 +374,18 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 - ( __SSAttachPanelController* ) attachPanelController
     {
     if ( !self->__attachPanelController )
-        self->__attachPanelController = [ [ __SSAttachPanelController alloc ] initWithRelativeView: self->__inputField ];
+        {
+        SEL delSel = @selector( ssToolbarItemAttachPanelContentView );
+        id del = self.hostingSSToolbarItem.delegate;
+        if ( [ del respondsToSelector: delSel ] )
+            {
+            NSView* userProvidedView = objc_msgSend( del, delSel );
+
+            if ( userProvidedView )
+                self->__attachPanelController =
+                    [ [ __SSAttachPanelController alloc ] initWithRelativeView: self->__inputField userProvidedContentView: userProvidedView ];
+            }
+        }
 
     return self->__attachPanelController;
     }

@@ -26,6 +26,9 @@
 
 // __SSAttachPanelBlurBgView class
 @interface __SSAttachPanelBlurBgView : NSVisualEffectView
+
+@property ( strong, readwrite ) NSView* userProvidedContentView;
+
 @end // __SSAttachPanelBlurBgView class
 
 /*===============================================================================┐

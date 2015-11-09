@@ -48,7 +48,8 @@
 
 #pragma mark - Initializations
 
-- ( instancetype ) initWithRelativeView: ( NSView* )_RelativeView;
+- ( instancetype ) initWithRelativeView: ( NSView* )_RelativeView
+                userProvidedContentView: ( NSView* )_ContentView;
 
 @end // __SSAttachPanelController class
 

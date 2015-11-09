@@ -37,6 +37,7 @@
 #pragma mark Properties
 
 @property ( assign, readonly ) NSSize constraintSize;
+@property ( strong, readwrite ) NSView* userProvidedContentView;
 
 #pragma mark - Hack
 

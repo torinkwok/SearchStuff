@@ -40,9 +40,13 @@
 #pragma mark - Initializations
 
 - ( instancetype ) initWithRelativeView: ( NSView* )_RelativeView
+                userProvidedContentView: ( NSView* )_ContentView
     {
     if ( self = [ super initWithWindowNibName: @"__SSAttachPanel" owner: self ] )
+        {
         self.relativeView = _RelativeView;
+        self.searchResultsAttachPanel.userProvidedContentView = _ContentView;
+        }
 
     return self;
     }
