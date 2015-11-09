@@ -44,7 +44,7 @@
 
 - ( void ) popUpAttachPanel;
 - ( void ) popUpAttachPanelOnWindow: ( NSWindow* )_ParentWindow at: ( NSPoint )_PointInScreen;
-- ( void ) closeAttachPanel;
+- ( void ) dismissAttachPanel;
 
 #pragma mark - Initializations
 

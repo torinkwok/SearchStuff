@@ -25,10 +25,16 @@
 
 #import "__SSInputFieldCell.h"
 #import "__SSAttachPanelController.h"
+#import "__SSConstants.h"
 
 // Private Interfaces
 @interface __SSInputFieldCell ()
+
 - ( NSRect ) __insetRectForBounds: ( NSRect )_Bounds;
+
+// Notification Methods
+- ( void ) __shouldDismissAttachPanel: ( NSNotification* )_Notif;
+
 @end // Private Interfaces
 
 // __SSInputFieldCell class
@@ -36,6 +42,24 @@
     {
 @protected
     __SSAttachPanelController* __attachPanelController;
+    }
+
+- ( instancetype ) init
+    {
+    if ( self = [ super init ] )
+        {
+        [ [ NSNotificationCenter defaultCenter ] addObserver: self
+                                                    selector: @selector( __shouldDismissAttachPanel: )
+                                                        name: SearchStuffShouldDismissAttachPanel
+                                                      object: nil ];
+        }
+
+    return self;
+    }
+
+- ( void ) dealloc
+    {
+    [ [ NSNotificationCenter defaultCenter ] removeObserver: self name: SearchStuffShouldDismissAttachPanel object: nil ];
     }
 
 #pragma mark - Drawing
@@ -89,6 +113,11 @@
     offsetBounds.origin.y += 4.f;
 
     return offsetBounds;
+    }
+
+- ( void ) __shouldDismissAttachPanel: ( NSNotification* )_Notif
+    {
+    [ self->__attachPanelController dismissAttachPanel ];
     }
 
 @end // __SSInputFieldCell class

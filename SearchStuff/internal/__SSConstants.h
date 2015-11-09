@@ -47,6 +47,8 @@
 // Notification Names
 NSString extern* const SearchStuffShouldDisplayToolTip;
 NSString extern* const SearchStuffShouldHideToolTip;
+NSString extern* const SearchStuffShouldPopUpAttachPanel;
+NSString extern* const SearchStuffShouldDismissAttachPanel;
 
 // Notification User Info Keys
 NSString extern* const kToolTip;

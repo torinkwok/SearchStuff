@@ -319,6 +319,8 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
     self.__isInputting = NO;
 
+    [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldDismissAttachPanel object: nil userInfo: nil ];
+
     // TODO: Waiting for animations
     }
 

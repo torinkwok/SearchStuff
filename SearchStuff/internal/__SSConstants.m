@@ -28,6 +28,8 @@
 // Notification Names
 NSString* const SearchStuffShouldDisplayToolTip = @"__ssShouldDisplayToolTip";
 NSString* const SearchStuffShouldHideToolTip = @"__ssShouldHideToolTip";
+NSString* const SearchStuffShouldPopUpAttachPanel = @"__ssShouldPopUpAttachPanel";
+NSString* const SearchStuffShouldDismissAttachPanel = @"__ssShouldDismissAttachPanel";
 
 // Notification User Info Keys
 NSString* const kToolTip = @"__kToolTip";

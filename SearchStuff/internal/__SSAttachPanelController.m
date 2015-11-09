@@ -116,7 +116,7 @@
         }
     }
 
-- ( void ) closeAttachPanel
+- ( void ) dismissAttachPanel
     {
     [ self.searchResultsAttachPanel.parentWindow removeChildWindow: self.searchResultsAttachPanel ];
     [ self.searchResultsAttachPanel orderOut: self ];
@@ -164,7 +164,7 @@
 
 - ( void ) _applicationDidResignActive: ( NSNotification* )_Notif
     {
-    [ self closeAttachPanel ];
+    [ self dismissAttachPanel ];
     }
 
 - ( void ) _applicationDidBecomeActive: ( NSNotification* )_Notif
@@ -175,7 +175,7 @@
 
 - ( void ) _relativeWindowStartLiveResize: ( NSNotification* )_Notif
     {
-    [ self closeAttachPanel ];
+    [ self dismissAttachPanel ];
     }
 
 - ( void ) _relativeWindowDidEndResize: ( NSNotification* )_Notif

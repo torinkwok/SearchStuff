@@ -57,8 +57,13 @@
 - ( void ) ssToolbarWillAddWidget: ( SearchStuffWidget* )_Widget;
 
 @required
+
+// Widgets
 - ( SearchStuffWidget* ) ssToolbarItem: ( SearchStuffToolbarItem* )_ssToolbarItem
              widgetForWidgetIdentifier: ( NSString* )_Identifier;
+
+// Attach Panel
+- ( NSView* ) ssToolbarItemAttachPanelContentView;
 
 @end // SSSearchStuffDelegate protocol
 
