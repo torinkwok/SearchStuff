@@ -57,9 +57,8 @@
 #pragma mrak - Initilizations
 
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
-                                host: ( NSView* )_HostView
     {
-    if ( !_RepWidget || !_HostView )
+    if ( !_RepWidget )
         return nil;
 
     if ( self = [ super initWithFrame: NSZeroRect ] )

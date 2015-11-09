@@ -36,8 +36,7 @@
 
 #pragma mrak - Initilizations
 
-- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
-                                host: ( NSView* )_HostView;
+- ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget;
 
 #pragma mark - Dynamic Properties
 

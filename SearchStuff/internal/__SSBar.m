@@ -170,7 +170,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
                 NSMutableArray <__kindof __SSWidget*>* ssWidgets = [ NSMutableArray arrayWithCapacity: repWidgets.count ];
                 for ( SearchStuffWidget* _repWidget in repWidgets )
-                    [ ssWidgets addObject: [ [ __SSWidget alloc ] initWithRepWidget: _repWidget host: ssPallet ] ];
+                    [ ssWidgets addObject: [ [ __SSWidget alloc ] initWithRepWidget: _repWidget ] ];
 
                 ssPallet.ssWidgets = ssWidgets;
                 }

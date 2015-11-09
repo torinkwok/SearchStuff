@@ -33,7 +33,6 @@
 
 - ( instancetype ) initWithRepWidget: ( SearchStuffWidget* )_RepWidget
                              stdType: ( __SSWidgetBackingStdButtonType )_StdButtonType
-                                host: ( NSView* )_HostView
     {
     if ( _StdButtonType == __SSWidgetBackingStdButtonTypeUnspecified )
         return nil;
