@@ -33,6 +33,7 @@
 #import "__SSConstants.h"
 #import "__SSMouseEnteredTimer.h"
 #import "__SSMouseTrackingArea.h"
+#import "__SSAttachPanelController.h"
 
 #import "SearchStuffWidget+__SSPrivate.h"
 #import "SearchStuffWidget+__SSPrivate.h"
@@ -82,11 +83,12 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     {
 @protected
     __SSMouseEnteredTimer* __mouseEnteredTimer;
+    __SSAttachPanelController* __attachPanelController;
     }
 
 @dynamic constraintWidth;
-
 @synthesize hostingSSToolbarItem;
+@dynamic attachPanelController;
 
 #pragma mark - Initializations
 
@@ -319,7 +321,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
     self.__isInputting = NO;
 
-    [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldDismissAttachPanel object: nil userInfo: nil ];
+    [ [ NSNotificationCenter defaultCenter ] postNotificationName: SearchStuffShouldDismissAttachPanel object: self userInfo: nil ];
 
     // TODO: Waiting for animations
     }
@@ -367,6 +369,14 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 - ( BOOL ) hasTitleWidgets
     {
     return ( self.__titleWidgetsPallet.ssWidgets.count > 0 );
+    }
+
+- ( __SSAttachPanelController* ) attachPanelController
+    {
+    if ( !self->__attachPanelController )
+        self->__attachPanelController = [ [ __SSAttachPanelController alloc ] initWithRelativeView: self->__inputField ];
+
+    return self->__attachPanelController;
     }
 
 #pragma mark - Private Interfaces

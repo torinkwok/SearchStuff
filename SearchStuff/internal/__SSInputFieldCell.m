@@ -24,8 +24,9 @@
   ██████████████████████████████████████████████████████████████████████████████*/
 
 #import "__SSInputFieldCell.h"
-#import "__SSAttachPanelController.h"
 #import "__SSConstants.h"
+#import "__SSBar.h"
+#import "__SSAttachPanelController.h"
 
 // Private Interfaces
 @interface __SSInputFieldCell ()
@@ -39,10 +40,6 @@
 
 // __SSInputFieldCell class
 @implementation __SSInputFieldCell
-    {
-@protected
-    __SSAttachPanelController* __attachPanelController;
-    }
 
 - ( instancetype ) init
     {
@@ -84,10 +81,8 @@
                       start: _SelStart
                      length: _SelLength ];
 
-    if ( !self->__attachPanelController )
-        self->__attachPanelController = [ [ __SSAttachPanelController alloc ] initWithRelativeView: _ControlView ];
-
-    [ self->__attachPanelController popUpAttachPanel ];
+    __SSBar* hostBar = ( __SSBar* )( _ControlView.superview );
+    [ hostBar.attachPanelController popUpAttachPanel ];
     }
 
 - ( void ) editWithFrame: ( NSRect )_CellFrame
@@ -117,7 +112,8 @@
 
 - ( void ) __shouldDismissAttachPanel: ( NSNotification* )_Notif
     {
-    [ self->__attachPanelController dismissAttachPanel ];
+    __SSBar* hostBar = _Notif.object;
+    [ hostBar.attachPanelController dismissAttachPanel ];
     }
 
 @end // __SSInputFieldCell class

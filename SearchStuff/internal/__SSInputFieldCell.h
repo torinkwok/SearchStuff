@@ -27,7 +27,6 @@
 
 // __SSInputFieldCell class
 @interface __SSInputFieldCell : NSTextFieldCell
-
 @end // __SSInputFieldCell class
 
 /*===============================================================================┐

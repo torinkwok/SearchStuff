@@ -26,6 +26,7 @@
 @import Cocoa;
 
 @class SearchStuffToolbarItem;
+@class __SSAttachPanelController;
 
 // __SSBar class
 @interface __SSBar : NSView <NSTextFieldDelegate>
@@ -47,6 +48,8 @@
 @property ( assign, readonly ) BOOL hasLeftFloatWidgets;
 @property ( assign, readonly ) BOOL hasRightFloatWidgets;
 @property ( assign, readonly ) BOOL hasTitleWidgets;
+
+@property ( strong, readonly ) __SSAttachPanelController* attachPanelController;
 
 - ( void ) reload;
 
