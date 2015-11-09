@@ -14,6 +14,7 @@
 		832719111BC1279100C28426 /* PlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 832719101BC1279100C28426 /* PlaygroundTests.m */; };
 		8327191C1BC1279100C28426 /* PlaygroundUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8327191B1BC1279100C28426 /* PlaygroundUITests.m */; };
 		833748211BECC69000ACA174 /* __SSAttachPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833748201BECC69000ACA174 /* __SSAttachPanel.xib */; settings = {ASSET_TAGS = (); }; };
+		833748241BF0B4A400ACA174 /* NSView+SSPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 833748231BF0B4A400ACA174 /* NSView+SSPrivate.m */; settings = {ASSET_TAGS = (); }; };
 		838A9BDB1BD80DCE008E1B12 /* search-stuff-add-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD31BD80DCE008E1B12 /* search-stuff-add-highlighted.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BDC1BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD41BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png */; settings = {ASSET_TAGS = (); }; };
 		838A9BDD1BD80DCE008E1B12 /* search-stuff-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 838A9BD51BD80DCE008E1B12 /* search-stuff-add.png */; settings = {ASSET_TAGS = (); }; };
@@ -97,6 +98,8 @@
 		8327191D1BC1279100C28426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		832CBB071BD691E400693DC1 /* SearchStuffWidget+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SearchStuffWidget+__SSPrivate.h"; sourceTree = "<group>"; };
 		833748201BECC69000ACA174 /* __SSAttachPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = __SSAttachPanel.xib; sourceTree = "<group>"; };
+		833748221BF0B4A400ACA174 /* NSView+SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+SSPrivate.h"; sourceTree = "<group>"; };
+		833748231BF0B4A400ACA174 /* NSView+SSPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+SSPrivate.m"; sourceTree = "<group>"; };
 		838A9BCA1BD7AB42008E1B12 /* __SSWidgetBackingButton+__SSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "__SSWidgetBackingButton+__SSPrivate.h"; sourceTree = "<group>"; };
 		838A9BD31BD80DCE008E1B12 /* search-stuff-add-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add-highlighted.png"; sourceTree = "<group>"; };
 		838A9BD41BD80DCE008E1B12 /* search-stuff-add-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-stuff-add-highlighted@2x.png"; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 			children = (
 				832CBB071BD691E400693DC1 /* SearchStuffWidget+__SSPrivate.h */,
 				838A9BCA1BD7AB42008E1B12 /* __SSWidgetBackingButton+__SSPrivate.h */,
+				833748221BF0B4A400ACA174 /* NSView+SSPrivate.h */,
+				833748231BF0B4A400ACA174 /* NSView+SSPrivate.m */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				83CFE95B1BE1E88A00C8BF38 /* __SSWidgetBackingStdButton.m in Sources */,
 				83F47FD21BCFD8120086F42D /* __SSBar.m in Sources */,
 				83AFE4281BEB928D00E103EC /* __SSCommonTextField.m in Sources */,
+				833748241BF0B4A400ACA174 /* NSView+SSPrivate.m in Sources */,
 				83AFE4351BECC42800E103EC /* __SSAttachPanelController.m in Sources */,
 				83FD30421BD7A561001B5B02 /* __SSWidgetBackingUserCusButton.m in Sources */,
 				832719011BC1279100C28426 /* main.m in Sources */,
