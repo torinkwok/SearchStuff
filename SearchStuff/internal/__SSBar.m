@@ -54,7 +54,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 // Private Interfaces
 @interface __SSBar()
 
-@property ( strong ) __SSBackingCell* __backingCell;
+//@property ( strong ) __SSBackingCell* __backingCell;
 @property ( strong ) __SSInputField* __inputField;
 
 @property ( strong ) NSArray <__kindof NSLayoutConstraint*>* __inputFieldConstraints;
@@ -191,18 +191,19 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     {
     [ super drawRect: _DirtyRect ];
 
-    if ( [ NSApp isActive ] )
-        [ self.__backingCell drawWithFrame: self.bounds inView: self ];
-    else
-        {
-        NSBezierPath* roundedRectPath = [ NSBezierPath bezierPathWithRoundedRect: NSInsetRect( self.bounds, .3f, 1.6f )
-                                                                         xRadius: 4.f
-                                                                         yRadius: 4.f ];
-        [ roundedRectPath setLineWidth: .5f ];
-
-        [ [ [ NSColor lightGrayColor ] colorWithAlphaComponent: .6f ] setStroke ];
-        [ roundedRectPath stroke ];
-        }
+//    if ( [ NSApp isActive ] )
+//        [ super drawRect: _DirtyRect ];
+//        [ self.__backingCell drawWithFrame: self.bounds inView: self ];
+//    else
+//        {
+//        NSBezierPath* roundedRectPath = [ NSBezierPath bezierPathWithRoundedRect: NSInsetRect( self.bounds, .3f, 1.6f )
+//                                                                         xRadius: 4.f
+//                                                                         yRadius: 4.f ];
+//        [ roundedRectPath setLineWidth: .5f ];
+//
+//        [ [ [ NSColor lightGrayColor ] colorWithAlphaComponent: .6f ] setStroke ];
+//        [ roundedRectPath stroke ];
+//        }
     }
 
 #pragma mark - Events
@@ -392,7 +393,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 #pragma mark - Private Interfaces
 
-@synthesize __backingCell;
+//@synthesize __backingCell;
 @synthesize __inputField;
 @dynamic __isInputting;
 @dynamic __widgetsPallets;
@@ -421,7 +422,10 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
     {
     [ self setWantsLayer: YES ];
 
-    self.__backingCell = [ [ __SSBackingCell alloc ] init ];
+//    self.__backingCell = [ [ __SSBackingCell alloc ] init ];
+
+    self.bezelStyle = NSTexturedRoundedBezelStyle;
+    self.title = @"";
 
     self.__inputField = [ [ __SSInputField alloc ] initWithFrame: NSZeroRect delegate: self ];
     [ self.__inputField setTranslatesAutoresizingMaskIntoConstraints: NO ];
