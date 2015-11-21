@@ -215,8 +215,6 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
 - ( void ) mouseDown: ( NSEvent* )_Event
     {
-    [ super mouseDown: _Event ];
-
     NSTextField* inputField = self.__inputField;
     [ inputField setFrame: self.bounds ];
 
@@ -231,7 +229,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
             constraintsWithVisualFormat: @"H:|-leadingSpace-[inputField(>=0)]-trailingSpace-|" options: 0 metrics: metricsDict views: viewsDict ];
 
         NSArray <__kindof NSLayoutConstraint*>* verConstraints = [ NSLayoutConstraint
-            constraintsWithVisualFormat: @"V:|[inputField(>=0)]|" options: 0 metrics: nil views: viewsDict ];
+            constraintsWithVisualFormat: @"V:|[inputField]|" options: 0 metrics: nil views: viewsDict ];
 
         self.__inputFieldConstraints = [ horConstraints arrayByAddingObjectsFromArray: verConstraints ];
         }
