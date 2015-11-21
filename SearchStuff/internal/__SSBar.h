@@ -29,7 +29,7 @@
 @class __SSAttachPanelController;
 
 // __SSBar class
-@interface __SSBar : NSButton <NSTextFieldDelegate>
+@interface __SSBar : NSView <NSTextFieldDelegate>
     {
 @private
     BOOL __isInputting;
