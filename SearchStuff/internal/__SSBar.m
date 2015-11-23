@@ -229,7 +229,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
             constraintsWithVisualFormat: @"H:|-leadingSpace-[inputField(>=0)]-trailingSpace-|" options: 0 metrics: metricsDict views: viewsDict ];
 
         NSArray <__kindof NSLayoutConstraint*>* verConstraints = [ NSLayoutConstraint
-            constraintsWithVisualFormat: @"V:|[inputField]|" options: 0 metrics: nil views: viewsDict ];
+            constraintsWithVisualFormat: @"V:|[inputField]-(-1.6)-|" options: 0 metrics: nil views: viewsDict ];
 
         self.__inputFieldConstraints = [ horConstraints arrayByAddingObjectsFromArray: verConstraints ];
         }
