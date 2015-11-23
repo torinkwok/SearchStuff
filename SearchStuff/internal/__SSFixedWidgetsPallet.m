@@ -75,8 +75,8 @@ CGFloat kSpliterWidth = 1.f;
 
         CGFloat x = ( self->__ssType == __SSPalletTypeLeftFloat ) ? kHorGap : ( NSWidth( self.bounds ) - kHorGap );
 
-        [ spliterPath moveToPoint: NSMakePoint( x, 4.5f ) ];
-        [ spliterPath lineToPoint: NSMakePoint( x, NSHeight( self.bounds ) - 4.5f ) ];
+        [ spliterPath moveToPoint: NSMakePoint( x, 1.9f ) ];
+        [ spliterPath lineToPoint: NSMakePoint( x, NSHeight( self.bounds ) - 3.6f ) ];
 
         [ spliterPath setLineWidth: kSpliterWidth ];
 
@@ -187,7 +187,7 @@ CGFloat kSpliterWidth = 1.f;
                         toItem: view.superview
                      attribute: NSLayoutAttributeCenterY
                     multiplier: 1.f
-                      constant: 0.f ];
+                      constant: .6f ];
 
         [ verLayoutConstraints addObject: centerYConstraint ];
         }
