@@ -382,7 +382,7 @@ typedef NS_ENUM( NSUInteger, __SSBarButtonState )
 
             if ( userProvidedView )
                 self->__attachPanelController =
-                    [ [ __SSAttachPanelController alloc ] initWithRelativeView: self->__inputField userProvidedContentView: userProvidedView ];
+                    [ [ __SSAttachPanelController alloc ] initWithRelativeView: self userProvidedContentView: userProvidedView ];
             }
         }
 
