@@ -34,6 +34,7 @@
 
 #import "__SSWidget.h"
 #import "__SSWidgetsPallet.h"
+#import "__SSTitleWidgetsPallet.h"
 #import "__SSBar.h"
 #import "__SSMouseEnteredTimer.h"
 #import "__SSMouseTrackingArea.h"
@@ -208,7 +209,10 @@
     {
     BOOL yesOrNo = NO;
 
-    NSView* palletHost = ( ( ( __SSWidget* )self.superview ).superview );
+    __SSWidgetsPallet* palletHost = ( __SSWidgetsPallet* )( ( ( __SSWidget* )self.superview ).superview );
+    if ( [ palletHost.superview isKindOfClass: [ __SSTitleWidgetsPallet class ] ] )
+        palletHost = ( __SSWidgetsPallet* )( palletHost.superview );
+
     if ( [ palletHost isKindOfClass: [ __SSWidgetsPallet class ] ] )
         yesOrNo = [ ( __SSWidgetsPallet* )palletHost ssType ] != __SSPalletTypeTitle;
 
